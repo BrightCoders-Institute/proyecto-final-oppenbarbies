@@ -62,3 +62,8 @@ El objetivo principal de C-Tas es revolucionar la forma en que profesionales y c
 - **Comportamiento Predecible**: La aplicación debe responder de manera predecible a las acciones del usuario, evitando comportamientos inesperados que puedan llevar a confusiones o errores.
 
 
+## Diseño de interfaz 
+
+En el siguiente enlace se muestra el documento donde diseñamos las interfaces de usuario necesarias para la aplicacion. 
+
+Como herramienta utilizamos figma.  [Ver en Figma](https://www.figma.com/file/ItRKm5J5hySQ2j3PSVqmrh/C-tas?type=design&node-id=0%3A1&mode=design&t=KDF1FT5jkTRrH8is-1)
