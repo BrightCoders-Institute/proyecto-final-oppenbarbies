@@ -74,8 +74,9 @@ El modelo de la base de datos fue documentado utilizando la herramienta dbdiagra
 
 Con base en la identificación de entidades y relaciones, se procedió a crear el Diagrama de Entidad-Relación (DER) que representa el modelo conceptual de la base de datos. A continuación, se presenta una vista gráfica del DER:
 
-<iframe width="900" height="315" src='https://dbdiagram.io/embed/64bf0c9c02bd1c4a5e9f9ee1'> </iframe>
+![Diagrama de Entidad-Relación (DER)](img/databaseviewC-tas.png)
 
-también lo pueden ver en : [Modelo de la Base de Datos / C-tas](https://dbdiagram.io/d/64bf0c9c02bd1c4a5e9f9ee1)
+
+también lo pueden ver en : [Modelo de la Base de Datos / C-tas](https://dbdiagram.io/d/64bf1d5e02bd1c4a5ea00db7)
 
 Para garantizar la integridad y eficiencia del modelo de la base de datos, se llevó a cabo el proceso de normalización. Se verificó que las entidades estuvieran en la forma normal adecuada para minimizar la redundancia y asegurar la consistencia de los datos. 
