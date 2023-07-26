@@ -1,82 +1,80 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/p7tyAGeS)
 ![BrightCoders Logo](img/logo.png)
 
-# Proyecto final
+# Final Project
 
-## C-Tas - Aplicación de Gestión de Citas
+## C-Tas - Appointment Management Application
 
-## Descripción del Proyecto
+## Project Description
 
-C-Tas es una innovadora aplicación móvil de gestión de citas diseñada para facilitar la organización y administración de citas para profesionales y sus clientes. La plataforma ofrece una experiencia intuitiva y práctica para conectar a prestadores de servicios con sus clientes, optimizando la planificación y la comunicación.
+C-Tas is an innovative mobile appointment management application designed to streamline the organization and administration of appointments for professionals and their clients. The platform offers an intuitive and practical experience for connecting service providers with their clients, optimizing planning, and communication.
 
-## Características Clave
+## Key Features
 
-- **Agenda de Citas Inteligente**: Los prestadores de servicio pueden programar, ver y gestionar sus citas de manera eficiente a través de una interfaz de calendario fácil de usar. Los clientes, por su parte, pueden ver las fechas y horarios disponibles y reservar sus citas con un solo clic.
+- **Smart Appointment Calendar**: Service providers can efficiently schedule, view, and manage their appointments through an easy-to-use calendar interface. Clients can view available dates and times and book their appointments with a single click.
 
-- **Notificaciones y Recordatorios**: C-Tas envía notificaciones automáticas y recordatorios tanto a prestadores de servicio como a clientes antes de la fecha de la cita, lo que reduce las ausencias y mejora la puntualidad.
+- **Notifications and Reminders**: C-Tas sends automatic notifications and reminders to both service providers and clients before the appointment date, reducing no-shows, and improving punctuality.
 
-- **Historial de Clientes**: La aplicación almacena un completo historial de citas para cada cliente, incluyendo detalles de citas anteriores, tratamientos, diagnósticos y comentarios de los prestadores de servicio. Esto permite un enfoque personalizado y una mejor comprensión de las necesidades del cliente.
+- **Customer History**: The application stores a comprehensive appointment history for each client, including details of previous appointments, treatments, diagnoses, and comments from service providers. This allows for a personalized approach and a better understanding of the client's needs.
 
-- **Perfiles Personalizados**: Los prestadores de servicio pueden crear perfiles detallados con información relevante sobre su especialidad, experiencia, horarios y una biografía que destaque su experiencia y habilidades. Los clientes pueden acceder fácilmente a esta información para tomar decisiones informadas al elegir un prestador de servicio.
+- **Customized Profiles**: Service providers can create detailed profiles with relevant information about their specialty, experience, schedules, and a biography highlighting their expertise and skills. Clients can easily access this information to make informed decisions when choosing a service provider.
 
-## Beneficios
+## Benefits
 
-- **Mayor Eficiencia**: C-Tas optimiza la planificación de citas, lo que permite a los profesionales aprovechar mejor su tiempo y mejorar la satisfacción de sus clientes al reducir los tiempos de espera.
+- **Increased Efficiency**: C-Tas optimizes appointment scheduling, allowing professionals to make better use of their time and improve customer satisfaction by reducing wait times.
 
-- **Mejora la Comunicación**: La aplicación facilita la comunicación entre prestadores de servicio y clientes a través de mensajes internos, lo que permite aclarar dudas, enviar recordatorios personalizados y brindar un servicio más personalizado.
+- **Improved Communication**: The application facilitates communication between service providers and clients through internal messaging, enabling clarification of doubts, sending personalized reminders, and providing a more personalized service.
 
-- **Reseñas y Calificaciones**: Los clientes pueden dejar reseñas y calificaciones sobre los prestadores de servicio, lo que ayuda a otros usuarios a tomar decisiones informadas al seleccionar un profesional.
+- **Reviews and Ratings**: Clients can leave reviews and ratings for service providers, helping other users make informed decisions when selecting a professional.
 
-- **Experiencia del Usuario**: C-Tas ofrece una interfaz de usuario amigable y personalizable, lo que mejora la experiencia de los usuarios y los alienta a volver a utilizar la aplicación.
+- **User Experience**: C-Tas offers a user-friendly and customizable interface, enhancing the user experience and encouraging repeat usage of the application.
 
-## Objetivo del Proyecto
+## Project Objective
 
-El objetivo principal de C-Tas es revolucionar la forma en que profesionales y clientes gestionan y coordinan sus citas, ofreciendo una solución integral y confiable que mejore la eficiencia y la satisfacción de ambas partes. C-Tas busca establecerse como la aplicación de referencia para la gestión de citas, brindando una experiencia cómoda, segura y eficaz para todos los usuarios involucrados.
+The main objective of C-Tas is to revolutionize how professionals and clients manage and coordinate their appointments by offering a comprehensive and reliable solution that enhances efficiency and satisfaction for both parties. C-Tas aims to become the go-to application for appointment management, providing a comfortable, secure, and effective experience for all involved users.
 
-## Requerimientos Funcionales
+## Functional Requirements
 
-- **Registro de Usuarios con Google o Facebook**: Los usuarios podrán registrarse en la aplicación exclusivamente utilizando su cuenta de Google o Facebook. La aplicación debe permitir que los nuevos usuarios autentiquen su identidad y accedan rápidamente a la plataforma mediante estas opciones de inicio de sesión.
+- **User Registration with Google or Facebook**: Users should be able to register in the application exclusively using their Google or Facebook accounts. The application must allow new users to authenticate their identity and quickly access the platform through these login options.
 
-- **Sincronización de Datos del Perfil**: Cuando un usuario se registre o inicie sesión con Google o Facebook, la aplicación debe sincronizar automáticamente los datos básicos del perfil (nombre y dirección de correo electrónico) desde la cuenta correspondiente.
+- **Profile Data Synchronization**: When a user registers or logs in with Google or Facebook, the application should automatically synchronize basic profile data (name and email address) from the corresponding account.
 
-- **Creación de Perfil Adicional**: Después de registrarse o iniciar sesión con Google o Facebook, se debe permitir a los usuarios completar su perfil en la aplicación proporcionando información adicional requerida, como su especialidad, ocupación, número de teléfono y una biografía para los prestadores de servicio.
+- **Additional Profile Creation**: After registering or logging in with Google or Facebook, users should be able to complete their profile in the application by providing additional required information, such as their specialty, occupation, phone number, and a biography for service providers.
 
-- **Gestión de Perfiles**: Los usuarios deben poder editar y actualizar la información de su perfil en cualquier momento. Esto incluye la posibilidad de cambiar la foto de perfil, actualizar la biografía, ajustar la disponibilidad de citas y modificar la especialidad (en el caso de los prestadores de servicio).
+- **Profile Management**: Users should be able to edit and update their profile information at any time. This includes the ability to change the profile picture, update the biography, adjust appointment availability, and modify the specialty (for service providers).
 
-- **Búsqueda y Filtro de Prestadores de Servicio**: Los clientes deben poder buscar y filtrar prestadores de servicio según su especialidad, ubicación, calificación y disponibilidad. Esto facilitará a los clientes encontrar el prestador de servicio más adecuado para sus necesidades.
+- **Search and Filter Service Providers**: Clients should be able to search and filter service providers based on their specialty, location, rating, and availability. This will make it easier for clients to find the most suitable service provider for their needs.
 
-- **Interfaz de Calendario Intuitiva**: Los prestadores de servicio deben tener acceso a una interfaz de calendario clara y fácil de usar, donde puedan ver sus citas programadas, agregar nuevas citas y ajustar su disponibilidad.
+- **Intuitive Calendar Interface**: Service providers should have access to a clear and easy-to-use calendar interface where they can view their scheduled appointments, add new appointments, and adjust their availability.
 
-- **Confirmación y Cancelación de Citas**: Los clientes deben recibir confirmación de sus citas una vez que las hayan programado. Además, deben poder cancelar las citas con suficiente antelación y recibir notificaciones sobre las políticas de cancelación.
+- **Appointment Confirmation and Cancellation**: Clients should receive confirmation of their appointments once they have scheduled them. Additionally, they should be able to cancel appointments with sufficient notice and receive notifications about cancellation policies.
 
-- **Sistema de Reseñas y Calificaciones**: Después de completar una cita, los clientes deben poder dejar reseñas y calificaciones para los prestadores de servicio. Esto ayudará a mantener un alto nivel de calidad y confianza en la plataforma.
+- **Review and Rating System**: After completing an appointment, clients should be able to leave reviews and ratings for service providers. This will help maintain a high level of quality and trust on the platform.
 
-## Requerimientos No Funcionales
+## Non-Functional Requirements
 
-- **Interfaz Intuitiva y Atractiva**: La interfaz de usuario debe ser intuitiva y fácil de usar, con un diseño atractivo y coherente. Los elementos de navegación, botones y menús deben estar organizados de manera lógica para facilitar la interacción de los usuarios.
+- **Intuitive and Attractive Interface**: The user interface should be intuitive and easy to use, with an attractive and consistent design. Navigation elements, buttons, and menus should be logically organized to facilitate user interaction.
 
-- **Capacidad de Personalización**: La aplicación debe permitir a los usuarios personalizar ciertos aspectos de la interfaz, como la elección de temas, colores o preferencias visuales, para adaptarla a sus preferencias individuales.
+- **Customizability**: The application should allow users to customize certain aspects of the interface, such as choosing themes, colors, or visual preferences, to tailor it to their individual preferences.
 
-- **Experiencia de Usuario Consistente**: La aplicación debe mantener una experiencia de usuario consistente en todas sus pantallas y funcionalidades. Los elementos visuales, la navegación y las interacciones deben seguir un mismo estilo y patrón en toda la aplicación.
+- **Consistent User Experience**: The application should maintain a consistent user experience across all screens and functionalities. Visual elements, navigation, and interactions should follow the same style and pattern throughout the application.
 
-- **Comportamiento Predecible**: La aplicación debe responder de manera predecible a las acciones del usuario, evitando comportamientos inesperados que puedan llevar a confusiones o errores.
+- **Predictable Behavior**: The application should respond predictably to user actions, avoiding unexpected behaviors that could lead to confusion or errors.
 
+## Interface Design
 
-## Diseño de interfaz 
+In the following link, you can find the document where we designed the necessary user interfaces for the application.
 
-En el siguiente enlace se muestra el documento donde diseñamos las interfaces de usuario necesarias para la aplicación. 
+We used Figma as the tool. [View on Figma](https://www.figma.com/file/ItRKm5J5hySQ2j3PSVqmrh/C-tas?type=design&node-id=0%3A1&mode=design&t=KDF1FT5jkTRrH8is-1)
 
-Como herramienta utilizamos figma.  [Ver en Figma](https://www.figma.com/file/ItRKm5J5hySQ2j3PSVqmrh/C-tas?type=design&node-id=0%3A1&mode=design&t=KDF1FT5jkTRrH8is-1)
+## Conceptual Database Model (ERD) Design
 
-## Diseño del Modelo Conceptual de la Base de Datos (DER)
+The database model was documented using the dbdiagram.io tool, which allowed us to generate a visual representation of the ERD and a textual description of the entities, attributes, and relationships.
 
-El modelo de la base de datos fue documentado utilizando la herramienta dbdiagram.io, lo que permitió generar una representación visual del DER y una descripción textual de las entidades, atributos y relaciones. 
+Based on the identification of entities and relationships, we proceeded to create the Entity-Relationship Diagram (ERD) representing the conceptual database model. Below is a graphical view of the ERD:
 
-Con base en la identificación de entidades y relaciones, se procedió a crear el Diagrama de Entidad-Relación (DER) que representa el modelo conceptual de la base de datos. A continuación, se presenta una vista gráfica del DER:
+![Entity-Relationship Diagram (ERD)](img/databaseviewC-tas.png)
 
-![Diagrama de Entidad-Relación (DER)](img/databaseviewC-tas.png)
+You can also view it at: [Database Model / C-tas](https://dbdiagram.io/d/64bf1d5e02bd1c4a5ea00db7)
 
-
-también lo pueden ver en : [Modelo de la Base de Datos / C-tas](https://dbdiagram.io/d/64bf1d5e02bd1c4a5ea00db7)
-
-Para garantizar la integridad y eficiencia del modelo de la base de datos, se llevó a cabo el proceso de normalización. Se verificó que las entidades estuvieran en la forma normal adecuada para minimizar la redundancia y asegurar la consistencia de los datos. 
+To ensure the integrity and efficiency of the database model, the normalization process was carried out. It was verified that entities were in the appropriate normal form to minimize redundancy and ensure data consistency.
