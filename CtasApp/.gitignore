@@ -36,7 +36,6 @@ local.properties
 
 # node.js
 #
-node_modules/
 npm-debug.log
 yarn-error.log
 
@@ -73,6 +72,5 @@ babel.config.js
 Gemfile
 jest.config.js
 metro.config.js
-package.json
 tsconfig.json
 yarn.lock
