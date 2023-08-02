@@ -17,7 +17,7 @@ const SplashScreen: React.FC<Props> = () => {
       style={SplashScreenStyles.container}>
       <SafeAreaView style={SplashScreenStyles.logoContainer}>
         <Image
-          source={require('../img/logoTemp.png')}
+          source={require('../img/logo.png')}
           style={SplashScreenStyles.logo}
         />
       </SafeAreaView>
