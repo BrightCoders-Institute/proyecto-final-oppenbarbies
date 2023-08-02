@@ -1,12 +1,12 @@
 import React from 'react';
 import {View, Text, Image} from 'react-native';
-import { ProfileClientSimpleCardProps } from '../schema/ProfileClientSimpleCardSchema'; 
+import {ProfileClientSimpleCardProps} from '../schema/ProfileClientSimpleCardSchema';
 import ProfileClientSimpleCardStyles from '../styles/ProfileClientSimpleCardStyles';
 
 const ProfileClientSimpleCard: React.FC<ProfileClientSimpleCardProps> = ({
   userType = 'Client',
-  userName = 'Jessica Jhonson', 
-  userEmail = 'jessica@correo.com', 
+  userName = 'Jessica Jhonson',
+  userEmail = 'jessica@correo.com',
 }) => {
   return (
     <View style={ProfileClientSimpleCardStyles.cardContainer}>
@@ -20,7 +20,9 @@ const ProfileClientSimpleCard: React.FC<ProfileClientSimpleCardProps> = ({
         />
       </View>
       <Text style={ProfileClientSimpleCardStyles.userName}>{userName}</Text>
-      <Text style={ProfileClientSimpleCardStyles.usegit rEmail}>Email: {userEmail}</Text>
+      <Text style={ProfileClientSimpleCardStyles.userEmail}>
+        Email: {userEmail}
+      </Text>
     </View>
   );
 };

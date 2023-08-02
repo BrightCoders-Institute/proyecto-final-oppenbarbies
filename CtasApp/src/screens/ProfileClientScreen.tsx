@@ -8,7 +8,7 @@ type Props = {};
 const ProfileClientScreen: React.FC<Props> = () => {
   return (
     <View style={ProfileClientScreenStyles.container}>
-        <ProfileClientSimpleCard/>
+      <ProfileClientSimpleCard />
     </View>
   );
 };
