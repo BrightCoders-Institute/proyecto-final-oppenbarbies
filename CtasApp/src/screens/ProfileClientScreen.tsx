@@ -1,15 +1,17 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import { SafeAreaView} from 'react-native';
 import ProfileClientScreenStyles from '../styles/ProfileClientScreenStyles';
 import ProfileClientSimpleCard from '../components/ProfileClientSimpleCard';
+import ProfileClientForm from '../components/ProfileClientForm';
 
 type Props = {};
 
 const ProfileClientScreen: React.FC<Props> = () => {
   return (
-    <View style={ProfileClientScreenStyles.container}>
+    < SafeAreaView style={ProfileClientScreenStyles.container}>
       <ProfileClientSimpleCard />
-    </View>
+      <ProfileClientForm />
+    </ SafeAreaView>
   );
 };
 
