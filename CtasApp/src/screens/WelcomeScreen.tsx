@@ -1,13 +1,13 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {SafeAreaView, Text, View} from 'react-native';
 
 type Props = {};
 
 const WelcomeScreen: React.FC<Props> = () => {
   return (
-    <View>
+    <SafeAreaView>
       <Text>WelcomeScreen</Text>
-    </View>
+    </SafeAreaView>
   );
 };
 
