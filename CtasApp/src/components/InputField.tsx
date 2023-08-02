@@ -1,8 +1,7 @@
 import React from 'react';
-import { View, TextInput, StyleSheet } from 'react-native';
+import {View, TextInput, StyleSheet} from 'react-native';
 import InputFieldStyles from '../styles/InputFieldStyles';
-import { InputFieldProps } from '../schema/ProfileClientFormSchema';
-
+import {InputFieldProps} from '../schema/ProfileClientFormSchema';
 
 const InputField: React.FC<InputFieldProps> = ({
   value,
@@ -11,14 +10,14 @@ const InputField: React.FC<InputFieldProps> = ({
   secureTextEntry,
 }) => {
   return (
-      <View style={InputFieldStyles.container}>
+    <View style={InputFieldStyles.container}>
       <TextInput
         style={InputFieldStyles.input}
         value={value}
         onChangeText={onChangeText}
         secureTextEntry={secureTextEntry}
       />
-      </View>
+    </View>
   );
 };
 

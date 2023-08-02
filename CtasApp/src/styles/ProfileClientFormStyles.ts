@@ -16,7 +16,6 @@ const ProfileClientFormStyles = StyleSheet.create({
     marginTop: 2,
     textAlign: 'center',
     marginBottom: 15,
-
   },
   text: {
     fontFamily: 'Inter-ExtraBold',
@@ -24,13 +23,12 @@ const ProfileClientFormStyles = StyleSheet.create({
     color: Colors.white,
     textAlign: 'left',
     marginLeft: 9,
-
   },
-  info:{
+  info: {
     flexDirection: 'row',
   },
 
-  infoText:{
+  infoText: {
     fontFamily: 'Inter-ExtraBold',
     fontSize: 10,
     color: Colors.lowBlack,
@@ -55,14 +53,12 @@ const ProfileClientFormStyles = StyleSheet.create({
     fontSize: 15,
     color: Colors.white,
   },
-  
-  calendarIcon: {
-position: 'absolute',
-right: 20,
-top: '55%',
 
+  calendarIcon: {
+    position: 'absolute',
+    right: 20,
+    top: '55%',
   },
-  
 });
 
 export default ProfileClientFormStyles;

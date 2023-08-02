@@ -16,7 +16,6 @@ const InputFieldStyles = StyleSheet.create({
     borderRadius: 10,
     elevation: 5,
   },
-
 });
 
 export default InputFieldStyles;
