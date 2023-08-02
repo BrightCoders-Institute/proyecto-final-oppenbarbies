@@ -36,9 +36,9 @@ local.properties
 
 # node.js
 #
+node_modules/
 npm-debug.log
 yarn-error.log
-node_modules/
 
 # fastlane
 #
@@ -64,4 +64,3 @@ node_modules/
 
 # testing
 /coverage
-

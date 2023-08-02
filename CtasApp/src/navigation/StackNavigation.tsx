@@ -1,5 +1,6 @@
+
 import * as React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import SplashScreen from '../screens/SplashScreen';
 import WelcomeScreen from '../screens/WelcomeScreen';
 import SignInScreen from '../screens/SignInScreen';
@@ -10,7 +11,7 @@ import HomeClientScreen from '../screens/HomeClientScreen';
 import HomeProviderScreen from '../screens/HomeProviderScreen';
 
 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 const StackNavigation: React.FC = () =>{
   return (
     <Stack.Navigator initialRouteName='Splash'>
