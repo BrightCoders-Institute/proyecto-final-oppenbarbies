@@ -1,6 +1,5 @@
 export interface ProfileClientSimpleCardProps {
-    userType?: string;
-    userName?: string;
-    userEmail?: string;
-  }
-  
+  userType?: string;
+  userName?: string;
+  userEmail?: string;
+}

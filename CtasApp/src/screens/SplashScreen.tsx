@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {Text, SafeAreaView, ImageBackground, Image} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import SplashScreenStyles from '../styles/SplashScreenStyles';
+import Logo from '../components/Logo';
 type Props = {};
 
 const SplashScreen: React.FC<Props> = () => {
@@ -16,10 +17,7 @@ const SplashScreen: React.FC<Props> = () => {
       source={require('../img/Splash.png')}
       style={SplashScreenStyles.container}>
       <SafeAreaView style={SplashScreenStyles.logoContainer}>
-        <Image
-          source={require('../img/logo.png')}
-          style={SplashScreenStyles.logo}
-        />
+        <Logo />
       </SafeAreaView>
     </ImageBackground>
   );

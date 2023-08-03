@@ -2,8 +2,8 @@ import React from 'react';
 import {Image, Pressable, SafeAreaView, Text, View} from 'react-native';
 import SplashScreenStyles from '../styles/SplashScreenStyles';
 import WelcomeStyles from '../styles/WelcomeStyles';
-import {ButtonProps, ButtonPropsWithTextStyle} from '../schema/ButtonSchema';
 import Button from '../components/Button';
+import Logo from '../components/Logo';
 type Props = {};
 
 const WelcomeScreen: React.FC<Props> = () => {
@@ -11,16 +11,12 @@ const WelcomeScreen: React.FC<Props> = () => {
     <SafeAreaView style={SplashScreenStyles.container}>
       <View style={WelcomeStyles.headerContainer}>
         <View style={WelcomeStyles.logoTitle}>
-          <Image
-            source={require('../img/logo.png')}
-            style={SplashScreenStyles.logo}
-          />
+          <Logo src="logowithoutbackground" styleType="logowb" />
           <Text style={WelcomeStyles.title}>Welcome</Text>
         </View>
         <Text style={WelcomeStyles.description}>
-          C-Tas is a mobile app for appointment management, connecting
-          professionals with clients for streamlined organization and
-          communication.
+          C-Tas is a mobile app focused on time management, linking clients and
+          providers. It simplifies scheduling to enable seamless organization.
         </Text>
       </View>
       <View style={WelcomeStyles.bodyContainer}>

@@ -2,30 +2,30 @@ import {StyleSheet} from 'react-native';
 import colors from './colors/Colors';
 const WelcomeStyles = StyleSheet.create({
   headerContainer: {
-    flex: 0.60,
+    flex: 0.6,
     backgroundColor: colors.aqua,
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 25,
+    gap: 20,
     paddingHorizontal: 20,
     borderBottomLeftRadius: 40,
     borderBottomRightRadius: 40,
   },
-  bodyContainer:{
-    flex: 0.40,
+  bodyContainer: {
+    flex: 0.4,
     alignItems: 'center',
     justifyContent: 'space-evenly',
   },
-  logoTitle:{
-    gap: 15,
+  logoTitle: {
+    gap: 5,
   },
-  title:{
+  title: {
     fontSize: 40,
     color: colors.white,
     textAlign: 'center',
-    fontFamily: 'Inter-ExtraBold'
+    fontFamily: 'Inter-ExtraBold',
   },
-  description:{
+  description: {
     fontSize: 18,
     color: colors.white,
     textAlign: 'center',
@@ -37,40 +37,39 @@ const WelcomeStyles = StyleSheet.create({
     marginHorizontal: 20,
     gap: 30,
   },
-  profile:{
+  profile: {
     flex: 1,
   },
-  profileLogo:{
+  profileLogo: {
     height: 140,
     width: 140,
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
-  button:{
+  button: {
     backgroundColor: colors.skyBlue,
     paddingVertical: 10,
     borderRadius: 15,
     elevation: 5,
     shadowOpacity: 0.2,
   },
-  buttonText:{
+  buttonText: {
     color: colors.white,
     fontFamily: 'Inter-Bold',
     textAlign: 'center',
-    fontSize: 18,
+    fontSize: 17,
   },
   footerContainer: {
     flexDirection: 'row',
     gap: 5,
   },
-  footerText:{
+  footerText: {
     fontFamily: 'Inter-Light',
     color: colors.black,
   },
-  footerLink:{
+  footerLink: {
     color: colors.aqua,
-    fontFamily: 'Inter-Bold'
-  }
-
+    fontFamily: 'Inter-Bold',
+  },
 });
 
 export default WelcomeStyles;

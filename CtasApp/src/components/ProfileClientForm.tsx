@@ -56,9 +56,12 @@ const ProfileClientForm: React.FC = () => {
         placeholder="Enter your location"
       />
       <View style={ProfileClientFormStyles.buttonContainer}>
-        <Button text="Save" onPress={function (): void {
-          throw new Error('Function not implemented.');
-        } } />
+        <Button
+          text="Save"
+          onPress={function (): void {
+            throw new Error('Function not implemented.');
+          }}
+        />
       </View>
     </View>
   );
