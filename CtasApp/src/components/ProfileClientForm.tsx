@@ -3,6 +3,7 @@ import {View, Text, TouchableOpacity, Pressable} from 'react-native';
 import InputField from './InputField';
 import ProfileClientFormStyles from '../styles/ProfileClientFormStyles';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import Button from './Button';
 
 const ProfileClientForm: React.FC = () => {
   const [name, setName] = useState<string>('');
@@ -55,9 +56,9 @@ const ProfileClientForm: React.FC = () => {
         placeholder="Enter your location"
       />
       <View style={ProfileClientFormStyles.buttonContainer}>
-        <TouchableOpacity style={ProfileClientFormStyles.button}>
-          <Text style={ProfileClientFormStyles.buttonText}> Save </Text>
-        </TouchableOpacity>
+        <Button text="Save" onPress={function (): void {
+          throw new Error('Function not implemented.');
+        } } />
       </View>
     </View>
   );
