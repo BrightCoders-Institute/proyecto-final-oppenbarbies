@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import Colors from './colors/Colors';
+import Colors from './colors/colors';
 
 const ProfileClientSimpleCardStyles = StyleSheet.create({
   cardContainer: {
