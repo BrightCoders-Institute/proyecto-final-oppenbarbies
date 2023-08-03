@@ -2,22 +2,21 @@ import {StyleSheet} from 'react-native';
 import colors from './colors/Colors';
 const WelcomeStyles = StyleSheet.create({
   headerContainer: {
-    flex: 0.6,
+    flex: 0.55,
     backgroundColor: colors.aqua,
     alignItems: 'center',
-    justifyContent: 'center',
-    gap: 20,
+    justifyContent: 'space-evenly',
     paddingHorizontal: 20,
     borderBottomLeftRadius: 40,
     borderBottomRightRadius: 40,
   },
   bodyContainer: {
-    flex: 0.4,
+    flex: 0.45,
     alignItems: 'center',
-    justifyContent: 'space-evenly',
+    justifyContent: 'center',
   },
   logoTitle: {
-    gap: 5,
+    gap: -20,
   },
   title: {
     fontSize: 40,
@@ -39,17 +38,18 @@ const WelcomeStyles = StyleSheet.create({
   },
   profile: {
     flex: 1,
+    gap: 5,
   },
   profileLogo: {
-    height: 140,
-    width: 140,
+    height: '65%',
+    width: '90%',
     alignSelf: 'center',
   },
   button: {
     backgroundColor: colors.skyBlue,
-    paddingVertical: 10,
+    paddingVertical: 6,
     borderRadius: 15,
-    elevation: 5,
+    elevation: 7,
     shadowOpacity: 0.2,
   },
   buttonText: {
