@@ -1,12 +1,28 @@
 import React from 'react';
-import { TouchableOpacity, Text } from 'react-native';
+import {TouchableOpacity, Text, ViewStyle, TextStyle} from 'react-native';
+import {ButtonProps, ButtonPropsWithTextStyle} from '../schema/ButtonSchema';
 import ProfileClientFormStyles from '../styles/ProfileClientFormStyles';
-import { ButtonProps } from '../schema/ButtonSchema';
+import WelcomeStyles from '../styles/WelcomeStyles';
 
-const Button: React.FC<ButtonProps> = ({ text, onPress }) => {
+const Button: React.FC<ButtonPropsWithTextStyle> = ({
+  text,
+  onPress,
+  styleName = 'default',
+  textStyleName = 'default',
+}) => {
+  const selectedStyle: ViewStyle =
+    styleName === 'welcome'
+      ? WelcomeStyles.button
+      : ProfileClientFormStyles.button;
+
+  const selectedTextStyle: TextStyle =
+    textStyleName === 'welcome'
+      ? WelcomeStyles.buttonText
+      : ProfileClientFormStyles.buttonText;
+
   return (
-    <TouchableOpacity style={ProfileClientFormStyles.button} onPress={onPress}>
-      <Text style={ProfileClientFormStyles.buttonText}>{text}</Text>
+    <TouchableOpacity style={selectedStyle} onPress={onPress}>
+      <Text style={selectedTextStyle}>{text}</Text>
     </TouchableOpacity>
   );
 };

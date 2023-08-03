@@ -2,6 +2,8 @@ import React from 'react';
 import {Image, Pressable, SafeAreaView, Text, View} from 'react-native';
 import SplashScreenStyles from '../styles/SplashScreenStyles';
 import WelcomeStyles from '../styles/WelcomeStyles';
+import {ButtonProps, ButtonPropsWithTextStyle} from '../schema/ButtonSchema';
+import Button from '../components/Button';
 type Props = {};
 
 const WelcomeScreen: React.FC<Props> = () => {
@@ -16,23 +18,36 @@ const WelcomeScreen: React.FC<Props> = () => {
           <Text style={WelcomeStyles.title}>Welcome</Text>
         </View>
         <Text style={WelcomeStyles.description}>
-          App description - Lorem ipsum dolor sit amet, consectetur adipiscing
-          elit, sed do eiusmod tempor incididunt ut labore
+          C-Tas is a mobile app for appointment management, connecting
+          professionals with clients for streamlined organization and
+          communication.
         </Text>
       </View>
       <View style={WelcomeStyles.bodyContainer}>
         <View style={WelcomeStyles.profilesContainer}>
           <View style={WelcomeStyles.profile}>
-            <Image source={require('../img/Client.png')} style={WelcomeStyles.profileLogo} />
-            <Pressable style={WelcomeStyles.button}>
-              <Text style={WelcomeStyles.buttonText}>Client</Text>
-            </Pressable>
+            <Image
+              source={require('../img/Client.png')}
+              style={WelcomeStyles.profileLogo}
+            />
+            <Button
+              text="Client"
+              onPress={() => {}}
+              styleName={'welcome'}
+              textStyleName={'welcome'}
+            />
           </View>
           <View style={WelcomeStyles.profile}>
-            <Image source={require('../img/Provider.png')} style={WelcomeStyles.profileLogo} />
-            <Pressable style={WelcomeStyles.button}>
-              <Text style={WelcomeStyles.buttonText}>Service Provider</Text>
-            </Pressable>
+            <Image
+              source={require('../img/Provider.png')}
+              style={WelcomeStyles.profileLogo}
+            />
+            <Button
+              text="Service Provider"
+              onPress={() => {}}
+              styleName={'welcome'}
+              textStyleName={'welcome'}
+            />
           </View>
         </View>
         <View style={WelcomeStyles.footerContainer}>
