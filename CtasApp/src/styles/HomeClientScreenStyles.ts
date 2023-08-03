@@ -4,6 +4,7 @@ import Colors from './colors/Colors';
 const HomeClientScreenStyles = StyleSheet.create({
   body:{
     backgroundColor: Colors.white,
+    flex: 1,
   },
   nameContainer: {
     alignItems: 'center',
@@ -20,6 +21,22 @@ const HomeClientScreenStyles = StyleSheet.create({
   },
   details: {
     color: Colors.black,
+  },
+  photoContainer: {
+    marginTop: 80,
+    marginBottom: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  photo: {
+    width: 150,
+    height: 150,
+    borderRadius: 100,
+  },
+  gear: {
+    position: 'absolute',
+    top: 0,
+    right: 130,
   },
 });
 
