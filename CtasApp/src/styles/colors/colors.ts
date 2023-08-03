@@ -8,7 +8,8 @@ const Colors: { [key: string]: string } = {
     black: '#000000',
     lowBlack: '#00000080',
     lightPink: "#F9F1F1",
-    lightBrown: "#F7F6F3"
+    lightBrown: "#F7F6F3",
+    lightGray: "#F5F5F5",
   };
   
   export default Colors;

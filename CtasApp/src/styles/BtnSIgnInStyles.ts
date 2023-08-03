@@ -12,7 +12,7 @@ export const BtnSignInStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     elevation: 6,
-    backgroundColor: Colors.lightPink,
+    backgroundColor: Colors.lightGray,
     shadowColor: Colors.black,
   },
   btnText : {

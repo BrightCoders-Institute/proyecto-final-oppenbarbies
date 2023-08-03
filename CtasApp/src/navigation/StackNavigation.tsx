@@ -12,7 +12,7 @@ import HomeProviderScreen from '../screens/HomeProviderScreen';
 const Stack = createNativeStackNavigator();
 const StackNavigation: React.FC = () => {
   return (
-    <Stack.Navigator initialRouteName="SignIn">
+    <Stack.Navigator initialRouteName="Splash">
       <Stack.Screen
         name="Splash"
         component={SplashScreen}
