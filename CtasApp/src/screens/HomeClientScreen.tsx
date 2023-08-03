@@ -1,8 +1,9 @@
 import React from 'react'
-import {View, Text, SafeAreaView, Image} from 'react-native'
+import {View, SafeAreaView, Image} from 'react-native'
 import HomeClientScreenStyles from '../styles/HomeClientScreenStyles'
 import Navbar from '../components/Navbar'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
+import UserDetailsClient from '../components/UserDetailsClient'
 
 type Props = {}
 
@@ -13,16 +14,7 @@ const HomeClientScreen: React.FC<Props> = () => {
         <FontAwesome style={HomeClientScreenStyles.gear} name="gear" size={25}/>
         <Image style={HomeClientScreenStyles.photo} source={require('../assets/profilepick.png')}/>
       </View>
-      <View style={HomeClientScreenStyles.nameContainer}>
-        <Text style={HomeClientScreenStyles.name}>Hello!</Text>
-        <Text style={HomeClientScreenStyles.name}>George</Text>
-      </View>
-      <View style={HomeClientScreenStyles.detailsContainer}>
-        <Text style={HomeClientScreenStyles.details}>Email: email@email.com</Text>
-        <Text style={HomeClientScreenStyles.details}>Birth: 18 Jun, 1993</Text>
-        <Text style={HomeClientScreenStyles.details}>Phone: XXX-XXX-XXXX</Text>
-        <Text style={HomeClientScreenStyles.details}>Location: Villa de Alvarez</Text>
-      </View>
+      <UserDetailsClient name="John Doe" email="email@email.com" birth='18 Jun, 1991' phone='XXX-XXX-XXXX' location='Villa de Alvarez'/>
       <Navbar/>
     </SafeAreaView>
   )
