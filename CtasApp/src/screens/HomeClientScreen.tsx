@@ -2,6 +2,7 @@ import React from 'react'
 import {View, Text, SafeAreaView, Image} from 'react-native'
 import HomeClientScreenStyles from '../styles/HomeClientScreenStyles'
 import Navbar from '../components/Navbar'
+import FontAwesome from 'react-native-vector-icons/FontAwesome'
 
 type Props = {}
 
@@ -9,7 +10,7 @@ const HomeClientScreen: React.FC<Props> = () => {
   return (
     <SafeAreaView style={HomeClientScreenStyles.body}>
       <View style={HomeClientScreenStyles.photoContainer}>
-        <Text style={HomeClientScreenStyles.gear}>x</Text>
+        <FontAwesome style={HomeClientScreenStyles.gear} name="gear" size={25}/>
         <Image style={HomeClientScreenStyles.photo} source={require('../assets/profilepick.png')}/>
       </View>
       <View style={HomeClientScreenStyles.nameContainer}>

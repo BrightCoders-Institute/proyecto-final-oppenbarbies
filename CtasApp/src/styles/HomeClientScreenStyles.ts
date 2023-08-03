@@ -36,7 +36,8 @@ const HomeClientScreenStyles = StyleSheet.create({
   gear: {
     position: 'absolute',
     top: 0,
-    right: 130,
+    right: 120,
+    color: Colors.black,
   },
 });
 
