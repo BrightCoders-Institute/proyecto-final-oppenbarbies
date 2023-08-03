@@ -4,10 +4,10 @@ import Colors from './colors/Colors';
 const ProfileClientSimpleCardStyles = StyleSheet.create({
   cardContainer: {
     backgroundColor: Colors.aqua,
-    width: 328,
+    width: 355,
     height: 308,
     alignItems: 'center',
-    borderRadius: 20,
+    borderRadius: 10,
     shadowColor: Colors.black,
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.25,
