@@ -5,7 +5,7 @@ const WelcomeStyles = StyleSheet.create({
     flex: 0.55,
     backgroundColor: colors.aqua,
     alignItems: 'center',
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-between',
     paddingHorizontal: 20,
     borderBottomLeftRadius: 40,
     borderBottomRightRadius: 40,
@@ -25,6 +25,7 @@ const WelcomeStyles = StyleSheet.create({
     fontFamily: 'Inter-ExtraBold',
   },
   description: {
+    paddingBottom: '10%',
     fontSize: 18,
     color: colors.white,
     textAlign: 'center',
@@ -33,8 +34,8 @@ const WelcomeStyles = StyleSheet.create({
   },
   profilesContainer: {
     flexDirection: 'row',
-    marginHorizontal: 20,
-    gap: 30,
+    marginHorizontal: 22,
+    gap: 25,
   },
   profile: {
     flex: 1,
@@ -42,13 +43,13 @@ const WelcomeStyles = StyleSheet.create({
   },
   profileLogo: {
     height: '65%',
-    width: '90%',
+    width: '95%',
     alignSelf: 'center',
   },
   button: {
     backgroundColor: colors.skyBlue,
-    paddingVertical: 6,
-    borderRadius: 15,
+    paddingVertical: 8,
+    borderRadius: 12,
     elevation: 7,
     shadowOpacity: 0.2,
   },
@@ -56,7 +57,7 @@ const WelcomeStyles = StyleSheet.create({
     color: colors.white,
     fontFamily: 'Inter-Bold',
     textAlign: 'center',
-    fontSize: 17,
+    fontSize: 16,
   },
   footerContainer: {
     flexDirection: 'row',
