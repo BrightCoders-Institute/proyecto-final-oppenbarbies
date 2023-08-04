@@ -1,8 +1,8 @@
 import {StyleSheet} from 'react-native';
-import {Colors} from './colors/Colors';
+import Colors from './colors/Colors';
 
 const HomeClientScreenStyles = StyleSheet.create({
-  body:{
+  body: {
     backgroundColor: Colors.white,
     flex: 1,
     alignItems: 'center',
@@ -44,13 +44,13 @@ const HomeClientScreenStyles = StyleSheet.create({
     right: 0,
     color: Colors.black,
   },
-  rateContainer:{
+  rateContainer: {
     alignItems: 'center',
     position: 'absolute',
     bottom: 365,
     width: '100%',
   },
-  rate:{
+  rate: {
     backgroundColor: Colors.aqua,
     paddingHorizontal: 5,
     paddingVertical: 5,
@@ -61,10 +61,10 @@ const HomeClientScreenStyles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  rateText:{
+  rateText: {
     color: Colors.white,
     fontWeight: 'bold',
-  }
+  },
 });
 
 export default HomeClientScreenStyles;

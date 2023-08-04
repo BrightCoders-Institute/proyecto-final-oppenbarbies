@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {Colors} from './colors/Colors';
+import Colors from './colors/Colors';
 const WelcomeStyles = StyleSheet.create({
   headerContainer: {
     flex: 0.55,

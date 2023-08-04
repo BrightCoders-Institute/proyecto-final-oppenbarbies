@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {Text, SafeAreaView, ImageBackground, Image} from 'react-native';
+import { SafeAreaView, ImageBackground, Image} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import SplashScreenStyles from '../styles/SplashScreenStyles';
 import Logo from '../components/Logo';

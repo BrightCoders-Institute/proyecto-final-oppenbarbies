@@ -1,8 +1,8 @@
 import {StyleSheet} from 'react-native';
-import {Colors} from './colors/Colors';
+import Colors from './colors/Colors';
 
 const NavbarStyles = StyleSheet.create({
-  container:{
+  container: {
     flex: 1,
     alignItems: 'center',
     position: 'absolute',
