@@ -1,9 +1,9 @@
 import {StyleSheet} from 'react-native';
-import colors from './colors/Colors';
+import {Colors} from './colors/Colors';
 const WelcomeStyles = StyleSheet.create({
   headerContainer: {
     flex: 0.55,
-    backgroundColor: colors.aqua,
+    backgroundColor: Colors.aqua,
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 20,
@@ -20,14 +20,14 @@ const WelcomeStyles = StyleSheet.create({
   },
   title: {
     fontSize: 40,
-    color: colors.white,
+    color: Colors.white,
     textAlign: 'center',
     fontFamily: 'Inter-ExtraBold',
   },
   description: {
     paddingBottom: '10%',
     fontSize: 18,
-    color: colors.white,
+    color: Colors.white,
     textAlign: 'center',
     fontFamily: 'Inter-Bold',
     paddingHorizontal: 5,
@@ -47,14 +47,14 @@ const WelcomeStyles = StyleSheet.create({
     alignSelf: 'center',
   },
   button: {
-    backgroundColor: colors.skyBlue,
+    backgroundColor: Colors.skyBlue,
     paddingVertical: 8,
     borderRadius: 12,
     elevation: 7,
     shadowOpacity: 0.2,
   },
   buttonText: {
-    color: colors.white,
+    color: Colors.white,
     fontFamily: 'Inter-Bold',
     textAlign: 'center',
     fontSize: 16,
@@ -65,10 +65,10 @@ const WelcomeStyles = StyleSheet.create({
   },
   footerText: {
     fontFamily: 'Inter-Light',
-    color: colors.black,
+    color: Colors.black,
   },
   footerLink: {
-    color: colors.aqua,
+    color: Colors.aqua,
     fontFamily: 'Inter-Bold',
   },
 });
