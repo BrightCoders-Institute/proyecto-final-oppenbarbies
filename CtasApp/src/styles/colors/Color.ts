@@ -1,4 +1,4 @@
-export const Colors: {[key: string]: string} = {
+const Colors: {[key: string]: string} = {
     white: '#FFFFFF',
     aqua: '#40B9A9',
     babyBlue: '#99C3DC',
@@ -12,5 +12,5 @@ export const Colors: {[key: string]: string} = {
     lightGray: "#F5F5F5",
   };
   
-  
+  export default Colors;
   
