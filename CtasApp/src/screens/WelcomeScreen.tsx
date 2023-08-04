@@ -6,7 +6,12 @@ import Button from '../components/Button';
 import Logo from '../components/Logo';
 type Props = {};
 
-const WelcomeScreen: React.FC<Props> = () => {
+const WelcomeScreen: React.FC<Props> = ({navigation}) => {
+  const goToSignIn= (userType: String)=>{
+    navigation.navigate('SignIn',{
+      userType: userType
+    });
+  }
   return (
     <SafeAreaView style={SplashScreenStyles.container}>
       <View style={WelcomeStyles.headerContainer}>
@@ -28,7 +33,7 @@ const WelcomeScreen: React.FC<Props> = () => {
             />
             <Button
               text="Client"
-              onPress={() => {}}
+              onPress={()=>goToSignIn('client')}
               styleName={'welcome'}
               textStyleName={'welcome'}
             />
@@ -40,7 +45,7 @@ const WelcomeScreen: React.FC<Props> = () => {
             />
             <Button
               text="Service Provider"
-              onPress={() => {}}
+              onPress={() => goToSignIn('service provider')}
               styleName={'welcome'}
               textStyleName={'welcome'}
             />

@@ -6,7 +6,15 @@ import ButtonSignIn from '../components/ButtonSignIn';
 
 type Props = {};
 
-const SignInScreen: React.FC<Props> = () => {
+const SignInScreen: React.FC<Props> = ({navigation, route}) => {
+  const {userType} = route.params;
+  const goHomeProfile= ()=>{
+    if(userType == "client")
+      navigation.navigate("ProfileClient");
+    else
+      navigation.navigate("ProfileProvider");
+
+  };
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.headerContainer}>
@@ -14,10 +22,10 @@ const SignInScreen: React.FC<Props> = () => {
       </View>
       <View style={styles.btnContainer}>
         <View style={styles.btnGoogleContainer}>
-          <ButtonSignIn text={'Sign In with'} authProvider="google" />
+          <ButtonSignIn text={'Sign In with'} authProvider="google" navigationFuncion={goHomeProfile}/>
         </View>
         <View style={styles.btnFacebookContainer}>
-          <ButtonSignIn text={'Sign In with'} authProvider="facebook" />
+          <ButtonSignIn text={'Sign In with'} authProvider="facebook" navigationFuncion={goHomeProfile}/>
         </View>
       </View>
       <Text style={styles.txtNote}>
