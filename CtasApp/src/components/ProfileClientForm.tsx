@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, TouchableOpacity, Pressable} from 'react-native';
+import {View, Text} from 'react-native';
 import InputField from './InputField';
 import ProfileClientFormStyles from '../styles/ProfileClientFormStyles';
 import AntDesign from 'react-native-vector-icons/AntDesign';

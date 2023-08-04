@@ -8,12 +8,12 @@ const images: Record<ImageKeys, any> = {
   logowithoutbackground: require('../img/logowithoutbackground.png'),
 };
 
-const Logo: React.FC<LogoProps> = (props) => {
+const Logo: React.FC<LogoProps> = props => {
   const src = (props.src || 'logo') as ImageKeys;
   const styleType = (props.styleType || 'logo') as StyleType;
   const imageSrc = images[src];
 
-  const styleMapping: { [key in StyleType]: typeof LogoStyles.logo } = {
+  const styleMapping: {[key in StyleType]: typeof LogoStyles.logo} = {
     logo: LogoStyles.logo,
     logowb: LogoStyles.logowb,
     logoBanner: LogoStyles.logoBanner,

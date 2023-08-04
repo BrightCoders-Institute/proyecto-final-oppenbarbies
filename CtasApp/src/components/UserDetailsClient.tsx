@@ -1,16 +1,15 @@
-import React from "react";
-import { View, Text, SafeAreaView} from "react-native";
-import HomeClientScreenStyles from "../styles/HomeClientScreenStyles";
+import React from 'react';
+import {View, Text, SafeAreaView} from 'react-native';
+import {UserDetailsClientProps} from '../schema/UserDetailsClientSchema';
+import HomeClientScreenStyles from '../styles/HomeClientScreenStyles';
 
-type Props = {
-  name: string;
-  email: string;
-  birth: string;
-  phone: string;
-  location: string;
-}
-
-const UserDetailsClient: React.FC<Props> = ({name,email, birth, phone, location}) => {
+const UserDetailsClient: React.FC<UserDetailsClientProps> = ({
+  name,
+  email,
+  birth,
+  phone,
+  location,
+}) => {
   return (
     <SafeAreaView>
       <View style={HomeClientScreenStyles.detailsContainer}>
@@ -24,7 +23,7 @@ const UserDetailsClient: React.FC<Props> = ({name,email, birth, phone, location}
         <Text style={HomeClientScreenStyles.details}>Location: {location}</Text>
       </View>
     </SafeAreaView>
-  )
-}
+  );
+};
 
 export default UserDetailsClient;

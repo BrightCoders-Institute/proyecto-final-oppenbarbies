@@ -1,6 +1,6 @@
 import React from 'react';
 import {TouchableOpacity, Text, ViewStyle, TextStyle} from 'react-native';
-import {ButtonProps, ButtonPropsWithTextStyle} from '../schema/ButtonSchema';
+import {ButtonPropsWithTextStyle} from '../schema/ButtonSchema';
 import ProfileClientFormStyles from '../styles/ProfileClientFormStyles';
 import WelcomeStyles from '../styles/WelcomeStyles';
 
