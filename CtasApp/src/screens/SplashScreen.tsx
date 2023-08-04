@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import { SafeAreaView, ImageBackground, Image} from 'react-native';
+import {SafeAreaView, ImageBackground} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import SplashScreenStyles from '../styles/SplashScreenStyles';
 import Logo from '../components/Logo';
@@ -11,7 +11,7 @@ const SplashScreen: React.FC<Props> = () => {
     setTimeout(() => {
       navigation.replace('Welcome');
     }, 4000);
-  }, []);
+  }, [navigation]);
   return (
     <ImageBackground
       source={require('../img/Splash.png')}

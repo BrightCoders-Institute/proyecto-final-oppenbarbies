@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, TouchableOpacity, Image} from 'react-native';
-import {btnSignInProps, size} from '../schema/ButtonSignInSchema';
+import {btnSignInProps, size as sizeType} from '../schema/ButtonSignInSchema';
 import {BtnSignInStyles as styles} from '../styles/BtnSIgnInStyles';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
@@ -10,9 +10,9 @@ export default function ButtonSignIn({
 }: btnSignInProps): JSX.Element {
   let urlImageIcon =
     authProvider === 'google'
-      ? require(`../img/logo_google.png`)
-      : require(`../img/logo_facebook.png`);
-  let size: size =
+      ? require('../img/logo_google.png')
+      : require('../img/logo_facebook.png');
+  let size: sizeType =
     authProvider === 'google'
       ? {width: 45, height: 45}
       : {width: 30, height: 30};
