@@ -1,11 +1,11 @@
 import {StyleSheet} from 'react-native';
-import {Colors} from './colors/Colors';
+import Colors from './colors/Colors';
 
 export const SignInStyles = StyleSheet.create({
-  container:{
+  container: {
     flex: 1,
   },
-  headerContainer:{
+  headerContainer: {
     height: '62%',
     borderBottomEndRadius: 30,
     borderBottomStartRadius: 30,
@@ -13,13 +13,13 @@ export const SignInStyles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    fontFamily: "Inter-ExtraBold",
+    fontFamily: 'Inter-ExtraBold',
     color: Colors.white,
     marginTop: 60,
     fontSize: 50,
     width: '70%',
   },
-  btnContainer:{
+  btnContainer: {
     alignSelf: 'center',
     width: '83%',
     height: 300,
@@ -28,27 +28,24 @@ export const SignInStyles = StyleSheet.create({
     backgroundColor: Colors.white,
     elevation: 6,
     shadowColor: Colors.black,
-    alignItems: 'center'
+    alignItems: 'center',
   },
-  btnGoogleContainer:{
+  btnGoogleContainer: {
     marginTop: 70,
   },
-  btnFacebookContainer:{
+  btnFacebookContainer: {
     marginTop: 50,
   },
   txtNote: {
     marginTop: 25,
-    fontFamily: "Inter-Regular",
+    fontFamily: 'Inter-Regular',
     fontStyle: 'italic',
     fontSize: 16,
     width: '83%',
     alignSelf: 'center',
-    textAlign: 'center'
+    textAlign: 'center',
   },
   txtBold: {
-    fontFamily: 'Inter-Bold'
+    fontFamily: 'Inter-Bold',
   },
-
 });
-
-

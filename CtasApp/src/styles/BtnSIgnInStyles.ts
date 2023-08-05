@@ -1,9 +1,8 @@
 import {StyleSheet} from 'react-native';
-import {Colors} from './colors/Colors';
-
+import Colors from './colors/Colors';
 
 export const BtnSignInStyles = StyleSheet.create({
-  btnSignIn:{
+  btnSignIn: {
     display: 'flex',
     flexDirection: 'row',
     width: 280,
@@ -15,11 +14,9 @@ export const BtnSignInStyles = StyleSheet.create({
     backgroundColor: Colors.lightGray,
     shadowColor: Colors.black,
   },
-  btnText : {
-    fontFamily: "Inter-ExtraBold",
+  btnText: {
+    fontFamily: 'Inter-ExtraBold',
     fontSize: 16,
-    marginLeft: 12
-  }
+    marginLeft: 12,
+  },
 });
-
-

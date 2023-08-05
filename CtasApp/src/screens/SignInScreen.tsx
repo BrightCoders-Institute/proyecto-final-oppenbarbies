@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {SignInStyles as styles} from '../styles/SignInStyle';
 import ButtonSignIn from '../components/ButtonSignIn';
@@ -30,7 +30,7 @@ const SignInScreen: React.FC<Props> = ({navigation, route}) => {
       </View>
       <Text style={styles.txtNote}>
         <Text style={styles.txtBold}>NOTE:</Text>
-        <Text > If you don't have an account </Text>
+        <Text> If you don't have an account </Text>
         <Text style={styles.txtBold}>don't worry!</Text>
         <Text>, the sign up is automatic.</Text>
       </Text>

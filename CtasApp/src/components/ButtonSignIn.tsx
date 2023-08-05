@@ -1,5 +1,6 @@
-import {View, Text, TouchableOpacity, Image} from 'react-native';
-import React, { Component } from 'react';
+import React from 'react';
+import {Text, TouchableOpacity, Image} from 'react-native';
+import {btnSignInProps, size as sizeType} from '../schema/ButtonSignInSchema';
 import {BtnSignInStyles as styles} from '../styles/BtnSIgnInStyles';
 import {SafeAreaView} from 'react-native-safe-area-context';
 

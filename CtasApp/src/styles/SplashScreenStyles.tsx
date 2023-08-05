@@ -9,7 +9,6 @@ const SplashScreenStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-
 });
 
 export default SplashScreenStyles;
