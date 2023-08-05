@@ -7,13 +7,14 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 type btnSignInProps = {
   text: String;
   authProvider: "google" | "facebook";
-  navigationFuncion: ()=>void;
+  navigationFuncion: () => void;
 }
 
 type size={
   width: number;
   height: number;
 }
+
 export default function ButtonSignIn({text, authProvider, navigationFuncion}: btnSignInProps): JSX.Element {
   let urlImageIcon = (authProvider==='google')?require(`../img/logo_google.png`): require(`../img/logo_facebook.png`)
   let size: size = (authProvider==='google')?{width: 45, height:45}:{width: 30, height:30}
