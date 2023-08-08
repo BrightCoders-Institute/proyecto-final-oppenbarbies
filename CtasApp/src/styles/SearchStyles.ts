@@ -43,5 +43,11 @@ export const SearchStyles = StyleSheet.create({
   },
   icon: {
     color: Colors.black,
+  },
+  separator: {
+    height: 15,
+  },
+  listContainer: {
+    flex: 1,
   }
 });
