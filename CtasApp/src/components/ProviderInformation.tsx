@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Text, Image} from 'react-native';
 import ProviderSetCitaStyles from '../styles/ProviderSetCitaStyles';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import StarRating from './SelectRate';
 
 type Props = {
   name: string;
@@ -21,6 +22,7 @@ const ProviderInformation: React.FC<Props> = (props) => {
           <Text style={ProviderSetCitaStyles.providerDataText}>Age: {props.age}</Text>
           <Text style={ProviderSetCitaStyles.providerDataText}>{props.location}</Text>
         </View>
+        <StarRating totalStars={5} />
         <Text style={ProviderSetCitaStyles.servicesText}>Personalized counseling in family cases</Text>
         <View style={ProviderSetCitaStyles.socialMedia}>
           <FontAwesome name='facebook-square' size={24} color='#ffff' />

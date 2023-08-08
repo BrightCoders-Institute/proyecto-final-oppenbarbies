@@ -7,6 +7,7 @@ const ProviderSetCitaStyles = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
     backgroundColor: Colors.aqua,
+    padding: 5,
   },
   providerName: {
     fontSize: 23,
@@ -17,7 +18,7 @@ const ProviderSetCitaStyles = StyleSheet.create({
   },
   providerDataContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    gap: 20,
   },
   providerDataText:{
     fontSize: 13,
@@ -30,13 +31,16 @@ const ProviderSetCitaStyles = StyleSheet.create({
   },
   detailsContainer: {
     width: '55%',
-    gap: 10,
+    gap: 8,
+    justifyContent: 'center',
+    alignContent: 'center',
+    alignItems: 'center',
   },
   socialMedia: {
     width: '40%',
     flexDirection: 'row',
-    justifyContent: 'space-around',
-  }
+    justifyContent: 'space-between',
+  },
 });
 
 export default ProviderSetCitaStyles;
