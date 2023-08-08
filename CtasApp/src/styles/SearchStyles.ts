@@ -23,6 +23,25 @@ export const SearchStyles = StyleSheet.create({
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     paddingHorizontal: 25,
-    paddingTop: 25
+  },
+  inputContainer: {
+    flexDirection: 'row',
+    borderColor: Colors.aqua,
+    borderWidth: 1.5,
+    borderRadius: 25,
+    paddingHorizontal: 15,
+    paddingVertical: 3,
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginVertical: 25,
+  },
+  textInput: {
+    paddingHorizontal: 0,
+    fontSize: 16,
+    fontFamily: 'Inter-Regular',
+    flex: 1,
+  },
+  icon: {
+    color: Colors.black,
   }
 });
