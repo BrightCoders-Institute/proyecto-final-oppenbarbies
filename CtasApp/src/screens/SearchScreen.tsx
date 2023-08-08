@@ -16,7 +16,7 @@ const SearchScreen: React.FC<Props> = () => {
         <ProviderInfoCard
           name="Lic. Valeriano Perez"
           age={26}
-          description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, velit fuga hic modi quam."
+          description="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam aliquid consequatur sed vero cumque ad iste magni voluptatem non porro delectus maiores aspernatur error laudantium, culpa optio quae quis debitis."
           location="Colima"
           ocupation="Lawyer"
         />
