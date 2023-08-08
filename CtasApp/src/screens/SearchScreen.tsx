@@ -1,17 +1,17 @@
 import React, {useEffect} from 'react';
 import {SafeAreaView, Text, View} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
-import SplashScreenStyles from '../styles/SplashScreenStyles';
-import Logo from '../components/Logo';
+import { SearchStyles } from '../styles/SearchStyles';
 type Props = {};
 
 const SearchScreen: React.FC<Props> = () => {
   return (
-    <SafeAreaView>
-      <View>
-        <Text>What do you need?</Text>
+    <SafeAreaView style={SearchStyles.container}>
+      <View style={SearchStyles.headerContainer}>
+        <Text style={SearchStyles.title}>What do you need?</Text>
       </View>
-      <View></View>
+      <View style={SearchStyles.bodyContainer}>
+        <Text>test</Text>
+      </View>
     </SafeAreaView>
   );
 };
