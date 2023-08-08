@@ -10,6 +10,7 @@ const Colors: {[key: string]: string} = {
   lightPink: '#F9F1F1',
   lightBrown: '#F7F6F3',
   lightGray: '#F5F5F5',
+  babyBlueTransparent: '#ebf3f8',
 };
 
 export default Colors;
