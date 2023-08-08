@@ -9,7 +9,7 @@ const ProviderInfoCard: React.FC<ProviderInfoCardProps> = ({
   location,
   age,
   description,
-  ocupation,
+  occupation,
 }) => {
   const {formatDescription} = ProviderInfoCardHooks();
   const descriptionFormatted: string = formatDescription(description);
@@ -45,7 +45,7 @@ const ProviderInfoCard: React.FC<ProviderInfoCardProps> = ({
           <Text style={SearchCardStyles.infoDescription}>{descriptionFormatted}</Text>
         </View>
         <View style={SearchCardStyles.row}>
-          <Text style={SearchCardStyles.infoText}>{ocupation}</Text>
+          <Text style={SearchCardStyles.infoText}>{occupation}</Text>
         </View>
       </View>
     </View>
