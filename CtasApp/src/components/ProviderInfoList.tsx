@@ -20,6 +20,7 @@ const ProviderInfoList: React.FC<Props> = () => {
           age={item.age}
           description={item.description}
           occupation={item.occupation}
+          rate={item.rate}
         />
       )}
       ItemSeparatorComponent={cardProviderSeparator}
