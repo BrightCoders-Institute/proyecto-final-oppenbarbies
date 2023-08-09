@@ -11,7 +11,7 @@ export const SearchCardStyles = StyleSheet.create({
   },
   imgProfile: {
     width: 90,
-    height: 130,
+    height: 140,
     borderRadius: 10,
   },
   infoContainer:{
@@ -43,10 +43,17 @@ export const SearchCardStyles = StyleSheet.create({
     alignItems: 'center',
     gap: 2
   },
-  gap: {
-    gap: 20,
-  },
   spaceBetween: {
     justifyContent: 'space-between'
+  },
+  rate:{
+    backgroundColor: Colors.aqua,
+    paddingHorizontal: 10,
+    paddingVertical: 2,
+    borderRadius: 10,
+  },
+  rateNumber: {
+    fontFamily: 'Inter-Bold',
+    color: Colors.white,
   }
 });

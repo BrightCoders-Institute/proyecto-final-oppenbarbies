@@ -1,6 +1,6 @@
 export const ProviderInfoCardHooks = () => {
   function formatDescription(description: string): string {
-    const maxLength: number = 90;
+    const maxLength: number = 86;
     if (description.length <= maxLength) {
       return description;
     } else {
@@ -8,14 +8,17 @@ export const ProviderInfoCardHooks = () => {
       let truncatedDescription = '';
       let currentLength = 0;
       for (const word of words) {
-        if (currentLength + word.length + 1 <= maxLength) {
-          truncatedDescription += word + ' ';
-          currentLength += word.length + 1;
-        } else {
+        if (currentLength + word.length + (currentLength > 0 ? 1: 0) <= maxLength) {
+          if (currentLength > 0){
+          truncatedDescription += ' ';
+        }
+        truncatedDescription += word;
+        currentLength += word.length + (currentLength> 0 ? 1: 0);
+      }else {
           break;
         }
       }
-      return truncatedDescription.trim() + '...';
+      return truncatedDescription + '...';
     }
   }
 
