@@ -19,7 +19,7 @@ const HomeClientScreen: React.FC = () => {
           source={require('../assets/profilepick.png')}
         />
       </View>
-      <UserDetailsClient {...userDetails} />
+      <UserDetailsClient name="John Doe" email="email@email.com" birth='18 Jun, 1991' phone='XXX-XXX-XXXX' location='Villa de Alvarez'/>
       <Navbar />
     </SafeAreaView>
   );
