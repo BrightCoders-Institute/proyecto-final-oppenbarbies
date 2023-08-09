@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text, View, Image} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 import {SearchCardStyles} from '../styles/SearchCardStyles';
 import {ProviderInfoCardProps} from '../schema/ProviderInfoCardSchema';
 import {ProviderInfoCardHooks} from '../hooks/ProviderInfoCardHooks';
@@ -10,6 +11,7 @@ const ProviderInfoCard: React.FC<ProviderInfoCardProps> = ({
   age,
   description,
   occupation,
+  rate,
 }) => {
   const {formatDescription} = ProviderInfoCardHooks();
   const descriptionFormatted: string = formatDescription(description);
@@ -24,7 +26,7 @@ const ProviderInfoCard: React.FC<ProviderInfoCardProps> = ({
       <View style={SearchCardStyles.infoContainer}>
         <View style={SearchCardStyles.infoHeader}>
           <Text style={SearchCardStyles.name}>{name}</Text>
-          <View style={[SearchCardStyles.row, SearchCardStyles.gap]}>
+          <View style={[SearchCardStyles.row, SearchCardStyles.spaceBetween]}>
             <View style={SearchCardStyles.row}>
               <Ionicons
                 name="location-sharp"
@@ -42,10 +44,16 @@ const ProviderInfoCard: React.FC<ProviderInfoCardProps> = ({
               <Text style={SearchCardStyles.infoText}>Age: {age}</Text>
             </View>
           </View>
-          <Text style={SearchCardStyles.infoDescription}>{descriptionFormatted}</Text>
+          <Text style={SearchCardStyles.infoDescription}>
+            {descriptionFormatted}
+          </Text>
         </View>
-        <View style={SearchCardStyles.row}>
+        <View style={[SearchCardStyles.row, SearchCardStyles.spaceBetween]}>
           <Text style={SearchCardStyles.infoText}>{occupation}</Text>
+          <View style={[SearchCardStyles.row, SearchCardStyles.rate]}>
+            <Text style={SearchCardStyles.rateNumber}>{rate}</Text>
+            <AntDesign name="star" size={15} style={{color: '#FFD233'}} />
+          </View>
         </View>
       </View>
     </View>
