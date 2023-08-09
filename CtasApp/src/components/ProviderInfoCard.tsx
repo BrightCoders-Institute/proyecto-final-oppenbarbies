@@ -17,7 +17,7 @@ const ProviderInfoCard: React.FC<ProviderInfoCardProps> = ({
     <View style={SearchCardStyles.cardContainer}>
       <View>
         <Image
-          source={require('../img/lic.jpg')}
+          source={require('../img/lic.png')}
           style={SearchCardStyles.imgProfile}
         />
       </View>

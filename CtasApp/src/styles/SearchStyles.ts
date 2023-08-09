@@ -49,5 +49,6 @@ export const SearchStyles = StyleSheet.create({
   },
   listContainer: {
     flex: 1,
+    marginBottom: 120,
   }
 });
