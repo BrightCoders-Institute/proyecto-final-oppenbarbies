@@ -4,4 +4,5 @@ export interface ProviderInfoCardProps {
   age: number,
   description: string,
   occupation: string,
+  rate: number,
 }
