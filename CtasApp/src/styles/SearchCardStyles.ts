@@ -14,14 +14,14 @@ export const SearchCardStyles = StyleSheet.create({
     height: 140,
     borderRadius: 10,
   },
-  infoContainer:{
+  infoContainer: {
     flex: 1,
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
-  infoHeader:{
+  infoHeader: {
     gap: 2,
   },
-  icon:{
+  icon: {
     color: Colors.aqua,
   },
   name: {
@@ -29,7 +29,7 @@ export const SearchCardStyles = StyleSheet.create({
     color: Colors.black,
     fontSize: 17,
   },
-  infoText:{
+  infoText: {
     fontFamily: 'Inter-SemiBold',
     color: Colors.black,
     fontSize: 14,
@@ -41,12 +41,12 @@ export const SearchCardStyles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 2
+    gap: 2,
   },
   spaceBetween: {
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
-  rate:{
+  rate: {
     backgroundColor: Colors.aqua,
     paddingHorizontal: 10,
     paddingVertical: 2,
@@ -55,5 +55,5 @@ export const SearchCardStyles = StyleSheet.create({
   rateNumber: {
     fontFamily: 'Inter-Bold',
     color: Colors.white,
-  }
+  },
 });

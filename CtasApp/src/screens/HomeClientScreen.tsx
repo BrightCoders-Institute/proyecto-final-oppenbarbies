@@ -5,9 +5,7 @@ import Navbar from '../components/Navbar';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import UserDetailsClient from '../components/UserDetailsClient';
 
-type Props = {};
-
-const HomeClientScreen: React.FC<Props> = () => {
+const HomeClientScreen: React.FC = () => {
   return (
     <SafeAreaView style={HomeClientScreenStyles.body}>
       <View style={HomeClientScreenStyles.photoContainer}>
@@ -21,7 +19,7 @@ const HomeClientScreen: React.FC<Props> = () => {
           source={require('../assets/profilepick.png')}
         />
       </View>
-      <UserDetailsClient {...userDetails} />
+      <UserDetailsClient name="John Doe" email="email@email.com" birth='18 Jun, 1991' phone='XXX-XXX-XXXX' location='Villa de Alvarez'/>
       <Navbar />
     </SafeAreaView>
   );

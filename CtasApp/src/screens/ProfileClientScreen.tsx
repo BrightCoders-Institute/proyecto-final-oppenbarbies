@@ -4,9 +4,7 @@ import ProfileClientScreenStyles from '../styles/ProfileClientScreenStyles';
 import ProfileClientSimpleCard from '../components/ProfileClientSimpleCard';
 import ProfileClientForm from '../components/ProfileClientForm';
 
-type Props = {};
-
-const ProfileClientScreen: React.FC<Props> = () => {
+const ProfileClientScreen: React.FC = () => {
   return (
     <SafeAreaView style={ProfileClientScreenStyles.container}>
       <ProfileClientSimpleCard />

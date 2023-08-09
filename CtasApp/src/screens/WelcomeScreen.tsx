@@ -5,15 +5,14 @@ import WelcomeStyles from '../styles/WelcomeStyles';
 import Button from '../components/Button';
 import Logo from '../components/Logo';
 
-type Props = {};
+type Props = unknown;
 
 const WelcomeScreen: React.FC<Props> = ({navigation}) => {
-  
-  const goToSignIn= (userType: String)=>{
-    navigation.navigate('SignIn',{
-      userType: userType
+  const goToSignIn = (userType: string) => {
+    navigation.navigate('SignIn', {
+      userType: userType,
     });
-  }
+  };
 
   return (
     <SafeAreaView style={SplashScreenStyles.container}>
@@ -36,7 +35,7 @@ const WelcomeScreen: React.FC<Props> = ({navigation}) => {
             />
             <Button
               text="Client"
-              onPress={()=>goToSignIn('client')}
+              onPress={() => goToSignIn('client')}
               styleName={'welcome'}
               textStyleName={'welcome'}
             />

@@ -10,7 +10,7 @@ export const SearchStyles = StyleSheet.create({
     color: Colors.white,
     fontFamily: 'Inter-ExtraBold',
     fontSize: 25,
-    paddingBottom: 20
+    paddingBottom: 20,
   },
   headerContainer: {
     flex: 0.15,
@@ -50,5 +50,5 @@ export const SearchStyles = StyleSheet.create({
   listContainer: {
     flex: 1,
     marginBottom: 120,
-  }
+  },
 });

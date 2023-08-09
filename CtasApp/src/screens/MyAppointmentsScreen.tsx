@@ -1,9 +1,7 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 
-type Props = {};
-
-const MyAppointmentsScreen: React.FC<Props> = () => {
+const MyAppointmentsScreen: React.FC = () => {
   return (
     <View>
       <Text>MyAppointmentsScreen</Text>

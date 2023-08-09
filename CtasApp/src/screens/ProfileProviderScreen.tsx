@@ -1,9 +1,7 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 
-type Props = {};
-
-const ProfileProviderScreen: React.FC<Props> = () => {
+const ProfileProviderScreen: React.FC = () => {
   return (
     <View>
       <Text>ProfileProviderScreen</Text>
