@@ -13,6 +13,11 @@ const useProfileForm = () => {
       setModalVisible(true);
       setTimeout(() => {
         setModalVisible(false);
+
+        setValue('name', '');
+        setValue('phone', '');
+        setValue('birthDate', '');
+        setValue('location', '');
       }, 3000);
     } catch (error) {
       console.error('Error:', error);
