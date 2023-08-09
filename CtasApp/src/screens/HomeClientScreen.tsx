@@ -5,9 +5,7 @@ import Navbar from '../components/Navbar';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import UserDetailsClient from '../components/UserDetailsClient';
 
-type Props = {};
-
-const HomeClientScreen: React.FC<Props> = () => {
+const HomeClientScreen: React.FC = () => {
   return (
     <SafeAreaView style={HomeClientScreenStyles.body}>
       <View style={HomeClientScreenStyles.photoContainer}>

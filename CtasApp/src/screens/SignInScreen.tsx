@@ -1,19 +1,23 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import {NavigationProp, Route} from '../schema/NavigationSchema';
 import {SignInStyles as styles} from '../styles/SignInStyle';
 import ButtonSignIn from '../components/ButtonSignIn';
 
-type Props = {};
+type SignInProps = {
+  navigation: NavigationProp;
+  route: Route;
+};
 
-const SignInScreen: React.FC<Props> = ({navigation, route}) => {
+const SignInScreen: React.FC<SignInProps> = ({navigation, route}) => {
   const {userType} = route.params;
-  const goHomeProfile= ()=>{
-    if(userType == "client")
-      navigation.navigate("ProfileClient");
-    else
-      navigation.navigate("ProfileProvider");
-
+  const goHomeProfile = () => {
+    if (userType === 'client') {
+      navigation.navigate('ProfileClient');
+    } else {
+      navigation.navigate('ProfileProvider');
+    }
   };
   return (
     <SafeAreaView style={styles.container}>
@@ -22,10 +26,18 @@ const SignInScreen: React.FC<Props> = ({navigation, route}) => {
       </View>
       <View style={styles.btnContainer}>
         <View style={styles.btnGoogleContainer}>
-          <ButtonSignIn text={'Sign In with'} authProvider="google" navigationFuncion={goHomeProfile}/>
+          <ButtonSignIn
+            text={'Sign In with'}
+            authProvider="google"
+            navigationFunction={goHomeProfile}
+          />
         </View>
         <View style={styles.btnFacebookContainer}>
-          <ButtonSignIn text={'Sign In with'} authProvider="facebook" navigationFuncion={goHomeProfile}/>
+          <ButtonSignIn
+            text={'Sign In with'}
+            authProvider="facebook"
+            navigationFunction={goHomeProfile}
+          />
         </View>
       </View>
       <Text style={styles.txtNote}>

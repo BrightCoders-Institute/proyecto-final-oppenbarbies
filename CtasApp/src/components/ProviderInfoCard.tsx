@@ -4,7 +4,9 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {SearchCardStyles} from '../styles/SearchCardStyles';
 import {ProviderInfoCardProps} from '../schema/ProviderInfoCardSchema';
+import Colors from '../styles/colors/Colors';
 import {ProviderInfoCardHooks} from '../hooks/ProviderInfoCardHooks';
+
 const ProviderInfoCard: React.FC<ProviderInfoCardProps> = ({
   name,
   location,
@@ -52,7 +54,7 @@ const ProviderInfoCard: React.FC<ProviderInfoCardProps> = ({
           <Text style={SearchCardStyles.infoText}>{occupation}</Text>
           <View style={[SearchCardStyles.row, SearchCardStyles.rate]}>
             <Text style={SearchCardStyles.rateNumber}>{rate}</Text>
-            <AntDesign name="star" size={15} style={{color: '#FFD233'}} />
+            <AntDesign name="star" size={15} color={Colors.starColor} />
           </View>
         </View>
       </View>

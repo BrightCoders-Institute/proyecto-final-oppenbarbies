@@ -3,9 +3,8 @@ import {SafeAreaView, ImageBackground} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import SplashScreenStyles from '../styles/SplashScreenStyles';
 import Logo from '../components/Logo';
-type Props = {};
 
-const SplashScreen: React.FC<Props> = () => {
+const SplashScreen: React.FC = () => {
   const navigation = useNavigation<any>();
   useEffect(() => {
     setTimeout(() => {

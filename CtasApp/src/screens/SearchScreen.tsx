@@ -4,9 +4,8 @@ import {SearchStyles} from '../styles/SearchStyles';
 import SearchInput from '../components/SearchInput';
 import ProviderInfoList from '../components/ProviderInfoList';
 import Navbar from '../components/Navbar';
-type Props = {};
 
-const SearchScreen: React.FC<Props> = () => {
+const SearchScreen: React.FC = () => {
   return (
     <SafeAreaView style={SearchStyles.container}>
       <View style={SearchStyles.headerContainer}>
@@ -16,7 +15,7 @@ const SearchScreen: React.FC<Props> = () => {
         <SearchInput />
         <ProviderInfoList />
       </View>
-        <Navbar />
+      <Navbar />
     </SafeAreaView>
   );
 };

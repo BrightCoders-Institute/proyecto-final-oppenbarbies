@@ -20,7 +20,7 @@ const Button: React.FC<ButtonPropsWithTextStyle> = ({
       ? WelcomeStyles.buttonText
       : ProfileClientFormStyles.buttonText;
 
-  return ( 
+  return (
     <TouchableOpacity style={selectedStyle} onPress={onPress}>
       <Text style={selectedTextStyle}>{text}</Text>
     </TouchableOpacity>

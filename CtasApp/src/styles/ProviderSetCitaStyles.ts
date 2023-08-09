@@ -20,11 +20,11 @@ const ProviderSetCitaStyles = StyleSheet.create({
     flexDirection: 'row',
     gap: 20,
   },
-  providerDataText:{
+  providerDataText: {
     fontSize: 13,
     color: Colors.white,
   },
-  servicesText:{
+  servicesText: {
     fontSize: 16,
     textAlign: 'center',
     color: Colors.white,
