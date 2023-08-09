@@ -1,6 +1,7 @@
 export type btnSignInProps = {
-  text: String;
+  text: string;
   authProvider: 'google' | 'facebook';
+  navigationFunction: () => void;
 };
 
 export type size = {

@@ -11,6 +11,9 @@ const Colors: {[key: string]: string} = {
   lightBrown: '#F7F6F3',
   lightGray: '#F5F5F5',
   babyBlueTransparent: '#ebf3f8',
+  darkAqua: '#3b7d74',
+  semiTransparentBabyBlue: 'rgba(153, 195, 220, 0.67)',
+  semiTransparentBlack: 'rgba(0, 0, 0, 0.5)',
 };
 
 export default Colors;
