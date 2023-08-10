@@ -21,9 +21,7 @@ const InputField: React.FC<InputFieldProps> = ({
         secureTextEntry={secureTextEntry}
         editable={editable}
       />
-      {errorMessage && (
-        <Text style={styles.errorText}>{errorMessage}</Text>
-      )}
+      {errorMessage && <Text style={styles.errorText}>{errorMessage}</Text>}
     </View>
   );
 };

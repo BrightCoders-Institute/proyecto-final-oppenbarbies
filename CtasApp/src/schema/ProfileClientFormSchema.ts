@@ -1,6 +1,6 @@
 export interface InputFieldProps {
   label: string;
-  value?: string; 
+  value?: string;
   onChangeText: (text: string) => void;
   placeholder: string;
   secureTextEntry?: boolean;
@@ -15,5 +15,5 @@ export type FormData = {
   location?: string;
   address?: string[];
   occupation?: string;
-  servicesDescription?: string; 
+  servicesDescription?: string;
 };

@@ -1,7 +1,6 @@
 import {useForm} from 'react-hook-form';
 import {useState} from 'react';
 import {FormData} from '../schema/ProfileClientFormSchema';
-import { set } from 'date-fns';
 
 const useProfileForm = () => {
   const {control, handleSubmit, formState, setValue} = useForm<FormData>();
@@ -25,8 +24,6 @@ const useProfileForm = () => {
       console.error('Error:', error);
     }
   };
-  
-  
 
   return {
     control,

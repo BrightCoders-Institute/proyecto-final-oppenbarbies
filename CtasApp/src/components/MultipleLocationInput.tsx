@@ -96,7 +96,7 @@ const MultipleLocationInput: React.FC<MultipleLocationInputProps> = ({
                   <Plus name="trash" size={20} />
                 </TouchableOpacity>
               </View>
-              <View style={secondaryStyles.line}></View>
+              <View style={secondaryStyles.line} />
             </View>
           ))}
           <TouchableOpacity

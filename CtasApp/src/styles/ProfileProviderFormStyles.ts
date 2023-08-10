@@ -104,7 +104,7 @@ const ProfileProviderFormStyles = StyleSheet.create({
     height: 80,
     borderRadius: 10,
     fontFamily: 'Inter-Medium',
-    paddingLeft:10,
+    paddingLeft: 10,
   },
   modalText: {
     marginTop: 6,

@@ -10,7 +10,7 @@ import useProfileForm from '../hooks/useCustomForm';
 
 const ProfileProviderForm: React.FC = () => {
   const {control, handleSubmit, errors, onSubmit, isModalVisible, setValue} =
-  useProfileForm();
+    useProfileForm();
   const [servicesDescription, setServicesDescription] = useState('');
   const [isLocationModalVisible, setLocationModalVisible] =
     useState<boolean>(false);
@@ -126,7 +126,7 @@ const ProfileProviderForm: React.FC = () => {
         </Text>
       </View>
       <View style={ProfileProviderFormStyles.buttonContainer}>
-      <Button text="Save" onPress={handleSubmit(onSubmit)} />
+        <Button text="Save" onPress={handleSubmit(onSubmit)} />
       </View>
       <MessageModal
         isVisible={isModalVisible}
