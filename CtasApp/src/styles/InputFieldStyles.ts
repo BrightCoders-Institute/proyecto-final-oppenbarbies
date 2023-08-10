@@ -48,6 +48,7 @@ const InputFieldStyles = StyleSheet.create({
     fontFamily: 'Inter-ExtraBold',
     color: Colors.blockText,
     textAlign: 'left',
+    paddingRight: 20,
   },
   addressContainer: {
     width: 320,
@@ -55,7 +56,6 @@ const InputFieldStyles = StyleSheet.create({
     borderBottomRightRadius: 10,
     borderBottomLeftRadius: 10,
     padding: 10,
-    maxHeight: 170,
   },
   addAddressButton: {
     flexDirection: 'row',
@@ -72,8 +72,7 @@ const InputFieldStyles = StyleSheet.create({
     right: 10,
   },
   addAddressIcon: {
-    marginLeft:10,
-    
+    marginLeft: 10,
   },
   AddText: {
     fontFamily: 'Inter-ExtraBold',
@@ -87,6 +86,15 @@ const InputFieldStyles = StyleSheet.create({
     backgroundColor: Colors.blockText,
     borderRadius: 10,
     opacity: 0.4,
+  },
+  selectedItemContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 10, 
+  },
+  trashContainer: {
+    marginRight: 12,
   },
 });
 export default InputFieldStyles;

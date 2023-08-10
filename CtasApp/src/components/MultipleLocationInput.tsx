@@ -4,7 +4,8 @@ import {View, TextInput, FlatList, TouchableOpacity, Text} from 'react-native';
 import InputFieldStyles from '../styles/InputFieldStyles';
 import Icon from 'react-native-vector-icons/AntDesign';
 import Plus from 'react-native-vector-icons/FontAwesome6';
-
+import MessageModal from './MessageModal';
+import { truncateString } from '../helpers/TruncateStringHelper';
 interface MultipleLocationInputProps {
   onSelected?: (items: string[]) => void;
   errorMessage?: string;
@@ -19,6 +20,8 @@ const MultipleLocationInput: React.FC<MultipleLocationInputProps> = ({
   const [showResults, setShowResults] = useState<boolean>(false);
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
   const [showAddresses, setShowAddresses] = useState<boolean>(false);
+  const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
+  const [isInputDisabled, setIsInputDisabled] = useState<boolean>(false);
 
   useEffect(() => {
     if (query.trim() === '') {
@@ -48,19 +51,35 @@ const MultipleLocationInput: React.FC<MultipleLocationInputProps> = ({
   const handleSelectItem = (item: string) => {
     setSelectedItems([...selectedItems, item]);
     setResults([]);
-    setShowResults(false);
+    setShowResults(false); 
+    setQuery('Añade + direcciones desplegando el menú "v"');
+    setIsInputDisabled(true);
     onSelected?.([...selectedItems, item]);
+    setIsModalVisible(true);
+    setTimeout(() => {
+      setIsModalVisible(false);
+    }, 1500);
   };
+  
 
   const handleAddNewAddress = () => {
     setQuery('');
+    setIsInputDisabled(false);
     setShowAddresses(false);
+  };
+
+  const handleDeleteAddress = (index: number) => {
+    const newSelectedItems = [...selectedItems];
+    newSelectedItems.splice(index, 1);
+    setSelectedItems(newSelectedItems);
+    onSelected?.(newSelectedItems);
   };
 
   return (
     <View style={InputFieldStyles.container}>
       <View style={InputFieldStyles.inputContainer}>
         <TextInput
+          editable={!isInputDisabled}
           style={InputFieldStyles.input}
           value={query}
           onChangeText={text => {
@@ -93,7 +112,14 @@ const MultipleLocationInput: React.FC<MultipleLocationInputProps> = ({
         <View style={InputFieldStyles.addressContainer}>
           {selectedItems.map((item, index) => (
             <View key={index}>
-              <Text style={InputFieldStyles.selectedItemText}>{item}</Text>
+              <View style={InputFieldStyles.selectedItemContainer}>
+                <Text style={InputFieldStyles.selectedItemText}>{truncateString(item, 22)}</Text>
+                <TouchableOpacity
+                  onPress={() => handleDeleteAddress(index)}
+                  style={InputFieldStyles.trashContainer}>
+                  <Plus name="trash" size={20} />
+                </TouchableOpacity>
+              </View>
               <View style={InputFieldStyles.line}></View>
             </View>
           ))}
@@ -109,9 +135,16 @@ const MultipleLocationInput: React.FC<MultipleLocationInputProps> = ({
           </TouchableOpacity>
         </View>
       )}
+
       {errorMessage && (
         <Text style={InputFieldStyles.errorText}>{errorMessage}</Text>
       )}
+      <MessageModal
+        animationKey="loading"
+        isVisible={isModalVisible}
+        title="Añadir dirección"
+        message="Espere un momento por favor..."
+      />
     </View>
   );
 };
