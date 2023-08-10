@@ -17,7 +17,7 @@ const Colors: {[key: string]: string} = {
   starColor: '#FFD700',
   bloodOrange: '#FF4500',
   block: '#DDDDDD',
-  lowLightGray: '#F5F5F580',
+  lowLightGray: '#F5F5F563',
   blockText: '#94989A',
 };
 

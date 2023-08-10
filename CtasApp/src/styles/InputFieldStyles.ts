@@ -44,27 +44,23 @@ const InputFieldStyles = StyleSheet.create({
     color: Colors.white,
   },
   selectedItemText: {
-    marginLeft: 10,
     fontSize: 18,
     fontFamily: 'Inter-ExtraBold',
     color: Colors.blockText,
-    paddingVertical: 2,
+    textAlign: 'left',
   },
   addressContainer: {
-    width: 334,
+    width: 320,
     backgroundColor: Colors.block,
-    borderWidth: 1,
-    borderColor: 'Colors.lowLightGray',
-    borderRadius: 5,
+    borderBottomRightRadius: 10,
+    borderBottomLeftRadius: 10,
     padding: 10,
-    maxHeight: 150,
+    maxHeight: 170,
   },
   addAddressButton: {
     flexDirection: 'row',
     alignItems: 'center',
     padding: 10,
-    borderTopWidth: 1,
-    borderColor: 'gray',
     fontFamily: 'Inter-ExtraBold',
   },
   inputContainer: {
@@ -77,16 +73,20 @@ const InputFieldStyles = StyleSheet.create({
   },
   addAddressIcon: {
     marginLeft:10,
+    
   },
   AddText: {
     fontFamily: 'Inter-ExtraBold',
-    fontSize: 16,
-    color: 'gray',
+    fontSize: 18,
+    color: Colors.blockText,
+    textAlign: 'center',
   },
   line: {
-    width: 334,
-    height: 1,
-    backgroundColor: 'gray',
+    width: 290,
+    height: 2,
+    backgroundColor: Colors.blockText,
+    borderRadius: 10,
+    opacity: 0.4,
   },
 });
 export default InputFieldStyles;
