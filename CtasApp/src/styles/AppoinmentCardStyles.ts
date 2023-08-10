@@ -17,14 +17,19 @@ export const AppoinmentCardStyles = StyleSheet.create({
   headerContainer: {
     flexDirection: 'row'
   },
+  dateContainer: {
+    flexDirection: 'row'
+  },
   txtDate: {
     fontFamily: 'Inter-ExtraBold',
     fontSize: 15,
     marginLeft: 10
   },
   txtDateTime: {
-    marginLeft: 25,
     fontSize: 14
+  },
+  clockIcon: {
+    marginLeft: 26
   },
   divider:{
     height:0,
@@ -41,19 +46,38 @@ export const AppoinmentCardStyles = StyleSheet.create({
     marginTop: 8,
   },
   imgPerson:{
-    width: 70,
-    height: 70,
+    width: 60,
+    height: 60,
     borderRadius: 100,
+    marginTop: 6
   },
   personInfo: {
     flexDirection: 'column',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    paddingLeft: 5
+  },
+  txtName: {
+    fontSize: 12,
+    fontFamily: 'Inter-Bold'
+  },
+  txtDescription: {
+    fontSize: 11
   },
   locationContainer: {
     flexDirection: 'column',
     marginLeft: 25,
     width: 115,
-    borderWidth: 1,
-    alignItems: 'center'
-  }
+    alignItems: 'center',
+  },
+  locationIcon:{
+    marginTop: 20
+  },
+  deleteIcon:{
+    marginLeft: 250,
+  },
+  txtLocation: {
+    textAlign: 'center',
+    fontSize: 10
+  },
+  
 });

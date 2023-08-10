@@ -1,7 +1,9 @@
-import {View, Text, Image} from 'react-native';
+import { View, Text, Image } from 'react-native';
 import React from 'react';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import {AppoinmentCardStyles as styles} from '../styles/AppoinmentCardStyles';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { AppoinmentCardStyles as styles } from '../styles/AppoinmentCardStyles';
+import Icon from 'react-native-vector-icons/FontAwesome'
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 // CUANDO TERMINE GIT RESTORE STACK NAVIGATION.TSX
 export default function AppoinmentCard(): JSX.Element {
@@ -9,9 +11,12 @@ export default function AppoinmentCard(): JSX.Element {
     <SafeAreaView style={styles.cardContainer}>
       <View style={styles.headerContainer}>
         <Text style={styles.txtDate}>Date</Text>
-        <Text>Delete Icon</Text>
+        <Icon name='trash' size={25} style={styles.deleteIcon} color={'red'} />
       </View>
-      <Text style={styles.txtDateTime}>Tue Ago 08,2023 | 18:30 </Text>
+      <View style={styles.dateContainer}>
+        <Icon name='clock-o' size={18} style={styles.clockIcon} />
+        <Text style={styles.txtDateTime}>   Tue Ago 08,2023 | 18:30 </Text>
+      </View>
       <Text style={styles.divider}></Text>
 
       <View style={styles.footContainer}>
@@ -23,13 +28,13 @@ export default function AppoinmentCard(): JSX.Element {
             style={styles.imgPerson}
           />
           <View style={styles.personInfo}>
-            <Text>Valeriana Gonzales</Text>
-            <Text>Licenciada</Text>
+            <Text style={styles.txtName}>Valeriana Gonzales</Text>
+            <Text style={styles.txtDescription}>Licenciada</Text>
           </View>
         </View>
         <View style={styles.locationContainer}>
-          <Text>location info</Text>
-          <Text>location info</Text>
+          <Icon name='map-pin' size={20} style={styles.locationIcon} />
+          <Text style={styles.txtLocation}>Calle apocalipsis #123 Col. Zombies</Text>
         </View>
       </View>
     </SafeAreaView>

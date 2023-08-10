@@ -10,6 +10,7 @@ const Colors: {[key: string]: string} = {
   lightPink: '#F9F1F1',
   lightBrown: '#F7F6F3',
   lightGray: '#F5F5F5',
+  redDelete: "#AC2020",
 };
 
 export default Colors;
