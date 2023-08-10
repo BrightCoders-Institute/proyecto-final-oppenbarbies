@@ -19,6 +19,7 @@ const Colors: {[key: string]: string} = {
   block: '#DDDDDD',
   lowLightGray: '#F5F5F563',
   blockText: '#94989A',
+  lowWhite: '#FFFFFF80',
 };
 
 export default Colors;

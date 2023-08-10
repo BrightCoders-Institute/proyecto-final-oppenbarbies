@@ -2,14 +2,17 @@ import React from 'react';
 import {SafeAreaView} from 'react-native';
 import ProfileClientScreenStyles from '../styles/ProfileClientScreenStyles';
 import ProfileClientSimpleCard from '../components/ProfileClientSimpleCard';
-import MultipleLocationInput from '../components/MultipleLocationInput';
-
+import ProfileProviderForm from '../components/ProfileProviderForm';
 
 const ProfileProviderScreen: React.FC = () => {
   return (
     <SafeAreaView style={ProfileClientScreenStyles.container}>
-      <ProfileClientSimpleCard />
-      <MultipleLocationInput />
+      <ProfileClientSimpleCard
+        userType="Provider"
+        userName="Jessica Amouranth"
+        userEmail="jessica@example.com"
+      />
+      <ProfileProviderForm />
     </SafeAreaView>
   );
 };

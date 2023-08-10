@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
-import {View, Text, TextInput} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {View, Text, TextInput, Modal, Pressable} from 'react-native';
 import {Controller} from 'react-hook-form';
-import ProfileClientFormStyles from '../styles/ProfileClientFormStyles';
+import ProfileProviderFormStyles from '../styles/ProfileProviderFormStyles';
 import Button from './Button';
 import MessageModal from './MessageModal';
 import MultipleLocationInput from './MultipleLocationInput';
@@ -10,19 +10,33 @@ import useProfileForm from '../hooks/useCustomForm';
 
 const ProfileProviderForm: React.FC = () => {
   const {control, handleSubmit, errors, onSubmit, isModalVisible, setValue} =
-    useProfileForm();
+  useProfileForm();
   const [servicesDescription, setServicesDescription] = useState('');
+  const [isLocationModalVisible, setLocationModalVisible] =
+    useState<boolean>(false);
+
+  const handleServicesDescriptionChange = text => {
+    if (text.length <= 45) {
+      setServicesDescription(text);
+    }
+  };
+  useEffect(() => {
+    if (!isModalVisible) {
+      setServicesDescription('');
+    }
+  }, [isModalVisible]);
 
   return (
-    <View style={ProfileClientFormStyles.container}>
-      <Text style={ProfileClientFormStyles.titleText}>
+    <View style={ProfileProviderFormStyles.container}>
+      <Text style={ProfileProviderFormStyles.titleText}>
         Complete your profile
       </Text>
-      <Text style={ProfileClientFormStyles.text}> Name: </Text>
+      <Text style={ProfileProviderFormStyles.text}> Name: </Text>
       <Controller
         control={control}
         render={({field: {onChange, value}}) => (
           <InputField
+            styleVariant="secondary"
             label="Name"
             placeholder="Enter your name"
             value={value}
@@ -40,11 +54,12 @@ const ProfileProviderForm: React.FC = () => {
         }}
         defaultValue=""
       />
-      <Text style={ProfileClientFormStyles.text}> Phone: </Text>
+      <Text style={ProfileProviderFormStyles.text}> Phone: </Text>
       <Controller
         control={control}
         render={({field: {onChange, value}}) => (
           <InputField
+            styleVariant="secondary"
             label="Phone"
             placeholder="Enter your phone number"
             value={value}
@@ -62,18 +77,20 @@ const ProfileProviderForm: React.FC = () => {
         }}
         defaultValue=""
       />
-      <Text style={ProfileClientFormStyles.text}> Addresses: </Text>
-      <MultipleLocationInput
-        onSelected={item => {
-          setValue('address', item);
-        }}
-        errorMessage={errors.address?.message}
-      />
-      <Text style={ProfileClientFormStyles.text}> Occupation: </Text>
+      <Text style={ProfileProviderFormStyles.text}> Addresses: </Text>
+      <Pressable
+        onPress={() => setLocationModalVisible(true)}
+        style={ProfileProviderFormStyles.textInputPress}>
+        <Text style={ProfileProviderFormStyles.modalText}>
+          Open Location Modal
+        </Text>
+      </Pressable>
+      <Text style={ProfileProviderFormStyles.text}> Occupation: </Text>
       <Controller
         control={control}
         render={({field: {onChange, value}}) => (
           <InputField
+            styleVariant="secondary"
             label="Occupation"
             placeholder="Enter your occupation"
             value={value}
@@ -86,32 +103,55 @@ const ProfileProviderForm: React.FC = () => {
         defaultValue=""
       />
 
-      <View>
-        <TextInput
-          style={ProfileClientFormStyles.input}
-          value={servicesDescription}
-          onChangeText={text => {
-            if (text.length <= 45) {
-              setServicesDescription(text);
-            }
-          }}
-          placeholder="Describe your services, ej. monitoring and advice"
+      <View style={ProfileProviderFormStyles.descriptionContainer}>
+        <Controller
+          control={control}
+          render={({field: {onChange, value}}) => (
+            <TextInput
+              style={ProfileProviderFormStyles.inputDescription}
+              value={value}
+              onChangeText={text => {
+                onChange(text);
+                handleServicesDescriptionChange(text);
+              }}
+              placeholder="Describe your services, ej. monitoring and advice"
+            />
+          )}
+          name="servicesDescription"
+          rules={{required: 'Services Description is required!'}}
+          defaultValue=""
         />
-        <Text style={ProfileClientFormStyles.textCounter}>
+        <Text style={ProfileProviderFormStyles.textCounter}>
           {servicesDescription.length} of 45 characters
         </Text>
       </View>
-
-      <View style={ProfileClientFormStyles.buttonContainer}>
-        <Button text="Save" onPress={handleSubmit(onSubmit)} />
+      <View style={ProfileProviderFormStyles.buttonContainer}>
+      <Button text="Save" onPress={handleSubmit(onSubmit)} />
       </View>
-
       <MessageModal
         isVisible={isModalVisible}
         animationKey="loading"
         title="Saving..."
         message="Please wait while we save your profile data."
       />
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={isLocationModalVisible}>
+        <View style={ProfileProviderFormStyles.modalContainer}>
+          <MultipleLocationInput
+            onSelected={item => {
+              setValue('address', item);
+            }}
+            errorMessage={errors.address?.message}
+          />
+          <Button
+            text="Close"
+            onPress={() => setLocationModalVisible(false)}
+            styleName="default"
+          />
+        </View>
+      </Modal>
     </View>
   );
 };

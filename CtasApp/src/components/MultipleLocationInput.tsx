@@ -9,6 +9,8 @@ import {truncateString} from '../helpers/TruncateStringHelper';
 import {MultipleLocationInputProps} from '../schema/MultipleLocationInputProps';
 import useSearch from '../hooks/useSearch';
 
+const secondaryStyles = InputFieldStyles.secondary;
+
 const MultipleLocationInput: React.FC<MultipleLocationInputProps> = ({
   onSelected,
   errorMessage,
@@ -48,11 +50,11 @@ const MultipleLocationInput: React.FC<MultipleLocationInputProps> = ({
   };
 
   return (
-    <View style={InputFieldStyles.container}>
-      <View style={InputFieldStyles.inputContainer}>
+    <View style={secondaryStyles.container}>
+      <View style={secondaryStyles.inputContainer}>
         <TextInput
           editable={!isInputDisabled}
-          style={InputFieldStyles.input}
+          style={secondaryStyles.input}
           value={query}
           onChangeText={text => {
             setQuery(text);
@@ -60,7 +62,7 @@ const MultipleLocationInput: React.FC<MultipleLocationInputProps> = ({
         />
         <TouchableOpacity
           onPress={() => setShowAddresses(!showAddresses)}
-          style={InputFieldStyles.iconAddDown}>
+          style={secondaryStyles.iconAddDown}>
           <Icon name="down" size={20} />
         </TouchableOpacity>
       </View>
@@ -68,50 +70,50 @@ const MultipleLocationInput: React.FC<MultipleLocationInputProps> = ({
         <FlatList
           keyboardDismissMode="on-drag"
           keyboardShouldPersistTaps="handled"
-          style={InputFieldStyles.list}
+          style={secondaryStyles.list}
           data={results}
           keyExtractor={(_, index) => index.toString()}
           renderItem={({item}) => (
             <TouchableOpacity
-              style={InputFieldStyles.itemContainer}
+              style={secondaryStyles.itemContainer}
               onPress={() => handleSelectItem(item)}>
-              <Text style={InputFieldStyles.itemText}>{item}</Text>
+              <Text style={secondaryStyles.itemText}>{item}</Text>
             </TouchableOpacity>
           )}
         />
       )}
       {showAddresses && (
-        <View style={InputFieldStyles.addressContainer}>
+        <View style={secondaryStyles.addressContainer}>
           {selectedItems.map((item, index) => (
             <View key={index}>
-              <View style={InputFieldStyles.selectedItemContainer}>
-                <Text style={InputFieldStyles.selectedItemText}>
+              <View style={secondaryStyles.selectedItemContainer}>
+                <Text style={secondaryStyles.selectedItemText}>
                   {truncateString(item, 22)}
                 </Text>
                 <TouchableOpacity
                   onPress={() => handleDeleteAddress(index)}
-                  style={InputFieldStyles.trashContainer}>
+                  style={secondaryStyles.trashContainer}>
                   <Plus name="trash" size={20} />
                 </TouchableOpacity>
               </View>
-              <View style={InputFieldStyles.line}></View>
+              <View style={secondaryStyles.line}></View>
             </View>
           ))}
           <TouchableOpacity
             onPress={handleAddNewAddress}
-            style={InputFieldStyles.addAddressButton}>
-            <Text style={InputFieldStyles.AddText}>Add New Address</Text>
+            style={secondaryStyles.addAddressButton}>
+            <Text style={secondaryStyles.AddText}>Add New Address</Text>
             <Plus
               name="plus"
               size={20}
-              style={InputFieldStyles.addAddressIcon}
+              style={secondaryStyles.addAddressIcon}
             />
           </TouchableOpacity>
         </View>
       )}
 
       {errorMessage && (
-        <Text style={InputFieldStyles.errorText}>{errorMessage}</Text>
+        <Text style={secondaryStyles.errorText}>{errorMessage}</Text>
       )}
       <MessageModal
         animationKey="loading"

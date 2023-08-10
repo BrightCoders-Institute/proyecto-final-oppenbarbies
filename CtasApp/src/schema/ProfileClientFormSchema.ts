@@ -6,6 +6,7 @@ export interface InputFieldProps {
   secureTextEntry?: boolean;
   errorMessage?: string;
   editable?: boolean;
+  styleVariant?: 'default' | 'secondary';
 }
 export type FormData = {
   name?: string;
@@ -14,5 +15,5 @@ export type FormData = {
   location?: string;
   address?: string[];
   occupation?: string;
-  description?: string; 
+  servicesDescription?: string; 
 };

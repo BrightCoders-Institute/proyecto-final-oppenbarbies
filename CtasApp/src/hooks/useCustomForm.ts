@@ -1,6 +1,7 @@
 import {useForm} from 'react-hook-form';
 import {useState} from 'react';
 import {FormData} from '../schema/ProfileClientFormSchema';
+import { set } from 'date-fns';
 
 const useProfileForm = () => {
   const {control, handleSubmit, formState, setValue} = useForm<FormData>();
@@ -13,16 +14,19 @@ const useProfileForm = () => {
       setModalVisible(true);
       setTimeout(() => {
         setModalVisible(false);
-
-        setValue('name', '');
-        setValue('phone', '');
-        setValue('birthDate', '');
-        setValue('location', '');
       }, 3000);
+      setValue('name', '');
+      setValue('phone', '');
+      setValue('birthDate', '');
+      setValue('location', '');
+      setValue('occupation', '');
+      setValue('servicesDescription', '');
     } catch (error) {
       console.error('Error:', error);
     }
   };
+  
+  
 
   return {
     control,
