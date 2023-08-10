@@ -7,7 +7,7 @@ import ProfileClientScreen from '../screens/ProfileClientScreen';
 import ProfileProviderScreen from '../screens/ProfileProviderScreen';
 import MyAppointmentsScreen from '../screens/MyAppointmentsScreen';
 import HomeClientScreen from '../screens/HomeClientScreen';
-import HomeProviderScreen from '../screens/HomeProviderScreen';
+import SetCitaScreen from '../screens/SetCitaScreen';
 import SearchScreen from '../screens/SearchScreen';
 
 const Stack = createNativeStackNavigator();
@@ -50,8 +50,8 @@ const StackNavigation: React.FC = () => {
         options={{headerShown: false}}
       />
       <Stack.Screen
-        name="HomeProvider"
-        component={HomeProviderScreen}
+        name="SetCita"
+        component={SetCitaScreen}
         options={{headerShown: false}}
       />
       <Stack.Screen
