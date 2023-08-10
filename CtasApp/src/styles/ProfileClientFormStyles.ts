@@ -75,6 +75,19 @@ const ProfileClientFormStyles = StyleSheet.create({
     width: '94%',
     borderRadius: 10,
   },
+  input: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    paddingLeft: 10,
+    paddingRight: 10,
+    marginBottom: 10,
+  },
+  textCounter: {
+    fontSize: 12,
+    color: 'gray',
+    textAlign: 'right',
+  },
 });
 
 export default ProfileClientFormStyles;
