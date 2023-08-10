@@ -15,6 +15,10 @@ const Colors: {[key: string]: string} = {
   semiTransparentBabyBlue: 'rgba(153, 195, 220, 0.67)',
   semiTransparentBlack: 'rgba(0, 0, 0, 0.5)',
   starColor: '#FFD700',
+  bloodOrange: '#FF4500',
+  block: '#DDDDDD',
+  lowLightGray: '#F5F5F580',
+  blockText: '#94989A',
 };
 
 export default Colors;
