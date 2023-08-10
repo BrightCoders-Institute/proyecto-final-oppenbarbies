@@ -8,6 +8,7 @@ import ProfileProviderScreen from '../screens/ProfileProviderScreen';
 import MyAppointmentsScreen from '../screens/MyAppointmentsScreen';
 import HomeClientScreen from '../screens/HomeClientScreen';
 import HomeProviderScreen from '../screens/HomeProviderScreen';
+import MyAppoinmentView from '../screens/MyAppoinmentView';
 
 const Stack = createNativeStackNavigator();
 const StackNavigation: React.FC = () => {
@@ -51,6 +52,11 @@ const StackNavigation: React.FC = () => {
       <Stack.Screen
         name="HomeProvider"
         component={HomeProviderScreen}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="MyAppoinments"
+        component={MyAppoinmentView}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

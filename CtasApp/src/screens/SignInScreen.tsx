@@ -10,7 +10,8 @@ const SignInScreen: React.FC<Props> = ({navigation, route}) => {
   const {userType} = route.params;
   const goHomeProfile= ()=>{
     if(userType == "client")
-      navigation.navigate("ProfileClient");
+      //navigation.navigate("ProfileClient");
+      navigation.navigate("MyAppoinments");
     else
       navigation.navigate("ProfileProvider");
 
