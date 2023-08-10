@@ -9,19 +9,19 @@ const InputField: React.FC<InputFieldProps> = ({
   secureTextEntry,
   errorMessage,
   editable,
+  styleVariant = 'default',
 }) => {
+  const styles = InputFieldStyles[styleVariant];
   return (
-    <View style={InputFieldStyles.container}>
+    <View style={styles.container}>
       <TextInput
-        style={InputFieldStyles.input}
+        style={styles.input}
         value={value}
         onChangeText={onChangeText}
         secureTextEntry={secureTextEntry}
         editable={editable}
       />
-      {errorMessage && (
-        <Text style={InputFieldStyles.errorText}>{errorMessage}</Text>
-      )}
+      {errorMessage && <Text style={styles.errorText}>{errorMessage}</Text>}
     </View>
   );
 };

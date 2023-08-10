@@ -28,7 +28,6 @@ const ProfileClientForm: React.FC = () => {
   const handleSetBirthdate = (date: string) => {
     setValue('birthDate', date);
   };
-
   return (
     <View style={ProfileClientFormStyles.container}>
       <Text style={ProfileClientFormStyles.titleText}>
@@ -147,7 +146,7 @@ const ProfileClientForm: React.FC = () => {
                 setLocationModalVisible(false);
                 setValue('location', item);
               }}
-              errorMessage={errors.location?.message} // Passing the error message here
+              errorMessage={errors.location?.message}
             />
             <Button
               text="Close"
