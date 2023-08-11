@@ -3,7 +3,7 @@ import {View, Text} from 'react-native';
 
 const MyAppointmentsScreen: React.FC = () => {
   return (
-    <View>
+    <View style={{flex: 1}}>
       <Text>MyAppointmentsScreen</Text>
     </View>
   );
