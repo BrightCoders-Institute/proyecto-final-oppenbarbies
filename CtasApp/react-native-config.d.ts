@@ -8,6 +8,6 @@ declare module 'react-native-config' {
     APP_ID: string;
   }
 
-  export const Config: NativeConfig
-  export default Config
+  export const Config: NativeConfig;
+  export default Config;
 }

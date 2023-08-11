@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, SafeAreaView} from 'react-native';
 import HomeClientScreenStyles from '../styles/HomeClientScreenStyles';
 import {UserDetailsProviderProps} from '../schema/UserDetailsProviderSchema';
-import Ratting from './Ratting';
+import Rating from './Rating';
 
 const UserDetailsProvider: React.FC<UserDetailsProviderProps> = ({
   name,
@@ -17,7 +17,7 @@ const UserDetailsProvider: React.FC<UserDetailsProviderProps> = ({
   return (
     <SafeAreaView>
       <View style={HomeClientScreenStyles.detailsContainer}>
-        <Ratting stars={ratting} />
+        <Rating stars={ratting} />
         <View style={HomeClientScreenStyles.nameContainer}>
           <Text style={HomeClientScreenStyles.name}>Hello!</Text>
           <Text style={HomeClientScreenStyles.name}>{name}</Text>

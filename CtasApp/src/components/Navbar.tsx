@@ -3,9 +3,7 @@ import {View, SafeAreaView} from 'react-native';
 import NavbarStyles from '../styles/NavbarStyles';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
-type Props = {};
-
-const Navbar: React.FC<Props> = () => {
+const Navbar: React.FC = () => {
   return (
     <SafeAreaView style={NavbarStyles.container}>
       <View style={NavbarStyles.navbar}>

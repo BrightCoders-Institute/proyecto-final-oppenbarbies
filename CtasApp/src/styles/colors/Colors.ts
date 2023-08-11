@@ -11,6 +11,16 @@ const Colors: {[key: string]: string} = {
   lightBrown: '#F7F6F3',
   lightGray: '#F5F5F5',
   redDelete: "#AC2020",
+  babyBlueTransparent: '#ebf3f8',
+  darkAqua: '#3b7d74',
+  semiTransparentBabyBlue: 'rgba(153, 195, 220, 0.67)',
+  semiTransparentBlack: 'rgba(0, 0, 0, 0.5)',
+  starColor: '#FFD700',
+  bloodOrange: '#FF4500',
+  block: '#DDDDDD',
+  lowLightGray: '#F5F5F563',
+  blockText: '#94989A',
+  lowWhite: '#FFFFFF80',
 };
 
 export default Colors;
