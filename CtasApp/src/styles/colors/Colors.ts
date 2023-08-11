@@ -20,6 +20,8 @@ const Colors: {[key: string]: string} = {
   lowLightGray: '#F5F5F563',
   blockText: '#94989A',
   lowWhite: '#FFFFFF80',
+  lowSemiTransparentBlack: 'rgba(0, 0, 0, 0.2)',
+  strongGray: '#434242',
 };
 
 export default Colors;
