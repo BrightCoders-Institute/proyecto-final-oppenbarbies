@@ -1,42 +1,19 @@
-import React, {useState, useCallback} from 'react';
+import React from 'react';
 import {Text, View, Modal} from 'react-native';
 import {Calendar} from 'react-native-calendars';
 import Button from './Button';
-import {Day, SelectedDates} from '../schema/CustomCalendarSchema';
+import {useCustomCalendar} from '../hooks/useCustomCalendar';
 import CustomCalendarStyles from '../styles/CustomCalendarStyles';
 
 const CustomCalendar: React.FC = () => {
-  const [selectedDates, setSelectedDates] = useState<SelectedDates>({});
-  const [modalVisible, setModalVisible] = useState(false);
-
-  const onDayPress = useCallback((day: Day) => {
-    setSelectedDates(prevSelectedDates => {
-      const newSelectedDates = {...prevSelectedDates};
-      if (newSelectedDates[day.dateString]) {
-        delete newSelectedDates[day.dateString];
-      } else {
-        newSelectedDates[day.dateString] = {
-          selected: true,
-          selectedColor: 'red',
-        };
-      }
-      return newSelectedDates;
-    });
-  }, []);
-
-  const markAsUnavailable = useCallback(() => {
-    setModalVisible(true);
-  }, []);
-
-  const handleConfirm = useCallback(() => {
-    const unavailableDates = Object.keys(selectedDates);
-    console.log('Unavailable Days:', unavailableDates);
-    setModalVisible(false);
-  }, [selectedDates]);
-
-  const handleCancel = useCallback(() => {
-    setModalVisible(false);
-  }, []);
+  const {
+    selectedDates,
+    modalVisible,
+    onDayPress,
+    markAsUnavailable,
+    handleConfirm,
+    handleCancel,
+  } = useCustomCalendar();
 
   return (
     <View style={CustomCalendarStyles.container}>
