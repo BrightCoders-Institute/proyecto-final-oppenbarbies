@@ -5,7 +5,7 @@ type Props = {};
 
 const MyAppointmentsScreen: React.FC<Props> = () => {
   return (
-    <View>
+    <View style={{flex: 1}}>
       <Text>MyAppointmentsScreen</Text>
     </View>
   );

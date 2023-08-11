@@ -12,7 +12,8 @@ export const AppoinmentCardStyles = StyleSheet.create({
     elevation: 15,
     backgroundColor: Colors.lightGray,
     shadowColor: Colors.black,
-    padding: 12
+    padding: 12,
+    marginTop: 15
   },
   headerContainer: {
     flexDirection: 'row'
@@ -23,10 +24,13 @@ export const AppoinmentCardStyles = StyleSheet.create({
   txtDate: {
     fontFamily: 'Inter-ExtraBold',
     fontSize: 15,
-    marginLeft: 10
+    marginLeft: 10,
+    color: Colors.black,
   },
   txtDateTime: {
-    fontSize: 14
+    fontSize: 14,
+    color: Colors.black,
+    
   },
   clockIcon: {
     marginLeft: 26
@@ -44,6 +48,7 @@ export const AppoinmentCardStyles = StyleSheet.create({
     flexDirection: 'row',
     height: 75,
     marginTop: 8,
+    width: 210
   },
   imgPerson:{
     width: 60,
@@ -54,30 +59,42 @@ export const AppoinmentCardStyles = StyleSheet.create({
   personInfo: {
     flexDirection: 'column',
     justifyContent: 'center',
-    paddingLeft: 5
+    paddingLeft: 5,
   },
   txtName: {
     fontSize: 12,
-    fontFamily: 'Inter-Bold'
+    fontFamily: 'Inter-Bold',
+    color: Colors.black,
   },
   txtDescription: {
-    fontSize: 11
+    fontSize: 11,
+    color: Colors.black,
   },
   locationContainer: {
     flexDirection: 'column',
-    marginLeft: 25,
+    marginLeft: 5,
     width: 115,
     alignItems: 'center',
   },
   locationIcon:{
-    marginTop: 20
+    marginTop: 12
   },
   deleteIcon:{
     marginLeft: 250,
   },
   txtLocation: {
     textAlign: 'center',
-    fontSize: 10
+    fontSize: 10,
+    color: Colors.black,
   },
+  lineSide: {
+    width: 3.5,
+    height: 100,
+    position: 'absolute',
+    backgroundColor: Colors.skyBlue,
+    marginTop: 25,
+    borderRadius: 5
+    
+  }
   
 });
