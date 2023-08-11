@@ -68,6 +68,29 @@ const ProviderSetCitaStyles = StyleSheet.create({
     padding: 5,
     marginBottom: 5,
   },
+  mapContainer: {
+    marginTop: 10,
+    width: 300,
+    height: 150,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+  map: {
+    ...StyleSheet.absoluteFillObject,
+    borderRadius: 50,
+  },
+  ubicationContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 300,
+    gap: 5,
+  },
+  ubicationText: {
+    fontSize: 12,
+    fontFamily: 'Inter-Light',
+    color: Colors.babyBlue,
+    textAlign: 'center',
+  },
 });
 
 export default ProviderSetCitaStyles;
