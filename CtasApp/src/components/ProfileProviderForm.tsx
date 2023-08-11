@@ -109,7 +109,7 @@ const ProfileProviderForm: React.FC = () => {
       />
 
       <View style={ProfileProviderFormStyles.descriptionContainer}>
-      {isCharacterLimitReached && (
+        {isCharacterLimitReached && (
           <Text style={ProfileProviderFormStyles.characterLimitWarning}>
             You have reached the character limit.
           </Text>

@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 import Colors from './colors/Colors';
 
 const ProviderSetCitaStyles = StyleSheet.create({
-  main:{
+  main: {
     flex: 1,
     backgroundColor: Colors.aqua,
   },
