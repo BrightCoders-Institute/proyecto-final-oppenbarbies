@@ -1,4 +1,4 @@
-import { de } from "date-fns/locale";
+import {de} from 'date-fns/locale';
 
 declare module 'react-native-modern-datepicker';
 declare module 'react-native-vector-icons/AntDesign';

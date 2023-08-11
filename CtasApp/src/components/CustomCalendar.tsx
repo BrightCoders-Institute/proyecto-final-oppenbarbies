@@ -3,6 +3,7 @@ import {Text, View, Modal} from 'react-native';
 import {Calendar} from 'react-native-calendars';
 import Button from './Button';
 import {Day, SelectedDates} from '../schema/CustomCalendarSchema';
+import CustomCalendarStyles from '../styles/CustomCalendarStyles';
 
 const CustomCalendar: React.FC = () => {
   const [selectedDates, setSelectedDates] = useState<SelectedDates>({});
@@ -38,17 +39,15 @@ const CustomCalendar: React.FC = () => {
   }, []);
 
   return (
-    <View style={{justifyContent: 'center', alignContent: 'center'}}>
-      <Text style={{fontSize: 20, fontWeight: 'bold', textAlign: 'center'}}>
-        Select Unavailable Days
-      </Text>
-      <View style={{paddingHorizontal: 50}}>
+    <View style={CustomCalendarStyles.container}>
+      <Text style={CustomCalendarStyles.title}>Select Unavailable Days</Text>
+      <View style={CustomCalendarStyles.calendarContainer}>
         <Calendar
           markedDates={selectedDates}
           onDayPress={onDayPress}
-          style={{borderRadius: 10}}
+          style={CustomCalendarStyles.calendarContainer}
         />
-        <View style={{marginTop: 20}}>
+        <View style={CustomCalendarStyles.buttonContainer}>
           <Button
             text="Save Changes"
             onPress={markAsUnavailable}
@@ -58,24 +57,12 @@ const CustomCalendar: React.FC = () => {
         </View>
       </View>
       <Modal animationType="slide" transparent={true} visible={modalVisible}>
-        <View
-          style={{
-            justifyContent: 'center',
-            alignItems: 'center',
-            flex: 1,
-            backgroundColor: 'rgba(0, 0, 0, 0.5)',
-          }}>
-          <View
-            style={{backgroundColor: 'white', padding: 20, borderRadius: 10}}>
-            <Text style={{fontSize: 15, fontFamily: 'Inter-Bold'}}>
+        <View style={CustomCalendarStyles.modalBackground}>
+          <View style={CustomCalendarStyles.modalContent}>
+            <Text style={CustomCalendarStyles.modalText}>
               Are you sure you don't have any unavailable dates?
             </Text>
-            <View
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                marginTop: 10,
-              }}>
+            <View style={CustomCalendarStyles.modalButtons}>
               <Button
                 text="Yes"
                 onPress={handleConfirm}
