@@ -1,18 +1,8 @@
 import React, {useState, useCallback, useMemo} from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View} from 'react-native';
 import {Calendar} from 'react-native-calendars';
 import Button from './Button';
-
-interface SelectedDates {
-  [key: string]: {
-    selected: boolean;
-    selectedColor: string;
-  };
-}
-
-interface Day {
-  dateString: string;
-}
+import {Day, SelectedDates} from '../schema/CustomCalendarSchema';
 
 const CustomCalendar: React.FC = () => {
   const [selectedDates, setSelectedDates] = useState<SelectedDates>({});
