@@ -12,8 +12,8 @@ const ProfileClientScreen: React.FC = () => {
         resetScrollToCoords={{x: 0, y: 0}}
         contentContainerStyle={ProfileClientScreenStyles.contentContainer}
         scrollEnabled={true}>
-      <ProfileClientSimpleCard />
-      <ProfileClientForm />
+        <ProfileClientSimpleCard />
+        <ProfileClientForm />
       </KeyboardAwareScrollView>
     </SafeAreaView>
   );

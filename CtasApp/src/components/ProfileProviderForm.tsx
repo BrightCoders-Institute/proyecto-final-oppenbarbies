@@ -14,10 +14,15 @@ const ProfileProviderForm: React.FC = () => {
   const [servicesDescription, setServicesDescription] = useState('');
   const [isLocationModalVisible, setLocationModalVisible] =
     useState<boolean>(false);
+  const [isCharacterLimitReached, setCharacterLimitReached] = useState(false);
 
-  const handleServicesDescriptionChange = text => {
-    if (text.length <= 45) {
+  const handleServicesDescriptionChange = (text: string) => {
+    if (text.length <= 86) {
       setServicesDescription(text);
+      setValue('servicesDescription', text);
+      setCharacterLimitReached(false);
+    } else {
+      setCharacterLimitReached(true);
     }
   };
   useEffect(() => {
@@ -82,7 +87,7 @@ const ProfileProviderForm: React.FC = () => {
         onPress={() => setLocationModalVisible(true)}
         style={ProfileProviderFormStyles.textInputPress}>
         <Text style={ProfileProviderFormStyles.modalText}>
-          Open Location Modal
+          Select Multiple Locations of your services
         </Text>
       </Pressable>
       <Text style={ProfileProviderFormStyles.text}> Occupation: </Text>
@@ -104,17 +109,22 @@ const ProfileProviderForm: React.FC = () => {
       />
 
       <View style={ProfileProviderFormStyles.descriptionContainer}>
+        {isCharacterLimitReached && (
+          <Text style={ProfileProviderFormStyles.characterLimitWarning}>
+            You have reached the character limit.
+          </Text>
+        )}
         <Controller
           control={control}
           render={({field: {onChange, value}}) => (
             <TextInput
               style={ProfileProviderFormStyles.inputDescription}
-              value={value}
+              value={servicesDescription}
               onChangeText={text => {
-                onChange(text);
                 handleServicesDescriptionChange(text);
               }}
               placeholder="Describe your services, ej. monitoring and advice"
+              multiline
             />
           )}
           name="servicesDescription"
@@ -122,7 +132,7 @@ const ProfileProviderForm: React.FC = () => {
           defaultValue=""
         />
         <Text style={ProfileProviderFormStyles.textCounter}>
-          {servicesDescription.length} of 45 characters
+          {servicesDescription.length} of 86 characters
         </Text>
       </View>
       <View style={ProfileProviderFormStyles.buttonContainer}>

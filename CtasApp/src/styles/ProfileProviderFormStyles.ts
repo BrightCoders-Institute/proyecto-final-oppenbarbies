@@ -103,15 +103,21 @@ const ProfileProviderFormStyles = StyleSheet.create({
     backgroundColor: Colors.lowWhite,
     height: 80,
     borderRadius: 10,
-    fontFamily: 'Inter-Medium',
+    fontFamily: 'Inter-ExtraBold',
     paddingLeft: 10,
+    color: Colors.strongGray,
   },
   modalText: {
     marginTop: 6,
     fontFamily: 'Inter-ExtraBold',
-    fontSize: 15,
+    fontSize: 14,
     color: Colors.white,
     textAlign: 'left',
+  },
+  characterLimitWarning: {
+    color: 'red',
+    textAlign: 'left',
+    marginRight: 90,
   },
 });
 
