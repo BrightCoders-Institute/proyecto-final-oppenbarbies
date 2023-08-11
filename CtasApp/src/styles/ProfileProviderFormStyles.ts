@@ -1,25 +1,23 @@
 import {StyleSheet} from 'react-native';
 import Colors from './colors/Colors';
 
-const ProfileClientFormStyles = StyleSheet.create({
+const ProfileProviderFormStyles = StyleSheet.create({
   container: {
     backgroundColor: Colors.mint,
     width: 355,
-    height: 415,
-    marginTop: 20,
+    height: 435,
+    marginTop: 8,
     borderRadius: 10,
   },
   titleText: {
     fontFamily: 'Inter-ExtraBold',
     fontSize: 15,
     color: Colors.white,
-    marginTop: 2,
     textAlign: 'center',
-    marginBottom: 15,
   },
   text: {
     fontFamily: 'Inter-ExtraBold',
-    fontSize: 15,
+    fontSize: 14,
     color: Colors.white,
     textAlign: 'left',
     marginLeft: 9,
@@ -32,7 +30,6 @@ const ProfileClientFormStyles = StyleSheet.create({
     fontSize: 10,
     color: Colors.lowBlack,
     marginLeft: 90,
-    marginTop: 5,
   },
   buttonContainer: {
     justifyContent: 'center',
@@ -54,7 +51,6 @@ const ProfileClientFormStyles = StyleSheet.create({
   },
   errorStyles: {
     color: 'red',
-    marginBottom: 5,
   },
   iconPress: {
     position: 'absolute',
@@ -70,10 +66,14 @@ const ProfileClientFormStyles = StyleSheet.create({
   textInputPress: {
     alignItems: 'center',
     marginLeft: 10,
-    marginBottom: 20,
-    height: 38,
+    marginBottom: 3,
+    marginTop: 5,
+    height: 35,
     width: '94%',
     borderRadius: 10,
+    backgroundColor: Colors.skyBlue,
+    borderColor: Colors.skyBlue,
+    borderWidth: 1,
   },
   input: {
     height: 40,
@@ -84,10 +84,41 @@ const ProfileClientFormStyles = StyleSheet.create({
     marginBottom: 10,
   },
   textCounter: {
+    position: 'absolute',
+    right: 25,
+    bottom: 8,
     fontSize: 12,
     color: 'gray',
     textAlign: 'right',
   },
+  descriptionContainer: {
+    textAlign: 'left',
+    alignItems: 'center',
+    marginBottom: 10,
+    marginTop: 5,
+  },
+  inputDescription: {
+    textAlign: 'left',
+    width: 334,
+    backgroundColor: Colors.lowWhite,
+    height: 80,
+    borderRadius: 10,
+    fontFamily: 'Inter-ExtraBold',
+    paddingLeft: 10,
+    color: Colors.strongGray,
+  },
+  modalText: {
+    marginTop: 6,
+    fontFamily: 'Inter-ExtraBold',
+    fontSize: 14,
+    color: Colors.white,
+    textAlign: 'left',
+  },
+  characterLimitWarning: {
+    color: 'red',
+    textAlign: 'left',
+    marginRight: 90,
+  },
 });
 
-export default ProfileClientFormStyles;
+export default ProfileProviderFormStyles;

@@ -5,6 +5,8 @@ const ProfileClientScreenStyles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.white,
+  },
+  contentContainer: {
     alignItems: 'center',
   },
 });
