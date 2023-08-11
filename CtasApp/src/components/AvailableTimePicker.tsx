@@ -42,20 +42,22 @@ const AvailableTimePicker = () => {
     }
   };
   const generateTimeSlots = () => {
-    if (!checkTimeValidity()) return;
+    if (!checkTimeValidity()) {return;}
 
     let slots = [];
     let start = new Date(startTime);
     let end = new Date(endTime);
 
     if (start.getTime() > end.getTime()) {
-        end.setDate(end.getDate() + 1);
-      
+      end.setDate(end.getDate() + 1);
+
+    if (start.getTime() === end.getTime()) {
+      Alert.alert(
+        'Error',
+        'The hours must be different. Please select different hours.',
+      );
+      return;
     }
-  if (start.getTime() === end.getTime()) {
-    Alert.alert('Error', 'The hours must be different. Please select different hours.');
-    return;
-  }
 
     while (start.getTime() !== end.getTime()) {
       slots.push(
@@ -130,7 +132,7 @@ const AvailableTimePicker = () => {
                 onChange={handleEndTimeChange}
               />
             )}
-            <View style={AvailableTimePickerStyles.separator}></View>
+            <View style={AvailableTimePickerStyles.separator} />
             <View style={AvailableTimePickerStyles.centeredButton}>
               <Button text="Save" onPress={generateTimeSlots} />
             </View>
@@ -140,7 +142,7 @@ const AvailableTimePicker = () => {
               minutes
             </Text>
 
-            <View style={AvailableTimePickerStyles.separator}></View>
+            <View style={AvailableTimePickerStyles.separator} />
             <View style={AvailableTimePickerStyles.centeredButton}>
               <Button
                 text="Close Window"

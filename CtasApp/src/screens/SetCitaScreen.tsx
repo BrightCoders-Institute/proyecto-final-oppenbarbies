@@ -8,11 +8,17 @@ const SetCitaScreen: React.FC = () => {
   return (
     <View style={ProviderSetCitaStyles.main}>
       <View style={ProviderSetCitaStyles.backArrow}>
-        <Ionicons name='arrow-back' size={20} color='#ffff' />
+        <Ionicons name="arrow-back" size={20} color="#ffff" />
       </View>
-      <ProviderInformation name='Lic. Valeriano Perez' age={26} location='Villa de Alvarez, Col'/>
+      <ProviderInformation
+        name="Lic. Valeriano Perez"
+        age={26}
+        location="Villa de Alvarez, Col"
+      />
       <View style={ProviderSetCitaStyles.body}>
-        <Text style={ProviderSetCitaStyles.appointmentDetails}>Office Location</Text>
+        <Text style={ProviderSetCitaStyles.appointmentDetails}>
+          Office Location
+        </Text>
       </View>
     </View>
   );

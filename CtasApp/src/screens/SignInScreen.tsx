@@ -3,8 +3,7 @@ import {View, Text} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {SignInStyles as styles} from '../styles/SignInStyle';
 import ButtonSignIn from '../components/ButtonSignIn';
-import { SignInProps } from '../schema/SignInScreenSchema';
-
+import {SignInProps} from '../schema/SignInScreenSchema';
 
 const SignInScreen: React.FC<SignInProps> = ({navigation, route}) => {
   const {userType} = route.params;
