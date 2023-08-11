@@ -15,7 +15,8 @@ const defaultStyles = StyleSheet.create({
     paddingHorizontal: 10,
     borderRadius: 10,
     elevation: 5,
-    fontFamily: 'Inter-Medium',
+    fontFamily: 'Inter-Bold',
+    color: Colors.strongGray,
   },
   errorText: {
     position: 'absolute',
@@ -111,7 +112,8 @@ const secondaryStyles = StyleSheet.create({
     paddingHorizontal: 10,
     borderRadius: 10,
     elevation: 5,
-    fontFamily: 'Inter-Medium',
+    fontFamily: 'Inter-Bold',
+    color: Colors.strongGray,
   },
   errorText: {
     textAlign: 'right',
