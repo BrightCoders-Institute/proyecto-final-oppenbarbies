@@ -74,10 +74,11 @@ const ProviderSetCitaStyles = StyleSheet.create({
     height: 150,
     justifyContent: 'flex-end',
     alignItems: 'center',
+    borderRadius: 10,
+    overflow: 'hidden',
   },
   map: {
     ...StyleSheet.absoluteFillObject,
-    borderRadius: 50,
   },
   ubicationContainer: {
     justifyContent: 'center',
@@ -90,6 +91,24 @@ const ProviderSetCitaStyles = StyleSheet.create({
     fontFamily: 'Inter-Light',
     color: Colors.babyBlue,
     textAlign: 'center',
+    marginBottom: 5,
+  },
+  button: {
+    backgroundColor: Colors.white,
+    justifyContent: 'center',
+    paddingHorizontal: 50,
+    paddingVertical: 10,
+  },
+  buttonText: {
+    fontSize: 20,
+    fontFamily: 'Inter-ExtraBold',
+    color: Colors.white,
+  },
+  calendarContainer: {
+    width: '100%',
+    height: 300,
+    alignItems: 'center',
+    marginTop: 10,
   },
 });
 
