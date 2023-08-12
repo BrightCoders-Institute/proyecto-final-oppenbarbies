@@ -32,14 +32,11 @@ const AppointmentDetailsScreen: React.FC = () => {
           </Text>
           <CustomCalendar />
           <View style={AppointmentDetailsStyles.addressContainer}>
-          <Text style={AppointmentDetailsStyles.labels}>Location:</Text>
+            <Text style={AppointmentDetailsStyles.labels}>Location:</Text>
             <AddressPicker />
             <View style={AppointmentDetailsStyles.button}>
-            <Button
-              text="Save"
-              onPress={() => console.log('click')}
-            />
-          </View>
+              <Button text="Save" onPress={() => console.log('click')} />
+            </View>
           </View>
         </View>
       </KeyboardAwareScrollView>

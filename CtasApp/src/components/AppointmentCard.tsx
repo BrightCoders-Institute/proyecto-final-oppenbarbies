@@ -13,7 +13,7 @@ const AppointmentCard: React.FC<AppointmentCardProps> = ({
 }) => {
   return (
     <SafeAreaView style={styles.cardContainer}>
-      <View style={styles.lineSide}></View>
+      <View style={styles.lineSide} />
       <View style={styles.headerContainer}>
         <Text style={styles.txtDate}>Date</Text>
         <Icon name="trash" size={25} style={styles.deleteIcon} color={'red'} />
@@ -25,7 +25,7 @@ const AppointmentCard: React.FC<AppointmentCardProps> = ({
           {date} | {time} hrs{' '}
         </Text>
       </View>
-      <Text style={styles.divider}></Text>
+      <Text style={styles.divider} />
 
       <View style={styles.footContainer}>
         <View style={styles.personInfoContainer}>

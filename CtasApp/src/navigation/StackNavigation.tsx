@@ -61,7 +61,7 @@ const StackNavigation: React.FC = () => {
         component={SearchScreen}
         options={{headerShown: false}}
       />
-        <Stack.Screen
+      <Stack.Screen
         name="AppointmentDetails"
         component={AppointmentDetailsScreen}
         options={{headerShown: false}}

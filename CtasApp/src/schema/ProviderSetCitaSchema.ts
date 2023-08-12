@@ -1,3 +1,3 @@
 export type ProviderSetCitaProps = {
-    address: string;
-  };
+  address: string;
+};

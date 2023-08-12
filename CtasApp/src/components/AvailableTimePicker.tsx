@@ -4,7 +4,7 @@ import RNDateTimePicker from '@react-native-community/datetimepicker';
 import AvailableTimePickerStyles from '../styles/AvailableTimePickerStyles';
 import Button from './Button';
 import useTimePicker from '../hooks/useAvailableTimePicker';
-import WatchIcon from 'react-native-vector-icons/MaterialCommunityIcons'
+import WatchIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Colors from '../styles/colors/Colors';
 
 const AvailableTimePicker = () => {
@@ -31,7 +31,12 @@ const AvailableTimePicker = () => {
           styleName="welcome"
           textStyleName="welcome"
         />
-        <WatchIcon name="clock-time-four-outline" size={30} color={Colors.white} style={AvailableTimePickerStyles.iconContainer}/>
+        <WatchIcon
+          name="clock-time-four-outline"
+          size={30}
+          color={Colors.white}
+          style={AvailableTimePickerStyles.iconContainer}
+        />
       </View>
       <Modal
         animationType="slide"
