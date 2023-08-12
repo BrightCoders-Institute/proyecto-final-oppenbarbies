@@ -90,6 +90,27 @@ const ProviderSetCitaStyles = StyleSheet.create({
     fontFamily: 'Inter-Light',
     color: Colors.babyBlue,
     textAlign: 'center',
+    marginBottom: 5,
+  },
+  button: {
+    width: 250,
+    height: 40,
+    backgroundColor: Colors.skyBlue,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginVertical: 10,
+  },
+  buttonText: {
+    fontSize: 20,
+    fontFamily: 'Inter-ExtraBold',
+    color: Colors.white,
+  },
+  calendarContainer: {
+    width: '100%',
+    height: 300,
+    alignItems: 'center',
+    marginTop: 10,
   },
 });
 
