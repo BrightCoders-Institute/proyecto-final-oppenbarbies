@@ -3,6 +3,7 @@ import {View, Text} from 'react-native';
 import ProviderInformation from '../components/ProviderInformation';
 import ProviderSetCitaStyles from '../styles/ProviderSetCitaStyles';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import Map from '../components/Map';
 
 const SetCitaScreen: React.FC = () => {
   return (
@@ -19,6 +20,7 @@ const SetCitaScreen: React.FC = () => {
         <Text style={ProviderSetCitaStyles.appointmentDetails}>
           Office Location
         </Text>
+        <Map adress='Laguna la coata #121 Colima, Villa de Álvarez, Col. Solidaridad '/>
       </View>
     </View>
   );
