@@ -1,12 +1,8 @@
 import * as React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View} from 'react-native';
 import {AutocompleteDropdown} from 'react-native-autocomplete-dropdown';
-import Colors from '../styles/colors/Colors';
-
-interface AddressOption {
-  id: string;
-  title: string;
-}
+import {AddressOption} from '../schema/AddressPickerSchema';
+import AddressPickerStyles from '../styles/AddressPickerStyles';
 
 const AddressPicker: React.FC = () => {
   const allOptions: AddressOption[] = [
@@ -19,8 +15,8 @@ const AddressPicker: React.FC = () => {
   ];
 
   return (
-    <View style={styles.container}>
-      <View style={styles.autocompleteContainer}>
+    <View style={AddressPickerStyles.container}>
+      <View style={AddressPickerStyles.autocompleteContainer}>
         <AutocompleteDropdown
           dataSet={allOptions}
           onSelectItem={item => {
@@ -31,34 +27,12 @@ const AddressPicker: React.FC = () => {
           direction="down"
           textInputProps={{
             placeholder: 'Ingrese una dirección',
-            style: styles.inputStyle,
+            style: AddressPickerStyles.inputStyle,
           }}
         />
       </View>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: 16,
-  },
-  autocompleteContainer: {
-    borderRadius: 10,
-    borderWidth: 2,
-    borderColor: Colors.babyBlue,
-    shadowColor: '#000',
-    shadowOffset: {width: 0, height: 1},
-    shadowOpacity: 0.5,
-    shadowRadius: 2,
-    elevation: 5,
-  },
-  inputStyle: {
-    paddingHorizontal: 10,
-    borderRadius: 25,
-    backgroundColor: Colors.white,
-    fontFamily: 'Inter-ExtraBold',
-  },
-});
 
 export default AddressPicker;

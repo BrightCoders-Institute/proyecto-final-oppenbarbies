@@ -17,12 +17,11 @@ const CustomCalendar: React.FC = () => {
 
   return (
     <View style={CustomCalendarStyles.container}>
-      <Text style={CustomCalendarStyles.title}>Select Unavailable Days</Text>
       <View style={CustomCalendarStyles.calendarContainer}>
         <Calendar
           markedDates={selectedDates}
           onDayPress={onDayPress}
-          style={CustomCalendarStyles.calendarContainer}
+          style={CustomCalendarStyles.calendar}
         />
         <View style={CustomCalendarStyles.buttonContainer}>
           <Button

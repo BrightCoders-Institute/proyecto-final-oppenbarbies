@@ -7,16 +7,22 @@ const CustomCalendarStyles = StyleSheet.create({
     alignContent: 'center',
   },
   title: {
-    fontSize: 20,
+    fontFamily: 'Inter-ExtraBold',
+    fontSize: 15,
     fontWeight: 'bold',
     textAlign: 'center',
   },
   calendarContainer: {
     paddingHorizontal: 50,
+    marginTop: 15,
+  },
+  calendar: {
+    borderColor: Colors.babyBlue,
+    borderWidth: 1,
     borderRadius: 10,
   },
   buttonContainer: {
-    marginTop: 20,
+    marginTop: 15,
   },
   modalBackground: {
     justifyContent: 'center',
