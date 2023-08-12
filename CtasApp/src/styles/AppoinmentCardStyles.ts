@@ -9,7 +9,7 @@ export const AppoinmentCardStyles = StyleSheet.create({
     width: '90%',
     alignSelf: 'center',
     borderRadius: 8,
-    elevation: 15,
+    elevation: 4,
     backgroundColor: Colors.lightGray,
     shadowColor: Colors.black,
     padding: 12,
