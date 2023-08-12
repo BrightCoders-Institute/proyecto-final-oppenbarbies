@@ -2,12 +2,9 @@ import React from "react";
 import { Text, View } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import ProviderSetCitaStyles from "../styles/ProviderSetCitaStyles";
+import {ProviderSetCitaProps} from "../schema/ProviderSetCitaSchema";
 
-type Props = {
-  adress: string;
-};
-
-const Map: React.FC<Props> = props => {
+const Map: React.FC<ProviderSetCitaProps> = props => {
 
   return (
     <View style={ProviderSetCitaStyles.ubicationContainer}>
@@ -31,7 +28,7 @@ const Map: React.FC<Props> = props => {
               />
           </MapView>
       </View>
-      <Text style={ProviderSetCitaStyles.ubicationText}>Adress: {props.adress}</Text>
+      <Text style={ProviderSetCitaStyles.ubicationText}>Adress: {props.address}</Text>
     </View>
   );
 };

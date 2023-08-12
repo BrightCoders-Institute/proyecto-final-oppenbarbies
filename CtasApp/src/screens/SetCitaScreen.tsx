@@ -33,7 +33,7 @@ const SetCitaScreen: React.FC = () => {
             <Text style={ProviderSetCitaStyles.appointmentDetails}>
               Office Location
             </Text>
-            <Map adress="Laguna la coata #121 Colima, Villa de Álvarez, Col. Solidaridad " />
+            <Map address="Laguna la coata #121 Colima, Villa de Álvarez, Col. Solidaridad " />
             <Text style={ProviderSetCitaStyles.appointmentDetails}>
               Set an appointment
             </Text>
