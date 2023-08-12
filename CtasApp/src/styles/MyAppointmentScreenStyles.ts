@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 import Colors from './colors/Colors';
 
-export default StyleSheet.create({
+const MyAppointmentScreenStyles = StyleSheet.create({
     container: {
         flex: 1
     },
@@ -25,3 +25,6 @@ export default StyleSheet.create({
         paddingTop: 30
     }
 });
+
+
+export default MyAppointmentScreenStyles;

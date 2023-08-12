@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 import Colors from './colors/Colors';
 
-export const AppoinmentCardStyles = StyleSheet.create({
+export const AppointmentCardStyles = StyleSheet.create({
   cardContainer: {
     display: 'flex',
     flexDirection: 'column',
@@ -13,13 +13,13 @@ export const AppoinmentCardStyles = StyleSheet.create({
     backgroundColor: Colors.lightGray,
     shadowColor: Colors.black,
     padding: 12,
-    marginTop: 15
+    marginTop: 15,
   },
   headerContainer: {
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   dateContainer: {
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   txtDate: {
     fontFamily: 'Inter-ExtraBold',
@@ -30,31 +30,30 @@ export const AppoinmentCardStyles = StyleSheet.create({
   txtDateTime: {
     fontSize: 14,
     color: Colors.black,
-    
   },
   clockIcon: {
-    marginLeft: 26
+    marginLeft: 26,
   },
-  divider:{
-    height:0,
+  divider: {
+    height: 0,
     borderBottomWidth: 0.6,
     marginTop: 7,
     borderColor: Colors.lowBlack,
   },
-  footContainer:{
-    flexDirection: 'row'
+  footContainer: {
+    flexDirection: 'row',
   },
-  personInfoContainer:{
+  personInfoContainer: {
     flexDirection: 'row',
     height: 75,
     marginTop: 8,
-    width: 210
+    width: 210,
   },
-  imgPerson:{
+  imgPerson: {
     width: 60,
     height: 60,
     borderRadius: 100,
-    marginTop: 6
+    marginTop: 6,
   },
   personInfo: {
     flexDirection: 'column',
@@ -76,10 +75,10 @@ export const AppoinmentCardStyles = StyleSheet.create({
     width: 115,
     alignItems: 'center',
   },
-  locationIcon:{
-    marginTop: 12
+  locationIcon: {
+    marginTop: 12,
   },
-  deleteIcon:{
+  deleteIcon: {
     marginLeft: 250,
   },
   txtLocation: {
@@ -93,8 +92,6 @@ export const AppoinmentCardStyles = StyleSheet.create({
     position: 'absolute',
     backgroundColor: Colors.skyBlue,
     marginTop: 25,
-    borderRadius: 5
-    
-  }
-  
+    borderRadius: 5,
+  },
 });

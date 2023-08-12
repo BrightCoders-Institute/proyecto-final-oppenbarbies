@@ -1,8 +1,12 @@
-import { FlatList } from 'react-native';
-import React from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import AppoinmentCard from './AppoinmentCard';
-import {AppoinmentListStyles as styles} from '../styles/AppoinmentListStyles' ;
+import * as React from 'react';
+import {FlatList} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import AppointmentCard from './AppointmentCard';
+import {AppointmentListStyles as styles} from '../styles/AppointmentListStyles';
+import {
+  PersonProvider,
+  AppointmentProvider,
+} from '../schema/AppointmentListSchema';
 
 const dataClient = [
   {
@@ -62,7 +66,7 @@ const dataClient = [
   },
 ];
 
-const dataProviders = [
+const dataProviders: AppointmentProvider[] = [
   {
     id: '1',
     date: 'Mon Ago 10,2023',
@@ -71,7 +75,7 @@ const dataProviders = [
     person: {
       img: 'something',
       name: 'Antonio Ramirez',
-      age: 21
+      age: 21,
     },
   },
   {
@@ -82,7 +86,7 @@ const dataProviders = [
     person: {
       img: 'something',
       name: 'Valeriano Jhonson',
-      age: 23
+      age: 23,
     },
   },
   {
@@ -93,7 +97,7 @@ const dataProviders = [
     person: {
       img: 'something',
       name: 'Valeriano Jhonson',
-      age: 25
+      age: 25,
     },
   },
   {
@@ -104,7 +108,7 @@ const dataProviders = [
     person: {
       img: 'something',
       name: 'Juan Gonzales',
-      age: 22
+      age: 22,
     },
   },
   {
@@ -115,18 +119,18 @@ const dataProviders = [
     person: {
       img: 'something',
       name: 'Alan Smith',
-      age: 23
+      age: 23,
     },
   },
 ];
 
-export default function AppoinmentList(): JSX.Element {
+const AppointmentList: React.FC = () => {
   return (
     <SafeAreaView style={styles.listContainer}>
       <FlatList
         data={dataProviders}
-        renderItem={({ item }) => (
-          <AppoinmentCard
+        renderItem={({item}) => (
+          <AppointmentCard
             date={item.date}
             time={item.time}
             address={item.address}
@@ -138,4 +142,5 @@ export default function AppoinmentList(): JSX.Element {
       />
     </SafeAreaView>
   );
-}
+};
+export default AppointmentList;
