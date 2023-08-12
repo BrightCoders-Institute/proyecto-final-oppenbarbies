@@ -19,4 +19,5 @@ export type RootStackParamList = {
   HomeClient: undefined;
   SetCita: undefined;
   SearchScreen: undefined;
+  AppointmentDetails: undefined;
 };

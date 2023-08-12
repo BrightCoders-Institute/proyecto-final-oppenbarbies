@@ -1,4 +1,4 @@
-const Colors = {
+const Colors: {[key: string]: string} = {
   white: '#FFFFFF',
   aqua: '#40B9A9',
   babyBlue: '#99C3DC',
@@ -10,7 +10,7 @@ const Colors = {
   lightPink: '#F9F1F1',
   lightBrown: '#F7F6F3',
   lightGray: '#F5F5F5',
-  redDelete: "#AC2020",
+  redDelete: '#AC2020',
   babyBlueTransparent: '#ebf3f8',
   darkAqua: '#3b7d74',
   semiTransparentBabyBlue: 'rgba(153, 195, 220, 0.67)',

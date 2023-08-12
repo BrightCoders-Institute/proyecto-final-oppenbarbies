@@ -9,6 +9,7 @@ import MyAppointmentsScreen from '../screens/MyAppointmentsScreen';
 import HomeClientScreen from '../screens/HomeClientScreen';
 import SetCitaScreen from '../screens/SetCitaScreen';
 import SearchScreen from '../screens/SearchScreen';
+import AppointmentDetailsScreen from '../screens/AppointmentDetailsScreen';
 import {RootStackParamList} from '../schema/SignInScreenSchema';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -58,6 +59,11 @@ const StackNavigation: React.FC = () => {
       <Stack.Screen
         name="SearchScreen"
         component={SearchScreen}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="AppointmentDetails"
+        component={AppointmentDetailsScreen}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

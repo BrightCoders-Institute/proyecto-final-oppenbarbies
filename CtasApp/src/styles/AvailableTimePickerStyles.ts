@@ -57,7 +57,13 @@ const AvailableTimePickerStyles = StyleSheet.create({
     marginVertical: 15,
   },
   buttonContainer: {
-    padding: 10,
+    paddingHorizontal: 40,
+    paddingVertical: 10,
+  },
+  iconContainer: {
+    position: 'absolute',
+    right: 55,
+    top: 14,
   },
 });
 

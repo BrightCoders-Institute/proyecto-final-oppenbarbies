@@ -1,8 +1,8 @@
 export interface InputFieldProps {
-  label: string;
+  label?: string;
   value?: string;
-  onChangeText: (text: string) => void;
-  placeholder: string;
+  onChangeText?: (text: string) => void;
+  placeholder?: string;
   secureTextEntry?: boolean;
   errorMessage?: string;
   editable?: boolean;

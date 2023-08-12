@@ -5,6 +5,7 @@ import {InputFieldProps} from '../schema/ProfileClientFormSchema';
 
 const InputField: React.FC<InputFieldProps> = ({
   value,
+  placeholder,
   onChangeText,
   secureTextEntry,
   errorMessage,
@@ -15,6 +16,7 @@ const InputField: React.FC<InputFieldProps> = ({
   return (
     <View style={styles.container}>
       <TextInput
+        placeholder={placeholder}
         style={styles.input}
         value={value}
         onChangeText={onChangeText}
