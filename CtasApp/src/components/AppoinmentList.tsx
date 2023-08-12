@@ -134,6 +134,7 @@ export default function AppoinmentList(): JSX.Element {
           />
         )}
         keyExtractor={item => item.id}
+        style={styles.flatList}
       />
     </SafeAreaView>
   );

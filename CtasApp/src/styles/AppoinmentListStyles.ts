@@ -3,7 +3,10 @@ import Colors from './colors/Colors';
 
 export const AppoinmentListStyles = StyleSheet.create({
   listContainer:{
-    height: 550,
+    height: 510,
+    backgroundColor: Colors.white
+  },
+  flatList: {
     backgroundColor: Colors.white
   }
 });
