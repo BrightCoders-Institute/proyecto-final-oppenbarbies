@@ -29,7 +29,7 @@ const CalendarModal: FC<CalendarModalProps> = ({setBirthdate}) => {
         selectedTextColor: Colors.white,
         mainColor: Colors.babyBlue,
         textSecondaryColor: Colors.babyBlue,
-        borderColor: 'rgba(122, 146, 165, 0.1)',
+        borderColor: Colors.babyBlue,
       }}
       onSelectedChange={handleDateChange}
       mode="calendar"

@@ -74,10 +74,11 @@ const ProviderSetCitaStyles = StyleSheet.create({
     height: 150,
     justifyContent: 'flex-end',
     alignItems: 'center',
+    borderRadius: 10,
+    overflow: 'hidden',
   },
   map: {
     ...StyleSheet.absoluteFillObject,
-    borderRadius: 50,
   },
   ubicationContainer: {
     justifyContent: 'center',
@@ -93,13 +94,10 @@ const ProviderSetCitaStyles = StyleSheet.create({
     marginBottom: 5,
   },
   button: {
-    width: 250,
-    height: 40,
-    backgroundColor: Colors.skyBlue,
-    borderRadius: 10,
+    backgroundColor: Colors.white,
     justifyContent: 'center',
-    alignItems: 'center',
-    marginVertical: 10,
+    paddingHorizontal: 50,
+    paddingVertical: 10,
   },
   buttonText: {
     fontSize: 20,
