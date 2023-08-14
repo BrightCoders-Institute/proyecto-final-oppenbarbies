@@ -1,7 +1,7 @@
-export type ImageKeys = 'logo' | 'logowithoutbackground';
+export type ImageKeys = 'logo' | 'logoWithoutBackground';
 
 export interface LogoProps {
   src?: string;
   styleType?: StyleType;
 }
-export type StyleType = 'logo' | 'logowb' | 'logoBanner';
+export type StyleType = 'logo' | 'logoWb' | 'logoBanner';

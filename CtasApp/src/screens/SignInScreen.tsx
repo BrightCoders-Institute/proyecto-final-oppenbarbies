@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import {View, Text} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {SignInStyles as styles} from '../styles/SignInStyle';

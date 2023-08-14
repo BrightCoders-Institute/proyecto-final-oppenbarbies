@@ -1,10 +1,10 @@
-import React from 'react';
+import * as React from 'react';
 import {View, TextInput, Pressable} from 'react-native';
 import {SearchInputProps} from '../schema/SearchInputSchema';
 import {SearchStyles} from '../styles/SearchStyles';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-const SearchInput: React.FC<SearchInputProps> = ({}) => {
+const SearchInput: React.FC<SearchInputProps> = () => {
   return (
     <View style={SearchStyles.inputContainer}>
       <TextInput

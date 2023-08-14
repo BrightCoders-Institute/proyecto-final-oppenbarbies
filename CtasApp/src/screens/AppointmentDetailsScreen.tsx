@@ -8,6 +8,7 @@ import AvailableTimePicker from '../components/AvailableTimePicker';
 import CustomCalendar from '../components/CustomCalendar';
 import AddressPicker from '../components/AddressPicker';
 import Button from '../components/Button';
+import Colors from '../styles/colors/Colors';
 
 const AppointmentDetailsScreen: React.FC = () => {
   return (
@@ -17,7 +18,7 @@ const AppointmentDetailsScreen: React.FC = () => {
         scrollEnabled={true}>
         <View style={AppointmentDetailsStyles.header}>
           <View style={AppointmentDetailsStyles.backArrow}>
-            <Ionicons name="arrow-back" size={40} color="#ffff" />
+            <Ionicons name="arrow-back" size={40} color={Colors.white} />
           </View>
           <Text style={AppointmentDetailsStyles.title}>
             Appointment details

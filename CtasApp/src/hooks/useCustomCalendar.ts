@@ -7,32 +7,39 @@ export const useCustomCalendar = () => {
 
   const onDayPress = useCallback((day: Day) => {
     setSelectedDates(prevSelectedDates => {
-      const newSelectedDates = {...prevSelectedDates};
-      if (newSelectedDates[day.dateString]) {
-        delete newSelectedDates[day.dateString];
+      if (prevSelectedDates[day.dateString]) {
+        const {[day.dateString]: value, ...newSelectedDates} =
+          prevSelectedDates;
+        return newSelectedDates;
       } else {
-        newSelectedDates[day.dateString] = {
-          selected: true,
-          selectedColor: 'red',
+        return {
+          ...prevSelectedDates,
+          [day.dateString]: {
+            selected: true,
+            selectedColor: 'red',
+          },
         };
       }
-      return newSelectedDates;
     });
   }, []);
+
+  const logUnavailableDates = useCallback(() => {
+    const unavailableDates = Object.keys(selectedDates);
+    console.log('Unavailable Days:', unavailableDates);
+  }, [selectedDates]);
 
   const markAsUnavailable = useCallback(() => {
     if (Object.keys(selectedDates).length === 0) {
       setModalVisible(true);
     } else {
-      console.log('Unavailable Days:', Object.keys(selectedDates));
+      logUnavailableDates();
     }
-  }, [selectedDates]);
+  }, [selectedDates, logUnavailableDates]);
 
   const handleConfirm = useCallback(() => {
-    const unavailableDates = Object.keys(selectedDates);
-    console.log('Unavailable Days:', unavailableDates);
+    logUnavailableDates();
     setModalVisible(false);
-  }, [selectedDates]);
+  }, [logUnavailableDates]);
 
   const handleCancel = useCallback(() => {
     setModalVisible(false);

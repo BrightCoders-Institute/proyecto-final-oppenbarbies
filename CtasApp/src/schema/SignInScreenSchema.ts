@@ -1,9 +1,9 @@
-import {RouteProp, NavigationProp} from '@react-navigation/native';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-export type SignInProps = {
-  navigation: NavigationProp<RootStackParamList, 'SignIn'>;
-  route: RouteProp<RootStackParamList, 'SignIn'>;
-};
+
+
+export type SignInProps = NativeStackScreenProps<RootStackParamList, 'SignIn'>;
+
 
 export type SignInScreenParams = {
   userType: 'client' | 'provider';
@@ -21,3 +21,6 @@ export type RootStackParamList = {
   SearchScreen: undefined;
   AppointmentDetails: undefined;
 };
+
+export type SplashScreenNavigationProp = NativeStackScreenProps<RootStackParamList, 'Splash'>;
+export type WelcomeScreenProps = NativeStackScreenProps<RootStackParamList>;

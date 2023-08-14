@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react';
 const useSearch = (query: string) => {
   const [results, setResults] = useState<string[]>([]);
   const [showResults, setShowResults] = useState<boolean>(false);
+
   useEffect(() => {
     if (query.trim() === '') {
       setResults([]);
@@ -17,7 +18,7 @@ const useSearch = (query: string) => {
         .then(response => response.json())
         .then(result => {
           const processedResults = result.results
-            ? result.results.map((item: {formatted: any}) => item.formatted)
+            ? result.results.map((item: {formatted: string}) => item.formatted)
             : [];
           setResults(processedResults);
           setShowResults(processedResults.length > 0);
@@ -27,6 +28,7 @@ const useSearch = (query: string) => {
 
     handleSearch();
   }, [query]);
+
   return {results, showResults, setShowResults, setResults};
 };
 

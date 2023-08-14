@@ -3,4 +3,4 @@ interface MultipleLocationInputProps {
   errorMessage?: string;
 }
 
-export {MultipleLocationInputProps};
+export type {MultipleLocationInputProps};

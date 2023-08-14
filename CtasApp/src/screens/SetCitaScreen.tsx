@@ -9,6 +9,7 @@ import Map from '../components/Map';
 import CalendarModal from '../components/CalendarModal';
 import useCustomForm from '../hooks/useCustomForm';
 import Button from '../components/Button';
+import Colors from '../styles/colors/Colors';
 
 const SetCitaScreen: React.FC = () => {
   const {setValue} = useCustomForm();
@@ -22,7 +23,7 @@ const SetCitaScreen: React.FC = () => {
         scrollEnabled={true}>
         <View style={ProviderSetCitaStyles.main}>
           <View style={ProviderSetCitaStyles.backArrow}>
-            <Ionicons name="arrow-back" size={20} color="#ffff" />
+            <Ionicons name="arrow-back" size={20} color={Colors.white}/>
           </View>
           <ProviderInformation
             name="Lic. Valeriano Perez"

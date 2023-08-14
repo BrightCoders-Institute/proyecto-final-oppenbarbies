@@ -8,7 +8,7 @@ const MyAppointmentsScreen: React.FC = () => {
   return (
     <View style={MyAppointmentScreenStyles.container}>
       <View style={MyAppointmentScreenStyles.headerContainer}>
-        <Text style={MyAppointmentScreenStyles.txtTitle}>My appointments</Text>
+        <Text style={MyAppointmentScreenStyles.txtTitle}>My Appointments</Text>
       </View>
       <View style={MyAppointmentScreenStyles.bodyContainer}>
         <AppointmentList />

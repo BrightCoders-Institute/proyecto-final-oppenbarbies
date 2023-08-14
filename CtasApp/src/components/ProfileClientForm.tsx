@@ -9,25 +9,36 @@ import Button from './Button';
 import LocationInput from './LocationInput';
 import MessageModal from './MessageModal';
 import CalendarModal from './CalendarModal';
+import Colors from '../styles/colors/Colors';
+
+const NAME_VALIDATION_RULES = {
+  required: 'Name is required!',
+  pattern: {
+    value: /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/,
+    message: 'Name can only contain letters and spaces!',
+  },
+};
+
+const PHONE_VALIDATION_RULES = {
+  required: 'Phone number is required!',
+  pattern: {
+    value: /^\d{3}-\d{3}-\d{4}$/,
+    message: 'Phone number must be 1o digits!',
+  },
+};
+
 
 const ProfileClientForm: React.FC = () => {
   const {control, handleSubmit, errors, onSubmit, setValue, isModalVisible} =
     useCustomForm();
-  const [birthdate, setBirthdate] = useState('');
   const [isDateModalVisible, setDateModalVisible] = useState<boolean>(false);
   const [isLocationModalVisible, setLocationModalVisible] =
     useState<boolean>(false);
 
-  const handleDateModalOpen = () => {
-    setDateModalVisible(true);
-  };
-  const handleDateModalClose = () => {
-    setDateModalVisible(false);
-  };
-
   const handleSetBirthdate = (date: string) => {
     setValue('birthDate', date);
   };
+
   return (
     <View style={ProfileClientFormStyles.container}>
       <Text style={ProfileClientFormStyles.titleText}>
@@ -45,64 +56,51 @@ const ProfileClientForm: React.FC = () => {
           <InputField
             label="Name"
             value={value}
-            onChangeText={value => {
-              if (errors.name) {
-                setValue('name', '');
-              }
-              onChange(value);
-            }}
+            onChangeText={onChange}
             placeholder="Enter your name"
             errorMessage={errors.name?.message}
           />
         )}
         name="name"
-        rules={{
-          required: 'Name is required!',
-          pattern: {
-            value: /^[A-Za-z\s]+$/,
-            message: 'Name can only contain letters and spaces!',
-          },
-        }}
+        rules={NAME_VALIDATION_RULES}
         defaultValue=""
       />
       <Text style={ProfileClientFormStyles.text}> Phone: </Text>
       <Controller
-        control={control}
-        render={({field: {onChange, value}}) => (
-          <InputField
-            label="Phone"
-            value={value}
-            onChangeText={value => {
-              if (errors.phone) {
-                setValue('phone', '');
-              }
-              onChange(value);
-            }}
-            placeholder="Enter your phone number"
-            errorMessage={errors.phone?.message}
-          />
-        )}
-        name="phone"
-        rules={{
-          required: 'Phone number is required!',
-          pattern: {
-            value: /^\d{10}$/,
-            message: 'Phone number must be 10 digits!',
-          },
-        }}
-        defaultValue=""
+  control={control}
+  render={({field: {onChange, value}}) => {
+    const handlePhoneChange = (text: string) => {
+      let formattedText = text.replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
+      formattedText = formattedText.replace(/[^0-9-]/g, '');
+      formattedText = formattedText.slice(0, 12);
+      onChange(formattedText);
+    };
+    return (
+      <InputField
+        label="Phone"
+        value={value}
+        onChangeText={handlePhoneChange}
+        placeholder="Enter your phone number"
+        errorMessage={errors.phone?.message}
+        keyboardType="numeric"
       />
+    );
+  }}
+  name="phone"
+  rules={PHONE_VALIDATION_RULES}
+  defaultValue=""
+/>
       <Text style={ProfileClientFormStyles.text}> Birth Date: </Text>
       <Pressable
-        onPress={handleDateModalOpen}
+        onPress={() => setDateModalVisible(true)}
         style={ProfileClientFormStyles.textInputPress}>
         <Controller
           control={control}
           render={({field: {onChange, value}}) => (
             <InputField
               label="BirthDate"
-              value={value || birthdate}
-              onChangeText={value => onChange(value)}
+              value={value}
+              onChangeText={onChange}
               placeholder="Enter your Birth Date"
               errorMessage={errors.birthDate?.message}
               editable={false}
@@ -115,8 +113,8 @@ const ProfileClientForm: React.FC = () => {
       </Pressable>
       <Pressable
         style={ProfileClientFormStyles.iconPress}
-        onPress={handleDateModalOpen}>
-        <AntDesign name="calendar" size={20} color="#40B9A9" />
+        onPress={() => setDateModalVisible(true)}>
+        <AntDesign name="calendar" size={20} color={Colors.aqua} />
       </Pressable>
       <Text style={ProfileClientFormStyles.text}> Location: </Text>
       <Pressable
@@ -128,7 +126,7 @@ const ProfileClientForm: React.FC = () => {
             <InputField
               label="Location"
               value={value}
-              onChangeText={item => onChange(item)}
+              onChangeText={onChange}
               placeholder="Enter your location"
               editable={false}
             />
@@ -171,7 +169,7 @@ const ProfileClientForm: React.FC = () => {
             <CalendarModal setBirthdate={handleSetBirthdate} />
             <Button
               text="Close"
-              onPress={handleDateModalClose}
+              onPress={() => setDateModalVisible(false)}
               styleName="default"
             />
           </View>

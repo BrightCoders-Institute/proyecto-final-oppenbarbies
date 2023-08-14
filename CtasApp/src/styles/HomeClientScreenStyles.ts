@@ -6,6 +6,18 @@ const HomeClientScreenStyles = StyleSheet.create({
     backgroundColor: Colors.white,
     flex: 1,
     alignItems: 'center',
+    marginTop: 10,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+  },
+  background: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: Colors.white,
+    
   },
   nameContainer: {
     alignItems: 'center',
@@ -18,7 +30,7 @@ const HomeClientScreenStyles = StyleSheet.create({
     width: 200,
   },
   name: {
-    fontWeight: 'bold',
+    fontFamily: 'Inter-ExtraBold',
     fontSize: 35,
     color: Colors.black,
     textAlign: 'right',
@@ -26,10 +38,13 @@ const HomeClientScreenStyles = StyleSheet.create({
   details: {
     color: Colors.black,
     textAlign: 'center',
+    fontFamily: 'Inter-Regular',
+    fontSize: 15,
+    marginBottom: 14,
   },
   photoContainer: {
     marginTop: 80,
-    marginBottom: 30,
+    marginBottom: 20,
     justifyContent: 'center',
     alignItems: 'center',
   },

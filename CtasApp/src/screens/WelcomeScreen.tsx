@@ -1,13 +1,12 @@
-import React from 'react';
-import {Image, Pressable, SafeAreaView, Text, View} from 'react-native';
+import * as React from 'react';
+import {Pressable, SafeAreaView, Text, View} from 'react-native';
 import SplashScreenStyles from '../styles/SplashScreenStyles';
 import WelcomeStyles from '../styles/WelcomeStyles';
-import Button from '../components/Button';
 import Logo from '../components/Logo';
+import ProfileSelector from '../components/ProfileSelector';
+import {WelcomeScreenProps} from '../schema/SignInScreenSchema';
 
-type Props = unknown;
-
-const WelcomeScreen: React.FC<Props> = ({navigation}) => {
+const WelcomeScreen: React.FC<WelcomeScreenProps> = ({navigation}) => {
   const goToSignIn = (userType: string) => {
     navigation.navigate('SignIn', {
       userType: userType,
@@ -18,7 +17,7 @@ const WelcomeScreen: React.FC<Props> = ({navigation}) => {
     <SafeAreaView style={SplashScreenStyles.container}>
       <View style={WelcomeStyles.headerContainer}>
         <View style={WelcomeStyles.logoTitle}>
-          <Logo src="logowithoutbackground" styleType="logowb" />
+          <Logo src="logoWithoutBackground" styleType="logoWb" />
           <Text style={WelcomeStyles.title}>Welcome</Text>
         </View>
         <Text style={WelcomeStyles.description}>
@@ -28,30 +27,16 @@ const WelcomeScreen: React.FC<Props> = ({navigation}) => {
       </View>
       <View style={WelcomeStyles.bodyContainer}>
         <View style={WelcomeStyles.profilesContainer}>
-          <View style={WelcomeStyles.profile}>
-            <Image
-              source={require('../img/Client.png')}
-              style={WelcomeStyles.profileLogo}
-            />
-            <Button
-              text="Client"
-              onPress={() => goToSignIn('client')}
-              styleName={'welcome'}
-              textStyleName={'welcome'}
-            />
-          </View>
-          <View style={WelcomeStyles.profile}>
-            <Image
-              source={require('../img/Provider.png')}
-              style={WelcomeStyles.profileLogo}
-            />
-            <Button
-              text="Service Provider"
-              onPress={() => goToSignIn('service provider')}
-              styleName={'welcome'}
-              textStyleName={'welcome'}
-            />
-          </View>
+          <ProfileSelector
+            source={require('../img/Client.png')}
+            text="Client"
+            onPress={() => goToSignIn('client')}
+          />
+          <ProfileSelector
+            source={require('../img/Provider.png')}
+            text="Service Provider"
+            onPress={() => goToSignIn('service provider')}
+          />
         </View>
         <View style={WelcomeStyles.footerContainer}>
           <Text style={WelcomeStyles.footerText}>

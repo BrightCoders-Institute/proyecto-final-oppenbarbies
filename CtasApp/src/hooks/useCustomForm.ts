@@ -3,7 +3,8 @@ import {useState} from 'react';
 import {FormData} from '../schema/ProfileClientFormSchema';
 
 const useProfileForm = () => {
-  const {control, handleSubmit, formState, setValue} = useForm<FormData>();
+  const {control, handleSubmit, formState, setValue, reset} =
+    useForm<FormData>();
   const {errors} = formState;
   const [isModalVisible, setModalVisible] = useState<boolean>(false);
 
@@ -14,12 +15,14 @@ const useProfileForm = () => {
       setTimeout(() => {
         setModalVisible(false);
       }, 3000);
-      setValue('name', '');
-      setValue('phone', '');
-      setValue('birthDate', '');
-      setValue('location', '');
-      setValue('occupation', '');
-      setValue('servicesDescription', '');
+      reset({
+        name: '',
+        phone: '',
+        birthDate: '',
+        location: '',
+        occupation: '',
+        servicesDescription: '',
+      });
     } catch (error) {
       console.error('Error:', error);
     }

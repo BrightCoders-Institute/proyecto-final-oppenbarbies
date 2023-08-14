@@ -13,7 +13,7 @@ const ProfileClientSimpleCardStyles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 1.84,
     elevation: 5,
-    marginTop: 20,
+    marginTop: 12,
   },
   userType: {
     fontFamily: 'Inter-ExtraBold',

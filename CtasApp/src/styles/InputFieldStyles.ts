@@ -8,7 +8,7 @@ const defaultStyles = StyleSheet.create({
   },
   input: {
     width: 334,
-    height: 38,
+    height: 40,
     backgroundColor: Colors.white,
     borderColor: Colors.skyBlue,
     borderWidth: 1,
@@ -105,7 +105,7 @@ const secondaryStyles = StyleSheet.create({
   },
   input: {
     width: 334,
-    height: 36,
+    height: 38,
     backgroundColor: Colors.white,
     borderColor: Colors.skyBlue,
     borderWidth: 1,

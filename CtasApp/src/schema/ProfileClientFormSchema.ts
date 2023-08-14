@@ -7,6 +7,7 @@ export interface InputFieldProps {
   errorMessage?: string;
   editable?: boolean;
   styleVariant?: 'default' | 'secondary';
+  keyboardType?: 'default' | 'email-address' | 'numeric' | 'phone-pad';
 }
 export type FormData = {
   name?: string;

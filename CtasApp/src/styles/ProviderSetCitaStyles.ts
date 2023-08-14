@@ -80,13 +80,13 @@ const ProviderSetCitaStyles = StyleSheet.create({
   map: {
     ...StyleSheet.absoluteFillObject,
   },
-  ubicationContainer: {
+  locationContainer: {
     justifyContent: 'center',
     alignItems: 'center',
     width: 300,
     gap: 5,
   },
-  ubicationText: {
+  locationText: {
     fontSize: 12,
     fontFamily: 'Inter-Light',
     color: Colors.babyBlue,
@@ -106,7 +106,7 @@ const ProviderSetCitaStyles = StyleSheet.create({
   },
   calendarContainer: {
     width: '100%',
-    height: 300,
+    height: 340,
     alignItems: 'center',
     marginTop: 10,
   },
