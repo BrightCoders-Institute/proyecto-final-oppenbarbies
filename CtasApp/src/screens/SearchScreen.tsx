@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import {SafeAreaView, Text, View} from 'react-native';
 import {SearchStyles} from '../styles/SearchStyles';
 import SearchInput from '../components/SearchInput';

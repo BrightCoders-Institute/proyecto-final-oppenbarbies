@@ -1,27 +1,23 @@
 import * as React from 'react';
-import {Image} from 'react-native';
-import {LogoProps, StyleType, ImageKeys} from '../schema/LogoSchema';
+import { Image, ImageSourcePropType } from 'react-native';
+import { LogoProps, StyleType, ImageKeys } from '../schema/LogoSchema';
 import LogoStyles from '../styles/LogoStyles';
 
-const images: Record<ImageKeys, any> = {
+const images: Record<ImageKeys, ImageSourcePropType> = {
   logo: require('../img/logo.png'),
-  logowithoutbackground: require('../img/logowithoutbackground.png'),
+  logoWithoutBackground: require('../img/logoWithoutBackground.png'),
 };
 
-const Logo: React.FC<LogoProps> = props => {
-  const src = (props.src || 'logo') as ImageKeys;
-  const styleType = (props.styleType || 'logo') as StyleType;
-  const imageSrc = images[src];
+const styleMapping: Record<StyleType, typeof LogoStyles.logo> = {
+  logo: LogoStyles.logo,
+  logoWb: LogoStyles.logoWb,
+  logoBanner: LogoStyles.logoBanner,
+};
 
-  const styleMapping: {[key in StyleType]: typeof LogoStyles.logo} = {
-    logo: LogoStyles.logo,
-    logowb: LogoStyles.logowb,
-    logoBanner: LogoStyles.logoBanner,
-  };
-
-  const style = styleMapping[styleType];
-
-  return <Image source={imageSrc} style={style} />;
+const Logo: React.FC<LogoProps> = ({ src = 'logo', styleType = 'logo' }) => {
+  return (
+    <Image source={images[src as ImageKeys]} style={styleMapping[styleType as StyleType]} />
+  );
 };
 
 export default Logo;

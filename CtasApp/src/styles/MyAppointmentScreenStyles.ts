@@ -10,8 +10,8 @@ const MyAppointmentScreenStyles = StyleSheet.create({
     backgroundColor: Colors.aqua,
   },
   txtTitle: {
-    fontFamily: 'Inter-Bold',
-    fontSize: 25,
+    fontFamily: 'Inter-ExtraBold',
+    fontSize: 30,
     color: Colors.white,
     marginTop: 70,
     marginLeft: 20,

@@ -5,4 +5,3 @@ The `hooks/` folder is dedicated to creating personalized custom hooks. React cu
 ## Purpose
 
 The primary purpose of the `hooks/` folder is to centralize the custom hooks that provide specific functionalities and can be used across multiple components. Custom hooks help to keep component logic clean and maintainable by abstracting complex functionalities into reusable units.
-

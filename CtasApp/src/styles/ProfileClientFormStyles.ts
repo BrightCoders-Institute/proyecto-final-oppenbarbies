@@ -5,7 +5,7 @@ const ProfileClientFormStyles = StyleSheet.create({
   container: {
     backgroundColor: Colors.mint,
     width: 355,
-    height: 415,
+    height: 417,
     marginTop: 20,
     borderRadius: 10,
   },

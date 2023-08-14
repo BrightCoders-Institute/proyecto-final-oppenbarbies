@@ -3,7 +3,8 @@ import {View, Text, Image} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {AppointmentCardStyles as styles} from '../styles/AppointmentCardStyles';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {Person, AppointmentCardProps} from '../schema/AppointmentCardSchema';
+import {AppointmentCardProps} from '../schema/AppointmentCardSchema';
+import Colors from '../styles/colors/Colors';
 
 const AppointmentCard: React.FC<AppointmentCardProps> = ({
   date,
@@ -47,7 +48,7 @@ const AppointmentCard: React.FC<AppointmentCardProps> = ({
             name="map-pin"
             size={18}
             style={styles.locationIcon}
-            color={'#00538F'}
+            color={Colors.normalBlue}
           />
           <Text style={styles.txtLocation}>{address}</Text>
         </View>

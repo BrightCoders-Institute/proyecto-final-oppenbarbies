@@ -4,10 +4,11 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import AppointmentCard from './AppointmentCard';
 import {AppointmentListStyles as styles} from '../styles/AppointmentListStyles';
 import {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   PersonProvider,
   AppointmentProvider,
 } from '../schema/AppointmentListSchema';
-
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const dataClient = [
   {
     id: '1',

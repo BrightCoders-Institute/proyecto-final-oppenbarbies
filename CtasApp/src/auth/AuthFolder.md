@@ -21,4 +21,3 @@ The Auth folder contains the following files and components:
 5. `auth_utils.js`: A utility file that contains helper functions and constants related to authentication, such as password encryption and token generation.
 
 6. `middlewares/`: This folder contains custom middleware functions used for protecting routes and ensuring that only authenticated users can access certain parts of the application.
-

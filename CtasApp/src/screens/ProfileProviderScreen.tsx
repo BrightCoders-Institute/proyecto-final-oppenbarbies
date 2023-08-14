@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import ProfileClientScreenStyles from '../styles/ProfileClientScreenStyles';

@@ -22,7 +22,10 @@ const useTimePicker = () => {
     return true;
   };
 
-  const handleEndTimeChange = (event: any, selectedDate: Date | undefined) => {
+  const handleEndTimeChange = (
+    event: Event, 
+    selectedDate: Date | undefined,
+  ) => {
     setShowEndPicker(false);
     if (selectedDate) {
       setEndTime(selectedDate);
@@ -30,7 +33,7 @@ const useTimePicker = () => {
   };
 
   const handleStartTimeChange = (
-    event: any,
+    event: Event,
     selectedDate: Date | undefined,
   ) => {
     setShowStartPicker(false);
@@ -39,24 +42,14 @@ const useTimePicker = () => {
     }
   };
   const generateTimeSlots = () => {
-    if (!checkTimeValidity()) {
-      return;
-    }
+    if (!checkTimeValidity()) return;
 
-    let slots = [];
-    let start = new Date(startTime);
-    let end = new Date(endTime);
+    const slots = [];
+    const start = startTime;
+    const end = endTime;
 
     if (start.getTime() > end.getTime()) {
       end.setDate(end.getDate() + 1);
-    }
-
-    if (start.getTime() === end.getTime()) {
-      Alert.alert(
-        'Error',
-        'The hours must be different. Please select different hours.',
-      );
-      return;
     }
 
     while (start.getTime() !== end.getTime()) {
@@ -67,8 +60,8 @@ const useTimePicker = () => {
     }
 
     setTimeSlots(slots);
-    console.log('Available Time Slots:', slots);
   };
+
 
   return {
     startTime,

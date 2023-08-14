@@ -5,7 +5,7 @@ const LogoStyles = StyleSheet.create({
     width: 250,
     height: 250,
   },
-  logowb: {
+  logoWb: {
     width: 270,
     height: 190,
     marginRight: 17,

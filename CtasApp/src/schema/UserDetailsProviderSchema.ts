@@ -3,8 +3,8 @@ export type UserDetailsProviderProps = {
   email: string;
   birth: string;
   phone: string;
-  adress: string;
-  ocupation: string;
+  address: string;
+  occupation: string;
   services: string;
   ratting: number;
 };

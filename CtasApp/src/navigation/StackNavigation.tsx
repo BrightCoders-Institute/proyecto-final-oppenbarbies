@@ -15,7 +15,7 @@ import {RootStackParamList} from '../schema/SignInScreenSchema';
 const Stack = createNativeStackNavigator<RootStackParamList>();
 const StackNavigation: React.FC = () => {
   return (
-    <Stack.Navigator initialRouteName="Splash">
+    <Stack.Navigator initialRouteName="splash">
       <Stack.Screen
         name="Splash"
         component={SplashScreen}

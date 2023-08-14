@@ -5,8 +5,8 @@ const ProfileProviderFormStyles = StyleSheet.create({
   container: {
     backgroundColor: Colors.mint,
     width: 355,
-    height: 435,
-    marginTop: 8,
+    height: 442,
+    marginTop: 12,
     borderRadius: 10,
   },
   titleText: {
@@ -14,6 +14,7 @@ const ProfileProviderFormStyles = StyleSheet.create({
     fontSize: 15,
     color: Colors.white,
     textAlign: 'center',
+    marginTop: 7,
   },
   text: {
     fontFamily: 'Inter-ExtraBold',
@@ -101,7 +102,7 @@ const ProfileProviderFormStyles = StyleSheet.create({
     textAlign: 'left',
     width: 334,
     backgroundColor: Colors.lowWhite,
-    height: 80,
+    height: 77,
     borderRadius: 10,
     fontFamily: 'Inter-ExtraBold',
     paddingLeft: 10,

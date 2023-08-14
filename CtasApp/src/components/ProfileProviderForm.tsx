@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react';
-import {View, Text, TextInput, Modal, Pressable} from 'react-native';
-import {Controller} from 'react-hook-form';
+import React, { useState, useEffect } from 'react';
+import { View, Text, TextInput, Modal, Pressable } from 'react-native';
+import { Controller } from 'react-hook-form';
 import ProfileProviderFormStyles from '../styles/ProfileProviderFormStyles';
 import Button from './Button';
 import MessageModal from './MessageModal';
@@ -8,23 +8,32 @@ import MultipleLocationInput from './MultipleLocationInput';
 import InputField from './InputField';
 import useProfileForm from '../hooks/useCustomForm';
 
+const NAME_VALIDATION_RULES = {
+  required: 'Name is required!',
+  pattern: {
+    value: /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/,
+    message: 'Name can only contain letters and spaces!',
+  },
+};
+
+const PHONE_VALIDATION_RULES = {
+  required: 'Phone number is required!',
+  pattern: {
+    value: /^\d{10}$/,
+    message: 'Phone number must be 10 digits!',
+  },
+};
+
 const ProfileProviderForm: React.FC = () => {
-  const {control, handleSubmit, errors, onSubmit, isModalVisible, setValue} =
-    useProfileForm();
+  const { control, handleSubmit, errors, onSubmit, isModalVisible, setValue } = useProfileForm();
   const [servicesDescription, setServicesDescription] = useState('');
-  const [isLocationModalVisible, setLocationModalVisible] =
-    useState<boolean>(false);
-  const [isCharacterLimitReached, setCharacterLimitReached] = useState(false);
+  const [isLocationModalVisible, setLocationModalVisible] = useState<boolean>(false);
 
   const handleServicesDescriptionChange = (text: string) => {
-    if (text.length <= 86) {
-      setServicesDescription(text);
-      setValue('servicesDescription', text);
-      setCharacterLimitReached(false);
-    } else {
-      setCharacterLimitReached(true);
-    }
+    setServicesDescription(text);
+    setValue('servicesDescription', text);
   };
+
   useEffect(() => {
     if (!isModalVisible) {
       setServicesDescription('');
@@ -39,47 +48,36 @@ const ProfileProviderForm: React.FC = () => {
       <Text style={ProfileProviderFormStyles.text}> Name: </Text>
       <Controller
         control={control}
-        render={({field: {onChange, value}}) => (
+        render={({ field: { onChange, value: nameValue } }) => (
           <InputField
             styleVariant="secondary"
             label="Name"
             placeholder="Enter your name"
-            value={value}
+            value={nameValue}
             onChangeText={value => onChange(value)}
             errorMessage={errors.name?.message}
+            keyboardType="numeric"
           />
         )}
         name="name"
-        rules={{
-          required: 'Name is required!',
-          pattern: {
-            value: /^[A-Za-z\s]+$/,
-            message: 'Name can only contain letters and spaces!',
-          },
-        }}
+        rules={NAME_VALIDATION_RULES}
         defaultValue=""
       />
       <Text style={ProfileProviderFormStyles.text}> Phone: </Text>
       <Controller
         control={control}
-        render={({field: {onChange, value}}) => (
+        render={({ field: { onChange, value: phoneValue } }) => (
           <InputField
             styleVariant="secondary"
             label="Phone"
             placeholder="Enter your phone number"
-            value={value}
+            value={phoneValue}
             onChangeText={value => onChange(value)}
             errorMessage={errors.phone?.message}
           />
         )}
         name="phone"
-        rules={{
-          required: 'Phone number is required!',
-          pattern: {
-            value: /^\d{10}$/,
-            message: 'Phone number must be 10 digits!',
-          },
-        }}
+        rules={PHONE_VALIDATION_RULES}
         defaultValue=""
       />
       <Text style={ProfileProviderFormStyles.text}> Addresses: </Text>
@@ -93,42 +91,34 @@ const ProfileProviderForm: React.FC = () => {
       <Text style={ProfileProviderFormStyles.text}> Occupation: </Text>
       <Controller
         control={control}
-        render={({field: {onChange, value}}) => (
+        render={({ field: { onChange, value: occupationValue } }) => (
           <InputField
             styleVariant="secondary"
             label="Occupation"
             placeholder="Enter your occupation"
-            value={value}
+            value={occupationValue}
             onChangeText={value => onChange(value)}
             errorMessage={errors.occupation?.message}
           />
         )}
         name="occupation"
-        rules={{required: 'Occupation is required!'}}
+        rules={{ required: 'Occupation is required!' }}
         defaultValue=""
       />
-
       <View style={ProfileProviderFormStyles.descriptionContainer}>
-        {isCharacterLimitReached && (
-          <Text style={ProfileProviderFormStyles.characterLimitWarning}>
-            You have reached the character limit.
-          </Text>
-        )}
         <Controller
           control={control}
-          render={({field: {onChange, value}}) => (
+          render={() => (
             <TextInput
               style={ProfileProviderFormStyles.inputDescription}
               value={servicesDescription}
-              onChangeText={text => {
-                handleServicesDescriptionChange(text);
-              }}
+              onChangeText={handleServicesDescriptionChange}
               placeholder="Describe your services, ej. monitoring and advice"
+              maxLength={86}
               multiline
             />
           )}
           name="servicesDescription"
-          rules={{required: 'Services Description is required!'}}
           defaultValue=""
         />
         <Text style={ProfileProviderFormStyles.textCounter}>

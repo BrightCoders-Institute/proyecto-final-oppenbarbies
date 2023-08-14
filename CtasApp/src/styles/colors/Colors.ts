@@ -23,6 +23,7 @@ const Colors: {[key: string]: string} = {
   lowWhite: '#FFFFFF80',
   lowSemiTransparentBlack: 'rgba(0, 0, 0, 0.2)',
   strongGray: '#434242',
+  normalBlue: '#00538F',
 };
 
 export default Colors;

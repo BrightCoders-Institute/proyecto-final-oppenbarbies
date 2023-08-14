@@ -10,7 +10,7 @@ const NavbarStyles = StyleSheet.create({
     width: '100%',
   },
   navbar: {
-    backgroundColor: Colors.babyBlue,
+    backgroundColor: Colors.skyBlue,
     height: 60,
     width: '55%',
     justifyContent: 'space-between',
