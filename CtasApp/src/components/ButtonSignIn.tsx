@@ -4,6 +4,8 @@ import {btnSignInProps, size as sizeType} from '../schema/ButtonSignInSchema';
 import {BtnSignInStyles as styles} from '../styles/BtnSIgnInStyles';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
+
+
 export default function ButtonSignIn({
   text,
   authProvider,
