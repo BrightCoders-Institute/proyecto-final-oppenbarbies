@@ -18,6 +18,7 @@ const HomeClientScreen: React.FC = () => {
             name="gear"
             size={25}
           />
+    
           <Image
             style={HomeClientScreenStyles.photo}
             source={require('../assets/profilePick.png')}

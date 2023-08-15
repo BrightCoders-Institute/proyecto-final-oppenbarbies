@@ -15,3 +15,17 @@ declare module 'react-native-vector-icons/MaterialCommunityIcons';
 declare module 'react-native-vector-icons/MaterialIcons';
 declare module '@react-native-community/datetimepicker';
 declare module '@react-navigation/native';
+declare module 'react-native-config' {
+    export interface NativeConfig {
+        API_KEY?: string;
+        AUTH_DOMAIN?: string;
+        PROJECT_ID?: string;
+        STORAGE_BUCKET?: string;
+        MESSAGING_SENDER_ID?: string;
+        APP_ID?: string;
+        WEB_CLIENT?: string; 
+    }
+    export const Config: NativeConfig;
+    export default Config;
+  }
+  

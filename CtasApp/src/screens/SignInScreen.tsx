@@ -4,10 +4,12 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {SignInStyles as styles} from '../styles/SignInStyle';
 import ButtonSignIn from '../components/ButtonSignIn';
 import {SignInProps} from '../schema/SignInScreenSchema';
+import {GoogleAuth} from '../auth/GoogleAuth';
 
 const SignInScreen: React.FC<SignInProps> = ({navigation, route}) => {
   const {userType} = route.params;
-  const goHomeProfile = () => {
+  const goHomeProfile = async() => {
+    await GoogleAuth();
     if (userType === 'client') {
       navigation.navigate('ProfileClient');
     } else {
@@ -24,7 +26,7 @@ const SignInScreen: React.FC<SignInProps> = ({navigation, route}) => {
           <ButtonSignIn
             text={'Sign In with'}
             authProvider="google"
-            navigationFunction={goHomeProfile}
+            navigationFunction={GoogleAuth}
           />
         </View>
         <View style={styles.btnFacebookContainer}>
