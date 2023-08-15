@@ -1,67 +1,53 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {View, SafeAreaView, TouchableOpacity} from 'react-native';
 import NavbarStyles from '../styles/NavbarStyles';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, useRoute} from '@react-navigation/native';
 
-const Navbar: React.FC = React.memo(() => {
-  const [selectedIcon, setSelectedIcon] = useState('user-alt');
+const Navbar: React.FC = () => {
   const navigation = useNavigation<any>();
+  const route = useRoute<any>();
 
-  const handleIconPress = (iconName: string) => {
-    setSelectedIcon(iconName);
-
-    switch (iconName) {
-      case 'user-alt':
-        navigation.navigate('HomeClient');
-        break;
-      case 'calendar-day':
-        navigation.navigate('MyAppointments');
-        break;
-      case 'search':
-        navigation.navigate('SearchScreen');
-        break;
-      default:
-        break;
-    }
+  const handleIconPress = (screenName: string) => {
+    navigation.navigate(screenName);
   };
 
   return (
     <SafeAreaView style={NavbarStyles.container}>
       <View style={NavbarStyles.navbar}>
-        <TouchableOpacity onPress={() => handleIconPress('user-alt')}>
-          <FontAwesome5 
-            style={[
-              NavbarStyles.icon,
-              selectedIcon === 'user-alt' ? NavbarStyles.selected : NavbarStyles.unselected,
-            ]}
-            name="user-alt" 
-            size={25}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => handleIconPress('calendar-day')}>
+      <TouchableOpacity onPress={() => handleIconPress('HomeClient')}>
           <FontAwesome5
             style={[
               NavbarStyles.icon,
-              selectedIcon === 'calendar-day' ? NavbarStyles.selected : NavbarStyles.unselected,
+              route.name === 'HomeClient' ? NavbarStyles.selected : NavbarStyles.unselected,
+            ]}
+            name="user-alt"
+            size={25}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => handleIconPress('MyAppointments')}>
+          <FontAwesome5
+            style={[
+              NavbarStyles.icon,
+              route.name === 'MyAppointments' ? NavbarStyles.selected : NavbarStyles.unselected,
             ]}
             name="calendar-day"
             size={25}
           />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => handleIconPress('search')}>
-          <FontAwesome5 
+        <TouchableOpacity onPress={() => handleIconPress('SearchScreen')}>
+          <FontAwesome5
             style={[
               NavbarStyles.icon,
-              selectedIcon === 'search' ? NavbarStyles.selected : NavbarStyles.unselected,
+              route.name === 'SearchScreen' ? NavbarStyles.selected : NavbarStyles.unselected,
             ]}
-            name="search" 
-            size={25} 
+            name="search"
+            size={25}
           />
         </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
-});
+};
 
 export default Navbar;
