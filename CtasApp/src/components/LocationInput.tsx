@@ -1,12 +1,8 @@
 import * as React from 'react';
 import {useState, useEffect} from 'react';
 import {View, TextInput, FlatList, TouchableOpacity, Text} from 'react-native';
-import InputFieldStyles from '../styles/InputFieldStyles';
 import {AutocompleteProps} from '../schema/LocationInputSchema';
-
-const styles = InputFieldStyles.default;
-const API_URL =
-  'https://api.geoapify.com/v1/geocode/autocomplete?format=json&apiKey=6c07146c0b5f4db080b4f024e2624690';
+import {API_URL, styles} from '../constants/LocationInputConst';
 
 const LocationInput: React.FC<AutocompleteProps & {errorMessage?: string}> = ({
   onSelected,

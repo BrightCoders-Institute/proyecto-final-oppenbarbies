@@ -1,7 +1,7 @@
-import { ImageSourcePropType } from "react-native";
+import {ImageSourcePropType} from 'react-native';
 
 export interface ProfileSelectorProps {
-  source: ImageSourcePropType; 
+  source: ImageSourcePropType;
   text: string;
   onPress: () => void;
 }

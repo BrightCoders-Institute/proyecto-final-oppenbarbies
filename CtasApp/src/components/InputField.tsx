@@ -11,7 +11,7 @@ const InputField: React.FC<InputFieldProps> = ({
   errorMessage,
   editable,
   styleVariant = 'default',
-   keyboardType="default",
+  keyboardType = 'default',
 }) => {
   const styles = InputFieldStyles[styleVariant];
   return (
@@ -23,7 +23,7 @@ const InputField: React.FC<InputFieldProps> = ({
         onChangeText={onChangeText}
         secureTextEntry={secureTextEntry}
         editable={editable}
-         keyboardType={keyboardType}
+        keyboardType={keyboardType}
       />
       {errorMessage && <Text style={styles.errorText}>{errorMessage}</Text>}
     </View>

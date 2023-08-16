@@ -1,9 +1,11 @@
 import {useState} from 'react';
 import {Alert} from 'react-native';
+import {DateTimePickerEvent} from '@react-native-community/datetimepicker';
 
 const useTimePicker = () => {
   const initialTime = new Date();
   initialTime.setHours(0, 0, 0, 0);
+
   const [startTime, setStartTime] = useState(initialTime);
   const [endTime, setEndTime] = useState(new Date(initialTime));
   const [showStartPicker, setShowStartPicker] = useState<boolean>(false);
@@ -23,8 +25,8 @@ const useTimePicker = () => {
   };
 
   const handleEndTimeChange = (
-    event: Event, 
-    selectedDate: Date | undefined,
+    event: DateTimePickerEvent,
+    selectedDate?: Date,
   ) => {
     setShowEndPicker(false);
     if (selectedDate) {
@@ -33,20 +35,23 @@ const useTimePicker = () => {
   };
 
   const handleStartTimeChange = (
-    event: Event,
-    selectedDate: Date | undefined,
+    event: DateTimePickerEvent,
+    selectedDate?: Date,
   ) => {
     setShowStartPicker(false);
     if (selectedDate) {
       setStartTime(selectedDate);
     }
   };
+
   const generateTimeSlots = () => {
-    if (!checkTimeValidity()) return;
+    if (!checkTimeValidity()) {
+      return;
+    }
 
     const slots = [];
-    const start = startTime;
-    const end = endTime;
+    const start = new Date(startTime);
+    const end = new Date(endTime);
 
     if (start.getTime() > end.getTime()) {
       end.setDate(end.getDate() + 1);
@@ -61,7 +66,6 @@ const useTimePicker = () => {
 
     setTimeSlots(slots);
   };
-
 
   return {
     startTime,

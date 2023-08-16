@@ -17,7 +17,6 @@ const HomeClientScreenStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: Colors.white,
-    
   },
   nameContainer: {
     alignItems: 'center',
