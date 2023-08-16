@@ -1,12 +1,9 @@
 import React from 'react';
 import {View, Text, Modal} from 'react-native';
-import {ModalProps, AnimationKeys} from '../schema/MessageModalSchema';
+import {ModalProps} from '../schema/MessageModalSchema';
 import LottieView from 'lottie-react-native';
 import styles from '../styles/MessageModalStyles';
-
-const ANIMATIONS: Record<AnimationKeys, string> = {
-  loading: require('../assets/animations/LoadingAnimation.json'),
-};
+import {ANIMATIONS} from '../constants/MessageModalConst';
 
 const MessageModal: React.FC<ModalProps> = ({
   animationKey,

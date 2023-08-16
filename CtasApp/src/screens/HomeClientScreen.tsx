@@ -9,7 +9,7 @@ const HomeClientScreen: React.FC = () => {
   return (
     <ImageBackground
       source={require('../img/homeClientBackGround.png')}
-      style={HomeClientScreenStyles.background} 
+      style={HomeClientScreenStyles.background}
       resizeMode="stretch">
       <SafeAreaView style={HomeClientScreenStyles.body}>
         <View style={HomeClientScreenStyles.photoContainer}>

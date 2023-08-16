@@ -4,7 +4,7 @@ import {SafeAreaView, ImageBackground} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import SplashScreenStyles from '../styles/SplashScreenStyles';
 import Logo from '../components/Logo';
-import { StackActions } from '@react-navigation/native';
+import {StackActions} from '@react-navigation/native';
 
 const SplashScreen: React.FC = () => {
   const navigation = useNavigation();
