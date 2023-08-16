@@ -26,7 +26,7 @@ const SignInScreen: React.FC<SignInProps> = ({navigation, route}) => {
           <ButtonSignIn
             text={'Sign In with'}
             authProvider="google"
-            navigationFunction={GoogleAuth}
+            navigationFunction={goHomeProfile}
           />
         </View>
         <View style={styles.btnFacebookContainer}>
