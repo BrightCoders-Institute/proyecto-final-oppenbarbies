@@ -20,6 +20,7 @@ export type RootStackParamList = {
   SetCita: undefined;
   SearchScreen: undefined;
   AppointmentDetails: undefined;
+  FinishAppointment: undefined;
 };
 
 export type SplashScreenNavigationProp = NativeStackScreenProps<RootStackParamList, 'Splash'>;

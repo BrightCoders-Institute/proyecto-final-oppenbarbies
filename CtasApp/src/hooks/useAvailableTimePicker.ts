@@ -22,8 +22,22 @@ const useTimePicker = () => {
     return true;
   };
 
+  const checkTimeDifference = () => {
+    const differenceInMilliseconds = endTime.getTime() - startTime.getTime();
+    const differenceInMinutes = differenceInMilliseconds / (60 * 1000);
+
+    if (differenceInMinutes < 30) {
+      Alert.alert(
+        'Error',
+        'A minimum gap of 30 minutes between the start time and end time is required.',
+      );
+      return false;
+    }
+    return true;
+  };
+
   const handleEndTimeChange = (
-    event: Event, 
+    event: Event,
     selectedDate: Date | undefined,
   ) => {
     setShowEndPicker(false);
@@ -43,25 +57,30 @@ const useTimePicker = () => {
   };
   const generateTimeSlots = () => {
     if (!checkTimeValidity()) return;
+    if (!checkTimeDifference()) return;
 
     const slots = [];
-    const start = startTime;
-    const end = endTime;
+    let start = new Date(startTime);
+    let end = new Date(endTime);
 
     if (start.getTime() > end.getTime()) {
       end.setDate(end.getDate() + 1);
     }
 
-    while (start.getTime() !== end.getTime()) {
+    while (start.getTime() < end.getTime()) {
       slots.push(
         start.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'}),
       );
       start.setMinutes(start.getMinutes() + 30);
     }
 
-    setTimeSlots(slots);
-  };
+    if (end.getMinutes() % 30 !== 0) {
+      slots.pop();
+    }
 
+    setTimeSlots(slots);
+    console.log(slots);
+  };
 
   return {
     startTime,
