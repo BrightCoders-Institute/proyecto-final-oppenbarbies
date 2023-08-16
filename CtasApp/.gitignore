@@ -66,4 +66,3 @@ yarn-error.log
 /coverage
 # Otros archivos y patrones a ignorar
 .env
-android/app/google-services.json
