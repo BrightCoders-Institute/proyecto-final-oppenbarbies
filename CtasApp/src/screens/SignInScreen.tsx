@@ -8,7 +8,7 @@ import auth from '@react-native-firebase/auth';
 import {GoogleAuth} from '../auth/GoogleAuth';
 
 const SignInScreen: React.FC<SignInProps> = ({navigation, route}) => {
-  const {userType} = route.params;
+  const userType = route.params;
   const goHomeProfile = async() => {
     await GoogleAuth();
     if (userType === 'client') {

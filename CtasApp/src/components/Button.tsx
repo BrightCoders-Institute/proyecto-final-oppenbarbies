@@ -3,6 +3,7 @@ import {TouchableOpacity, Text, ViewStyle, TextStyle} from 'react-native';
 import {ButtonPropsWithTextStyle} from '../schema/ButtonSchema';
 import ProfileClientFormStyles from '../styles/ProfileClientFormStyles';
 import WelcomeStyles from '../styles/WelcomeStyles';
+import FinishAppointmentScreenStyles from '../styles/FinishAppointmentScreenStyles';
 
 const Button: React.FC<ButtonPropsWithTextStyle> = ({
   text,
@@ -10,15 +11,34 @@ const Button: React.FC<ButtonPropsWithTextStyle> = ({
   styleName = 'default',
   textStyleName = 'default',
 }) => {
-  const selectedStyle: ViewStyle =
-    styleName === 'welcome'
-      ? WelcomeStyles.button
-      : ProfileClientFormStyles.button;
+  let selectedStyle: ViewStyle;
+  let selectedTextStyle: TextStyle;
 
-  const selectedTextStyle: TextStyle =
-    textStyleName === 'welcome'
-      ? WelcomeStyles.buttonText
-      : ProfileClientFormStyles.buttonText;
+  switch(styleName) {
+    case 'welcome':
+      selectedStyle = WelcomeStyles.button;
+      break;
+      case 'Big':
+        selectedStyle = FinishAppointmentScreenStyles.buttonF;
+        break;
+    default:
+      selectedStyle = ProfileClientFormStyles.button;
+  }
+
+  switch(textStyleName) {
+    case 'welcome':
+      selectedTextStyle = WelcomeStyles.buttonText;
+      break;
+    case 'Big':
+      selectedTextStyle = FinishAppointmentScreenStyles.buttonText;
+      break;
+      case 'slots':
+        selectedTextStyle = FinishAppointmentScreenStyles.buttonTextSlots;
+        break;
+    default:
+      selectedTextStyle = ProfileClientFormStyles.buttonText; 
+  }
+      
 
   return (
     <TouchableOpacity style={selectedStyle} onPress={onPress}>

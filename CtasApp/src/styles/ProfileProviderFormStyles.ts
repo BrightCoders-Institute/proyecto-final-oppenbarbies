@@ -89,7 +89,7 @@ const ProfileProviderFormStyles = StyleSheet.create({
     right: 25,
     bottom: 8,
     fontSize: 12,
-    color: 'gray',
+    color: Colors.strongGray,
     textAlign: 'right',
   },
   descriptionContainer: {
