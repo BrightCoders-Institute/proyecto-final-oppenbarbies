@@ -9,6 +9,7 @@ export const dataProviders = [
       name: 'Antonio Ramirez',
       age: 21,
     },
+    description: 'This is a description',
   },
   {
     id: '2',
@@ -20,6 +21,7 @@ export const dataProviders = [
       name: 'Valeriano Jhonson',
       age: 23,
     },
+    description: 'This is a description',
   },
   {
     id: '3',
@@ -31,6 +33,7 @@ export const dataProviders = [
       name: 'Valeriano Jhonson',
       age: 25,
     },
+    description: 'This is a description',
   },
   {
     id: '4',
@@ -42,6 +45,7 @@ export const dataProviders = [
       name: 'Juan Gonzales',
       age: 22,
     },
+    description: 'This is a description',
   },
   {
     id: '5',
@@ -53,6 +57,7 @@ export const dataProviders = [
       name: 'Alan Smith',
       age: 23,
     },
+    description: 'This is a description',
   },
 ];
 

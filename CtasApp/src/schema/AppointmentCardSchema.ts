@@ -10,4 +10,5 @@ export type AppointmentCardProps = {
   time: string;
   person: Person;
   address: string;
+  description?: string;
 };

@@ -10,4 +10,5 @@ export type AppointmentProvider = {
   time: string;
   address: string;
   person: PersonProvider;
+  description: string;
 };
