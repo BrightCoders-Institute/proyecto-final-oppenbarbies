@@ -3,7 +3,7 @@ import {View, Text, Image} from 'react-native';
 import ProfileClientSimpleCardStyles from '../styles/ProfileClientSimpleCardStyles';
 import auth from '@react-native-firebase/auth';
 import { SignInScreenParams } from '../schema/SignInScreenSchema';
-
+import { truncateString } from '../helpers/TruncateStringHelper';
 type ProfileClientSimpleCardProps= {
   userType: String;
 }
@@ -26,7 +26,7 @@ const ProfileClientSimpleCard: React.FC<ProfileClientSimpleCardProps> = ({
         {user?.displayName}
       </Text>
       <Text style={ProfileClientSimpleCardStyles.userEmail}>
-        Email: {user?.email}
+        Email: {truncateString(user?.email,25)}
       </Text>
     </View>
   );
