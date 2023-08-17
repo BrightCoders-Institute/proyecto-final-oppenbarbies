@@ -5,7 +5,7 @@ import LogoStyles from '../styles/LogoStyles';
 
 const images: Record<ImageKeys, ImageSourcePropType> = {
   logo: require('../img/logo.png'),
-  logoWithoutBackground: require('../img/logowithoutbackground.png'),
+  logoWithoutBackground: require('../img/logoWithoutBackground.png'),
 };
 
 const styleMapping: Record<StyleType, typeof LogoStyles.logo> = {
