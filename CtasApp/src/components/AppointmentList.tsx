@@ -80,6 +80,7 @@ const dataProviders: AppointmentProvider[] = [
       name: 'Antonio Ramirez',
       age: 21,
     },
+    description: 'This is a description',
   },
   {
     id: '2',
@@ -91,6 +92,7 @@ const dataProviders: AppointmentProvider[] = [
       name: 'Valeriano Jhonson',
       age: 23,
     },
+    description: 'This is a description',
   },
   {
     id: '3',
@@ -102,6 +104,7 @@ const dataProviders: AppointmentProvider[] = [
       name: 'Valeriano Jhonson',
       age: 25,
     },
+    description: 'This is a description',
   },
   {
     id: '4',
@@ -113,6 +116,7 @@ const dataProviders: AppointmentProvider[] = [
       name: 'Juan Gonzales',
       age: 22,
     },
+    description: 'This is a description',
   },
   {
     id: '5',
@@ -124,6 +128,7 @@ const dataProviders: AppointmentProvider[] = [
       name: 'Alan Smith',
       age: 23,
     },
+    description: 'This is a description',
   },
 ];
 
