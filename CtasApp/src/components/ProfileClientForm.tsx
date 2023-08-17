@@ -10,23 +10,10 @@ import LocationInput from './LocationInput';
 import MessageModal from './MessageModal';
 import CalendarModal from './CalendarModal';
 import Colors from '../styles/colors/Colors';
-
-const NAME_VALIDATION_RULES = {
-  required: 'Name is required!',
-  pattern: {
-    value: /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/,
-    message: 'Name can only contain letters and spaces!',
-  },
-};
-
-const PHONE_VALIDATION_RULES = {
-  required: 'Phone number is required!',
-  pattern: {
-    value: /^\d{3}-\d{3}-\d{4}$/,
-    message: 'Phone number must be 1o digits!',
-  },
-};
-
+import {
+  NAME_VALIDATION_RULES,
+  PHONE_VALIDATION_RULES,
+} from '../constants/ProfileClientFormConst';
 
 const ProfileClientForm: React.FC = () => {
   const {control, handleSubmit, errors, onSubmit, setValue, isModalVisible} =
@@ -67,29 +54,32 @@ const ProfileClientForm: React.FC = () => {
       />
       <Text style={ProfileClientFormStyles.text}> Phone: </Text>
       <Controller
-  control={control}
-  render={({field: {onChange, value}}) => {
-    const handlePhoneChange = (text: string) => {
-      let formattedText = text.replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
-      formattedText = formattedText.replace(/[^0-9-]/g, '');
-      formattedText = formattedText.slice(0, 12);
-      onChange(formattedText);
-    };
-    return (
-      <InputField
-        label="Phone"
-        value={value}
-        onChangeText={handlePhoneChange}
-        placeholder="Enter your phone number"
-        errorMessage={errors.phone?.message}
-        keyboardType="numeric"
+        control={control}
+        render={({field: {onChange, value}}) => {
+          const handlePhoneChange = (text: string) => {
+            let formattedText = text.replace(
+              /(\d{3})(\d{3})(\d{4})/,
+              '$1-$2-$3',
+            );
+            formattedText = formattedText.replace(/[^0-9-]/g, '');
+            formattedText = formattedText.slice(0, 12);
+            onChange(formattedText);
+          };
+          return (
+            <InputField
+              label="Phone"
+              value={value}
+              onChangeText={handlePhoneChange}
+              placeholder="Enter your phone number"
+              errorMessage={errors.phone?.message}
+              keyboardType="numeric"
+            />
+          );
+        }}
+        name="phone"
+        rules={PHONE_VALIDATION_RULES}
+        defaultValue=""
       />
-    );
-  }}
-  name="phone"
-  rules={PHONE_VALIDATION_RULES}
-  defaultValue=""
-/>
       <Text style={ProfileClientFormStyles.text}> Birth Date: </Text>
       <Pressable
         onPress={() => setDateModalVisible(true)}

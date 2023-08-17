@@ -65,6 +65,13 @@ const AvailableTimePickerStyles = StyleSheet.create({
     right: 55,
     top: 14,
   },
+  slot: {
+    marginTop: 7,
+    textAlign: 'center',
+    fontFamily: 'Inter-Bold',
+    fontSize: 14,
+    color: Colors.babyBlue,
+  },
 });
 
 export default AvailableTimePickerStyles;

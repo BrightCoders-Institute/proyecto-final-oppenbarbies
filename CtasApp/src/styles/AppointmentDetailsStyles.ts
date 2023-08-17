@@ -42,7 +42,6 @@ const AppointmentDetailsStyles = StyleSheet.create({
   labels: {
     fontFamily: 'Inter-ExtraBold',
     fontSize: 20,
-    fontWeight: 'bold',
     color: Colors.babyBlue,
     marginLeft: 40,
     marginTop: 10,

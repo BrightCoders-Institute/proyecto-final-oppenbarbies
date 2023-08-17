@@ -1,13 +1,13 @@
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
-
-
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
 export type SignInProps = NativeStackScreenProps<RootStackParamList, 'SignIn'>;
 
+export type UserType = 'client' | 'provider';
 
-export type SignInScreenParams = {
-  userType: 'client' | 'provider';
-};
+export interface SignInScreenParams {
+  userType: UserType;
+}
+
 
 export type RootStackParamList = {
   SignIn: SignInScreenParams;
@@ -20,7 +20,14 @@ export type RootStackParamList = {
   SetCita: undefined;
   SearchScreen: undefined;
   AppointmentDetails: undefined;
+  FinishAppointment: undefined;
 };
 
-export type SplashScreenNavigationProp = NativeStackScreenProps<RootStackParamList, 'Splash'>;
-export type WelcomeScreenProps = NativeStackScreenProps<RootStackParamList>;
+export type SplashScreenNavigationProp = NativeStackScreenProps<
+  RootStackParamList,
+  'Splash'
+>;
+export type WelcomeScreenProps = NativeStackScreenProps<
+  RootStackParamList,
+  'Welcome'
+>;

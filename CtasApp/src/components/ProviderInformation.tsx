@@ -10,7 +10,7 @@ const ProviderInformation: React.FC<ProviderInformationProps> = props => {
   return (
     <View style={ProviderSetCitaStyles.providerCard}>
       <View>
-        <Image source={require('../assets/providerPicture.png')} />
+        <Image source={require('../img/providerpicture.png')} />
       </View>
       <View style={ProviderSetCitaStyles.detailsContainer}>
         <Text style={ProviderSetCitaStyles.providerName}>{props.name}</Text>
