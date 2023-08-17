@@ -23,7 +23,7 @@ const SetCitaScreen: React.FC = () => {
         scrollEnabled={true}>
         <View style={ProviderSetCitaStyles.main}>
           <View style={ProviderSetCitaStyles.backArrow}>
-            <Ionicons name="arrow-back" size={20} color={Colors.white}/>
+            <Ionicons name="arrow-back" size={20} color={Colors.white} />
           </View>
           <ProviderInformation
             name="Lic. Valeriano Perez"
