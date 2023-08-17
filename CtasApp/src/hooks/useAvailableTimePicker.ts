@@ -1,11 +1,9 @@
 import {useState} from 'react';
 import {Alert} from 'react-native';
-import {DateTimePickerEvent} from '@react-native-community/datetimepicker';
 
 const useTimePicker = () => {
   const initialTime = new Date();
   initialTime.setHours(0, 0, 0, 0);
-
   const [startTime, setStartTime] = useState(initialTime);
   const [endTime, setEndTime] = useState(new Date(initialTime));
   const [showStartPicker, setShowStartPicker] = useState<boolean>(false);
@@ -24,9 +22,23 @@ const useTimePicker = () => {
     return true;
   };
 
+  const checkTimeDifference = () => {
+    const differenceInMilliseconds = endTime.getTime() - startTime.getTime();
+    const differenceInMinutes = differenceInMilliseconds / (60 * 1000);
+
+    if (differenceInMinutes < 30) {
+      Alert.alert(
+        'Error',
+        'A minimum gap of 30 minutes between the start time and end time is required.',
+      );
+      return false;
+    }
+    return true;
+  };
+
   const handleEndTimeChange = (
-    event: DateTimePickerEvent,
-    selectedDate?: Date,
+    event: Event,
+    selectedDate: Date | undefined,
   ) => {
     setShowEndPicker(false);
     if (selectedDate) {
@@ -35,36 +47,39 @@ const useTimePicker = () => {
   };
 
   const handleStartTimeChange = (
-    event: DateTimePickerEvent,
-    selectedDate?: Date,
+    event: Event,
+    selectedDate: Date | undefined,
   ) => {
     setShowStartPicker(false);
     if (selectedDate) {
       setStartTime(selectedDate);
     }
   };
-
   const generateTimeSlots = () => {
-    if (!checkTimeValidity()) {
-      return;
-    }
+    if (!checkTimeValidity()) return;
+    if (!checkTimeDifference()) return;
 
     const slots = [];
-    const start = new Date(startTime);
-    const end = new Date(endTime);
+    let start = new Date(startTime);
+    let end = new Date(endTime);
 
     if (start.getTime() > end.getTime()) {
       end.setDate(end.getDate() + 1);
     }
 
-    while (start.getTime() !== end.getTime()) {
+    while (start.getTime() < end.getTime()) {
       slots.push(
         start.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'}),
       );
       start.setMinutes(start.getMinutes() + 30);
     }
 
+    if (end.getMinutes() % 30 !== 0) {
+      slots.pop();
+    }
+
     setTimeSlots(slots);
+    console.log(slots);
   };
 
   return {
