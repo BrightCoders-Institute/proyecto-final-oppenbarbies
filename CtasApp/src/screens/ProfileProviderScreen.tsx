@@ -4,8 +4,9 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import ProfileClientScreenStyles from '../styles/ProfileClientScreenStyles';
 import ProfileClientSimpleCard from '../components/ProfileClientSimpleCard';
 import ProfileProviderForm from '../components/ProfileProviderForm';
+import { SignInProps } from '../schema/SignInScreenSchema';
 
-const ProfileProviderScreen: React.FC = () => {
+const ProfileProviderScreen: React.FC<SignInProps> = ({navigate, route}) => {
   return (
     <SafeAreaView style={ProfileClientScreenStyles.container}>
       <KeyboardAwareScrollView
@@ -14,8 +15,6 @@ const ProfileProviderScreen: React.FC = () => {
         scrollEnabled={true}>
         <ProfileClientSimpleCard
           userType="Provider"
-          userName="Jessica Amouranth"
-          userEmail="jessica@example.com"
         />
         <ProfileProviderForm />
       </KeyboardAwareScrollView>

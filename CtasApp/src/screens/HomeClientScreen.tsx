@@ -20,7 +20,7 @@ const HomeClientScreen: React.FC = () => {
           />
           <Image
             style={HomeClientScreenStyles.photo}
-            source={require('../assets/profilePick.png')}
+            source={require('../img/profilepick.png')}
           />
         </View>
         <UserDetailsClient
