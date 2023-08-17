@@ -11,6 +11,7 @@ import {
   NAME_VALIDATION_RULES,
   PHONE_VALIDATION_RULES,
 } from '../constants/ProfileClientFormConst';
+import DescriptionInput from './DescriptionInput';
 
 const ProfileProviderForm: React.FC = () => {
   const {control, handleSubmit, errors, onSubmit, isModalVisible, setValue} =
@@ -99,21 +100,15 @@ const ProfileProviderForm: React.FC = () => {
         <Controller
           control={control}
           render={() => (
-            <TextInput
-              style={ProfileProviderFormStyles.inputDescription}
+            <DescriptionInput
               value={servicesDescription}
               onChangeText={handleServicesDescriptionChange}
               placeholder="Describe your services, ej. monitoring and advice"
-              maxLength={86}
-              multiline
             />
           )}
           name="servicesDescription"
           defaultValue=""
         />
-        <Text style={ProfileProviderFormStyles.textCounter}>
-          {servicesDescription.length} of 86 characters
-        </Text>
       </View>
       <View style={ProfileProviderFormStyles.buttonContainer}>
         <Button text="Save" onPress={handleSubmit(onSubmit)} />
