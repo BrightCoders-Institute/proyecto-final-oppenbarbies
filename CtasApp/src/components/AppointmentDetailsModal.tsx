@@ -1,13 +1,14 @@
 import React from 'react';
 import {View, Text, Modal, TouchableOpacity, Image} from 'react-native';
-import { AppointmentProvider } from '../schema/AppointmentListSchema';
+import { AppointmentCardProps } from '../schema/AppointmentCardSchema';
 import {AppointmentCardStyles as styles} from '../styles/AppointmentCardStyles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Colors from '../styles/colors/Colors';
+import images from '../data/DataProviders';
 
 interface AppointmentDetailsModalProps {
   isVisible: boolean;
-  appointment: AppointmentProvider | null;
+  appointment: AppointmentCardProps | null;
   onClose: () => void;
 }
 const AppointmentDetailsModal: React.FC<AppointmentDetailsModalProps> = ({
@@ -39,9 +40,7 @@ const AppointmentDetailsModal: React.FC<AppointmentDetailsModalProps> = ({
           <View style={styles.footContainer}>
             <View style={styles.personInfoContainer}>
               <Image
-                source={{
-                  uri: 'https://images.pexels.com/photos/15212752/pexels-photo-15212752/free-photo-of-chica-bangkok.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-                }}
+                source={images[appointment.person.img]} // Utiliza la referencia a la imagen
                 style={styles.imgPerson}
               />
               <View style={styles.personInfo}>
