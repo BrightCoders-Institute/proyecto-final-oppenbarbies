@@ -24,6 +24,8 @@ const Colors: {[key: string]: string} = {
   lowSemiTransparentBlack: 'rgba(0, 0, 0, 0.2)',
   strongGray: '#434242',
   normalBlue: '#00538F',
+  semiTransparentAqua: 'rgba(64, 185, 169, 0.6)',
+  descriptionInput: '#D5EEF1',
 };
 
 export default Colors;
