@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "65508546835",
+    "project_id": "ctas-f9a95",
+    "storage_bucket": "ctas-f9a95.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:65508546835:android:05c505bc78a9da06e462e6",
+        "android_client_info": {
+          "package_name": "com.ctasapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "65508546835-mvegd4e45mtdvctgunvk99uv5aa4646u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ctasapp",
+            "certificate_hash": "bc9992b88e06c7b0e24f3dda30ecc5f2e733fc04"
+          }
+        },
+        {
+          "client_id": "65508546835-stj7l7e9ds627le9galj1j3lgolhk7tk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgtRRosLyciBmQXFDmTcVZzXPri0Jasek"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "65508546835-qej489ss1he5ottp5ckhlc5v7uh0p5om.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
