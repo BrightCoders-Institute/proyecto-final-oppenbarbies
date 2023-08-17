@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 import Colors from './colors/Colors';
 
-const AppointmentDetailsStyles = StyleSheet.create({
+const FinishAppointmentScreenStyles = StyleSheet.create({
   background: {
     backgroundColor: Colors.aqua,
     flex: 1,
@@ -12,12 +12,11 @@ const AppointmentDetailsStyles = StyleSheet.create({
   },
   backArrow: {
     justifyContent: 'center',
-    width: 70,
+    width: 50,
     height: 55,
     backgroundColor: Colors.babyBlue,
     borderBottomRightRadius: 100,
-    paddingLeft: 8,
-    paddingBottom: 5,
+    paddingLeft: 4,
   },
   container: {
     borderTopLeftRadius: 20,
@@ -40,10 +39,10 @@ const AppointmentDetailsStyles = StyleSheet.create({
     marginTop: 10,
   },
   labels: {
+    textAlign: 'center',
     fontFamily: 'Inter-ExtraBold',
     fontSize: 20,
     color: Colors.babyBlue,
-    marginLeft: 40,
     marginTop: 10,
   },
   addressContainer: {
@@ -51,9 +50,42 @@ const AppointmentDetailsStyles = StyleSheet.create({
     paddingBottom: 10,
   },
   button: {
+    paddingHorizontal: 50,
+    paddingTop: 20,
+    paddingBottom: 20,
+  },
+  calendarContainer: {
+    flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    paddingTop: 60,
+    marginLeft: 2,
+    marginRight: 2,
+    marginTop: 20,
+  },
+  buttonText: {
+    color: Colors.white,
+    fontFamily: 'Inter-Bold',
+    textAlign: 'center',
+    fontSize: 23,
+  },
+  buttonF: {
+    backgroundColor: Colors.skyBlue,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 12,
+    elevation: 7,
+    shadowOpacity: 0.2,
+  },
+  iconContainer: {
+    position: 'absolute',
+    right: 65,
+    top: 22,
+  },
+  buttonTextSlots: {
+    color: Colors.white,
+    fontFamily: 'Inter-Bold',
+    textAlign: 'left',
+    fontSize: 23,
   },
 });
-export default AppointmentDetailsStyles;
+export default FinishAppointmentScreenStyles;

@@ -6,7 +6,7 @@ import ButtonSignIn from '../components/ButtonSignIn';
 import {SignInProps} from '../schema/SignInScreenSchema';
 
 const SignInScreen: React.FC<SignInProps> = ({navigation, route}) => {
-  const {userType} = route.params;
+  const userType = route.params;
   const goHomeProfile = () => {
     if (userType === 'client') {
       navigation.navigate('ProfileClient');
