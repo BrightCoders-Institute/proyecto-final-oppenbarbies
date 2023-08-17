@@ -9,6 +9,7 @@ export type SignInScreenParams = {
   userType: 'client' | 'provider';
 };
 
+
 export type RootStackParamList = {
   SignIn: SignInScreenParams;
   Splash: undefined;

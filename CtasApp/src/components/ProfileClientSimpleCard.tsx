@@ -2,19 +2,15 @@ import React from 'react';
 import {View, Text, Image} from 'react-native';
 import ProfileClientSimpleCardStyles from '../styles/ProfileClientSimpleCardStyles';
 import auth from '@react-native-firebase/auth';
+import { SignInScreenParams } from '../schema/SignInScreenSchema';
 
 type ProfileClientSimpleCardProps= {
-  userType: String | null;
-  userName: String | null;
-  userEmail: String | null;
+  userType: String;
 }
 const ProfileClientSimpleCard: React.FC<ProfileClientSimpleCardProps> = ({
   userType,
-  userName,
-  userEmail,
 }) => {
-  
-
+  const user = auth().currentUser;
   return (
     <View style={ProfileClientSimpleCardStyles.cardContainer}>
       <Text style={ProfileClientSimpleCardStyles.userType}>{userType}</Text>

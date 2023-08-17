@@ -4,18 +4,17 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import ProfileClientScreenStyles from '../styles/ProfileClientScreenStyles';
 import ProfileClientSimpleCard from '../components/ProfileClientSimpleCard';
 import ProfileClientForm from '../components/ProfileClientForm';
-import auth from '@react-native-firebase/auth';
+import { SignInProps, SignInScreenParams } from '../schema/SignInScreenSchema';
 
 
-const ProfileClientScreen: React.FC = ({navigation, route}) => {
-  const user = auth().currentUser;
+const ProfileClientScreen: React.FC<SignInProps> = ({navigation, route}) => {
   return (
     <SafeAreaView style={ProfileClientScreenStyles.container}>
       <KeyboardAwareScrollView
         resetScrollToCoords={{x: 0, y: 0}}
         contentContainerStyle={ProfileClientScreenStyles.contentContainer}
         scrollEnabled={true}>
-        <ProfileClientSimpleCard userType={userType} userName={displayName} userEmail={email}/>
+        <ProfileClientSimpleCard userType='Client'/>
         <ProfileClientForm />
       </KeyboardAwareScrollView>
     </SafeAreaView>
