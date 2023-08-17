@@ -21,15 +21,12 @@ const NavbarStyles = StyleSheet.create({
   selected: {
     backgroundColor: Colors.black,
     color: Colors.white,
-    fontWeight: 'bold',
-    borderRadius: 50,
-    width: 60,
-    height: 60,
-    textAlign: 'center',
-    textAlignVertical: 'center',
   },
   unselected: {
+    backgroundColor: Colors.skyBlue,
     color: Colors.black,
+  },
+  icon: {
     borderRadius: 50,
     fontWeight: 'bold',
     width: 60,

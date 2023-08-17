@@ -4,10 +4,10 @@ import SplashScreenStyles from '../styles/SplashScreenStyles';
 import WelcomeStyles from '../styles/WelcomeStyles';
 import Logo from '../components/Logo';
 import ProfileSelector from '../components/ProfileSelector';
-import {WelcomeScreenProps} from '../schema/SignInScreenSchema';
+import {UserType, WelcomeScreenProps} from '../schema/SignInScreenSchema';
 
 const WelcomeScreen: React.FC<WelcomeScreenProps> = ({navigation}) => {
-  const goToSignIn = (userType: string) => {
+  const goToSignIn = (userType: UserType) => {
     navigation.navigate('SignIn', {
       userType: userType,
     });
@@ -35,7 +35,7 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({navigation}) => {
           <ProfileSelector
             source={require('../img/Provider.png')}
             text="Service Provider"
-            onPress={() => goToSignIn('service provider')}
+            onPress={() => goToSignIn('provider')}
           />
         </View>
         <View style={WelcomeStyles.footerContainer}>

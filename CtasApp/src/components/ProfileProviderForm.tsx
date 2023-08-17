@@ -1,33 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, TextInput, Modal, Pressable } from 'react-native';
-import { Controller } from 'react-hook-form';
+import React, {useState, useEffect} from 'react';
+import {View, Text, TextInput, Modal, Pressable} from 'react-native';
+import {Controller} from 'react-hook-form';
 import ProfileProviderFormStyles from '../styles/ProfileProviderFormStyles';
 import Button from './Button';
 import MessageModal from './MessageModal';
 import MultipleLocationInput from './MultipleLocationInput';
 import InputField from './InputField';
 import useProfileForm from '../hooks/useCustomForm';
-
-const NAME_VALIDATION_RULES = {
-  required: 'Name is required!',
-  pattern: {
-    value: /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/,
-    message: 'Name can only contain letters and spaces!',
-  },
-};
-
-const PHONE_VALIDATION_RULES = {
-  required: 'Phone number is required!',
-  pattern: {
-    value: /^\d{10}$/,
-    message: 'Phone number must be 10 digits!',
-  },
-};
+import {
+  NAME_VALIDATION_RULES,
+  PHONE_VALIDATION_RULES,
+} from '../constants/ProfileClientFormConst';
 
 const ProfileProviderForm: React.FC = () => {
-  const { control, handleSubmit, errors, onSubmit, isModalVisible, setValue } = useProfileForm();
+  const {control, handleSubmit, errors, onSubmit, isModalVisible, setValue} =
+    useProfileForm();
   const [servicesDescription, setServicesDescription] = useState('');
-  const [isLocationModalVisible, setLocationModalVisible] = useState<boolean>(false);
+  const [isLocationModalVisible, setLocationModalVisible] =
+    useState<boolean>(false);
 
   const handleServicesDescriptionChange = (text: string) => {
     setServicesDescription(text);
@@ -48,7 +38,7 @@ const ProfileProviderForm: React.FC = () => {
       <Text style={ProfileProviderFormStyles.text}> Name: </Text>
       <Controller
         control={control}
-        render={({ field: { onChange, value: nameValue } }) => (
+        render={({field: {onChange, value: nameValue}}) => (
           <InputField
             styleVariant="secondary"
             label="Name"
@@ -66,7 +56,7 @@ const ProfileProviderForm: React.FC = () => {
       <Text style={ProfileProviderFormStyles.text}> Phone: </Text>
       <Controller
         control={control}
-        render={({ field: { onChange, value: phoneValue } }) => (
+        render={({field: {onChange, value: phoneValue}}) => (
           <InputField
             styleVariant="secondary"
             label="Phone"
@@ -91,7 +81,7 @@ const ProfileProviderForm: React.FC = () => {
       <Text style={ProfileProviderFormStyles.text}> Occupation: </Text>
       <Controller
         control={control}
-        render={({ field: { onChange, value: occupationValue } }) => (
+        render={({field: {onChange, value: occupationValue}}) => (
           <InputField
             styleVariant="secondary"
             label="Occupation"
@@ -102,7 +92,7 @@ const ProfileProviderForm: React.FC = () => {
           />
         )}
         name="occupation"
-        rules={{ required: 'Occupation is required!' }}
+        rules={{required: 'Occupation is required!'}}
         defaultValue=""
       />
       <View style={ProfileProviderFormStyles.descriptionContainer}>

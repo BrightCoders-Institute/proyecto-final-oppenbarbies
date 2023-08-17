@@ -28,11 +28,14 @@ export const AppointmentCardStyles = StyleSheet.create({
     color: Colors.black,
   },
   txtDateTime: {
+    fontFamily: 'Inter-Regular',
+    marginLeft: 10,
     fontSize: 14,
     color: Colors.black,
   },
   clockIcon: {
     marginLeft: 26,
+    marginTop: 2,
   },
   divider: {
     height: 0,
@@ -66,6 +69,7 @@ export const AppointmentCardStyles = StyleSheet.create({
     color: Colors.black,
   },
   txtDescription: {
+    fontFamily: 'Inter-Regular',
     fontSize: 11,
     color: Colors.black,
   },
@@ -82,8 +86,9 @@ export const AppointmentCardStyles = StyleSheet.create({
     marginLeft: 250,
   },
   txtLocation: {
+    fontFamily: 'Inter-Regular',
     textAlign: 'center',
-    fontSize: 10,
+    fontSize: 9,
     color: Colors.black,
   },
   lineSide: {

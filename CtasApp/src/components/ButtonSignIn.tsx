@@ -4,21 +4,21 @@ import {btnSignInProps, size as sizeType} from '../schema/ButtonSignInSchema';
 import {BtnSignInStyles as styles} from '../styles/BtnSIgnInStyles';
 import {SafeAreaView} from 'react-native-safe-area-context';
 
-
-
-export default function ButtonSignIn({
+const ButtonSignIn: React.FC<btnSignInProps> = ({
   text,
   authProvider,
   navigationFunction,
-}: btnSignInProps): JSX.Element {
+}) => {
   const urlImageIcon =
     authProvider === 'google'
       ? require('../img/logo_google.png')
       : require('../img/logo_facebook.png');
+
   const size: sizeType =
     authProvider === 'google'
       ? {width: 45, height: 45}
       : {width: 30, height: 30};
+
   return (
     <SafeAreaView>
       <TouchableOpacity style={styles.btnSignIn} onPress={navigationFunction}>
@@ -32,4 +32,6 @@ export default function ButtonSignIn({
       </TouchableOpacity>
     </SafeAreaView>
   );
-}
+};
+
+export default ButtonSignIn;

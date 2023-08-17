@@ -1,11 +1,11 @@
-import React, { FC } from 'react';
+import React, {FC} from 'react';
 import DatePicker from 'react-native-modern-datepicker';
-import { parse, format } from 'date-fns';
+import {parse, format} from 'date-fns';
 import CalendarModalStyles from '../styles/CalendarModalStyles';
 import Colors from '../styles/colors/Colors';
-import { CalendarModalProps } from '../schema/DateModalSchema';
+import {CalendarModalProps} from '../schema/DateModalSchema';
 
-const CalendarModal: FC<CalendarModalProps> = ({ setBirthdate }) => {
+const CalendarModal: FC<CalendarModalProps> = ({setBirthdate}) => {
   const handleDateChange = (date: string) => {
     console.log('Selected Date:', date);
     const dateObj = parse(date, 'yyyy/MM/dd', new Date());
