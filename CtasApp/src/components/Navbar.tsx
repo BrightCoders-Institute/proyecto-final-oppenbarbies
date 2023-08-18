@@ -17,7 +17,7 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <SafeAreaView style={NavbarStyles.container}>
+    <View style={NavbarStyles.container}>
       <View style={NavbarStyles.navbar}>
         {MENU_ITEMS.map(item => (
           <TouchableOpacity
@@ -36,7 +36,7 @@ const Navbar: React.FC = () => {
           </TouchableOpacity>
         ))}
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 

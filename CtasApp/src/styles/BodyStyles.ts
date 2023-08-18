@@ -22,7 +22,9 @@ const BodyStyles = StyleSheet.create({
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
     paddingHorizontal: 10,
-    paddingVertical: 15,
+    paddingVertical: 10,
+    justifyContent: 'space-between',
+    gap: 20
   }
 });
 
