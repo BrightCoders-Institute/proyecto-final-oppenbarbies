@@ -4,8 +4,6 @@ import Colors from './colors/Colors';
 const ProfileProviderFormStyles = StyleSheet.create({
   container: {
     backgroundColor: Colors.mint,
-    width: 355,
-    height: 442,
     marginTop: 12,
     borderRadius: 10,
   },
@@ -23,6 +21,39 @@ const ProfileProviderFormStyles = StyleSheet.create({
     textAlign: 'left',
     marginLeft: 9,
   },
+  textInputPress: {
+    alignItems: 'center',
+    marginLeft: 10,
+    marginBottom: 3,
+    marginTop: 5,
+    borderRadius: 10,
+    backgroundColor: Colors.skyBlue,
+    borderColor: Colors.skyBlue,
+    borderWidth: 1,
+  },
+  modalText: {
+    marginTop: 6,
+    fontFamily: 'Inter-ExtraBold',
+    fontSize: 14,
+    color: Colors.white,
+    textAlign: 'left',
+  },
+  descriptionContainer: {
+    textAlign: 'left',
+    alignItems: 'center',
+    marginBottom: 10,
+    marginTop: 5,
+  },
+  buttonContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: Colors.semiTransparentBlack,
+  },
   info: {
     flexDirection: 'row',
   },
@@ -31,10 +62,6 @@ const ProfileProviderFormStyles = StyleSheet.create({
     fontSize: 10,
     color: Colors.lowBlack,
     marginLeft: 90,
-  },
-  buttonContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   button: {
     width: 130,
@@ -58,24 +85,6 @@ const ProfileProviderFormStyles = StyleSheet.create({
     right: 20,
     top: '55%',
   },
-  modalContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: Colors.semiTransparentBlack,
-  },
-  textInputPress: {
-    alignItems: 'center',
-    marginLeft: 10,
-    marginBottom: 3,
-    marginTop: 5,
-    height: 35,
-    width: '94%',
-    borderRadius: 10,
-    backgroundColor: Colors.skyBlue,
-    borderColor: Colors.skyBlue,
-    borderWidth: 1,
-  },
   input: {
     height: 40,
     borderColor: 'gray',
@@ -92,28 +101,13 @@ const ProfileProviderFormStyles = StyleSheet.create({
     color: Colors.strongGray,
     textAlign: 'right',
   },
-  descriptionContainer: {
-    textAlign: 'left',
-    alignItems: 'center',
-    marginBottom: 10,
-    marginTop: 5,
-  },
   inputDescription: {
     textAlign: 'left',
-    width: 334,
     backgroundColor: Colors.lowWhite,
-    height: 77,
     borderRadius: 10,
     fontFamily: 'Inter-ExtraBold',
     paddingLeft: 10,
     color: Colors.strongGray,
-  },
-  modalText: {
-    marginTop: 6,
-    fontFamily: 'Inter-ExtraBold',
-    fontSize: 14,
-    color: Colors.white,
-    textAlign: 'left',
   },
   characterLimitWarning: {
     color: 'red',
