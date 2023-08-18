@@ -10,6 +10,7 @@ import CalendarModal from '../components/CalendarModal';
 import useCustomForm from '../hooks/useCustomForm';
 import Button from '../components/Button';
 import Colors from '../styles/colors/Colors';
+import BackArrow from '../components/BackArrow';
 
 const SetCitaScreen: React.FC = () => {
   const {setValue} = useCustomForm();
@@ -22,9 +23,7 @@ const SetCitaScreen: React.FC = () => {
         resetScrollToCoords={{x: 0, y: 0}}
         scrollEnabled={true}>
         <View style={ProviderSetCitaStyles.main}>
-          <View style={ProviderSetCitaStyles.backArrow}>
-            <Ionicons name="arrow-back" size={20} color={Colors.white} />
-          </View>
+          <BackArrow />
           <ProviderInformation
             name="Lic. Valeriano Perez"
             age={26}
