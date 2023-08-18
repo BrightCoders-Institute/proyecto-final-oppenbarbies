@@ -5,7 +5,6 @@ import {AppointmentCardProps} from '../schema/AppointmentCardSchema';
 import {AppointmentCardStyles as styles} from '../styles/AppointmentCardStyles';
 import Colors from '../styles/colors/Colors';
 import images from '../data/DataProviders';
-
 const AppointmentCard: React.FC<AppointmentCardProps> = ({
   date,
   time,
@@ -15,17 +14,19 @@ const AppointmentCard: React.FC<AppointmentCardProps> = ({
   <View style={styles.cardContainer}>
     <View style={styles.lineSide} />
     <View style={styles.headerContainer}>
-      <Text style={styles.txtDate}>Date</Text>
-      <Icon name="trash" size={25} style={styles.deleteIcon} color={'red'} />
-    </View>
-    <View style={styles.dateContainer}>
-      <Icon name="clock-o" size={18} style={styles.clockIcon} />
-      <Text style={styles.txtDateTime}>
-        {date} | {time} hrs
-      </Text>
+      <View>
+        <Text style={styles.txtDate}>Date</Text>
+        <View style={styles.dateContainer}>
+          <Icon name="clock-o" size={18} />
+          <Text style={styles.txtDateTime}>
+            {date} | {time} hrs
+          </Text>
+        </View>
+      </View>
+      <Icon name="trash" size={30} color={'red'} />
     </View>
     <Text style={styles.divider} />
-    <View style={styles.footContainer}>
+    <View style={styles.bodyContainer}>
       <View style={styles.personInfoContainer}>
         <Image source={images[person.img]} style={styles.imgPerson} />
         <View style={styles.personInfo}>

@@ -3,20 +3,13 @@ import Colors from './colors/Colors';
 
 const NavbarStyles = StyleSheet.create({
   container: {
-    flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
-    position: 'absolute',
-    bottom: 30,
-    width: '100%',
   },
   navbar: {
-    backgroundColor: Colors.skyBlue,
-    height: 60,
-    width: '55%',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    flexDirection: 'row',
     borderRadius: 50,
+    backgroundColor: Colors.skyBlue,
+    flexDirection: 'row',
   },
   selected: {
     backgroundColor: Colors.black,
