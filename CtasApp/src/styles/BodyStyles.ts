@@ -9,19 +9,19 @@ const BodyStyles = StyleSheet.create({
   headerContainer: {
     flex: 0.15,
     justifyContent: 'center',
+    paddingHorizontal: 15,
   },
   headerTitle: {
     fontFamily: 'Inter-ExtraBold',
     fontSize: 30,
     color: Colors.white,
-    paddingHorizontal: 10,
   },
   bodyContainer: {
     flex: 0.85,
     backgroundColor: Colors.white,
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
-    paddingHorizontal: 10,
+    paddingHorizontal: 15,
     paddingVertical: 10,
     justifyContent: 'space-between',
     gap: 20
