@@ -61,8 +61,8 @@ const ProviderSetCitaStyles = StyleSheet.create({
   },
   backArrow: {
     justifyContent: 'center',
-    width: 40,
-    height: 35,
+    width: 50,
+    height: 45,
     backgroundColor: Colors.babyBlue,
     borderBottomRightRadius: 100,
     padding: 5,
