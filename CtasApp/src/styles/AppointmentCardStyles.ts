@@ -3,20 +3,22 @@ import Colors from './colors/Colors';
 
 export const AppointmentCardStyles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   },
   separator: {
-    height: 10
+    height: 10,
   },
   cardContainer: {
     borderRadius: 12,
-    backgroundColor: Colors.lightGray,
-    padding: 12,
+    backgroundColor: Colors.white,
+    padding: 15,
+    elevation: 5,
+    shadowColor: Colors.black,
   },
   headerContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   txtDate: {
     fontFamily: 'Inter-ExtraBold',
@@ -26,7 +28,8 @@ export const AppointmentCardStyles = StyleSheet.create({
   dateContainer: {
     flexDirection: 'row',
     gap: 5,
-    alignItems: 'center'
+    paddingVertical: 2,
+    alignItems: 'center',
   },
   txtDateTime: {
     fontFamily: 'Inter-Regular',
@@ -36,18 +39,19 @@ export const AppointmentCardStyles = StyleSheet.create({
   divider: {
     height: 0,
     borderBottomWidth: 0.6,
-    marginTop: 4,
-    marginBottom: 8,
+    paddingVertical: 2,
     borderColor: Colors.lowBlack,
   },
   bodyContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   personInfoContainer: {
     flexDirection: 'row',
     gap: 5,
+    alignItems: 'center',
+    paddingVertical: 5,
   },
   imgPerson: {
     width: 60,
@@ -68,15 +72,14 @@ export const AppointmentCardStyles = StyleSheet.create({
     color: Colors.black,
   },
   locationContainer: {
-    flexDirection: 'column',
     alignItems: 'center',
+    marginBottom: 10,
   },
-  locationIcon: {
-  },
+  locationIcon: {},
   txtLocation: {
     fontFamily: 'Inter-Regular',
     textAlign: 'center',
-    fontSize: 11,
+    fontSize: 10,
     color: Colors.black,
   },
   modalContainer: {
@@ -87,7 +90,7 @@ export const AppointmentCardStyles = StyleSheet.create({
     elevation: 4,
     backgroundColor: Colors.lightGray,
     shadowColor: Colors.black,
-    padding: 12,
+    padding: 20,
     justifyContent: 'center',
     marginTop: 15,
   },
@@ -102,13 +105,12 @@ export const AppointmentCardStyles = StyleSheet.create({
     height: 30,
     alignSelf: 'flex-end',
   },
-  modal:{
+  modal: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: "rgba(0,0,0,0.6)",
+    backgroundColor: Colors.semiTransparentBlack,
   },
-  
-  
+
   lineSide: {
     width: 3.5,
     height: 100,
@@ -116,5 +118,17 @@ export const AppointmentCardStyles = StyleSheet.create({
     backgroundColor: Colors.skyBlue,
     marginTop: 25,
     borderRadius: 5,
+  },
+  modalCenteredView: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 5,
+  },
+  InfoContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 10,
+    gap: 10,
   },
 });
