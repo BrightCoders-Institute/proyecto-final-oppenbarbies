@@ -1,4 +1,4 @@
-export const BreakLine = (str: string|undefined, maxLength: number): string[] => {
+export const BreakLine = (str: string|undefined|null, maxLength: number): string[] => {
     const lines: string[] = [];
     let currentLine = '';
 

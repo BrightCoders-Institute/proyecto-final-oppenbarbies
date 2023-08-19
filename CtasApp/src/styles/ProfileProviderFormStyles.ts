@@ -6,6 +6,7 @@ const ProfileProviderFormStyles = StyleSheet.create({
     backgroundColor: Colors.mint,
     marginTop: 12,
     borderRadius: 10,
+    padding: 10,
   },
   titleText: {
     fontFamily: 'Inter-ExtraBold',
@@ -23,13 +24,11 @@ const ProfileProviderFormStyles = StyleSheet.create({
   },
   textInputPress: {
     alignItems: 'center',
-    marginLeft: 10,
-    marginBottom: 3,
-    marginTop: 5,
     borderRadius: 10,
     backgroundColor: Colors.skyBlue,
     borderColor: Colors.skyBlue,
     borderWidth: 1,
+    padding: 4,
   },
   modalText: {
     marginTop: 6,
@@ -41,8 +40,8 @@ const ProfileProviderFormStyles = StyleSheet.create({
   descriptionContainer: {
     textAlign: 'left',
     alignItems: 'center',
-    marginBottom: 10,
-    marginTop: 5,
+    marginBottom: 5,
+    marginTop: 2,
   },
   buttonContainer: {
     justifyContent: 'center',
@@ -107,6 +106,8 @@ const ProfileProviderFormStyles = StyleSheet.create({
     borderRadius: 10,
     fontFamily: 'Inter-ExtraBold',
     paddingLeft: 10,
+    height: 70,
+    width: 334,
     color: Colors.strongGray,
   },
   characterLimitWarning: {
@@ -114,6 +115,11 @@ const ProfileProviderFormStyles = StyleSheet.create({
     textAlign: 'left',
     marginRight: 90,
   },
+  addressContainer: {
+    marginBottom: 5,
+    padding: 3,
+  },
+
 });
 
 export default ProfileProviderFormStyles;

@@ -14,8 +14,9 @@ const SearchScreen: React.FC = () => {
       <View style={SearchStyles.bodyContainer}>
         <SearchInput />
         <ProviderInfoList />
+        <Navbar />
       </View>
-      <Navbar />
+      
     </SafeAreaView>
   );
 };

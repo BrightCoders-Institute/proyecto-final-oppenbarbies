@@ -5,6 +5,7 @@ const NavbarStyles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     alignItems: 'center',
+    paddingVertical: 25,
   },
   navbar: {
     borderRadius: 50,

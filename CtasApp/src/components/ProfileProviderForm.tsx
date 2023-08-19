@@ -47,7 +47,6 @@ const ProfileProviderForm: React.FC = () => {
             value={nameValue}
             onChangeText={value => onChange(value)}
             errorMessage={errors.name?.message}
-            keyboardType="numeric"
           />
         )}
         name="name"
@@ -65,6 +64,7 @@ const ProfileProviderForm: React.FC = () => {
             value={phoneValue}
             onChangeText={value => onChange(value)}
             errorMessage={errors.phone?.message}
+            keyboardType="numeric"
           />
         )}
         name="phone"
@@ -72,13 +72,9 @@ const ProfileProviderForm: React.FC = () => {
         defaultValue=""
       />
       <Text style={ProfileProviderFormStyles.text}> Addresses: </Text>
-      <Pressable
-        onPress={() => setLocationModalVisible(true)}
-        style={ProfileProviderFormStyles.textInputPress}>
-        <Text style={ProfileProviderFormStyles.modalText}>
-          Select Multiple Locations of your services
-        </Text>
-      </Pressable>
+      <View style={ProfileProviderFormStyles.addressContainer}>
+      <Button text="Select Service Locations" onPress={() => setLocationModalVisible(true)} styleName='welcome' textStyleName='welcome'/>
+      </View>
       <Text style={ProfileProviderFormStyles.text}> Occupation: </Text>
       <Controller
         control={control}
