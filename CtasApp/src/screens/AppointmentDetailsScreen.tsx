@@ -9,17 +9,17 @@ import CustomCalendar from '../components/CustomCalendar';
 import AddressPicker from '../components/AddressPicker';
 import Button from '../components/Button';
 import Colors from '../styles/colors/Colors';
+import BackArrow from '../components/BackArrow';
 
 const AppointmentDetailsScreen: React.FC = () => {
+
   return (
     <SafeAreaView style={AppointmentDetailsStyles.background}>
       <KeyboardAwareScrollView
         resetScrollToCoords={{x: 0, y: 0}}
         scrollEnabled={true}>
         <View style={AppointmentDetailsStyles.header}>
-          <View style={AppointmentDetailsStyles.backArrow}>
-            <Ionicons name="arrow-back" size={40} color={Colors.white} />
-          </View>
+          <BackArrow/>
           <Text style={AppointmentDetailsStyles.title}>
             Appointment details
           </Text>

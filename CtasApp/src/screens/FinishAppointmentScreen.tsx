@@ -10,6 +10,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Colors from '../styles/colors/Colors';
 import Button from '../components/Button';
 import DescriptionInput from '../components/DescriptionInput';
+import BackArrow from '../components/BackArrow';
 
 const timeSlots = [
   '12:00 AM',
@@ -48,9 +49,7 @@ const FinishAppointmentScreen: React.FC = () => {
         resetScrollToCoords={{x: 0, y: 0}}
         scrollEnabled={true}>
         <View style={FinishAppointmentScreenStyles.header}>
-          <View style={FinishAppointmentScreenStyles.backArrow}>
-            <Ionicons name="arrow-back" size={30} color={Colors.white} />
-          </View>
+          <BackArrow />
           <Text style={FinishAppointmentScreenStyles.title}>
             Finish your appointment
           </Text>
