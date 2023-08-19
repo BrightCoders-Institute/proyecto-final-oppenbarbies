@@ -47,7 +47,6 @@ const AppointmentCard: React.FC<AppointmentCardProps> = ({
           <Icons
             name="map-marker-radius"
             size={16}
-            style={styles.locationIcon}
             color={Colors.black}
           />
           {addressLines.map((line, index) => (
@@ -56,15 +55,6 @@ const AppointmentCard: React.FC<AppointmentCardProps> = ({
             </Text>
           ))}
         </View>
-      </View>
-      <View style={styles.locationContainer}>
-        <Icon
-          name="map-pin"
-          size={18}
-          style={styles.locationIcon}
-          color={Colors.normalBlue}
-        />
-        <Text style={styles.txtLocation}>{address}</Text>
       </View>
     </View>
   );
