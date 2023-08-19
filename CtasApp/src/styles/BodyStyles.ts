@@ -17,12 +17,11 @@ const BodyStyles = StyleSheet.create({
     color: Colors.white,
   },
   bodyContainer: {
-    flex: 0.85,
+    flex: 0.95,
     backgroundColor: Colors.white,
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
     paddingHorizontal: 15,
-    paddingBottom: 10,
     paddingTop: 15,
     justifyContent: 'space-between',
   }

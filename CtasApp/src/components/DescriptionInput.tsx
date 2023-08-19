@@ -3,6 +3,7 @@ import {TextInput, Text, View} from 'react-native';
 import ProfileProviderFormStyles from '../styles/ProfileProviderFormStyles';
 import DescriptionInputStyles from '../styles/DescriptionInputStyles';  
 import {DescriptionInputProps} from '../schema/DescriptionInputSchema'; 
+
 const DescriptionInput: React.FC<DescriptionInputProps> = ({
   value,
   onChangeText,
