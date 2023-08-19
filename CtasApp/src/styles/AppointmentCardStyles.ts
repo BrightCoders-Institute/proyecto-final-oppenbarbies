@@ -11,7 +11,8 @@ export const AppointmentCardStyles = StyleSheet.create({
   cardContainer: {
     borderRadius: 12,
     backgroundColor: Colors.white,
-    padding: 15,
+    paddingHorizontal: 15,
+    paddingVertical: 10,
     elevation: 5,
     shadowColor: Colors.black,
   },
@@ -46,12 +47,12 @@ export const AppointmentCardStyles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    paddingTop: 5,
   },
   personInfoContainer: {
     flexDirection: 'row',
     gap: 5,
     alignItems: 'center',
-    paddingVertical: 5,
   },
   imgPerson: {
     width: 60,
@@ -73,9 +74,8 @@ export const AppointmentCardStyles = StyleSheet.create({
   },
   locationContainer: {
     alignItems: 'center',
-    marginBottom: 10,
+    justifyContent: 'center',
   },
-  locationIcon: {},
   txtLocation: {
     fontFamily: 'Inter-Regular',
     textAlign: 'center',
@@ -110,7 +110,6 @@ export const AppointmentCardStyles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: Colors.semiTransparentBlack,
   },
-
   lineSide: {
     width: 3.5,
     height: 100,
@@ -124,11 +123,5 @@ export const AppointmentCardStyles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingVertical: 5,
-  },
-  InfoContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 10,
-    gap: 10,
   },
 });

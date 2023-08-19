@@ -2,7 +2,6 @@ import React, {memo} from 'react';
 import {View, Text, Image} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Icons from 'react-native-vector-icons/MaterialCommunityIcons';
-import Trash from 'react-native-vector-icons/Entypo';
 import {AppointmentCardProps} from '../schema/AppointmentCardSchema';
 import {AppointmentCardStyles as styles} from '../styles/AppointmentCardStyles';
 import Colors from '../styles/colors/Colors';
@@ -47,7 +46,6 @@ const AppointmentCard: React.FC<AppointmentCardProps> = ({
           <Icons
             name="map-marker-radius"
             size={16}
-            style={styles.locationIcon}
             color={Colors.black}
           />
           {addressLines.map((line, index) => (
