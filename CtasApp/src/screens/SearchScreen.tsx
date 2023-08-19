@@ -1,21 +1,19 @@
 import * as React from 'react';
-import {SafeAreaView, Text, View} from 'react-native';
-import {SearchStyles} from '../styles/SearchStyles';
+import {SafeAreaView, View} from 'react-native';
 import SearchInput from '../components/SearchInput';
 import ProviderInfoList from '../components/ProviderInfoList';
 import Navbar from '../components/Navbar';
-
+import BodyStyles from '../styles/BodyStyles';
+import Header from '../components/Header';
 const SearchScreen: React.FC = () => {
   return (
-    <SafeAreaView style={SearchStyles.container}>
-      <View style={SearchStyles.headerContainer}>
-        <Text style={SearchStyles.title}>What do you need?</Text>
-      </View>
-      <View style={SearchStyles.bodyContainer}>
+    <SafeAreaView style={BodyStyles.container}>
+      <Header title="What do you need?" />
+      <View style={BodyStyles.bodyContainer}>
         <SearchInput />
         <ProviderInfoList />
+        <Navbar />
       </View>
-      <Navbar />
     </SafeAreaView>
   );
 };

@@ -5,6 +5,7 @@ import {AppointmentCardProps} from '../schema/AppointmentCardSchema';
 import {AppointmentCardStyles as styles} from '../styles/AppointmentCardStyles';
 import Colors from '../styles/colors/Colors';
 import images from '../data/DataProviders';
+import { BreakLine } from '../helpers/BreakLineHelper';
 const AppointmentCard: React.FC<AppointmentCardProps> = ({
   date,
   time,
@@ -43,7 +44,7 @@ const AppointmentCard: React.FC<AppointmentCardProps> = ({
           style={styles.locationIcon}
           color={Colors.normalBlue}
         />
-        <Text style={styles.txtLocation}>{address}</Text>
+        <Text style={styles.txtLocation}>{BreakLine(address,30)}</Text>
       </View>
     </View>
   </View>
