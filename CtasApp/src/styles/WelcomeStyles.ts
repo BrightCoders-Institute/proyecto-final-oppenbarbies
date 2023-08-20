@@ -5,7 +5,7 @@ const WelcomeStyles = StyleSheet.create({
     flex: 0.55,
     backgroundColor: Colors.aqua,
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     paddingHorizontal: 20,
     borderBottomLeftRadius: 40,
     borderBottomRightRadius: 40,
@@ -15,9 +15,6 @@ const WelcomeStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  logoTitle: {
-    gap: -20,
-  },
   title: {
     fontSize: 40,
     color: Colors.white,
@@ -25,7 +22,6 @@ const WelcomeStyles = StyleSheet.create({
     fontFamily: 'Inter-ExtraBold',
   },
   description: {
-    paddingBottom: '10%',
     fontSize: 18,
     color: Colors.white,
     textAlign: 'center',
