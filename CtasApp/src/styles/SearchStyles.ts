@@ -26,5 +26,6 @@ export const SearchStyles = StyleSheet.create({
   },
   listContainer: {
     flex: 1,
+    paddingTop: 15,
   },
 });
