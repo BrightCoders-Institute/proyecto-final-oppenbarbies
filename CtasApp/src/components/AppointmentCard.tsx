@@ -43,11 +43,7 @@ const AppointmentCard: React.FC<AppointmentCardProps> = ({
           </View>
         </View>
         <View style={styles.locationContainer}>
-          <Icons
-            name="map-marker-radius"
-            size={16}
-            color={Colors.black}
-          />
+          <Icons name="map-marker-radius" size={16} color={Colors.black} />
           {addressLines.map((line, index) => (
             <Text key={index} style={styles.txtLocation}>
               {line}

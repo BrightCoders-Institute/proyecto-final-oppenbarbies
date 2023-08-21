@@ -1,11 +1,5 @@
 import * as React from 'react';
-import {
-  View,
-  Text,
-  Modal,
-  FlatList,
-  TouchableOpacity,
-} from 'react-native';
+import {View, Text, Modal, FlatList, TouchableOpacity} from 'react-native';
 import Button from './Button';
 import {TimeSlotsModalProps} from '../schema/TimeSlotsSchema';
 import TimeSlotsModalStyles from '../styles/TimeSlotsModalStyles';
@@ -24,7 +18,9 @@ const TimeSlotsModal: React.FC<TimeSlotsModalProps> = ({
       onRequestClose={onClose}>
       <View style={TimeSlotsModalStyles.modalContainer}>
         <View style={TimeSlotsModalStyles.modalContent}>
-          <Text style={TimeSlotsModalStyles.title}>Choose the time for your appointment.</Text>
+          <Text style={TimeSlotsModalStyles.title}>
+            Choose the time for your appointment.
+          </Text>
           <FlatList
             data={slots}
             keyExtractor={item => item}
@@ -34,7 +30,9 @@ const TimeSlotsModal: React.FC<TimeSlotsModalProps> = ({
               </TouchableOpacity>
             )}
           />
-          <View style={TimeSlotsModalStyles.closeButton}><Button text="Close" onPress={onClose} /></View>
+          <View style={TimeSlotsModalStyles.closeButton}>
+            <Button text="Close" onPress={onClose} />
+          </View>
         </View>
       </View>
     </Modal>
@@ -42,5 +40,3 @@ const TimeSlotsModal: React.FC<TimeSlotsModalProps> = ({
 };
 
 export default TimeSlotsModal;
-
-

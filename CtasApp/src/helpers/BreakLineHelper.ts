@@ -1,15 +1,18 @@
-export const BreakLine = (str: string|undefined|null, maxLength: number): string[] => {
-    const lines: string[] = [];
-    let currentLine = '';
+export const BreakLine = (
+  str: string | undefined | null,
+  maxLength: number,
+): string[] => {
+  const lines: string[] = [];
+  let currentLine = '';
 
-    for (let i = 0; i < str.length; i++) {
-        currentLine += str[i];
+  for (let i = 0; i < str.length; i++) {
+    currentLine += str[i];
 
-        if (currentLine.length === maxLength || i === str.length - 1) {
-            lines.push(currentLine);
-            currentLine = '';
-        }
+    if (currentLine.length === maxLength || i === str.length - 1) {
+      lines.push(currentLine);
+      currentLine = '';
     }
+  }
 
-    return lines;
-}
+  return lines;
+};

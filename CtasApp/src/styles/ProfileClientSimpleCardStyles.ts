@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 import Colors from './colors/Colors';
 
 const ProfileClientSimpleCardStyles = StyleSheet.create({
-   cardContainer: {
+  cardContainer: {
     backgroundColor: Colors.aqua,
     width: 355,
     height: 308,

@@ -56,8 +56,12 @@ const useTimePicker = () => {
     }
   };
   const generateTimeSlots = () => {
-    if (!checkTimeValidity()) return;
-    if (!checkTimeDifference()) return;
+    if (!checkTimeValidity()) {
+      return;
+    }
+    if (!checkTimeDifference()) {
+      return;
+    }
 
     const slots = [];
     let start = new Date(startTime);

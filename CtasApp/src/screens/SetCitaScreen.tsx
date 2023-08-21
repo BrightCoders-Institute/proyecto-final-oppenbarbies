@@ -4,12 +4,10 @@ import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import ProviderInformation from '../components/ProviderInformation';
 import ProviderSetCitaStyles from '../styles/ProviderSetCitaStyles';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import Map from '../components/Map';
 import CalendarModal from '../components/CalendarModal';
 import useCustomForm from '../hooks/useCustomForm';
 import Button from '../components/Button';
-import Colors from '../styles/colors/Colors';
 import BackArrow from '../components/BackArrow';
 
 const SetCitaScreen: React.FC = () => {

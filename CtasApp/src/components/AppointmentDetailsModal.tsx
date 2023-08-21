@@ -45,7 +45,7 @@ const AppointmentDetailsModal: React.FC<AppointmentDetailsModalProps> = ({
           <View style={styles.modalCenteredView}>
             <View style={styles.personInfoContainer}>
               <Image
-                source={images[appointment.person.img]} // Utiliza la referencia a la imagen
+                source={images[appointment.person.img]}
                 style={styles.imgPerson}
               />
               <View style={styles.personInfo}>

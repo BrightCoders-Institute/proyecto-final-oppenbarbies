@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, TextInput, Modal, Pressable} from 'react-native';
+import {View, Text, Modal} from 'react-native';
 import {Controller} from 'react-hook-form';
 import ProfileProviderFormStyles from '../styles/ProfileProviderFormStyles';
 import Button from './Button';

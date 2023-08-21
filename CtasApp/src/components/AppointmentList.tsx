@@ -1,13 +1,14 @@
 import React, {memo, useState} from 'react';
 import {FlatList, TouchableOpacity, View} from 'react-native';
 import AppointmentCard from './AppointmentCard';
-import { AppointmentCardStyles as styles } from '../styles/AppointmentCardStyles';
+import {AppointmentCardStyles as styles} from '../styles/AppointmentCardStyles';
 import {dataProviders} from '../data/DataProviders';
 import AppointmentDetailsModal from './AppointmentDetailsModal';
-import { AppointmentCardProps } from '../schema/AppointmentCardSchema';
+import {AppointmentCardProps} from '../schema/AppointmentCardSchema';
 
 const AppointmentList: React.FC = () => {
-  const [selectedAppointment, setSelectedAppointment] = useState<AppointmentCardProps | null>(null);
+  const [selectedAppointment, setSelectedAppointment] =
+    useState<AppointmentCardProps | null>(null);
   const [isModalVisible, setModalVisible] = useState(false);
 
   const openModal = (appointment: AppointmentCardProps) => {
@@ -49,6 +50,5 @@ const AppointmentList: React.FC = () => {
     </View>
   );
 };
-
 
 export default memo(AppointmentList);

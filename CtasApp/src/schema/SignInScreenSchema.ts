@@ -8,7 +8,6 @@ export interface SignInScreenParams {
   userType: UserType;
 }
 
-
 export type RootStackParamList = {
   SignIn: SignInScreenParams;
   Splash: undefined;

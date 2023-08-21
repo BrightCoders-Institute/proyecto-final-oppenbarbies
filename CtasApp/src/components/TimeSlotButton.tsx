@@ -29,12 +29,12 @@ const TimeSlotButton: React.FC<TimeSlotButtonProps> = ({slots}) => {
         styleName="Big"
         textStyleName="slots"
       />
-       <WatchIcon
-          name="clock-time-four-outline"
-          size={30}
-          color={Colors.white}
-          style={FinishAppointmentScreenStyles.iconContainer}
-        />
+      <WatchIcon
+        name="clock-time-four-outline"
+        size={30}
+        color={Colors.white}
+        style={FinishAppointmentScreenStyles.iconContainer}
+      />
 
       <TimeSlotsModal
         isVisible={modalVisible}
@@ -43,7 +43,11 @@ const TimeSlotButton: React.FC<TimeSlotButtonProps> = ({slots}) => {
         onSelect={handleSlotSelection}
       />
 
-      {selectedSlot && <Text style={AvailableTimePickerStyles.slot}>Selected Time: {selectedSlot}</Text>}
+      {selectedSlot && (
+        <Text style={AvailableTimePickerStyles.slot}>
+          Selected Time: {selectedSlot}
+        </Text>
+      )}
     </View>
   );
 };

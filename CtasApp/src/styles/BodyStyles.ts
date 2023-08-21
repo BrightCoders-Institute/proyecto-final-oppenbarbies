@@ -24,7 +24,7 @@ const BodyStyles = StyleSheet.create({
     paddingHorizontal: 15,
     paddingTop: 15,
     justifyContent: 'space-between',
-  }
+  },
 });
 
 export default BodyStyles;

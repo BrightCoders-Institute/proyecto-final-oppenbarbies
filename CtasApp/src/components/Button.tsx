@@ -14,31 +14,30 @@ const Button: React.FC<ButtonPropsWithTextStyle> = ({
   let selectedStyle: ViewStyle;
   let selectedTextStyle: TextStyle;
 
-  switch(styleName) {
+  switch (styleName) {
     case 'welcome':
       selectedStyle = WelcomeStyles.button;
       break;
-      case 'Big':
-        selectedStyle = FinishAppointmentScreenStyles.buttonF;
-        break;
+    case 'Big':
+      selectedStyle = FinishAppointmentScreenStyles.buttonF;
+      break;
     default:
       selectedStyle = ProfileClientFormStyles.button;
   }
 
-  switch(textStyleName) {
+  switch (textStyleName) {
     case 'welcome':
       selectedTextStyle = WelcomeStyles.buttonText;
       break;
     case 'Big':
       selectedTextStyle = FinishAppointmentScreenStyles.buttonText;
       break;
-      case 'slots':
-        selectedTextStyle = FinishAppointmentScreenStyles.buttonTextSlots;
-        break;
+    case 'slots':
+      selectedTextStyle = FinishAppointmentScreenStyles.buttonTextSlots;
+      break;
     default:
-      selectedTextStyle = ProfileClientFormStyles.buttonText; 
+      selectedTextStyle = ProfileClientFormStyles.buttonText;
   }
-      
 
   return (
     <TouchableOpacity style={selectedStyle} onPress={onPress}>

@@ -8,7 +8,7 @@ import {GoogleAuth} from '../auth/GoogleAuth';
 
 const SignInScreen: React.FC<SignInProps> = ({navigation, route}) => {
   const userType = route.params;
-  const goHomeProfile = async() => {
+  const goHomeProfile = async () => {
     await GoogleAuth();
     if (userType === 'client') {
       navigation.navigate('ProfileClient');

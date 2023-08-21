@@ -11,9 +11,9 @@ const SearchScreen: React.FC = () => {
       <Header title="What do you need?" />
       <View style={BodyStyles.bodyContainer}>
         <SearchInput />
-        <ProviderInfoList /> 
-        <Navbar/>
-      </View> 
+        <ProviderInfoList />
+        <Navbar />
+      </View>
     </SafeAreaView>
   );
 };

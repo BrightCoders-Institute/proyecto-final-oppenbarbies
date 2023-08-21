@@ -1,6 +1,9 @@
 import {StyleSheet, Dimensions} from 'react-native';
 import Colors from './colors/Colors';
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 const windowWidth = Dimensions.get('window').width;
 

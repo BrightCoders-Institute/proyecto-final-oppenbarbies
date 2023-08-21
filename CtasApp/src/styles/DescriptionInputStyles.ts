@@ -27,7 +27,6 @@ const DescriptionInputStyles = StyleSheet.create({
     color: Colors.strongGray,
     textAlign: 'right',
   },
-
 });
 
 export default DescriptionInputStyles;

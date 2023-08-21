@@ -119,7 +119,6 @@ const ProfileProviderFormStyles = StyleSheet.create({
     marginBottom: 5,
     padding: 3,
   },
-
 });
 
 export default ProfileProviderFormStyles;

@@ -8,7 +8,7 @@ import BodyStyles from '../styles/BodyStyles';
 const MyAppointmentsScreen: React.FC = () => {
   return (
     <View style={BodyStyles.container}>
-      <Header title='My Appointments'/>
+      <Header title="My Appointments" />
       <View style={BodyStyles.bodyContainer}>
         <AppointmentList />
         <Navbar />
