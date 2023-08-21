@@ -2,7 +2,6 @@ import React from 'react';
 import {View, Text, Image} from 'react-native';
 import ProfileClientSimpleCardStyles from '../styles/ProfileClientSimpleCardStyles';
 import auth from '@react-native-firebase/auth';
-import { SignInScreenParams } from '../schema/SignInScreenSchema';
 import { truncateString } from '../helpers/TruncateStringHelper';
 
 type ProfileClientSimpleCardProps= {

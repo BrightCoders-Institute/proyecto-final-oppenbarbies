@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Image, ImageSourcePropType} from 'react-native';
+import {Image, ImageSourcePropType, View} from 'react-native';
 import {LogoProps, StyleType, ImageKeys} from '../schema/LogoSchema';
 import LogoStyles from '../styles/LogoStyles';
 
@@ -16,10 +16,12 @@ const styleMapping: Record<StyleType, typeof LogoStyles.logo> = {
 
 const Logo: React.FC<LogoProps> = ({src = 'logo', styleType = 'logo'}) => {
   return (
-    <Image
-      source={images[src as ImageKeys]}
-      style={styleMapping[styleType as StyleType]}
-    />
+    <View style={LogoStyles.logoContainer}>
+      <Image
+        source={images[src as ImageKeys]}
+        style={styleMapping[styleType as StyleType]}
+      />
+    </View>
   );
 };
 

@@ -1,5 +1,9 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
 import Colors from './colors/Colors';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 const HomeClientScreenStyles = StyleSheet.create({
   body: {
@@ -30,7 +34,7 @@ const HomeClientScreenStyles = StyleSheet.create({
   },
   name: {
     fontFamily: 'Inter-ExtraBold',
-    fontSize: 35,
+    fontSize: (windowWidth < 370 || windowHeight < 700) ? 25 : 40,
     color: Colors.black,
     textAlign: 'right',
   },
@@ -38,18 +42,18 @@ const HomeClientScreenStyles = StyleSheet.create({
     color: Colors.black,
     textAlign: 'center',
     fontFamily: 'Inter-Regular',
-    fontSize: 15,
+    fontSize:  (windowWidth < 370 || windowHeight < 650) ? 12 : 17,
     marginBottom: 14,
   },
   photoContainer: {
-    marginTop: 80,
+    marginTop: windowWidth < 370 ? 35 : 80,
     marginBottom: 20,
     justifyContent: 'center',
     alignItems: 'center',
   },
   photo: {
-    width: 150,
-    height: 150,
+    width:  wp('38%'),
+    height: wp('38%'),
     borderRadius: 100,
   },
   gear: {

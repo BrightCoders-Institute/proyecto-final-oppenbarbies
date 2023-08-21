@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 import Colors from './colors/Colors';
 
 const ProfileClientSimpleCardStyles = StyleSheet.create({
-  cardContainer: {
+   cardContainer: {
     backgroundColor: Colors.aqua,
     width: 355,
     height: 308,
@@ -13,7 +13,7 @@ const ProfileClientSimpleCardStyles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 1.84,
     elevation: 5,
-    marginTop: 12,
+    marginTop: 20,
   },
   userType: {
     fontFamily: 'Inter-ExtraBold',
@@ -27,7 +27,7 @@ const ProfileClientSimpleCardStyles = StyleSheet.create({
     width: 141,
     height: 141,
     borderRadius: 100,
-    marginTop: 20,
+    marginTop: 13,
     shadowColor: Colors.black,
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.25,

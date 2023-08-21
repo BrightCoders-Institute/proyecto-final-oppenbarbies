@@ -1,5 +1,7 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
 import Colors from './colors/Colors';
+
+const windowWidth = Dimensions.get('window').width;
 
 const FinishAppointmentScreenStyles = StyleSheet.create({
   background: {
@@ -78,7 +80,7 @@ const FinishAppointmentScreenStyles = StyleSheet.create({
   },
   iconContainer: {
     position: 'absolute',
-    right: 65,
+    right: windowWidth < 370 ? 50 : 65,
     top: 22,
   },
   buttonTextSlots: {
