@@ -1,16 +1,13 @@
 import React from 'react';
 import {View, Text, Modal, TouchableOpacity, Image} from 'react-native';
-import { AppointmentCardProps } from '../schema/AppointmentCardSchema';
+import {AppointmentDetailsModalProps} from '../schema/AppointmentDetailsModalSchema';
 import {AppointmentCardStyles as styles} from '../styles/AppointmentCardStyles';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Icons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Colors from '../styles/colors/Colors';
 import images from '../data/DataProviders';
+import {BreakLine} from '../helpers/BreakLineHelper';
 
-interface AppointmentDetailsModalProps {
-  isVisible: boolean;
-  appointment: AppointmentCardProps | null;
-  onClose: () => void;
-}
 const AppointmentDetailsModal: React.FC<AppointmentDetailsModalProps> = ({
   isVisible,
   appointment,
@@ -19,9 +16,14 @@ const AppointmentDetailsModal: React.FC<AppointmentDetailsModalProps> = ({
   if (!appointment) {
     return null;
   }
+  const addressLines = BreakLine(appointment.address, 22);
 
   return (
-    <Modal transparent visible={isVisible} animationType="fade" style={styles.modal}>
+    <Modal
+      transparent
+      visible={isVisible}
+      animationType="fade"
+      style={styles.modal}>
       <View style={styles.modal}>
         <TouchableOpacity onPress={onClose} style={styles.closeButton}>
           <Icon name="close" size={25} color="white" />
@@ -29,15 +31,18 @@ const AppointmentDetailsModal: React.FC<AppointmentDetailsModalProps> = ({
         <View style={styles.modalContainer}>
           <View style={styles.headerContainer}>
             <Text style={styles.txtDate}>Date</Text>
-            <Icon name="trash" size={25} style={styles.deleteIcon} color={'red'} />
+            <Icons name="delete-forever" size={30} color={'red'} />
           </View>
+          <Text style={styles.separator} />
           <View style={styles.dateContainer}>
-            <Icon name="clock-o" size={18} style={styles.clockIcon} />
-            <Text style={styles.txtDateTime}>{appointment.date} | {appointment.time} hrs</Text>
+            <Icon name="clock-o" size={18} />
+            <Text style={styles.txtDateTime}>
+              {appointment.date} | {appointment.time} hrs
+            </Text>
           </View>
           <Text style={styles.divider} />
 
-          <View style={styles.footContainer}>
+          <View style={styles.modalCenteredView}>
             <View style={styles.personInfoContainer}>
               <Image
                 source={images[appointment.person.img]} // Utiliza la referencia a la imagen
@@ -51,19 +56,23 @@ const AppointmentDetailsModal: React.FC<AppointmentDetailsModalProps> = ({
               </View>
             </View>
             <View style={styles.locationContainer}>
-              <Icon
-                name="map-pin"
+              <Icons
+                name="map-marker-radius"
                 size={18}
                 style={styles.locationIcon}
-                color={Colors.normalBlue}
+                color={Colors.black}
               />
-              <Text style={styles.txtLocation}>{appointment.address}</Text>
+              {addressLines.map((line, index) => (
+                <Text key={index} style={styles.txtLocation}>
+                  {line}
+                </Text>
+              ))}
             </View>
           </View>
           <Text style={styles.divider} />
           <View style={styles.descriptionContainer}>
-              <Text style={styles.txtName}> Description</Text>
-              <Text style={styles.txtDescription}>{appointment.description}</Text>
+            <Text style={styles.txtName}> Description</Text>
+            <Text style={styles.txtDescription}>{appointment.description}</Text>
           </View>
         </View>
       </View>

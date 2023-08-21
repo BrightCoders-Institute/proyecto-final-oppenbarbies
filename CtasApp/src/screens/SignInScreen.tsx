@@ -4,7 +4,6 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {SignInStyles as styles} from '../styles/SignInStyle';
 import ButtonSignIn from '../components/ButtonSignIn';
 import {SignInProps} from '../schema/SignInScreenSchema';
-import auth from '@react-native-firebase/auth';
 import {GoogleAuth} from '../auth/GoogleAuth';
 
 const SignInScreen: React.FC<SignInProps> = ({navigation, route}) => {

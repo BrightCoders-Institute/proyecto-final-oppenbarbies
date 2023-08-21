@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, SafeAreaView, TouchableOpacity} from 'react-native';
+import {View,TouchableOpacity} from 'react-native';
 import NavbarStyles from '../styles/NavbarStyles';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {useNavigation, useRoute} from '@react-navigation/native';
@@ -17,7 +17,7 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <SafeAreaView style={NavbarStyles.container}>
+    <View style={NavbarStyles.container}>
       <View style={NavbarStyles.navbar}>
         {MENU_ITEMS.map(item => (
           <TouchableOpacity
@@ -36,7 +36,7 @@ const Navbar: React.FC = () => {
           </TouchableOpacity>
         ))}
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 

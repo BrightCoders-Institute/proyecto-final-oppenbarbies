@@ -47,7 +47,6 @@ const ProfileProviderForm: React.FC = () => {
             value={nameValue}
             onChangeText={value => onChange(value)}
             errorMessage={errors.name?.message}
-            keyboardType="numeric"
           />
         )}
         name="name"
@@ -57,28 +56,40 @@ const ProfileProviderForm: React.FC = () => {
       <Text style={ProfileProviderFormStyles.text}> Phone: </Text>
       <Controller
         control={control}
-        render={({field: {onChange, value: phoneValue}}) => (
-          <InputField
-            styleVariant="secondary"
-            label="Phone"
-            placeholder="Enter your phone number"
-            value={phoneValue}
-            onChangeText={value => onChange(value)}
-            errorMessage={errors.phone?.message}
-          />
-        )}
+        render={({field: {onChange, value}}) => {
+          const handlePhoneChange = (text: string) => {
+            let formattedText = text.replace(
+              /(\d{3})(\d{3})(\d{4})/,
+              '$1-$2-$3',
+            );
+            formattedText = formattedText.replace(/[^0-9-]/g, '');
+            formattedText = formattedText.slice(0, 12);
+            onChange(formattedText);
+          };
+          return (
+            <InputField
+              label="Phone"
+              value={value}
+              onChangeText={handlePhoneChange}
+              placeholder="Enter your phone number"
+              errorMessage={errors.phone?.message}
+              keyboardType="numeric"
+            />
+          );
+        }}
         name="phone"
         rules={PHONE_VALIDATION_RULES}
         defaultValue=""
       />
       <Text style={ProfileProviderFormStyles.text}> Addresses: </Text>
-      <Pressable
-        onPress={() => setLocationModalVisible(true)}
-        style={ProfileProviderFormStyles.textInputPress}>
-        <Text style={ProfileProviderFormStyles.modalText}>
-          Select Multiple Locations of your services
-        </Text>
-      </Pressable>
+      <View style={ProfileProviderFormStyles.addressContainer}>
+        <Button
+          text="Select Service Locations"
+          onPress={() => setLocationModalVisible(true)}
+          styleName="welcome"
+          textStyleName="welcome"
+        />
+      </View>
       <Text style={ProfileProviderFormStyles.text}> Occupation: </Text>
       <Controller
         control={control}

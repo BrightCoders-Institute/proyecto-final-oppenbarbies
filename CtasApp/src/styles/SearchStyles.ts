@@ -2,28 +2,6 @@ import {StyleSheet} from 'react-native';
 import Colors from './colors/Colors';
 
 export const SearchStyles = StyleSheet.create({
-  container: {
-    backgroundColor: Colors.aqua,
-    flex: 1,
-  },
-  title: {
-    color: Colors.white,
-    fontFamily: 'Inter-ExtraBold',
-    fontSize: 25,
-    paddingBottom: 20,
-  },
-  headerContainer: {
-    flex: 0.15,
-    justifyContent: 'flex-end',
-    paddingHorizontal: 25,
-  },
-  bodyContainer: {
-    flex: 0.85,
-    backgroundColor: Colors.white,
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-    paddingHorizontal: 25,
-  },
   inputContainer: {
     flexDirection: 'row',
     borderColor: Colors.aqua,
@@ -33,7 +11,6 @@ export const SearchStyles = StyleSheet.create({
     paddingVertical: 3,
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginVertical: 25,
   },
   textInput: {
     paddingHorizontal: 0,
@@ -49,6 +26,6 @@ export const SearchStyles = StyleSheet.create({
   },
   listContainer: {
     flex: 1,
-    marginBottom: 120,
+    paddingTop: 15,
   },
 });
