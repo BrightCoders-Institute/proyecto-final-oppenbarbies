@@ -6,8 +6,6 @@ import {View, Text} from 'react-native';
 import TimeSlotButton from '../components/TimeSlotButton';
 import FinishAppointmentScreenStyles from '../styles/FinishAppointmentScreenStyles';
 import CalendarModal from '../components/CalendarModal';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import Colors from '../styles/colors/Colors';
 import Button from '../components/Button';
 import DescriptionInput from '../components/DescriptionInput';
 import BackArrow from '../components/BackArrow';

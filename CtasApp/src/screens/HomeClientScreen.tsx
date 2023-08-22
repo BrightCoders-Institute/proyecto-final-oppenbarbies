@@ -30,8 +30,8 @@ const HomeClientScreen: React.FC = () => {
           phone="XXX-XXX-XXXX"
           location="Villa de Alvarez"
         />
-        <Navbar />
       </SafeAreaView>
+      <Navbar />
     </ImageBackground>
   );
 };

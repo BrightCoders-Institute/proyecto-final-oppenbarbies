@@ -1,5 +1,7 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
 import Colors from './colors/Colors';
+
+const windowWidth = Dimensions.get('window').width;
 
 const AvailableTimePickerStyles = StyleSheet.create({
   overlay: {
@@ -57,7 +59,7 @@ const AvailableTimePickerStyles = StyleSheet.create({
     marginVertical: 15,
   },
   buttonContainer: {
-    paddingHorizontal: 40,
+    paddingHorizontal: windowWidth < 370 ? 25 : 45,
     paddingVertical: 10,
   },
   iconContainer: {

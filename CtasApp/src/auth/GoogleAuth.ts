@@ -22,4 +22,3 @@ export const GoogleAuth = async () => {
     return {error};
   }
 };
-

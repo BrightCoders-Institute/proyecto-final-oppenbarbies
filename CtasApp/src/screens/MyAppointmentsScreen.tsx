@@ -1,19 +1,18 @@
 import * as React from 'react';
-import {View, Text} from 'react-native';
-import MyAppointmentScreenStyles from '../styles/MyAppointmentScreenStyles';
+import {View} from 'react-native';
 import AppointmentList from '../components/AppointmentList';
 import Navbar from '../components/Navbar';
+import Header from '../components/Header';
+import BodyStyles from '../styles/BodyStyles';
 
 const MyAppointmentsScreen: React.FC = () => {
   return (
-    <View style={MyAppointmentScreenStyles.container}>
-      <View style={MyAppointmentScreenStyles.headerContainer}>
-        <Text style={MyAppointmentScreenStyles.txtTitle}>My Appointments</Text>
-      </View>
-      <View style={MyAppointmentScreenStyles.bodyContainer}>
+    <View style={BodyStyles.container}>
+      <Header title="My Appointments" />
+      <View style={BodyStyles.bodyContainer}>
         <AppointmentList />
+        <Navbar />
       </View>
-      <Navbar />
     </View>
   );
 };

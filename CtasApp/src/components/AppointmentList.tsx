@@ -1,14 +1,14 @@
 import React, {memo, useState} from 'react';
-import {FlatList, TouchableOpacity} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import {FlatList, TouchableOpacity, View} from 'react-native';
 import AppointmentCard from './AppointmentCard';
-import {AppointmentListStyles as styles} from '../styles/AppointmentListStyles';
+import {AppointmentCardStyles as styles} from '../styles/AppointmentCardStyles';
 import {dataProviders} from '../data/DataProviders';
 import AppointmentDetailsModal from './AppointmentDetailsModal';
-import { AppointmentCardProps } from '../schema/AppointmentCardSchema';
+import {AppointmentCardProps} from '../schema/AppointmentCardSchema';
 
 const AppointmentList: React.FC = () => {
-  const [selectedAppointment, setSelectedAppointment] = useState<AppointmentCardProps | null>(null);
+  const [selectedAppointment, setSelectedAppointment] =
+    useState<AppointmentCardProps | null>(null);
   const [isModalVisible, setModalVisible] = useState(false);
 
   const openModal = (appointment: AppointmentCardProps) => {
@@ -20,8 +20,12 @@ const AppointmentList: React.FC = () => {
     setSelectedAppointment(null);
     setModalVisible(false);
   };
+
+  const SeparatorComponent = () => {
+    return <View style={styles.separator} />;
+  };
   return (
-    <SafeAreaView style={styles.listContainer}>
+    <View style={styles.container}>
       <FlatList
         data={dataProviders}
         renderItem={({item}) => (
@@ -35,16 +39,16 @@ const AppointmentList: React.FC = () => {
           </TouchableOpacity>
         )}
         keyExtractor={item => item.id}
-        style={styles.flatList}
+        style={styles.container}
+        ItemSeparatorComponent={SeparatorComponent}
       />
       <AppointmentDetailsModal
         isVisible={isModalVisible}
         appointment={selectedAppointment}
         onClose={closeModal}
       />
-    </SafeAreaView>
+    </View>
   );
 };
-
 
 export default memo(AppointmentList);

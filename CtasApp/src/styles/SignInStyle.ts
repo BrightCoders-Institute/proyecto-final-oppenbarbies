@@ -1,5 +1,11 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 import Colors from './colors/Colors';
+
+const windowWidth = Dimensions.get('window').width;
 
 export const SignInStyles = StyleSheet.create({
   container: {
@@ -15,8 +21,8 @@ export const SignInStyles = StyleSheet.create({
   title: {
     fontFamily: 'Inter-ExtraBold',
     color: Colors.white,
-    marginTop: 60,
-    fontSize: 50,
+    marginTop: hp('6%'),
+    fontSize: windowWidth < 370 ? 45 : 55,
     width: '70%',
   },
   btnContainer: {
@@ -37,10 +43,10 @@ export const SignInStyles = StyleSheet.create({
     marginTop: 50,
   },
   txtNote: {
-    marginTop: 25,
+    marginTop: hp('2%'),
     fontFamily: 'Inter-Regular',
     fontStyle: 'italic',
-    fontSize: 16,
+    fontSize: windowWidth < 400 ? 13 : 25,
     width: '83%',
     alignSelf: 'center',
     textAlign: 'center',

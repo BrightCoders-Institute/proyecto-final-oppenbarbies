@@ -1,36 +1,42 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
 import Colors from './colors/Colors';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
+
+const windowWidth = Dimensions.get('window').width;
+
 const WelcomeStyles = StyleSheet.create({
   headerContainer: {
-    flex: 0.55,
+    flex: 0.57,
     backgroundColor: Colors.aqua,
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     paddingHorizontal: 20,
     borderBottomLeftRadius: 40,
     borderBottomRightRadius: 40,
+    paddingVertical: wp('6%'),
   },
   bodyContainer: {
     flex: 0.45,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  logoTitle: {
-    gap: -20,
-  },
   title: {
-    fontSize: 40,
+    fontSize: windowWidth < 400 ? 40 : 55,
     color: Colors.white,
     textAlign: 'center',
     fontFamily: 'Inter-ExtraBold',
+    marginBottom: wp('5%'),
   },
   description: {
-    paddingBottom: '10%',
-    fontSize: 18,
+    fontSize: windowWidth < 400 ? 15 : 20,
     color: Colors.white,
     textAlign: 'center',
     fontFamily: 'Inter-Bold',
-    paddingHorizontal: 5,
+    paddingHorizontal: 2,
+    marginTop: wp('5%'),
   },
   profilesContainer: {
     flexDirection: 'row',

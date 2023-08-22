@@ -3,23 +3,20 @@ import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import AppointmentDetailsStyles from '../styles/AppointmentDetailsStyles';
 import {View, Text} from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import AvailableTimePicker from '../components/AvailableTimePicker';
 import CustomCalendar from '../components/CustomCalendar';
 import AddressPicker from '../components/AddressPicker';
 import Button from '../components/Button';
-import Colors from '../styles/colors/Colors';
 import BackArrow from '../components/BackArrow';
 
 const AppointmentDetailsScreen: React.FC = () => {
-
   return (
     <SafeAreaView style={AppointmentDetailsStyles.background}>
       <KeyboardAwareScrollView
         resetScrollToCoords={{x: 0, y: 0}}
         scrollEnabled={true}>
         <View style={AppointmentDetailsStyles.header}>
-          <BackArrow/>
+          <BackArrow />
           <Text style={AppointmentDetailsStyles.title}>
             Appointment details
           </Text>

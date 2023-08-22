@@ -16,7 +16,7 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({navigation}) => {
   return (
     <SafeAreaView style={SplashScreenStyles.container}>
       <View style={WelcomeStyles.headerContainer}>
-        <View style={WelcomeStyles.logoTitle}>
+        <View>
           <Logo src="logoWithoutBackground" styleType="logoWb" />
           <Text style={WelcomeStyles.title}>Welcome</Text>
         </View>

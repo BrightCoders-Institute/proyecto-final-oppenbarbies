@@ -3,7 +3,7 @@ export const dataProviders = [
     id: '1',
     date: 'Mon Ago 10,2023',
     time: '07:00',
-    address: 'Calle lagos #123, Colonia Montes',
+    address: 'Cisnes #312, Jardines, Colima, Col.',
     person: {
       img: 'profileValeriano2',
       name: 'Antonio Ramirez',
@@ -15,7 +15,7 @@ export const dataProviders = [
     id: '2',
     date: 'Tue Ago 08,2023',
     time: '08:30',
-    address: 'Calle lagos #123, Colonia Montes',
+    address: 'Cisnes #312, Jardines, Colima, Col.',
     person: {
       img: 'profileValeriano2',
       name: 'Valeriano Jhonson',
@@ -27,7 +27,7 @@ export const dataProviders = [
     id: '3',
     date: 'Sat Ago 20,2023',
     time: '05:30',
-    address: 'Calle lagos #120, Colonia Montes',
+    address: 'Cisnes #312, Jardines, Colima, Col.',
     person: {
       img: 'profileValeriano2',
       name: 'Valeriano Jhonson',
@@ -39,7 +39,7 @@ export const dataProviders = [
     id: '4',
     date: 'Wed Ago 21,2023',
     time: '12:00',
-    address: 'Calle lagos #133, Colonia Montes',
+    address: 'Cisnes #312, Jardines, Colima, Col.',
     person: {
       img: 'profileValeriano2',
       name: 'Juan Gonzales',
@@ -51,7 +51,7 @@ export const dataProviders = [
     id: '5',
     date: 'Fri Ago 11,2023',
     time: '11:30',
-    address: 'Calle lagos #111, Colonia Montes',
+    address: 'Cisnes #312, Jardines, Colima, Col.',
     person: {
       img: 'profileValeriano2',
       name: 'Alan Smith',
