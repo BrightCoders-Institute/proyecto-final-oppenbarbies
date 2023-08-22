@@ -5,11 +5,16 @@ import {SignInStyles as styles} from '../styles/SignInStyle';
 import ButtonSignIn from '../components/ButtonSignIn';
 import {SignInProps} from '../schema/SignInScreenSchema';
 import {GoogleAuth} from '../auth/GoogleAuth';
+import { GETuser } from '../database/Clients/SettersClients';
 
 const SignInScreen: React.FC<SignInProps> = ({navigation, route}) => {
   const userType = route.params;
   const goHomeProfile = async () => {
-    await GoogleAuth();
+    let user = await GoogleAuth();
+    console.log(user);
+    
+    //GETuser(email)
+    
     if (userType === 'client') {
       navigation.navigate('ProfileClient');
     } else {
