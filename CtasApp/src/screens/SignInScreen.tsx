@@ -1,24 +1,35 @@
 import * as React from 'react';
-import {View, Text} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import {SignInStyles as styles} from '../styles/SignInStyle';
+import { View, Text } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { SignInStyles as styles } from '../styles/SignInStyle';
 import ButtonSignIn from '../components/ButtonSignIn';
-import {SignInProps} from '../schema/SignInScreenSchema';
-import {GoogleAuth} from '../auth/GoogleAuth';
-import { GETuser } from '../database/Clients/SettersClients';
+import { SignInProps } from '../schema/SignInScreenSchema';
+import { GoogleAuth } from '../auth/GoogleAuth';
+import { parse } from 'date-fns';
+import { FirebaseAuthTypes } from '@react-native-firebase/auth';
+import { existUser } from '../database/Clients/GettersClients';
 
-const SignInScreen: React.FC<SignInProps> = ({navigation, route}) => {
-  const userType = route.params;
+const SignInScreen: React.FC<SignInProps> = ({ navigation, route }) => {
+  const {userType} = route.params;
+  
   const goHomeProfile = async () => {
-    let user = await GoogleAuth();
-    console.log(user);
+    // Sign In with google and get user information
+    let user: FirebaseAuthTypes.UserCredential = await GoogleAuth();
     
-    //GETuser(email)
+    // validate if the user is already signed up
+    let exist: Boolean = await existUser(user.user.email);
     
-    if (userType === 'client') {
-      navigation.navigate('ProfileClient');
+    // navigate to the screen according to the userType.
+    // If the user is already signed up, navigate to the Home Screen
+    // If the user is not signed up, so navigate to the form to complete his profile information.
+    if (userType == "client") {
+      (exist) ?
+        navigation.navigate('HomeClient')
+        : navigation.navigate('ProfileClient');
     } else {
-      navigation.navigate('ProfileProvider');
+      (exist)?
+        console.log('GO TO HOME PROVIDER')
+      : navigation.navigate('ProfileProvider')
     }
   };
   return (
