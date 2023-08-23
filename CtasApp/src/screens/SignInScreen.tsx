@@ -23,7 +23,7 @@ const SignInScreen: React.FC<SignInProps> = ({ navigation, route }) => {
     // If the user is already signed up, navigate to the Home Screen
     // If the user is not signed up, so navigate to the form to complete his profile information.
     if (userType == "client") {
-      (exist) ?
+      (!exist) ?
         navigation.navigate('HomeClient')
         : navigation.navigate('ProfileClient');
     } else {
