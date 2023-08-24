@@ -5,7 +5,7 @@ import { Client } from '../schema/ClientSchema';
 import { firebase } from '@react-native-firebase/auth';
 import { SignUpClient } from '../database/Clients/SettersClients';
 
-const useProfileForm = () => {
+const useProfileForm = (navigation: any) => {
   const {control, handleSubmit, formState, setValue, reset} =
     useForm<FormData>();
   const {errors} = formState;
@@ -27,10 +27,14 @@ const useProfileForm = () => {
         phone: data.phone,
         userType: 'client'
       } 
-      // console.log(data);
-      // console.log(userData);
-      await SignUpClient(userData);
-      
+
+      if(await SignUpClient(userData)){
+        // After save data into firestore navigate to Profile Client Screen 
+        navigation.navigate("HomeClient");
+      }
+
+
+
       setModalVisible(true);
       setTimeout(() => {
         setModalVisible(false);

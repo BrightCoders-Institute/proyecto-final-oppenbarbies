@@ -15,9 +15,13 @@ import {
   PHONE_VALIDATION_RULES,
 } from '../constants/ProfileClientFormConst';
 
-const ProfileClientForm: React.FC = () => {
+type ProfileClientFormProps = {
+  navigation: any;
+}
+
+const ProfileClientForm: React.FC<ProfileClientFormProps> = ({navigation}) => {
   const {control, handleSubmit, errors, onSubmit, setValue, isModalVisible} =
-    useCustomForm();
+    useCustomForm(navigation);
   const [isDateModalVisible, setDateModalVisible] = useState<boolean>(false);
   const [isLocationModalVisible, setLocationModalVisible] =
     useState<boolean>(false);

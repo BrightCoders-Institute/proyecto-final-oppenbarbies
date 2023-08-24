@@ -5,9 +5,8 @@ import { SignInStyles as styles } from '../styles/SignInStyle';
 import ButtonSignIn from '../components/ButtonSignIn';
 import { SignInProps } from '../schema/SignInScreenSchema';
 import { GoogleAuth } from '../auth/GoogleAuth';
-import { parse } from 'date-fns';
 import { FirebaseAuthTypes } from '@react-native-firebase/auth';
-import { existUser } from '../database/Clients/GettersClients';
+import { existUser } from '../database/GlobalGetters/GlobalGetters';
 
 const SignInScreen: React.FC<SignInProps> = ({ navigation, route }) => {
   const {userType} = route.params;
@@ -17,18 +16,15 @@ const SignInScreen: React.FC<SignInProps> = ({ navigation, route }) => {
     let user: FirebaseAuthTypes.UserCredential = await GoogleAuth();
     
     // validate if the user is already signed up
-    let exist: Boolean = await existUser(user.user.email);
-    
-    // navigate to the screen according to the userType.
-    // If the user is already signed up, navigate to the Home Screen
-    // If the user is not signed up, so navigate to the form to complete his profile information.
+    let exist: Boolean = await existUser(user.user.email, 'Clients');
+
     if (userType == "client") {
-      (!exist) ?
+      (exist) ?
         navigation.navigate('HomeClient')
         : navigation.navigate('ProfileClient');
-    } else {
-      (exist)?
-        console.log('GO TO HOME PROVIDER')
+      } else {
+        (exist)?
+        navigation.navigate('HomeClient')
       : navigation.navigate('ProfileProvider')
     }
   };
