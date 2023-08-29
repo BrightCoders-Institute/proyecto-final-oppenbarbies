@@ -23,7 +23,7 @@ const SignInScreen: React.FC<SignInProps> = ({ navigation, route }) => {
         navigation.navigate('HomeClient')
         : navigation.navigate('ProfileClient');
       } else {
-        (exist)?
+        (!exist)?
         navigation.navigate('HomeClient')
       : navigation.navigate('ProfileProvider')
     }

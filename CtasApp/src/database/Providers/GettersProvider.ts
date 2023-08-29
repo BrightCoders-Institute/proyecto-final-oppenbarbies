@@ -1,27 +1,26 @@
 import firestore from '@react-native-firebase/firestore';
-import {Client} from '../../schema/ClientSchema';
+import {Provider} from '../../schema/ProviderSchema';
 
-// Funciones para interactuar con la Firestore en la coleccion de Clients
-// Funciones SETTERS para subr datos a Firestore
-export const GetClient = async (email: string): Promise<Client | null> => {
-  let client: Client | null = null;
+
+export const GetProvider = async (email: string): Promise<Provider | null> => {
+  let provider: Provider | null = null;
 
   console.log(`Starting retrieval for client with email: ${email}`);
 
   try {
     const querySnapshot = await firestore()
-      .collection('Clients')
+      .collection('Providers')
       .where('email', '==', email)
       .get();
 
     console.log('Query Snapshot: ', querySnapshot);
 
     querySnapshot.forEach(documentSnapshot => {
-      client = documentSnapshot.data() as Client;
+      provider = documentSnapshot.data() as Provider;
       console.log('Client ID: ', documentSnapshot.id);
     });
 
-    if (!client) {
+    if (!provider) {
       console.log('Client not found!');
       return null;
     }
@@ -29,5 +28,5 @@ export const GetClient = async (email: string): Promise<Client | null> => {
     console.log('Error getting client: ', error);
   }
 
-  return client;
+  return provider;
 };

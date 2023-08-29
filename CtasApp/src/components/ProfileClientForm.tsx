@@ -21,7 +21,7 @@ type ProfileClientFormProps = {
 
 const ProfileClientForm: React.FC<ProfileClientFormProps> = ({navigation}) => {
   const {control, handleSubmit, errors, onSubmit, setValue, isModalVisible} =
-    useCustomForm(navigation);
+    useCustomForm(navigation, 'client');
   const [isDateModalVisible, setDateModalVisible] = useState<boolean>(false);
   const [isLocationModalVisible, setLocationModalVisible] =
     useState<boolean>(false);
