@@ -14,8 +14,8 @@ const HomeClientScreenStyles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     marginTop: 10,
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
+    borderTopLeftRadius: 1000,
+    borderTopRightRadius: 1000,
   },
   background: {
     flex: 1,
@@ -33,13 +33,19 @@ const HomeClientScreenStyles = StyleSheet.create({
     justifyContent: 'center',
     gap: 20,
     marginTop: 15,
-    width: 200,
+    width: 400,
+  },
+ title: {
+    fontFamily: 'Inter-ExtraBold',
+    fontSize: windowWidth < 370 || windowHeight < 700 ? 25 : 30,
+    color: Colors.black,  
   },
   name: {
     fontFamily: 'Inter-ExtraBold',
-    fontSize: windowWidth < 370 || windowHeight < 700 ? 25 : 40,
+    fontSize: windowWidth < 370 || windowHeight < 700 ? 25 : 30,
     color: Colors.black,
-    textAlign: 'right',
+    textAlign: 'center',
+    marginLeft: 20,
   },
   details: {
     color: Colors.black,
@@ -47,6 +53,7 @@ const HomeClientScreenStyles = StyleSheet.create({
     fontFamily: 'Inter-Regular',
     fontSize: windowWidth < 370 || windowHeight < 650 ? 12 : 17,
     marginBottom: 14,
+    paddingHorizontal: 80,
   },
   photoContainer: {
     marginTop: windowWidth < 370 ? 35 : 80,

@@ -1,9 +1,9 @@
 export type Client = {
     age: number;
-    alias: String;
+    alias: string;
     appointments?: Array<Appointment>;
     birthday: String;
-    email: String;
+    email: string;
     image: String;
     location: String;
     name: String;

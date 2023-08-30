@@ -14,7 +14,7 @@ const UserDetailsClient: React.FC<UserDetailsClientProps> = ({
     <SafeAreaView>
       <View style={HomeClientScreenStyles.detailsContainer}>
         <View style={HomeClientScreenStyles.nameContainer}>
-          <Text style={HomeClientScreenStyles.name}>Hello!</Text>
+          <Text style={HomeClientScreenStyles.title}>Hello!</Text>
           <Text style={HomeClientScreenStyles.name}>{name}</Text>
         </View>
         <Text style={HomeClientScreenStyles.details}>Email: {email}</Text>
