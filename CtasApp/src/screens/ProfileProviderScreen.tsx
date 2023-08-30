@@ -6,7 +6,7 @@ import ProfileClientSimpleCard from '../components/ProfileClientSimpleCard';
 import ProfileProviderForm from '../components/ProfileProviderForm';
 import {SignInProps} from '../schema/SignInScreenSchema';
 
-const ProfileProviderScreen: React.FC<SignInProps> = ({navigate, route}) => {
+const ProfileProviderScreen: React.FC<SignInProps> = ({navigation, route}) => {
   return (
     <SafeAreaView style={ProfileClientScreenStyles.container}>
       <KeyboardAwareScrollView
@@ -14,7 +14,7 @@ const ProfileProviderScreen: React.FC<SignInProps> = ({navigate, route}) => {
         contentContainerStyle={ProfileClientScreenStyles.contentContainer}
         scrollEnabled={true}>
         <ProfileClientSimpleCard userType="Provider" />
-        <ProfileProviderForm />
+        <ProfileProviderForm navigation={navigation}/>
       </KeyboardAwareScrollView>
     </SafeAreaView>
   );

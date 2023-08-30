@@ -13,9 +13,9 @@ import {
 } from '../constants/ProfileClientFormConst';
 import DescriptionInput from './DescriptionInput';
 
-const ProfileProviderForm: React.FC = () => {
+const ProfileProviderForm: React.FC = ({navigation}) => {
   const {control, handleSubmit, errors, onSubmit, isModalVisible, setValue} =
-    useProfileForm();
+    useProfileForm(navigation, 'provider');
   const [servicesDescription, setServicesDescription] = useState('');
   const [isLocationModalVisible, setLocationModalVisible] =
     useState<boolean>(false);
