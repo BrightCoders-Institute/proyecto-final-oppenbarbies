@@ -31,8 +31,8 @@ const HomeClientScreenStyles = StyleSheet.create({
   detailsContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 15,
-    marginTop: 15,
+    gap: windowWidth < 370 ? 8 : 15,
+    marginTop: windowWidth < 370 ? 6: 15,
     width: 400,
   },
  title: {
@@ -75,7 +75,7 @@ const HomeClientScreenStyles = StyleSheet.create({
   rateContainer: {
     alignItems: 'center',
     position: 'absolute',
-    bottom:405,
+    bottom:windowWidth < 370 ? 300 : 405,
     width: '100%',
   },
   rate: {
