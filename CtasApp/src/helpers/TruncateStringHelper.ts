@@ -1,6 +1,14 @@
 export const truncateString = (
-  str: string | null | undefined,
+  str: string | string[] | undefined,
   num: number,
-): string | null | undefined => {
-  return str?.length > num ? str?.slice(0, num) + '...' : str;
+): string => {
+  if (str === undefined) {
+    return '';
+  }
+
+  if (Array.isArray(str)) {
+    return str.join('').length > num ? str.join('').slice(0, num) + '...' : str.join('');
+  }
+
+  return str.length > num ? str.slice(0, num) + '...' : str;
 };

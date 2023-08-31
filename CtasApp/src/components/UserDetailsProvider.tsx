@@ -11,7 +11,7 @@ const UserDetailsProvider: React.FC<UserDetailsProviderProps> = ({
   phone,
   address,
   occupation,
-  services,
+  servicesDescription,
   ratting,
 }) => {
   return (
@@ -23,13 +23,12 @@ const UserDetailsProvider: React.FC<UserDetailsProviderProps> = ({
           <Text style={HomeClientScreenStyles.name}>{name}</Text>
         </View>
         <Text style={HomeClientScreenStyles.details}>Email: {email}</Text>
-        <Text style={HomeClientScreenStyles.details}>Birth: {birth}</Text>
         <Text style={HomeClientScreenStyles.details}>Phone: {phone}</Text>
         <Text style={HomeClientScreenStyles.details}>Address: {address}</Text>
         <Text style={HomeClientScreenStyles.details}>
           Occupation: {occupation}
         </Text>
-        <Text style={HomeClientScreenStyles.details}>Services: {services}</Text>
+        <Text style={HomeClientScreenStyles.details}>Services: {servicesDescription}</Text>
       </View>
     </SafeAreaView>
   );

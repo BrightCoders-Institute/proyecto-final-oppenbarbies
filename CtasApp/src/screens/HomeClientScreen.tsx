@@ -7,25 +7,44 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import UserDetailsClient from '../components/UserDetailsClient';
 import {GetClient} from '../database/Clients/GettersClients';
 import {GETCurrentUserEmail} from '../auth/CurrentUser';
+import {Provider} from '../schema/ProviderSchema';
 import {Client} from '../schema/ClientSchema';
+import {GetProvider} from '../database/Providers/GettersProvider';
 import {truncateString} from '../helpers/TruncateStringHelper';
+import UserDetailsProvider from '../components/UserDetailsProvider';
 
-const HomeClientScreen: React.FC = () => {
-  const [client, setClient] = useState<Client | null>(null);
+type HomeClientScreenProps = {
+  route: {
+    params: {
+      userType: string;
+    };
+  };
+};
+
+const HomeClientScreen: React.FC<HomeClientScreenProps> = ({route}) => {
+  const [user, setUser] = useState<Client | Provider | null>(null);
+  const userType = route.params.userType;
 
   useEffect(() => {
-    const fetchClientData = async () => {
-      const currentClientEmail = GETCurrentUserEmail();
+    const fetchUserData = async () => {
+      const currentUserEmail = GETCurrentUserEmail();
 
-      if (!currentClientEmail) {
+      if (!currentUserEmail) {
         Alert.alert('Error', 'No se pudo obtener el usuario actual');
         return;
       }
-      const clientData = await GetClient(currentClientEmail);
-      setClient(clientData);
+
+      if (userType === 'client') {
+        const clientData = await GetClient(currentUserEmail);
+        setUser(clientData);
+      } else if (userType === 'provider') {
+        const providerData = await GetProvider(currentUserEmail);
+        setUser(providerData);
+      }
     };
-    fetchClientData();
-  }, []);
+    fetchUserData();
+  }, [userType]);
+
   return (
     <ImageBackground
       source={require('../img/homeClientBackGround.png')}
@@ -40,16 +59,31 @@ const HomeClientScreen: React.FC = () => {
           />
           <Image
             style={HomeClientScreenStyles.photo}
-            source={client?.image ? {uri: client?.image} : require('../img/profilepick.png')}
+            source={
+              user?.image
+                ? {uri: user?.image}
+                : require('../img/profilepick.png')
+            }
           />
         </View>
-        <UserDetailsClient
-          name={truncateString(client?.alias, 16)}
-          email={client?.email}
-          birth={client?.birthday}
-          phone={client?.phone}
-          location={client?.location}
-        />
+        {user && userType === 'client' ? (
+          <UserDetailsClient
+            name={truncateString(user?.alias, 16)}
+            email={user?.email}
+            birth={user?.birthday}
+            phone={user?.phone}
+            location={user?.location}
+          />
+        ) : user && userType === 'provider' ? (
+          <UserDetailsProvider
+            name={truncateString(user?.alias, 16)}
+            email={user?.email}
+            phone={user?.phone}
+            address={truncateString(user?.address, 41)}
+            occupation={user?.occupation}
+            servicesDescription={user?.description}
+          />
+        ) : null}
       </SafeAreaView>
       <Navbar />
     </ImageBackground>

@@ -14,27 +14,26 @@ const useProfileForm = (navigation: any, userType: UserType) => {
   const {errors} = formState;
   const [isModalVisible, setModalVisible] = useState<boolean>(false);
 
-  const SubmitClient = async(user: FirebaseAuthTypes.User, data: FormData)=>{
-    let userData : Client = {
+  const SubmitClient = async (user: FirebaseAuthTypes.User, data: FormData) => {
+    let userData: Client = {
       age: 0,
       alias: data.name,
       appointments: [],
       birthday: data.birthDate,
-      email: user?.email,
-      image: user?.photoURL,
+      email: user.email,
+      image: user.photoURL,
       location: data.location,
-      name: user?.displayName,
+      name: user.displayName,
       phone: data.phone,
-      userType: 'client'
-    } 
+      userType: 'client',
+    };
 
-    if(await SignUpClient(userData)){
-      // After save data into firestore navigate to Profile Client Screen 
-      navigation.navigate("HomeClient");
+    if (await SignUpClient(userData)) {
+      navigation.navigate('HomeClient');
     }
-  }
+  };
 
-  const SubmitProvider = async(user: FirebaseAuthTypes.User, data: FormData)=>{
+  const SubmitProvider = async (user: FirebaseAuthTypes.User, data: FormData) => {
     let userData: Provider = {
       email: user.email,
       name: user.displayName,
@@ -47,37 +46,40 @@ const useProfileForm = (navigation: any, userType: UserType) => {
       rating: 0,
       image: user.photoURL,
       userType: 'provider',
-      appointments: []
-    }
+      appointments: [],
+    };
 
-    if(await SignUpProvider(userData)){
-      // After save data into firestore navigate to Profile Client Screen 
-      navigation.navigate("HomeClient");
+    if (await SignUpProvider(userData)) {
+      navigation.navigate('HomeClient');
     }
-  }
+  };
 
   const onSubmit = async (data: FormData) => {
     try {
       let user = firebase.auth().currentUser;
-      if(userType === 'client'){
-        await SubmitClient(user, data);
+      if (user) {
+        if (userType === 'client') {
+          await SubmitClient(user, data);
+        }
+        if (userType === 'provider') {
+          await SubmitProvider(user, data);
+        }
+
+        setModalVisible(true);
+        setTimeout(() => {
+          setModalVisible(false);
+        }, 3000);
+        reset({
+          name: '',
+          phone: '',
+          birthDate: '',
+          location: '',
+          occupation: '',
+          servicesDescription: '',
+        });
+      } else {
+        console.error('User is not logged in');
       }
-      if(userType === 'provider'){
-        await SubmitProvider(user, data);
-      }
-      
-      setModalVisible(true);
-      setTimeout(() => {
-        setModalVisible(false);
-      }, 3000);
-      reset({
-        name: '',
-        phone: '',
-        birthDate: '',
-        location: '',
-        occupation: '',
-        servicesDescription: '',
-      });
     } catch (error) {
       console.error('Error:', error);
     }
