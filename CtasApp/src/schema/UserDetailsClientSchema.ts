@@ -1,7 +1,7 @@
 export type UserDetailsClientProps = {
-  name: string;
-  email: string;
-  birth: string;
-  phone: string;
-  location: string;
+  name: string | null | undefined
+  email: string | null | undefined
+  birth: String | undefined;
+  phone: String | undefined;
+  location: String | undefined;
 };
