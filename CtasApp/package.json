@@ -38,6 +38,8 @@
     "react-native-screens": "^3.23.0",
     "react-native-svg": "^13.11.0",
     "react-native-vector-icons": "^10.0.0",
+    "react-redux": "^8.1.2",
+    "redux": "^4.2.1",
     "yarn.lock": "^0.0.1-security"
   },
   "devDependencies": {

@@ -1,5 +1,4 @@
-import * as React from 'react';
-import {useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, SafeAreaView, Image, ImageBackground, Alert} from 'react-native';
 import HomeClientScreenStyles from '../styles/HomeClientScreenStyles';
 import Navbar from '../components/Navbar';
@@ -12,18 +11,40 @@ import {Client} from '../schema/ClientSchema';
 import {GetProvider} from '../database/Providers/GettersProvider';
 import {truncateString} from '../helpers/TruncateStringHelper';
 import UserDetailsProvider from '../components/UserDetailsProvider';
+import {useUserContext} from '../../UserContext';
 
-type HomeClientScreenProps = {
-  route: {
-    params: {
-      userType: string;
-    };
-  };
-};
+const UserDetails = React.memo(({user}) => {
+  const {userType} = useUserContext();
 
-const HomeClientScreen: React.FC<HomeClientScreenProps> = ({route}) => {
+  if (user && userType === 'client') {
+    return (
+      <UserDetailsClient
+        name={truncateString(user?.alias, 16)}
+        email={user?.email}
+        birth={user?.birthday}
+        phone={user?.phone}
+        location={user?.location}
+      />
+    );
+  } else if (user && userType === 'provider') {
+    return (
+      <UserDetailsProvider
+        name={truncateString(user?.alias, 16)}
+        email={user?.email}
+        phone={user?.phone}
+        address={truncateString(user?.address, 41)}
+        occupation={user?.occupation}
+        servicesDescription={user?.description}
+      />
+    );
+  } else {
+    return null;
+  }
+});
+
+const HomeClientScreen: React.FC = () => {
+  const {userType} = useUserContext();
   const [user, setUser] = useState<Client | Provider | null>(null);
-  const userType = route.params.userType;
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -66,24 +87,7 @@ const HomeClientScreen: React.FC<HomeClientScreenProps> = ({route}) => {
             }
           />
         </View>
-        {user && userType === 'client' ? (
-          <UserDetailsClient
-            name={truncateString(user?.alias, 16)}
-            email={user?.email}
-            birth={user?.birthday}
-            phone={user?.phone}
-            location={user?.location}
-          />
-        ) : user && userType === 'provider' ? (
-          <UserDetailsProvider
-            name={truncateString(user?.alias, 16)}
-            email={user?.email}
-            phone={user?.phone}
-            address={truncateString(user?.address, 41)}
-            occupation={user?.occupation}
-            servicesDescription={user?.description}
-          />
-        ) : null}
+        <UserDetails user={user} />
       </SafeAreaView>
       <Navbar />
     </ImageBackground>
