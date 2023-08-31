@@ -13,7 +13,7 @@ const HomeClientScreenStyles = StyleSheet.create({
     backgroundColor: Colors.white,
     flex: 1,
     alignItems: 'center',
-    marginTop: 10,
+    marginTop: 8,
     borderTopLeftRadius: 1000,
     borderTopRightRadius: 1000,
   },
@@ -31,8 +31,8 @@ const HomeClientScreenStyles = StyleSheet.create({
   detailsContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 20,
-    marginTop: 15,
+    gap: windowWidth < 370 ? 8 : 15,
+    marginTop: windowWidth < 370 ? 6: 15,
     width: 400,
   },
  title: {
@@ -75,7 +75,7 @@ const HomeClientScreenStyles = StyleSheet.create({
   rateContainer: {
     alignItems: 'center',
     position: 'absolute',
-    bottom: 365,
+    bottom:windowWidth < 370 ? 300 : 405,
     width: '100%',
   },
   rate: {

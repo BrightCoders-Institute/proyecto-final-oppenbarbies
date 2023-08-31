@@ -1,5 +1,6 @@
 declare module 'react-native-config' {
   export interface NativeConfig {
+    WEB_CLIENT: string | undefined;
     API_KEY: string;
     AUTH_DOMAIN: string;
     PROJECT_ID: string;

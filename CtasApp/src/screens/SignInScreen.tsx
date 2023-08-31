@@ -1,33 +1,27 @@
 import * as React from 'react';
-import { View, Text } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { SignInStyles as styles } from '../styles/SignInStyle';
+import {View, Text} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import {SignInStyles as styles} from '../styles/SignInStyle';
 import ButtonSignIn from '../components/ButtonSignIn';
-import { SignInProps } from '../schema/SignInScreenSchema';
-import { GoogleAuth } from '../auth/GoogleAuth';
-import { FirebaseAuthTypes } from '@react-native-firebase/auth';
-import { existUser } from '../database/GlobalGetters/GlobalGetters';
+import {SignInProps} from '../schema/SignInScreenSchema';
+import {GoogleAuth} from '../auth/GoogleAuth';
+import {FirebaseAuthTypes} from '@react-native-firebase/auth';
+import { useUserContext } from '../../UserContext';
 
-const SignInScreen: React.FC<SignInProps> = ({ navigation, route }) => {
-  const {userType} = route.params;
-  
+const SignInScreen: React.FC<SignInProps> = ({ navigation }) => {
+  const { userType } = useUserContext();
+
   const goHomeProfile = async () => {
-    // Sign In with google and get user information
-    let user: FirebaseAuthTypes.UserCredential = await GoogleAuth();
-    
-    // validate if the user is already signed up
-    let exist: Boolean = await existUser(user.user.email, 'Clients');
-
-    if (userType == "client") {
-      (exist) ?
-        navigation.navigate('HomeClient')
-        : navigation.navigate('ProfileClient');
-      } else {
-        (!exist)?
-        navigation.navigate('HomeClient')
-      : navigation.navigate('ProfileProvider')
+    let user: FirebaseAuthTypes.UserCredential | {error: unknown} =
+      await GoogleAuth();
+    if ('error' in user) {
+      console.log('Error: ', user.error);
+      return;
+    } else {
+      navigation.navigate('HomeClient', { userType: userType });
     }
   };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.headerContainer}>

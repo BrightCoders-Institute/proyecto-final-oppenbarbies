@@ -1,7 +1,7 @@
 import firestore from '@react-native-firebase/firestore';
 
 export const existUser = async (
-  email: String,
+  email: String | null,
   collection: string,
 ): Promise<Boolean> => {
   return await firestore()

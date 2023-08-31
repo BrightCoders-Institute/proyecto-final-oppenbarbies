@@ -1,3 +1,3 @@
 export type RatingProps = {
-  stars: number;
+  stars: number | undefined;
 };

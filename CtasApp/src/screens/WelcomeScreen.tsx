@@ -5,12 +5,14 @@ import WelcomeStyles from '../styles/WelcomeStyles';
 import Logo from '../components/Logo';
 import ProfileSelector from '../components/ProfileSelector';
 import {UserType, WelcomeScreenProps} from '../schema/SignInScreenSchema';
+import { useUserContext } from '../../UserContext';
 
-const WelcomeScreen: React.FC<WelcomeScreenProps> = ({navigation}) => {
+const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ navigation }) => {
+  const { setUserType } = useUserContext();
+
   const goToSignIn = (userType: UserType) => {
-    navigation.navigate('SignIn', {
-      userType: userType,
-    });
+    setUserType(userType);
+    navigation.navigate('SignIn');
   };
 
   return (
