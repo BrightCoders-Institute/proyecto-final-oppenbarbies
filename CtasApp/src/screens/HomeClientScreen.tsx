@@ -1,5 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import {View, SafeAreaView, Image, ImageBackground, Alert} from 'react-native';
+import {
+  View,
+  SafeAreaView,
+  Image,
+  ImageBackground,
+  Alert,
+  Pressable,
+} from 'react-native';
 import HomeClientScreenStyles from '../styles/HomeClientScreenStyles';
 import Navbar from '../components/Navbar';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -73,11 +80,13 @@ const HomeClientScreen: React.FC = () => {
       resizeMode="stretch">
       <SafeAreaView style={HomeClientScreenStyles.body}>
         <View style={HomeClientScreenStyles.photoContainer}>
-          <FontAwesome
-            style={HomeClientScreenStyles.gear}
-            name="gear"
-            size={25}
-          />
+          <Pressable onPress={() => {}}>
+            <FontAwesome
+              style={HomeClientScreenStyles.gear}
+              name="gear"
+              size={25}
+            />
+          </Pressable>
           <Image
             style={HomeClientScreenStyles.photo}
             source={

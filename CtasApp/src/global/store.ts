@@ -1,4 +1,4 @@
-import { createStore } from 'redux';
+import {createStore} from 'redux';
 
 export const updateUserType = (userType: string) => ({
   type: 'UPDATE_USER_TYPE',
@@ -6,7 +6,7 @@ export const updateUserType = (userType: string) => ({
 });
 
 const initialState = {
-  userType: '', 
+  userType: '',
 };
 
 const reducer = (state = initialState, action: any) => {

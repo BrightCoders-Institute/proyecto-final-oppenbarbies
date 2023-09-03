@@ -14,7 +14,7 @@ const ProfileClientScreen: React.FC<SignInProps> = ({navigation, route}) => {
         contentContainerStyle={ProfileClientScreenStyles.contentContainer}
         scrollEnabled={true}>
         <ProfileClientSimpleCard userType="Client" />
-        <ProfileClientForm navigation={navigation}/>
+        <ProfileClientForm navigation={navigation} />
       </KeyboardAwareScrollView>
     </SafeAreaView>
   );

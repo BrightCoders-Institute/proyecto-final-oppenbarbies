@@ -1,12 +1,12 @@
 import {useForm} from 'react-hook-form';
 import {useState} from 'react';
 import {FormData} from '../schema/ProfileClientFormSchema';
-import { Client } from '../schema/ClientSchema';
-import { FirebaseAuthTypes, firebase } from '@react-native-firebase/auth';
-import { SignUpClient } from '../database/Clients/SettersClients';
-import { UserType } from '../schema/SignInScreenSchema';
-import { Provider } from '../schema/ProviderSchema';
-import { SignUpProvider } from '../database/Providers/SettersProvider';
+import {Client} from '../schema/ClientSchema';
+import {FirebaseAuthTypes, firebase} from '@react-native-firebase/auth';
+import {SignUpClient} from '../database/Clients/SettersClients';
+import {UserType} from '../schema/SignInScreenSchema';
+import {Provider} from '../schema/ProviderSchema';
+import {SignUpProvider} from '../database/Providers/SettersProvider';
 
 const useProfileForm = (navigation: any, userType: UserType) => {
   const {control, handleSubmit, formState, setValue, reset} =
@@ -33,7 +33,10 @@ const useProfileForm = (navigation: any, userType: UserType) => {
     }
   };
 
-  const SubmitProvider = async (user: FirebaseAuthTypes.User, data: FormData) => {
+  const SubmitProvider = async (
+    user: FirebaseAuthTypes.User,
+    data: FormData,
+  ) => {
     let userData: Provider = {
       email: user.email,
       name: user.displayName,
