@@ -28,7 +28,9 @@ const UserDetailsProvider: React.FC<UserDetailsProviderProps> = ({
         <Text style={HomeClientScreenStyles.details}>
           Occupation: {occupation}
         </Text>
-        <Text style={HomeClientScreenStyles.details}>Services: {servicesDescription}</Text>
+        <Text style={HomeClientScreenStyles.details}>
+          Services: {servicesDescription}
+        </Text>
       </View>
     </SafeAreaView>
   );

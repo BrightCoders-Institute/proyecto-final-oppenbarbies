@@ -32,11 +32,11 @@ export const SearchCardStyles = StyleSheet.create({
   infoText: {
     fontFamily: 'Inter-SemiBold',
     color: Colors.black,
-    fontSize: 14,
+    fontSize: 12,
   },
   infoDescription: {
     fontFamily: 'Inter-Regular',
-    textAlign: 'justify',
+    textAlign: 'left',
   },
   row: {
     flexDirection: 'row',

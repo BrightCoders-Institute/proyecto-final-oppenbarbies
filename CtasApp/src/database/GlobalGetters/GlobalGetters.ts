@@ -9,7 +9,10 @@ export const existUser = async (
     .where('email', '==', email)
     .get()
     .then(querySnapshot => {
-      if (querySnapshot.docs.length > 0) return true;
-      else return false;
+      if (querySnapshot.docs.length > 0) {
+        return true;
+      } else {
+        return false;
+      }
     });
 };

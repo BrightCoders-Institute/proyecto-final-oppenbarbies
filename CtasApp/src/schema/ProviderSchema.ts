@@ -1,10 +1,10 @@
 export type Provider = {
+  key?: string;
   email?: string | null;
   name?: string | null;
   alias?: string;
   phone?: string;
   occupation?: string;
-  description?: string;
   address?: string[] | undefined;
   scoreList?: Array<any>;
   rating?: number;
@@ -15,8 +15,6 @@ export type Provider = {
   location?: string;
   servicesDescription?: string;
   description?: string;
-}
+};
 
-export type Appointment = {
-
-}
+export type Appointment = {};

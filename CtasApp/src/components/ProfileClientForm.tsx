@@ -17,7 +17,7 @@ import {
 
 type ProfileClientFormProps = {
   navigation: any;
-}
+};
 
 const ProfileClientForm: React.FC<ProfileClientFormProps> = ({navigation}) => {
   const {control, handleSubmit, errors, onSubmit, setValue, isModalVisible} =

@@ -6,10 +6,10 @@ import ButtonSignIn from '../components/ButtonSignIn';
 import {SignInProps} from '../schema/SignInScreenSchema';
 import {GoogleAuth} from '../auth/GoogleAuth';
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
-import { useUserContext } from '../../UserContext';
+import {useUserContext} from '../../UserContext';
 
-const SignInScreen: React.FC<SignInProps> = ({ navigation }) => {
-  const { userType } = useUserContext();
+const SignInScreen: React.FC<SignInProps> = ({navigation}) => {
+  const {userType} = useUserContext();
 
   const goHomeProfile = async () => {
     let user: FirebaseAuthTypes.UserCredential | {error: unknown} =
@@ -18,7 +18,7 @@ const SignInScreen: React.FC<SignInProps> = ({ navigation }) => {
       console.log('Error: ', user.error);
       return;
     } else {
-      navigation.navigate('HomeClient', { userType: userType });
+      navigation.navigate('HomeClient', {userType: userType});
     }
   };
 

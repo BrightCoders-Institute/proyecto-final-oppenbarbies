@@ -32,13 +32,13 @@ const HomeClientScreenStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     gap: windowWidth < 370 ? 8 : 15,
-    marginTop: windowWidth < 370 ? 6: 15,
+    marginTop: windowWidth < 370 ? 6 : 15,
     width: 400,
   },
- title: {
+  title: {
     fontFamily: 'Inter-ExtraBold',
     fontSize: windowWidth < 370 || windowHeight < 700 ? 25 : 30,
-    color: Colors.black,  
+    color: Colors.black,
   },
   name: {
     fontFamily: 'Inter-ExtraBold',
@@ -75,7 +75,7 @@ const HomeClientScreenStyles = StyleSheet.create({
   rateContainer: {
     alignItems: 'center',
     position: 'absolute',
-    bottom:windowWidth < 370 ? 300 : 405,
+    bottom: windowWidth < 370 ? 300 : 405,
     width: '100%',
   },
   rate: {

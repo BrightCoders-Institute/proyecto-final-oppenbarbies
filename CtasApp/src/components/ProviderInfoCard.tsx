@@ -10,7 +10,6 @@ import {ProviderInfoCardHooks} from '../hooks/ProviderInfoCardHooks';
 const ProviderInfoCard: React.FC<ProviderInfoCardProps> = ({
   name,
   location,
-  age,
   description,
   occupation,
   rate,
@@ -37,14 +36,7 @@ const ProviderInfoCard: React.FC<ProviderInfoCardProps> = ({
               />
               <Text style={SearchCardStyles.infoText}>{location}</Text>
             </View>
-            <View style={SearchCardStyles.row}>
-              <Ionicons
-                name="person-circle"
-                size={25}
-                style={SearchCardStyles.icon}
-              />
-              <Text style={SearchCardStyles.infoText}>Age: {age}</Text>
-            </View>
+            <View style={SearchCardStyles.row} />
           </View>
           <Text style={SearchCardStyles.infoDescription}>
             {descriptionFormatted}
