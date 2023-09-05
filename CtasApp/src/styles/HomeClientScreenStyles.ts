@@ -56,7 +56,7 @@ const HomeClientScreenStyles = StyleSheet.create({
     paddingHorizontal: 80,
   },
   photoContainer: {
-    marginTop: windowWidth < 370 ? 35 : 80,
+    marginTop: windowWidth < 370 ? 35 : 45,
     marginBottom: 20,
     justifyContent: 'center',
     alignItems: 'center',
@@ -67,10 +67,8 @@ const HomeClientScreenStyles = StyleSheet.create({
     borderRadius: 100,
   },
   gear: {
-    position: 'absolute',
-    top: 0,
-    right: 0,
-    color: Colors.black,
+    marginLeft: 90,
+    color: Colors.strongGray,
   },
   rateContainer: {
     alignItems: 'center',

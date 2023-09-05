@@ -14,7 +14,7 @@ export type Provider = {
   birthday?: string;
   location?: string;
   servicesDescription?: string;
-  description?: string;
+  description: string;
 };
 
 export type Appointment = {};

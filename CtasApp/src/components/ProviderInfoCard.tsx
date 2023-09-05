@@ -15,7 +15,7 @@ const ProviderInfoCard: React.FC<ProviderInfoCardProps> = ({
   rate,
 }) => {
   const {formatDescription} = ProviderInfoCardHooks();
-  const descriptionFormatted: string = formatDescription(description);
+  const descriptionFormatted: string | undefined= formatDescription(description);
   return (
     <View style={SearchCardStyles.cardContainer}>
       <View>
