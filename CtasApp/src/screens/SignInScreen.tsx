@@ -7,6 +7,7 @@ import {SignInProps} from '../schema/SignInScreenSchema';
 import {GoogleAuth} from '../auth/GoogleAuth';
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {useUserContext} from '../../UserContext';
+import {existUser} from '../database/GlobalGetters/GlobalGetters';
 
 const SignInScreen: React.FC<SignInProps> = ({navigation}) => {
   const {userType} = useUserContext();
@@ -14,11 +15,22 @@ const SignInScreen: React.FC<SignInProps> = ({navigation}) => {
   const goHomeProfile = async () => {
     let user: FirebaseAuthTypes.UserCredential | {error: unknown} =
       await GoogleAuth();
-    if ('error' in user) {
-      console.log('Error: ', user.error);
+    // validate if the user is already signed up
+    if ('error'in user ) {
+      console.error('Error', user.error);
       return;
+    }
+    let exist: Boolean;
+    if (userType == 'client') {
+      exist = await existUser(user.user.email, 'Clients');
+      exist
+        ? navigation.navigate('HomeClient')
+        : navigation.navigate('ProfileClient');
     } else {
-      navigation.navigate('HomeClient', {userType: userType});
+      exist = await existUser(user.user.email, 'Providers');
+      exist
+        ? navigation.navigate('HomeClient')
+        : navigation.navigate('ProfileProvider');
     }
   };
 
