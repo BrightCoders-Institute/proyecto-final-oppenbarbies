@@ -12,6 +12,7 @@ import SearchScreen from '../screens/SearchScreen';
 import AppointmentDetailsScreen from '../screens/AppointmentDetailsScreen';
 import FinishAppointmentScreen from '../screens/FinishAppointmentScreen';
 import {RootStackParamList} from '../schema/SignInScreenSchema';
+import ConfigAvailableDays from '../screens/ConfigAvailableDays';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 const StackNavigation: React.FC = () => {
@@ -71,6 +72,11 @@ const StackNavigation: React.FC = () => {
         name="FinishAppointment"
         component={FinishAppointmentScreen}
         options={{headerShown: false}}
+      />
+      <Stack.Screen 
+        name = "ConfigAvailableDays"
+        component = {ConfigAvailableDays}
+        options = {{headerShown: false}}
       />
     </Stack.Navigator>
   );
