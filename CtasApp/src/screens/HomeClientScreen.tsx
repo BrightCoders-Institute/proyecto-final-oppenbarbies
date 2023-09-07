@@ -21,8 +21,9 @@ import UserDetailsProvider from '../components/UserDetailsProvider';
 import {useUserContext} from '../../UserContext';
 
 const UserDetails = React.memo(({user}) => {
-  const {userType} = useUserContext();
-
+  const {userType, sessionData} = useUserContext();
+  console.log("Session data: ",sessionData);
+  
   if (user && userType === 'client') {
     return (
       <UserDetailsClient
@@ -73,27 +74,6 @@ const HomeClientScreen: React.FC = () => {
     fetchUserData();
   }, [userType]);
 
-/**
- * <ImageBackground 
-  * style={HomeClientScreenStyles.photo}
-    source={
-      user?.image
-        ? {uri: user?.image}
-        : require('../img/profilepick.png')
-    }>
- *   <Pressable onPress={() => {}}>
-            <FontAwesome
-              style={HomeClientScreenStyles.gear}
-              name="gear"
-              size={30}
-            />
-          </Pressable>
- * </ImageBackground>
- */
-
-          /**
-           * 
-           */
   return (
     <ImageBackground
       source={require('../img/homeClientBackGround.png')}

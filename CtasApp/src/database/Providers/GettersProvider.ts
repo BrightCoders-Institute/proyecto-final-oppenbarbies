@@ -1,5 +1,6 @@
 import firestore from '@react-native-firebase/firestore';
 import {Provider} from '../../schema/ProviderSchema';
+import { useUserContext } from '../../../UserContext';
 
 export const GetProvider = async (email: string): Promise<Provider | null> => {
   let provider: Provider | null = null;

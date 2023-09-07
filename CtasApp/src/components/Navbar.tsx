@@ -12,7 +12,6 @@ import { useUserContext } from '../../UserContext';
 
 const Navbar: React.FC = () => {
   const {userType} = useUserContext();
-  console.log("userType navbar: ",userType);
   
   const navigation =
     useNavigation() as NativeStackNavigationProp<RootStackParamList>;
@@ -28,8 +27,6 @@ const Navbar: React.FC = () => {
       if(userType == 'client' && item.screen != "ConfigAvailableDays") return item;
     }
   });
-
-  console.log(userMenuItem);
   
   return (
     <View style={NavbarStyles.container}>
