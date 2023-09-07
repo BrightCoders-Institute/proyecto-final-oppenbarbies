@@ -5,4 +5,5 @@ export interface SearchInputProps {
   search: string,
   setSearch: Dispatch<SetStateAction<string>>,
   providers: ProviderWithKey[],
+  setFilteredProviders: Dispatch<SetStateAction<ProviderWithKey[]>>,
 }
