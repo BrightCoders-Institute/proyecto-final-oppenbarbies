@@ -40,6 +40,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
 
   const handleBlur = () => {
     setSuggestions([]);
+    setSearch('');
   };
 
   return (
@@ -57,9 +58,9 @@ const SearchInput: React.FC<SearchInputProps> = ({
         </Pressable>
       </View>
       {search.length > 0 && (
-        <View>
+        <View style={SearchStyles.suggestionContainer}>
           {suggestions.map(item => (
-            <TouchableOpacity key={item.key}>
+            <TouchableOpacity key={item.key} style={SearchStyles.suggestionItem}>
               <Text>{item.name}</Text>
               <Text>{item.occupation}</Text>
             </TouchableOpacity>
