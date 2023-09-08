@@ -59,8 +59,14 @@ const SearchInput: React.FC<SearchInputProps> = ({
       </View>
       {search.length > 0 && (
         <View style={SearchStyles.suggestionContainer}>
-          {suggestions.map(item => (
-            <TouchableOpacity key={item.key} style={SearchStyles.suggestionItem}>
+          {suggestions.map((item, index) => (
+            <TouchableOpacity
+              key={item.key}
+              style={[
+                SearchStyles.suggestionItem,
+                index === suggestions.length - 1 &&
+                  SearchStyles.lastSuggestionItem,
+              ]}>
               <Text>{item.name}</Text>
               <Text>{item.occupation}</Text>
             </TouchableOpacity>

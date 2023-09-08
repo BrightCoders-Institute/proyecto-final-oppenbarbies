@@ -47,5 +47,7 @@ export const SearchStyles = StyleSheet.create({
     marginTop: -20,
     paddingTop: 15,
     borderColor: Colors.aqua
+  }, lastSuggestionItem: {
+    borderBottomWidth: 0,
   }
 });
