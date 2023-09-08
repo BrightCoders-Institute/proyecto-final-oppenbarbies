@@ -10,7 +10,7 @@ const ConfigAvailableDays: React.FC = () => {
     <View style={BodyStyles.container}>
       <Header title="Set schedule" />
       <View style={BodyStyles.bodyContainer}>
-        <Text>Configure your avaialable days</Text>
+        <Text>Choose your unavailable days:</Text>
         <CustomCalendar/>
         <Navbar />
       </View>
