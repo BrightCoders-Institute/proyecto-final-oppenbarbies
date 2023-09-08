@@ -73,27 +73,6 @@ const HomeClientScreen: React.FC = () => {
     fetchUserData();
   }, [userType]);
 
-/**
- * <ImageBackground 
-  * style={HomeClientScreenStyles.photo}
-    source={
-      user?.image
-        ? {uri: user?.image}
-        : require('../img/profilepick.png')
-    }>
- *   <Pressable onPress={() => {}}>
-            <FontAwesome
-              style={HomeClientScreenStyles.gear}
-              name="gear"
-              size={30}
-            />
-          </Pressable>
- * </ImageBackground>
- */
-
-          /**
-           * 
-           */
   return (
     <ImageBackground
       source={require('../img/homeClientBackGround.png')}

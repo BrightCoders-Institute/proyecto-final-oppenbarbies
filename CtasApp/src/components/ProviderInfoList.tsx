@@ -14,6 +14,7 @@ const ProviderInfoList: React.FC<ProvidersListProps>  = ({ providers }) => {
       renderItem={({item}) => {
         return (
           <ProviderInfoCard
+            imageProvider={item?.image}
             name={item.name || undefined}
             location={truncateString(item.address, 25)}
             description={item.description}
