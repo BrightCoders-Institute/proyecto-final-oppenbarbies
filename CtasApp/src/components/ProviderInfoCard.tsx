@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Text, View, Image} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -6,13 +6,14 @@ import {SearchCardStyles} from '../styles/SearchCardStyles';
 import {ProviderInfoCardProps} from '../schema/ProviderInfoCardSchema';
 import Colors from '../styles/colors/Colors';
 import {ProviderInfoCardHooks} from '../hooks/ProviderInfoCardHooks';
-
+import {GetClient} from '../database/Clients/GettersClients';
 const ProviderInfoCard: React.FC<ProviderInfoCardProps> = ({
   name,
   location,
   description,
   occupation,
   rate,
+  imageProvider
 }) => {
   const {formatDescription} = ProviderInfoCardHooks();
   const descriptionFormatted: string | undefined= formatDescription(description);
@@ -20,7 +21,7 @@ const ProviderInfoCard: React.FC<ProviderInfoCardProps> = ({
     <View style={SearchCardStyles.cardContainer}>
       <View>
         <Image
-          source={require('../img/lic.png')}
+          source={{uri: imageProvider}}
           style={SearchCardStyles.imgProfile}
         />
       </View>

@@ -5,4 +5,5 @@ export interface ProviderInfoCardProps {
   description: string | undefined;
   occupation?: string;
   rate?: number;
+  imageProvider: string | null | undefined;
 }
