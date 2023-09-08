@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {View, TextInput, Pressable, TouchableOpacity, Text} from 'react-native';
 import {SearchInputProps} from '../schema/SearchInputSchema';
 import {SearchStyles} from '../styles/SearchStyles';
