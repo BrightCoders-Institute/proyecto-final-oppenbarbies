@@ -52,6 +52,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
           value={search}
           onChangeText={handleSearch}
           onBlur={handleBlur}
+          caretHidden={true}
         />
         <Pressable>
           <FontAwesome name="search" size={25} style={SearchStyles.icon} />
