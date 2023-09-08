@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import {SafeAreaView, View, KeyboardAvoidingView} from 'react-native';
+import {SafeAreaView, View} from 'react-native';
 import SearchInput from '../components/SearchInput';
 import ProviderInfoList from '../components/ProviderInfoList';
 import Navbar from '../components/Navbar';
@@ -9,6 +8,7 @@ import Header from '../components/Header';
 import {Provider} from '../schema/ProviderSchema';
 import firestore from '@react-native-firebase/firestore';
 import {useUserContext} from '../../UserContext';
+import { providersData } from '../data/ProvidersData';
 type ProviderWithKey = Provider & {key: string};
 
 const SearchScreen: React.FC = () => {
@@ -18,7 +18,6 @@ const SearchScreen: React.FC = () => {
   const [filteredProviders, setFilteredProviders] = useState<ProviderWithKey[]>(
     [],
   );
-
   useEffect(() => {
     const unsubscribe = firestore()
       .collection('Providers')

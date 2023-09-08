@@ -21,7 +21,7 @@ const ProviderInfoCard: React.FC<ProviderInfoCardProps> = ({
     <View style={SearchCardStyles.cardContainer}>
       <View>
         <Image
-          source={require(imageProvider)}
+          source={{uri: imageProvider}}
           style={SearchCardStyles.imgProfile}
         />
       </View>
