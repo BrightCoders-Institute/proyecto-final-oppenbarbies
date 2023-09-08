@@ -57,7 +57,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
           <FontAwesome name="search" size={25} style={SearchStyles.icon} />
         </Pressable>
       </View>
-      {search.length > 0 && (
+      {search.length > 0 && suggestions.length > 0 && (
         <View style={SearchStyles.suggestionContainer}>
           {suggestions.map((item, index) => (
             <TouchableOpacity
