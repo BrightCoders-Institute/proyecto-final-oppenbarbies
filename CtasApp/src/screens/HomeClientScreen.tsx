@@ -22,7 +22,6 @@ import {useUserContext} from '../../UserContext';
 
 const UserDetails = React.memo(({user}) => {
   const {userType, sessionData} = useUserContext();
-  console.log("Session data: ",sessionData);
   
   if (user && userType === 'client') {
     return (

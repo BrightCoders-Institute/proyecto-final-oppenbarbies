@@ -15,7 +15,6 @@ export const GetClient = async (email: string): Promise<Client | null> => {
       .where('email', '==', email)
       .get();
 
-    console.log('Query Snapshot: ', querySnapshot);
 
     querySnapshot.forEach(documentSnapshot => {
       client = documentSnapshot.data() as Client;

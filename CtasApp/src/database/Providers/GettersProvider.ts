@@ -13,7 +13,6 @@ export const GetProvider = async (email: string): Promise<Provider | null> => {
       .where('email', '==', email)
       .get();
 
-    console.log('Query Snapshot: ', querySnapshot);
 
     querySnapshot.forEach(documentSnapshot => {
       provider = documentSnapshot.data() as Provider;

@@ -2,6 +2,7 @@ import {useState, useCallback} from 'react';
 import {SelectedDates, Day} from '../schema/CustomCalendarSchema';
 import { GetUnavailableDays } from '../database/Providers/GettersProvider';
 import { useUserContext } from '../../UserContext';
+import { PostUnavailableDays } from '../database/Providers/SettersProvider';
 
 export const useCustomCalendar = () => {
   const [selectedDates, setSelectedDates] = useState<SelectedDates>({});
@@ -28,11 +29,10 @@ export const useCustomCalendar = () => {
     });
   }, []);
 
-  const logUnavailableDates = useCallback(() => {
+  const logUnavailableDates = useCallback(async () => {
     const unavailableDates = Object.keys(selectedDates);
-    console.log('Selected days: ', selectedDates);
-    
-    console.log('Unavailable Days:', unavailableDates);
+    // console.log('Unavailable Days:', unavailableDates);
+    await PostUnavailableDays(sessionData.userEmail, unavailableDates);
   }, [selectedDates]);
 
   const markAsUnavailable = useCallback(async () => {
