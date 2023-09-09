@@ -11,6 +11,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
   setSearch,
   providers,
   setFilteredProviders,
+  navigation,
 }) => {
   const [suggestions, setSuggestions] = useState<ProviderWithKey[]>([]);
   const handleSearch = (text: string) => {
@@ -43,6 +44,15 @@ const SearchInput: React.FC<SearchInputProps> = ({
     setSearch('');
   };
 
+  const handleSuggestionPress = (suggestion: ProviderWithKey) => {
+    if (suggestion && suggestion.name) {
+      handleBlur();
+      navigation.navigate('SetCita', {
+        item: suggestion,
+      });
+    }
+  };
+
   return (
     <View>
       <View style={SearchStyles.inputContainer}>
@@ -63,6 +73,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
           {suggestions.map((item, index) => (
             <TouchableOpacity
               key={item.key}
+              onPress={() => handleSuggestionPress(item)}
               style={[
                 SearchStyles.suggestionItem,
                 index === suggestions.length - 1 &&
