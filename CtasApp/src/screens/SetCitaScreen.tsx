@@ -30,11 +30,11 @@ const SetCitaScreen: React.FC<setCitaProps> = ({route, navigation}) => {
         <View style={ProviderSetCitaStyles.main}>
           <BackArrow />
           <ProviderInformation
-            occupation= "Visual Artist"
-            image='https://e00-marca.uecdn.es/assets/multimedia/imagenes/2023/01/19/16741112030020.jpg'
-            name="Michael Jordan"
-            location="Chicago"
-            description="Talented Visual Artist known for creating captivating and thought-provoking artworks. With a strong foundation in various artistic techniques, I strive to evoke emotions and spark conversations through my art. My work has been exhibited in galleries and art shows internationally."
+            occupation= {item.occupation}
+            image={item.image}
+            name={item.name}
+            location={item.location}
+            description={item.description}
           />
           <View style={ProviderSetCitaStyles.body}>
             <Text style={ProviderSetCitaStyles.appointmentDetails}>
