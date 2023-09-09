@@ -11,7 +11,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
   setSearch,
   providers,
   setFilteredProviders,
-  navigation
+  navigation,
 }) => {
   const [suggestions, setSuggestions] = useState<ProviderWithKey[]>([]);
   const handleSearch = (text: string) => {
@@ -46,7 +46,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
 
   const handleSuggestionPress = (suggestion: ProviderWithKey) => {
     if (suggestion && suggestion.name) {
-      setSuggestions([]);
+      handleBlur();
       navigation.navigate('SetCita', {
         item: suggestion,
       });
