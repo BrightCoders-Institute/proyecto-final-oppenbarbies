@@ -20,6 +20,7 @@ export type RootStackParamList = {
   SearchScreen: undefined;
   AppointmentDetails: undefined;
   FinishAppointment: undefined;
+  ConfigAvailableDays: undefined;
 };
 
 export type SplashScreenNavigationProp = NativeStackScreenProps<

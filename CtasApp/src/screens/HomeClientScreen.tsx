@@ -21,8 +21,8 @@ import UserDetailsProvider from '../components/UserDetailsProvider';
 import {useUserContext} from '../../UserContext';
 
 const UserDetails = React.memo(({user}) => {
-  const {userType} = useUserContext();
-
+  const {userType, sessionData} = useUserContext();
+  
   if (user && userType === 'client') {
     return (
       <UserDetailsClient

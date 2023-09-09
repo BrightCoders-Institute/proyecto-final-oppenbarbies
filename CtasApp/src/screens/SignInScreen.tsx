@@ -7,30 +7,44 @@ import {SignInProps} from '../schema/SignInScreenSchema';
 import {GoogleAuth} from '../auth/GoogleAuth';
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {useUserContext} from '../../UserContext';
-import {existUser} from '../database/GlobalGetters/GlobalGetters';
+import {existUser, getUserID} from '../database/GlobalGetters/GlobalGetters';
+import {useSessionContext} from '../../SessionContext';
 
 const SignInScreen: React.FC<SignInProps> = ({navigation}) => {
-  const {userType} = useUserContext();
+  const {userType, setSessionData} = useUserContext();
 
+  const setSession = async(email: string | null, collection: string) : Promise<void>=>{
+    setSessionData({
+      userID: await getUserID(email, collection),
+      userEmail: email
+    });
+  }
+  
   const goHomeProfile = async () => {
     let user: FirebaseAuthTypes.UserCredential | {error: unknown} =
       await GoogleAuth();
     // validate if the user is already signed up
-    if ('error'in user ) {
+    if ('error' in user) {
       console.error('Error', user.error);
       return;
     }
     let exist: Boolean;
     if (userType == 'client') {
       exist = await existUser(user.user.email, 'Clients');
-      exist
-        ? navigation.navigate('HomeClient')
-        : navigation.navigate('ProfileClient');
+      if (exist) {
+        setSession(user.user.email, 'Clients');
+        navigation.navigate('HomeClient') 
+      } else {
+        navigation.navigate('ProfileClient');
+      }
     } else {
       exist = await existUser(user.user.email, 'Providers');
-      exist
-        ? navigation.navigate('HomeClient')
-        : navigation.navigate('ProfileProvider');
+      if (exist) {
+        setSession(user.user.email, 'Providers');
+        navigation.navigate('HomeClient');
+      } else {
+        navigation.navigate('ProfileProvider'); 
+      }
     }
   };
 

@@ -15,6 +15,7 @@ export type Provider = {
   location?: string;
   servicesDescription?: string;
   description: string;
+  unavailableDays?:Array<string>;
 };
 
 export type Appointment = {};
