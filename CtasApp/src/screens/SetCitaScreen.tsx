@@ -1,8 +1,9 @@
 import * as React from 'react';
-import {useRoute} from '@react-navigation/native';
+import {Provider} from '../schema/ProviderSchema';
 import {View, Text} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import {GetProvider} from '../database/Providers/GettersProvider';
 import ProviderInformation from '../components/ProviderInformation';
 import ProviderSetCitaStyles from '../styles/ProviderSetCitaStyles';
 import Map from '../components/Map';
@@ -15,16 +16,26 @@ import { truncateStringTwo } from '../helpers/TruncateStringTwoHelper';
 
 
 type setCitaProps = {
-  navigation: any,
-  route: any,
+  navigation: any;
+  route: any;
 };
 
 const SetCitaScreen: React.FC<setCitaProps> = ({route, navigation}) => {
   const {item} = route.params;
   const {setValue} = useCustomForm();
+  const [providerInfo, setProviderInfo] = React.useState<Provider | null>(null);
   const handleSetBirthdate = (date: string) => {
     setValue('birthDate', date);
   };
+  React.useEffect(() => {
+    const fetchProviderInfo = async () => {
+      const info = await GetProvider(item.email);
+      setProviderInfo(info);
+    };
+
+    fetchProviderInfo();
+  }, [item.email]);
+
   return (
     <SafeAreaView style={ProviderSetCitaStyles.main}>
       <KeyboardAwareScrollView
@@ -45,7 +56,8 @@ const SetCitaScreen: React.FC<setCitaProps> = ({route, navigation}) => {
             <Text style={ProviderSetCitaStyles.appointmentDetails}>
               Office Location
             </Text>
-            <Map address={item.address[0]} />
+            <Map address={providerInfo ? providerInfo.address : []} />
+
             <Text style={ProviderSetCitaStyles.appointmentDetails}>
               Set an appointment
             </Text>
