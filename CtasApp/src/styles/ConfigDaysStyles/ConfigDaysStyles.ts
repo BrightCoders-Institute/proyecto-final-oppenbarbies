@@ -8,6 +8,10 @@ export const ConfigDayStyles = StyleSheet.create({
     fontSize: 18,
     textAlign: 'center',
     fontFamily: 'Inter-ExtraBold',
-    marginTop: 30
+    marginTop: -10,
+
+    },
+    calendarContainer: {
+      marginTop: -45,
     },
 });
