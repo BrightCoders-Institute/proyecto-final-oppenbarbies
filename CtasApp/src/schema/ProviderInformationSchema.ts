@@ -1,5 +1,7 @@
 export type ProviderInformationProps = {
   name: string;
-  age: number;
   location: string;
+  occupation: string;
+  description: string;
+  image: string;
 };

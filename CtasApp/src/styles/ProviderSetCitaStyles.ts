@@ -1,5 +1,8 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
 import Colors from './colors/Colors';
+
+const windowWidth = Dimensions.get('window').width;
+
 
 const ProviderSetCitaStyles = StyleSheet.create({
   main: {
@@ -16,11 +19,14 @@ const ProviderSetCitaStyles = StyleSheet.create({
     padding: 10,
   },
   providerCard: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
     backgroundColor: Colors.aqua,
-    padding: 5,
+    paddingHorizontal: 25,
+    gap: 5,
+    flex: 1,
+  },
+  colmuns:{
+    flexDirection: 'row',
+    flex:1,
   },
   providerName: {
     fontSize: 23,
@@ -28,31 +34,48 @@ const ProviderSetCitaStyles = StyleSheet.create({
     color: Colors.white,
     fontFamily: 'Inter-Bold',
     textAlign: 'center',
+    paddingHorizontal: 2,
+  },
+  providerImage:{
+    width: 110,
+    height: 140,
+    borderRadius: 10,
+    resizeMode: 'stretch'
   },
   providerDataContainer: {
-    flexDirection: 'row',
-    gap: 20,
+    alignItems: 'center',
+    gap: 2
   },
   providerDataText: {
-    fontSize: 13,
+    fontSize: 15,
     color: Colors.white,
+    fontFamily: 'Inter-Regular',
+    marginBottom: 2,
+  },
+  providerOccupation: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    fontSize: 15,
+    fontFamily: 'Inter-SemiBold',
+    color: Colors.white,
+    textAlign: 'center',
+    paddingHorizontal: windowWidth < 370 ? 10 : 2,
   },
   servicesText: {
-    fontSize: 16,
-    textAlign: 'center',
+    fontSize: 14,
+    textAlign: 'justify',
     color: Colors.white,
+    fontFamily: 'Inter-Regular'
   },
   detailsContainer: {
-    width: '55%',
-    gap: 8,
-    justifyContent: 'center',
-    alignContent: 'center',
-    alignItems: 'center',
+    height: '100%',
+    flex: 1,
   },
   socialMedia: {
-    width: '40%',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-evenly',
+    marginLeft: 10,
+    paddingHorizontal: 2,
+    marginBottom: 20,
   },
   appointmentDetails: {
     fontFamily: 'Inter-ExtraBold',
@@ -66,7 +89,7 @@ const ProviderSetCitaStyles = StyleSheet.create({
     backgroundColor: Colors.babyBlue,
     borderBottomRightRadius: 100,
     padding: 5,
-    marginBottom: 5,
+    marginBottom: 3
   },
   mapContainer: {
     marginTop: 10,
@@ -83,6 +106,7 @@ const ProviderSetCitaStyles = StyleSheet.create({
   locationContainer: {
     justifyContent: 'center',
     alignItems: 'center',
+    textAlign: 'center',
     width: 300,
     gap: 5,
   },

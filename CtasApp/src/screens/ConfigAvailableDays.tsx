@@ -14,9 +14,12 @@ const ConfigAvailableDays: React.FC = () => {
         <View style={styles.subTitleContainer}>
           <Text style={styles.text}>Choose your unavailable days:</Text>
         </View>
+        <View style={styles.calendarContainer}>
+          </View>
         <CustomCalendar/>
         <Navbar />
       </View>
+      
     </View>
   );
 };
