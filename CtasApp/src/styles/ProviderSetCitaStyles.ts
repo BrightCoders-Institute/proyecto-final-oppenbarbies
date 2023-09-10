@@ -1,5 +1,8 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
 import Colors from './colors/Colors';
+
+const windowWidth = Dimensions.get('window').width;
+
 
 const ProviderSetCitaStyles = StyleSheet.create({
   main: {
@@ -31,6 +34,7 @@ const ProviderSetCitaStyles = StyleSheet.create({
     color: Colors.white,
     fontFamily: 'Inter-Bold',
     textAlign: 'center',
+    paddingHorizontal: 2,
   },
   providerImage:{
     width: 110,
@@ -49,10 +53,13 @@ const ProviderSetCitaStyles = StyleSheet.create({
     marginBottom: 2,
   },
   providerOccupation: {
+    justifyContent: 'center',
+    alignItems: 'center',
     fontSize: 15,
     fontFamily: 'Inter-SemiBold',
     color: Colors.white,
-    marginTop: -2,
+    textAlign: 'center',
+    paddingHorizontal: windowWidth < 370 ? 10 : 2,
   },
   servicesText: {
     fontSize: 14,
@@ -66,7 +73,9 @@ const ProviderSetCitaStyles = StyleSheet.create({
   },
   socialMedia: {
     justifyContent: 'space-evenly',
-    marginLeft: 10
+    marginLeft: 10,
+    paddingHorizontal: 2,
+    marginBottom: 20,
   },
   appointmentDetails: {
     fontFamily: 'Inter-ExtraBold',
@@ -97,6 +106,7 @@ const ProviderSetCitaStyles = StyleSheet.create({
   locationContainer: {
     justifyContent: 'center',
     alignItems: 'center',
+    textAlign: 'center',
     width: 300,
     gap: 5,
   },
