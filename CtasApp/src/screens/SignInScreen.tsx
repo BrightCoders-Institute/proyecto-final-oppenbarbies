@@ -13,13 +13,16 @@ import {useSessionContext} from '../../SessionContext';
 const SignInScreen: React.FC<SignInProps> = ({navigation}) => {
   const {userType, setSessionData} = useUserContext();
 
-  const setSession = async(email: string | null, collection: string) : Promise<void>=>{
+  const setSession = async (
+    email: string | null,
+    collection: string,
+  ): Promise<void> => {
     setSessionData({
       userID: await getUserID(email, collection),
-      userEmail: email
+      userEmail: email,
     });
-  }
-  
+  };
+
   const goHomeProfile = async () => {
     let user: FirebaseAuthTypes.UserCredential | {error: unknown} =
       await GoogleAuth();
@@ -33,7 +36,7 @@ const SignInScreen: React.FC<SignInProps> = ({navigation}) => {
       exist = await existUser(user.user.email, 'Clients');
       if (exist) {
         setSession(user.user.email, 'Clients');
-        navigation.navigate('HomeClient') 
+        navigation.navigate('HomeClient');
       } else {
         navigation.navigate('ProfileClient');
       }
@@ -43,7 +46,7 @@ const SignInScreen: React.FC<SignInProps> = ({navigation}) => {
         setSession(user.user.email, 'Providers');
         navigation.navigate('HomeClient');
       } else {
-        navigation.navigate('ProfileProvider'); 
+        navigation.navigate('ProfileProvider');
       }
     }
   };

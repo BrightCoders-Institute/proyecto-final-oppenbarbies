@@ -4,6 +4,7 @@ import MapView, {Marker} from 'react-native-maps';
 import ProviderSetCitaStyles from '../styles/ProviderSetCitaStyles';
 import {ProviderSetCitaProps} from '../schema/ProviderSetCitaSchema';
 import {initialRegion, coordinate} from '../constants/MapConst';
+import { truncateStringTwo } from '../helpers/TruncateStringTwoHelper';
 
 const Map: React.FC<{ address: string[] | [] }> = ({ address }) => {
   const [coordinates, setCoordinates] = React.useState<any[]>([]);
@@ -36,7 +37,7 @@ const Map: React.FC<{ address: string[] | [] }> = ({ address }) => {
         </MapView>
       </View>
       <Text style={ProviderSetCitaStyles.locationText}>
-        Address: {address.join(', ')}
+        Address: {truncateStringTwo(address.join(', '), 93)}
       </Text>
     </View>
   );

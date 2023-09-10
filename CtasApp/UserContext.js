@@ -9,7 +9,8 @@ export const UserContextProvider = ({children}) => {
   const [sessionData, setSessionData] = useState({});
 
   return (
-    <UserContext.Provider value={{userType, setUserType, sessionData, setSessionData}}>
+    <UserContext.Provider
+      value={{userType, setUserType, sessionData, setSessionData}}>
       {children}
     </UserContext.Provider>
   );

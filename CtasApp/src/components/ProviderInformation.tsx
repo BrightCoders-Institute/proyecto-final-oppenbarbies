@@ -21,6 +21,7 @@ const ProviderInformation: React.FC<ProviderInformationProps> = props => {
           <FontAwesome name="whatsapp" size={24} color={Colors.white} />
           <FontAwesome name="linkedin-square" size={24} color={Colors.white} />
         </View>
+        <View style={ProviderSetCitaStyles.line}></View>
         <View style={ProviderSetCitaStyles.detailsContainer}>
           <View style={ProviderSetCitaStyles.providerDataContainer}>
             <Text style={ProviderSetCitaStyles.providerName}>{props.name}</Text>
@@ -30,7 +31,7 @@ const ProviderInformation: React.FC<ProviderInformationProps> = props => {
             <Text style={ProviderSetCitaStyles.providerDataText}>
               {props.location}
             </Text>
-            <StarRating totalStars={5} />
+           <StarRating totalStars={5} />
           </View>
         </View>
       </View>

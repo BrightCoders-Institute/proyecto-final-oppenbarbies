@@ -11,9 +11,8 @@ import CalendarModal from '../components/CalendarModal';
 import useCustomForm from '../hooks/useCustomForm';
 import Button from '../components/Button';
 import BackArrow from '../components/BackArrow';
-import { truncateString } from '../helpers/TruncateStringHelper';
-import { truncateStringTwo } from '../helpers/TruncateStringTwoHelper';
-
+import {truncateString} from '../helpers/TruncateStringHelper';
+import {truncateStringTwo} from '../helpers/TruncateStringTwoHelper';
 
 type setCitaProps = {
   navigation: any;
@@ -45,34 +44,37 @@ const SetCitaScreen: React.FC<setCitaProps> = ({route, navigation}) => {
           <BackArrow />
 
           <ProviderInformation
-            occupation= {item.occupation}
+            occupation={item.occupation}
             image={item.image}
-            name={truncateStringTwo(item.name,17)}
-            location={truncateString(item.address,30)}
+            name={truncateStringTwo(item.name, 17)}
+            location={truncateString(item.address, 51)}
             description={item.description}
           />
+        </View>
+        <View style={ProviderSetCitaStyles.body}>
+          <Text style={ProviderSetCitaStyles.appointmentDetails}>
+            Office Location
+          </Text>
+          <Map
+            address={
+              providerInfo && providerInfo.address ? providerInfo.address : []
+            }
+          />
+          <Text style={ProviderSetCitaStyles.appointmentDetails}>
+            Set an appointment
+          </Text>
+          <View style={ProviderSetCitaStyles.calendarContainer}>
+            <CalendarModal setBirthdate={handleSetBirthdate} />
           </View>
-          <View style={ProviderSetCitaStyles.body}>
-            <Text style={ProviderSetCitaStyles.appointmentDetails}>
-              Office Location
-            </Text>
-            <Map address={providerInfo ? providerInfo.address : []} />
-
-            <Text style={ProviderSetCitaStyles.appointmentDetails}>
-              Set an appointment
-            </Text>
-            <View style={ProviderSetCitaStyles.calendarContainer}>
-              <CalendarModal setBirthdate={handleSetBirthdate} />
-            </View>
-          </View>
-          <View style={ProviderSetCitaStyles.button}>
-            <Button
-              text="Request Appointment"
-              onPress={() => console.log('click')}
-              styleName={'welcome'}
-              textStyleName={'welcome'}
-            />
-          </View>
+        </View>
+        <View style={ProviderSetCitaStyles.button}>
+          <Button
+            text="Request Appointment"
+            onPress={() => console.log('click')}
+            styleName={'welcome'}
+            textStyleName={'welcome'}
+          />
+        </View>
       </KeyboardAwareScrollView>
     </SafeAreaView>
   );

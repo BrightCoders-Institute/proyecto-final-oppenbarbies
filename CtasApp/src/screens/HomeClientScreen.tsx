@@ -22,7 +22,7 @@ import {useUserContext} from '../../UserContext';
 
 const UserDetails = React.memo(({user}) => {
   const {userType, sessionData} = useUserContext();
-  
+
   if (user && userType === 'client') {
     return (
       <UserDetailsClient
@@ -80,7 +80,7 @@ const HomeClientScreen: React.FC = () => {
       resizeMode="stretch">
       <SafeAreaView style={HomeClientScreenStyles.body}>
         <View style={HomeClientScreenStyles.photoContainer}>
-        <Pressable onPress={() => {}}>
+          <Pressable onPress={() => {}}>
             <FontAwesome
               style={HomeClientScreenStyles.gear}
               name="gear"

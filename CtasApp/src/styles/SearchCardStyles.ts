@@ -13,6 +13,7 @@ export const SearchCardStyles = StyleSheet.create({
     width: 90,
     height: 140,
     borderRadius: 10,
+    resizeMode: 'cover',
   },
   infoContainer: {
     flex: 1,
@@ -56,4 +57,5 @@ export const SearchCardStyles = StyleSheet.create({
     fontFamily: 'Inter-Bold',
     color: Colors.white,
   },
+
 });

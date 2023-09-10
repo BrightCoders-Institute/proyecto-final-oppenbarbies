@@ -8,7 +8,7 @@ import Header from '../components/Header';
 import {Provider} from '../schema/ProviderSchema';
 import firestore from '@react-native-firebase/firestore';
 import {useUserContext} from '../../UserContext';
-import { SearchScreenProps } from '../schema/SearchInputSchema';
+import {SearchScreenProps} from '../schema/SearchInputSchema';
 
 type ProviderWithKey = Provider & {key: string};
 
@@ -46,7 +46,7 @@ const SearchScreen: React.FC<SearchScreenProps> = ({navigation}) => {
           setFilteredProviders={setFilteredProviders}
           navigation={navigation}
         />
-        <ProviderInfoList providers={providers} navigation={navigation}/>
+        <ProviderInfoList providers={providers} navigation={navigation} />
         <Navbar />
       </View>
     </SafeAreaView>

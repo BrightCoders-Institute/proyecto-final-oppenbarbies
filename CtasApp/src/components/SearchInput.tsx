@@ -4,7 +4,7 @@ import {SearchInputProps} from '../schema/SearchInputSchema';
 import {SearchStyles} from '../styles/SearchStyles';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {Provider} from '../schema/ProviderSchema';
-import { truncateStringTwo } from '../helpers/TruncateStringTwoHelper';
+import {truncateStringTwo} from '../helpers/TruncateStringTwoHelper';
 
 type ProviderWithKey = Provider & {key: string};
 
@@ -81,8 +81,8 @@ const SearchInput: React.FC<SearchInputProps> = ({
                 index === suggestions.length - 1 &&
                   SearchStyles.lastSuggestionItem,
               ]}>
-              <Text>{truncateStringTwo(item.name,19)}</Text>
-              <Text>{truncateStringTwo(item.occupation,20)}</Text>
+              <Text>{truncateStringTwo(item.name, 19)}</Text>
+              <Text>{truncateStringTwo(item.occupation, 20)}</Text>
             </TouchableOpacity>
           ))}
         </View>

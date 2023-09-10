@@ -73,7 +73,7 @@ const HomeClientScreenStyles = StyleSheet.create({
   rateContainer: {
     alignItems: 'center',
     position: 'absolute',
-    bottom: windowWidth < 370 ? 305 : 405,
+    bottom: windowWidth < 370 ? 305 : 465,
     width: '100%',
   },
   rate: {
