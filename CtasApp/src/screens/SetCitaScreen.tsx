@@ -10,6 +10,9 @@ import CalendarModal from '../components/CalendarModal';
 import useCustomForm from '../hooks/useCustomForm';
 import Button from '../components/Button';
 import BackArrow from '../components/BackArrow';
+import { truncateString } from '../helpers/TruncateStringHelper';
+import { truncateStringTwo } from '../helpers/TruncateStringTwoHelper';
+
 
 type setCitaProps = {
   navigation: any,
@@ -29,13 +32,15 @@ const SetCitaScreen: React.FC<setCitaProps> = ({route, navigation}) => {
         scrollEnabled={true}>
         <View style={ProviderSetCitaStyles.main}>
           <BackArrow />
+
           <ProviderInformation
             occupation= {item.occupation}
             image={item.image}
-            name={item.name}
-            location={item.location}
+            name={truncateStringTwo(item.name,17)}
+            location={truncateString(item.address,30)}
             description={item.description}
           />
+          </View>
           <View style={ProviderSetCitaStyles.body}>
             <Text style={ProviderSetCitaStyles.appointmentDetails}>
               Office Location
@@ -56,7 +61,6 @@ const SetCitaScreen: React.FC<setCitaProps> = ({route, navigation}) => {
               textStyleName={'welcome'}
             />
           </View>
-        </View>
       </KeyboardAwareScrollView>
     </SafeAreaView>
   );
