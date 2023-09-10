@@ -24,7 +24,7 @@ const Navbar: React.FC = () => {
       if (userType == 'provider' && item.screen != 'SearchScreen') {
         return item;
       } else {
-        if (userType == 'client' && item.screen != 'ConfigAvailableDays') {
+        if (userType == 'client' && item.screen != 'AppointmentDetails') {
           return item;
         }
       }
