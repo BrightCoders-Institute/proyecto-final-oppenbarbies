@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {useRoute} from '@react-navigation/native';
 import {View, Text} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -9,8 +10,17 @@ import CalendarModal from '../components/CalendarModal';
 import useCustomForm from '../hooks/useCustomForm';
 import Button from '../components/Button';
 import BackArrow from '../components/BackArrow';
+import { truncateString } from '../helpers/TruncateStringHelper';
+import { truncateStringTwo } from '../helpers/TruncateStringTwoHelper';
 
-const SetCitaScreen: React.FC = () => {
+
+type setCitaProps = {
+  navigation: any,
+  route: any,
+};
+
+const SetCitaScreen: React.FC<setCitaProps> = ({route, navigation}) => {
+  const {item} = route.params;
   const {setValue} = useCustomForm();
   const handleSetBirthdate = (date: string) => {
     setValue('birthDate', date);
@@ -22,16 +32,20 @@ const SetCitaScreen: React.FC = () => {
         scrollEnabled={true}>
         <View style={ProviderSetCitaStyles.main}>
           <BackArrow />
+
           <ProviderInformation
-            name="Lic. Valeriano Perez"
-            age={26}
-            location="Villa de Alvarez, Col"
+            occupation= {item.occupation}
+            image={item.image}
+            name={truncateStringTwo(item.name,17)}
+            location={truncateString(item.address,30)}
+            description={item.description}
           />
+          </View>
           <View style={ProviderSetCitaStyles.body}>
             <Text style={ProviderSetCitaStyles.appointmentDetails}>
               Office Location
             </Text>
-            <Map address="Laguna la coata #121 Colima, Villa de Álvarez, Col. Solidaridad " />
+            <Map address={item.address[0]} />
             <Text style={ProviderSetCitaStyles.appointmentDetails}>
               Set an appointment
             </Text>
@@ -47,7 +61,6 @@ const SetCitaScreen: React.FC = () => {
               textStyleName={'welcome'}
             />
           </View>
-        </View>
       </KeyboardAwareScrollView>
     </SafeAreaView>
   );

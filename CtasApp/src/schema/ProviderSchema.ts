@@ -1,7 +1,7 @@
 export type Provider = {
   key?: string;
   email?: string | null;
-  name?: string | null;
+  name?: string | string[] | undefined;
   alias?: string;
   phone?: string;
   occupation?: string;
