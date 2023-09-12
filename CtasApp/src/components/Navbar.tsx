@@ -6,13 +6,11 @@ import {useNavigation, useRoute} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../schema/SignInScreenSchema';
 import {MENU_ITEMS} from '../constants/NavbarConstants';
-import { useUserContext } from '../../UserContext';
-
-
+import {useUserContext} from '../../UserContext';
 
 const Navbar: React.FC = () => {
   const {userType} = useUserContext();
-  
+
   const navigation =
     useNavigation() as NativeStackNavigationProp<RootStackParamList>;
   const route = useRoute() as any;
@@ -21,19 +19,21 @@ const Navbar: React.FC = () => {
     navigation.navigate(screenName as any);
   };
 
-  let userMenuItem : {name: string; screen: keyof RootStackParamList}[] = MENU_ITEMS.filter((item)=>{
-    if(userType == 'provider' && item.screen != "SearchScreen") return item;
-    else{
-      if(userType == 'client' && item.screen != "ConfigAvailableDays") return item;
-    }
-  });
-  
+  let userMenuItem: {name: string; screen: keyof RootStackParamList}[] =
+    MENU_ITEMS.filter(item => {
+      if (userType == 'provider' && item.screen != 'SearchScreen') {
+        return item;
+      } else {
+        if (userType == 'client' && item.screen != 'AppointmentDetails') {
+          return item;
+        }
+      }
+    });
+
   return (
     <View style={NavbarStyles.container}>
       <View style={NavbarStyles.navbar}>
-        {
-        
-        userMenuItem.map(item => (
+        {userMenuItem.map(item => (
           <TouchableOpacity
             key={item.screen}
             onPress={() => handleIconPress(item.screen)}>

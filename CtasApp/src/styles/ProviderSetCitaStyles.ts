@@ -3,7 +3,6 @@ import Colors from './colors/Colors';
 
 const windowWidth = Dimensions.get('window').width;
 
-
 const ProviderSetCitaStyles = StyleSheet.create({
   main: {
     flex: 1,
@@ -24,9 +23,9 @@ const ProviderSetCitaStyles = StyleSheet.create({
     gap: 5,
     flex: 1,
   },
-  colmuns:{
+  colmuns: {
     flexDirection: 'row',
-    flex:1,
+    flex: 1,
   },
   providerName: {
     fontSize: 23,
@@ -34,23 +33,24 @@ const ProviderSetCitaStyles = StyleSheet.create({
     color: Colors.white,
     fontFamily: 'Inter-Bold',
     textAlign: 'center',
-    paddingHorizontal: 2,
+    paddingLeft: 2,
   },
-  providerImage:{
+  providerImage: {
     width: 110,
     height: 140,
     borderRadius: 10,
-    resizeMode: 'stretch'
+    resizeMode: 'cover',
   },
   providerDataContainer: {
     alignItems: 'center',
-    gap: 2
+    gap: 2,
   },
   providerDataText: {
     fontSize: 15,
     color: Colors.white,
     fontFamily: 'Inter-Regular',
     marginBottom: 2,
+    textAlign: 'center',
   },
   providerOccupation: {
     justifyContent: 'center',
@@ -65,7 +65,7 @@ const ProviderSetCitaStyles = StyleSheet.create({
     fontSize: 14,
     textAlign: 'justify',
     color: Colors.white,
-    fontFamily: 'Inter-Regular'
+    fontFamily: 'Inter-Regular',
   },
   detailsContainer: {
     height: '100%',
@@ -89,7 +89,7 @@ const ProviderSetCitaStyles = StyleSheet.create({
     backgroundColor: Colors.babyBlue,
     borderBottomRightRadius: 100,
     padding: 5,
-    marginBottom: 3
+    marginBottom: 3,
   },
   mapContainer: {
     marginTop: 10,
@@ -121,7 +121,7 @@ const ProviderSetCitaStyles = StyleSheet.create({
     backgroundColor: Colors.white,
     justifyContent: 'center',
     paddingHorizontal: 50,
-    paddingVertical: 10,
+    paddingVertical: 14,
   },
   buttonText: {
     fontSize: 20,
@@ -130,9 +130,13 @@ const ProviderSetCitaStyles = StyleSheet.create({
   },
   calendarContainer: {
     width: '100%',
-    height: 340,
+    height: 350,
     alignItems: 'center',
     marginTop: 10,
+  },
+  line: {
+    backgroundColor: Colors.aqua,
+    padding: 10,
   },
 });
 

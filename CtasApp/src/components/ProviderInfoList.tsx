@@ -1,10 +1,13 @@
 import React from 'react';
-import {FlatList, View} from 'react-native';
+import {FlatList, View, TouchableOpacity} from 'react-native';
 import {SearchStyles} from '../styles/SearchStyles';
 import ProviderInfoCard from '../components/ProviderInfoCard';
 import {truncateString} from '../helpers/TruncateStringHelper';
-import { ProvidersListProps } from '../schema/ProvidersListSchema';
-const ProviderInfoList: React.FC<ProvidersListProps>  = ({ providers }) => {
+import {ProvidersListProps} from '../schema/ProvidersListSchema';
+const ProviderInfoList: React.FC<ProvidersListProps> = ({
+  providers,
+  navigation,
+}) => {
   const cardProviderSeparator = () => <View style={SearchStyles.separator} />;
   return (
     <FlatList
@@ -13,14 +16,17 @@ const ProviderInfoList: React.FC<ProvidersListProps>  = ({ providers }) => {
       style={SearchStyles.listContainer}
       renderItem={({item}) => {
         return (
-          <ProviderInfoCard
-            imageProvider={item?.image}
-            name={item.name || undefined}
-            location={truncateString(item.address, 25)}
-            description={item.description}
-            occupation={item.occupation}
-            rate={item.rating}
-          />
+          <TouchableOpacity
+            onPress={() => navigation.navigate('SetCita', {item})}>
+            <ProviderInfoCard
+              imageProvider={item?.image}
+              name={item.name || undefined}
+              location={truncateString(item.address, 25)}
+              description={item.description}
+              occupation={item.occupation}
+              rate={item.rating}
+            />
+          </TouchableOpacity>
         );
       }}
       ItemSeparatorComponent={cardProviderSeparator}

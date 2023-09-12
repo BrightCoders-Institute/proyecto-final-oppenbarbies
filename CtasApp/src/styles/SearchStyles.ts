@@ -34,7 +34,7 @@ export const SearchStyles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingVertical: 7,
     borderBottomWidth: 1,
-    borderColor: Colors.aqua
+    borderColor: Colors.aqua,
   },
   suggestionContainer: {
     justifyContent: 'center',
@@ -46,8 +46,9 @@ export const SearchStyles = StyleSheet.create({
     borderBottomLeftRadius: 10,
     marginTop: -20,
     paddingTop: 15,
-    borderColor: Colors.aqua
-  }, lastSuggestionItem: {
+    borderColor: Colors.aqua,
+  },
+  lastSuggestionItem: {
     borderBottomWidth: 0,
-  }
+  },
 });

@@ -13,7 +13,6 @@ export const GetProvider = async (email: string): Promise<Provider | null> => {
       .where('email', '==', email)
       .get();
 
-
     querySnapshot.forEach(documentSnapshot => {
       provider = documentSnapshot.data() as Provider;
       console.log('Client ID: ', documentSnapshot.id);
@@ -40,11 +39,12 @@ export const GetUnavailableDays = async (
       .get();
 
     let provider: Provider = querySnapshot.docs[0].data() as Provider;
-    if(!provider){
-      throw new Error("User NOT FOUND");
+    if (!provider) {
+      throw new Error('User NOT FOUND');
     }
     return provider.unavailableDays;
   } catch (error) {
     console.log('Error', error);
   }
 };
+

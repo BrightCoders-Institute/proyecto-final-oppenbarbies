@@ -31,8 +31,8 @@ const HomeClientScreenStyles = StyleSheet.create({
   detailsContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    gap: windowWidth < 370 ? 8 : 15,
-    marginTop: windowWidth < 370 ? 6 : 15,
+    gap: windowWidth < 370 ? 6 : 15,
+    marginTop: windowWidth < 370 ? 2 : 15,
     width: 400,
   },
   title: {
@@ -56,7 +56,7 @@ const HomeClientScreenStyles = StyleSheet.create({
     paddingHorizontal: 80,
   },
   photoContainer: {
-    marginTop: windowWidth < 370 ? 35 : 45,
+    marginTop: windowWidth < 370 ? 25 : 45,
     marginBottom: 20,
     justifyContent: 'center',
     alignItems: 'center',
@@ -73,7 +73,7 @@ const HomeClientScreenStyles = StyleSheet.create({
   rateContainer: {
     alignItems: 'center',
     position: 'absolute',
-    bottom: windowWidth < 370 ? 300 : 405,
+    bottom: windowWidth < 370 ? 305 : 465,
     width: '100%',
   },
   rate: {

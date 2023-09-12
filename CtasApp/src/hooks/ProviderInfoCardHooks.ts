@@ -1,6 +1,8 @@
 export const ProviderInfoCardHooks = () => {
-  function formatDescription(description: string | undefined): string | undefined{
-    if (description == null){
+  function formatDescription(
+    description: string | undefined,
+  ): string | undefined {
+    if (description == null) {
       return '';
     }
     const maxLength: number = 86;

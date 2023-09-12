@@ -13,8 +13,8 @@ const CustomCalendarStyles = StyleSheet.create({
     textAlign: 'center',
   },
   calendarContainer: {
-    paddingHorizontal: 50,
-    marginTop: 15,
+    paddingHorizontal: 45,
+    marginTop:5,
   },
   calendar: {
     borderColor: Colors.babyBlue,
@@ -22,7 +22,7 @@ const CustomCalendarStyles = StyleSheet.create({
     borderRadius: 10,
   },
   buttonContainer: {
-    marginTop: 15,
+    marginTop: 10,
   },
   modalBackground: {
     justifyContent: 'center',

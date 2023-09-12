@@ -13,15 +13,16 @@ const ProviderInfoCard: React.FC<ProviderInfoCardProps> = ({
   description,
   occupation,
   rate,
-  imageProvider
+  imageProvider,
 }) => {
   const {formatDescription} = ProviderInfoCardHooks();
-  const descriptionFormatted: string | undefined= formatDescription(description);
+  const descriptionFormatted: string | undefined =
+    formatDescription(description);
   return (
     <View style={SearchCardStyles.cardContainer}>
       <View>
         <Image
-          source={{uri: imageProvider}}
+          source={{uri: imageProvider ||'https://th.bing.com/th/id/OIP.M4vtLKwDpltnCaTC5Ro1ewHaFj?pid=ImgDet&rs=1' }}
           style={SearchCardStyles.imgProfile}
         />
       </View>

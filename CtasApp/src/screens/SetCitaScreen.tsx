@@ -1,8 +1,9 @@
 import * as React from 'react';
-import {useRoute} from '@react-navigation/native';
+import {Provider} from '../schema/ProviderSchema';
 import {View, Text} from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import {GetProvider} from '../database/Providers/GettersProvider';
 import ProviderInformation from '../components/ProviderInformation';
 import ProviderSetCitaStyles from '../styles/ProviderSetCitaStyles';
 import Map from '../components/Map';
@@ -10,21 +11,39 @@ import CalendarModal from '../components/CalendarModal';
 import useCustomForm from '../hooks/useCustomForm';
 import Button from '../components/Button';
 import BackArrow from '../components/BackArrow';
-import { truncateString } from '../helpers/TruncateStringHelper';
-import { truncateStringTwo } from '../helpers/TruncateStringTwoHelper';
-
+import {truncateString} from '../helpers/TruncateStringHelper';
+import {truncateStringTwo} from '../helpers/TruncateStringTwoHelper';
+import {GetUnavailableDays} from '../database/Providers/GettersProvider';
 
 type setCitaProps = {
-  navigation: any,
-  route: any,
+  navigation: any;
+  route: any;
 };
 
 const SetCitaScreen: React.FC<setCitaProps> = ({route, navigation}) => {
   const {item} = route.params;
   const {setValue} = useCustomForm();
+  const [providerInfo, setProviderInfo] = React.useState<Provider | null>(null);
+  const [unavailableDays, setUnavailableDays] = React.useState<
+    Array<string> | undefined
+  >(undefined);
   const handleSetBirthdate = (date: string) => {
     setValue('birthDate', date);
   };
+
+  React.useEffect(() => {
+    const fetchProviderInfoAndUnavailableDays = async () => {
+      const info = await GetProvider(item.email);
+      setProviderInfo(info);
+
+      const unavailableDaysFromFirebase = await GetUnavailableDays(item.email);
+      const formattedUnavailableDays = unavailableDaysFromFirebase?.map(date => date.replace(/-/g, '/')); // Definición de formattedUnavailableDays
+      setUnavailableDays(formattedUnavailableDays);
+    };
+
+    fetchProviderInfoAndUnavailableDays();
+  }, [item.email]);
+
   return (
     <SafeAreaView style={ProviderSetCitaStyles.main}>
       <KeyboardAwareScrollView
@@ -34,33 +53,40 @@ const SetCitaScreen: React.FC<setCitaProps> = ({route, navigation}) => {
           <BackArrow />
 
           <ProviderInformation
-            occupation= {item.occupation}
+            occupation={item.occupation}
             image={item.image}
-            name={truncateStringTwo(item.name,17)}
-            location={truncateString(item.address,30)}
+            name={truncateStringTwo(item.name, 17)}
+            location={truncateString(item.address, 51)}
             description={item.description}
           />
-          </View>
-          <View style={ProviderSetCitaStyles.body}>
-            <Text style={ProviderSetCitaStyles.appointmentDetails}>
-              Office Location
-            </Text>
-            <Map address={item.address[0]} />
-            <Text style={ProviderSetCitaStyles.appointmentDetails}>
-              Set an appointment
-            </Text>
-            <View style={ProviderSetCitaStyles.calendarContainer}>
-              <CalendarModal setBirthdate={handleSetBirthdate} />
-            </View>
-          </View>
-          <View style={ProviderSetCitaStyles.button}>
-            <Button
-              text="Request Appointment"
-              onPress={() => console.log('click')}
-              styleName={'welcome'}
-              textStyleName={'welcome'}
+        </View>
+        <View style={ProviderSetCitaStyles.body}>
+          <Text style={ProviderSetCitaStyles.appointmentDetails}>
+            Office Location
+          </Text>
+          <Map
+            address={
+              providerInfo && providerInfo.address ? providerInfo.address : []
+            }
+          />
+          <Text style={ProviderSetCitaStyles.appointmentDetails}>
+            Set an appointment
+          </Text>
+          <View style={ProviderSetCitaStyles.calendarContainer}>
+            <CalendarModal
+              setBirthdate={handleSetBirthdate}
+              unavailableDays={unavailableDays}
             />
           </View>
+        </View>
+        <View style={ProviderSetCitaStyles.button}>
+          <Button
+            text="Request Appointment"
+            onPress={() => console.log('click')}
+            styleName={'welcome'}
+            textStyleName={'welcome'}
+          />
+        </View>
       </KeyboardAwareScrollView>
     </SafeAreaView>
   );

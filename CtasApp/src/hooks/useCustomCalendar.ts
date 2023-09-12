@@ -1,13 +1,13 @@
 import {useState, useCallback} from 'react';
 import {SelectedDates, Day} from '../schema/CustomCalendarSchema';
-import { GetUnavailableDays } from '../database/Providers/GettersProvider';
-import { useUserContext } from '../../UserContext';
-import { PostUnavailableDays } from '../database/Providers/SettersProvider';
+import {GetUnavailableDays} from '../database/Providers/GettersProvider';
+import {useUserContext} from '../../UserContext';
+import {PostUnavailableDays} from '../database/Providers/SettersProvider';
 
 export const useCustomCalendar = () => {
   const [selectedDates, setSelectedDates] = useState<SelectedDates>({});
   const [modalVisible, setModalVisible] = useState(false);
-  const {sessionData} = useUserContext()
+  const {sessionData} = useUserContext();
 
   // CREAR FUNCION PARA INICIALIZAR EL CALENDARIO CON LAS FECHAS NO DISPONIBLES EXTRAIDAS DE LA BASE DE DATOS
 

@@ -8,6 +8,7 @@ import CustomCalendar from '../components/CustomCalendar';
 import AddressPicker from '../components/AddressPicker';
 import Button from '../components/Button';
 import BackArrow from '../components/BackArrow';
+import Navbar from '../components/Navbar';
 
 const AppointmentDetailsScreen: React.FC = () => {
   return (
@@ -35,6 +36,7 @@ const AppointmentDetailsScreen: React.FC = () => {
             <View style={AppointmentDetailsStyles.button}>
               <Button text="Save" onPress={() => console.log('click')} />
             </View>
+            <Navbar />
           </View>
         </View>
       </KeyboardAwareScrollView>
