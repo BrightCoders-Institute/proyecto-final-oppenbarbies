@@ -13,6 +13,7 @@ import Button from '../components/Button';
 import BackArrow from '../components/BackArrow';
 import {truncateString} from '../helpers/TruncateStringHelper';
 import {truncateStringTwo} from '../helpers/TruncateStringTwoHelper';
+import {GetUnavailableDays} from '../database/Providers/GettersProvider';
 
 type setCitaProps = {
   navigation: any;
@@ -23,16 +24,24 @@ const SetCitaScreen: React.FC<setCitaProps> = ({route, navigation}) => {
   const {item} = route.params;
   const {setValue} = useCustomForm();
   const [providerInfo, setProviderInfo] = React.useState<Provider | null>(null);
+  const [unavailableDays, setUnavailableDays] = React.useState<
+    Array<string> | undefined
+  >(undefined);
   const handleSetBirthdate = (date: string) => {
     setValue('birthDate', date);
   };
+
   React.useEffect(() => {
-    const fetchProviderInfo = async () => {
+    const fetchProviderInfoAndUnavailableDays = async () => {
       const info = await GetProvider(item.email);
       setProviderInfo(info);
+
+      const unavailableDaysFromFirebase = await GetUnavailableDays(item.email);
+      const formattedUnavailableDays = unavailableDaysFromFirebase?.map(date => date.replace(/-/g, '/')); // Definición de formattedUnavailableDays
+      setUnavailableDays(formattedUnavailableDays);
     };
 
-    fetchProviderInfo();
+    fetchProviderInfoAndUnavailableDays();
   }, [item.email]);
 
   return (
@@ -64,7 +73,10 @@ const SetCitaScreen: React.FC<setCitaProps> = ({route, navigation}) => {
             Set an appointment
           </Text>
           <View style={ProviderSetCitaStyles.calendarContainer}>
-            <CalendarModal setBirthdate={handleSetBirthdate} />
+            <CalendarModal
+              setBirthdate={handleSetBirthdate}
+              unavailableDays={unavailableDays}
+            />
           </View>
         </View>
         <View style={ProviderSetCitaStyles.button}>

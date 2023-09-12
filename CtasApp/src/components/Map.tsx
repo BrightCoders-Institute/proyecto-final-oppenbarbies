@@ -1,56 +1,92 @@
-import React from 'react';
+import React, {useEffect, useState, useMemo} from 'react';
 import {Text, View} from 'react-native';
 import MapView, {Marker} from 'react-native-maps';
 import ProviderSetCitaStyles from '../styles/ProviderSetCitaStyles';
-import {ProviderSetCitaProps} from '../schema/ProviderSetCitaSchema';
-import {initialRegion, coordinate} from '../constants/MapConst';
-import { truncateStringTwo } from '../helpers/TruncateStringTwoHelper';
+import {truncateStringTwo} from '../helpers/TruncateStringTwoHelper';
 
-const Map: React.FC<{ address: string[] | [] }> = ({ address }) => {
-  const [coordinates, setCoordinates] = React.useState<any[]>([]);
+const Map = ({address = []}) => {
+  const [coordinates, setCoordinates] = useState([]);
+  const [initialRegion, setInitialRegion] = useState(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const fetchCoordinates = async () => {
-      const coords = await Promise.all(address.map(addr => geocodeAddress(addr)));
-      setCoordinates(coords);
+      try {
+        const coords = await Promise.all(
+          address.map(addr => geocodeAddress(addr)),
+        );
+
+        const validCoords = coords.filter(
+          coord => coord.latitude && coord.longitude,
+        );
+
+        if (validCoords.length > 0) {
+          const avgLatitude =
+            validCoords.reduce((sum, curr) => sum + curr.latitude, 0) /
+            validCoords.length;
+          const avgLongitude =
+            validCoords.reduce((sum, curr) => sum + curr.longitude, 0) /
+            validCoords.length;
+
+          setInitialRegion({
+            latitude: avgLatitude,
+            longitude: avgLongitude,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+          });
+          setCoordinates(validCoords);
+        }
+      } catch (error) {
+        console.error('Error fetching coordinates:', error);
+      }
     };
 
-    fetchCoordinates();
+    if (address.length > 0) {
+      fetchCoordinates();
+    }
+  }, [address]);
+
+  const addressText = useMemo(() => {
+    return truncateStringTwo(address.join(', '), 93);
   }, [address]);
 
   return (
     <View style={ProviderSetCitaStyles.locationContainer}>
       <View style={ProviderSetCitaStyles.mapContainer}>
-        <MapView
-          provider="google"
-          style={ProviderSetCitaStyles.map}
-          initialRegion={initialRegion}
-        >
-          {coordinates.map((coord, index) => (
-            <Marker
-              key={index}
-              coordinate={coord}
-              title="Ubicación"
-              description={address[index]}
-            />
-          ))}
-        </MapView>
+        {initialRegion && (
+          <MapView
+            provider="google"
+            style={ProviderSetCitaStyles.map}
+            initialRegion={initialRegion}>
+            {coordinates.map((coord, index) => (
+              <Marker
+                key={index}
+                coordinate={coord}
+                title="Ubicación"
+                description={address[index]}
+              />
+            ))}
+          </MapView>
+        )}
       </View>
       <Text style={ProviderSetCitaStyles.locationText}>
-        Address: {truncateStringTwo(address.join(', '), 93)}
+        Address: {addressText}
       </Text>
     </View>
   );
 };
 
-async function geocodeAddress(address: string) {
+async function geocodeAddress(address: string [] | [] | string) {
   try {
-    const response = await fetch(`https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(address)}&apiKey=6c07146c0b5f4db080b4f024e2624690`);
-    
+    const response = await fetch(
+      `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(
+        address,
+      )}&apiKey=6c07146c0b5f4db080b4f024e2624690`,
+    );
+
     if (!response.ok) {
       throw new Error('Respuesta de red no fue ok');
     }
-    
+
     const data = await response.json();
 
     if (data.features && data.features.length > 0) {
@@ -64,13 +100,8 @@ async function geocodeAddress(address: string) {
     }
   } catch (error) {
     console.error('Error geocodificando la dirección:', error);
-    return {
-      latitude: 0,
-      longitude: 0,
-    };
+    return null;
   }
 }
 
-
-
-export default Map;
+export default React.memo(Map);
