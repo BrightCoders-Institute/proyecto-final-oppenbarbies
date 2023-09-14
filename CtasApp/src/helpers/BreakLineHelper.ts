@@ -2,6 +2,10 @@ export const BreakLine = (
   str: string | undefined | null,
   maxLength: number,
 ): string[] => {
+  if (str == null) {
+    return [''];
+  }
+
   const lines: string[] = [];
   let currentLine = '';
 

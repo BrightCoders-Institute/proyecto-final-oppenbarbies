@@ -28,9 +28,6 @@ const ProviderInformation: React.FC<ProviderInformationProps> = props => {
             <Text style={ProviderSetCitaStyles.providerOccupation}>
               {props.occupation}
             </Text>
-            <Text style={ProviderSetCitaStyles.providerDataText}>
-              {props.location}
-            </Text>
            <StarRating totalStars={5} />
           </View>
         </View>

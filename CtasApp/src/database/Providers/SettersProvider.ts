@@ -40,3 +40,33 @@ export const PostUnavailableDays = async (
     console.log('Error updating unavailable days: ', error);
   }
 };
+
+export const PostAvailableTimes = async (
+  email: string,
+  times: Array<string>,
+) => {
+  try {
+    const querySnapshot = await firestore()
+      .collection('Providers')
+      .where('email', '==', email)
+      .get();
+
+    if (!querySnapshot.empty) {
+      querySnapshot.forEach(documentSnapshot => {
+        const docRef = firestore()
+          .collection('Providers')
+          .doc(documentSnapshot.id);
+
+        docRef.update({
+          availableTimes: firestore.FieldValue.arrayUnion(...times),
+        });
+
+        console.log('Available times updated successfully');
+      });
+    } else {
+      console.log('Provider not found');
+    }
+  } catch (error) {
+    console.error('Error updating available times: ', error);
+  }
+};

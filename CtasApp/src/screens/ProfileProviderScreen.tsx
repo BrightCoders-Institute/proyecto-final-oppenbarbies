@@ -6,7 +6,7 @@ import ProfileClientSimpleCard from '../components/ProfileClientSimpleCard';
 import ProfileProviderForm from '../components/ProfileProviderForm';
 import {SignInProps} from '../schema/SignInScreenSchema';
 
-const ProfileProviderScreen: React.FC<SignInProps> = ({navigation, route}) => {
+const ProfileProviderScreen: React.FC<SignInProps> = ({navigation}) => {
   return (
     <SafeAreaView style={ProfileClientScreenStyles.container}>
       <KeyboardAwareScrollView
@@ -19,4 +19,5 @@ const ProfileProviderScreen: React.FC<SignInProps> = ({navigation, route}) => {
     </SafeAreaView>
   );
 };
+
 export default ProfileProviderScreen;

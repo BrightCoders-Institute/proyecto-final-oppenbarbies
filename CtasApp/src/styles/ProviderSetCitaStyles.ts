@@ -43,7 +43,7 @@ const ProviderSetCitaStyles = StyleSheet.create({
   },
   providerDataContainer: {
     alignItems: 'center',
-    gap: 2,
+    gap: 5,
   },
   providerDataText: {
     fontSize: 15,
@@ -68,6 +68,7 @@ const ProviderSetCitaStyles = StyleSheet.create({
     fontFamily: 'Inter-Regular',
   },
   detailsContainer: {
+    marginTop: 10,
     height: '100%',
     flex: 1,
   },
@@ -121,7 +122,7 @@ const ProviderSetCitaStyles = StyleSheet.create({
     backgroundColor: Colors.white,
     justifyContent: 'center',
     paddingHorizontal: 50,
-    paddingVertical: 14,
+    paddingBottom: 20,
   },
   buttonText: {
     fontSize: 20,

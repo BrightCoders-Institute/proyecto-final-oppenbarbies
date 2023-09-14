@@ -20,7 +20,12 @@ const SearchInput: React.FC<SearchInputProps> = ({
     setSearch(text);
     const filteredProviders = providers.filter(provider => {
       const nameMatch = provider.name
-        ? provider.name.toLowerCase().includes(text.toLowerCase())
+        ? (Array.isArray(provider.name)
+            ? provider.name.join(' ')
+            : provider.name
+          )
+            .toLowerCase()
+            .includes(text.toLowerCase())
         : false;
       const occupationMatch = provider.occupation
         ? provider.occupation.toLowerCase().includes(text.toLowerCase())
@@ -31,7 +36,12 @@ const SearchInput: React.FC<SearchInputProps> = ({
 
     const searchSuggestions = providers.filter(provider => {
       const nameMatch = provider.name
-        ? provider.name.toLowerCase().startsWith(text.toLowerCase())
+        ? (Array.isArray(provider.name)
+            ? provider.name.join(' ')
+            : provider.name
+          )
+            .toLowerCase()
+            .includes(text.toLowerCase())
         : false;
       const occupationMatch = provider.occupation
         ? provider.occupation.toLowerCase().startsWith(text.toLowerCase())
