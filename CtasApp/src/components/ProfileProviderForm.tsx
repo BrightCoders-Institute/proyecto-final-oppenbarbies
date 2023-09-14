@@ -12,8 +12,12 @@ import {
   PHONE_VALIDATION_RULES,
 } from '../constants/ProfileClientFormConst';
 import DescriptionInput from './DescriptionInput';
+interface ProfileProviderFormProps {
+  navigation: any;
+}
 
-const ProfileProviderForm: React.FC = ({navigation}) => {
+
+const ProfileProviderForm: React.FC<ProfileProviderFormProps> = ({navigation}) => {
   const {control, handleSubmit, errors, onSubmit, isModalVisible, setValue} =
     useProfileForm(navigation, 'provider');
   const [servicesDescription, setServicesDescription] = useState('');

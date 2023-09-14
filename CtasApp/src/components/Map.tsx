@@ -4,9 +4,20 @@ import MapView, {Marker} from 'react-native-maps';
 import ProviderSetCitaStyles from '../styles/ProviderSetCitaStyles';
 import {truncateStringTwo} from '../helpers/TruncateStringTwoHelper';
 
-const Map = ({address = []}) => {
-  const [coordinates, setCoordinates] = useState([]);
-  const [initialRegion, setInitialRegion] = useState(null);
+interface MapProps {
+  address: string[] | undefined;
+}
+
+const Map: React.FC<MapProps> = ({address = []}) => {
+  const [coordinates, setCoordinates] = useState<
+    ({latitude: number; longitude: number} | null)[]
+  >([]);
+  const [initialRegion, setInitialRegion] = useState<{
+    latitude: number;
+    longitude: number;
+    latitudeDelta: number;
+    longitudeDelta: number;
+  } | null>(null);
 
   useEffect(() => {
     const fetchCoordinates = async () => {
@@ -16,16 +27,20 @@ const Map = ({address = []}) => {
         );
 
         const validCoords = coords.filter(
-          coord => coord.latitude && coord.longitude,
+          coord => coord && coord.latitude && coord.longitude,
         );
 
         if (validCoords.length > 0) {
           const avgLatitude =
-            validCoords.reduce((sum, curr) => sum + curr.latitude, 0) /
-            validCoords.length;
+            validCoords.reduce(
+              (sum, curr) => (curr ? sum + curr.latitude : sum),
+              0,
+            ) / validCoords.length;
           const avgLongitude =
-            validCoords.reduce((sum, curr) => sum + curr.longitude, 0) /
-            validCoords.length;
+            validCoords.reduce(
+              (sum, curr) => (curr ? sum + curr.longitude : sum),
+              0,
+            ) / validCoords.length;
 
           setInitialRegion({
             latitude: avgLatitude,
@@ -57,14 +72,16 @@ const Map = ({address = []}) => {
             provider="google"
             style={ProviderSetCitaStyles.map}
             initialRegion={initialRegion}>
-            {coordinates.map((coord, index) => (
-              <Marker
-                key={index}
-                coordinate={coord}
-                title="Ubicación"
-                description={address[index]}
-              />
-            ))}
+            {coordinates.map((coord, index) =>
+              coord ? (
+                <Marker
+                  key={index}
+                  coordinate={coord}
+                  title="Ubicación"
+                  description={address[index]}
+                />
+              ) : null,
+            )}
           </MapView>
         )}
       </View>
@@ -75,7 +92,7 @@ const Map = ({address = []}) => {
   );
 };
 
-async function geocodeAddress(address: string [] | [] | string) {
+async function geocodeAddress(address: string | number | boolean) {
   try {
     const response = await fetch(
       `https://api.geoapify.com/v1/geocode/search?text=${encodeURIComponent(

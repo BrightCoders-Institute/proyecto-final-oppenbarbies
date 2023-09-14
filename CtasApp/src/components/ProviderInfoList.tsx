@@ -20,7 +20,7 @@ const ProviderInfoList: React.FC<ProvidersListProps> = ({
             onPress={() => navigation.navigate('SetCita', {item})}>
             <ProviderInfoCard
               imageProvider={item?.image}
-              name={item.name || undefined}
+              name={Array.isArray(item.name) ? item.name.join(' ') : item.name || undefined}
               location={truncateString(item.address, 25)}
               description={item.description}
               occupation={item.occupation}

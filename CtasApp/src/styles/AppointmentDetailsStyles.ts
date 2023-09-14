@@ -8,7 +8,7 @@ const AppointmentDetailsStyles = StyleSheet.create({
   },
   header: {
     backgroundColor: Colors.aqua,
-    height: 80,
+    paddingBottom:26,
   },
   backArrow: {
     justifyContent: 'center',
@@ -20,17 +20,17 @@ const AppointmentDetailsStyles = StyleSheet.create({
     paddingBottom: 5,
   },
   container: {
+    flex: 1,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     backgroundColor: Colors.white,
   },
   title: {
     fontFamily: 'Inter-ExtraBold',
-    fontSize: 30,
-    fontWeight: 'bold',
+    fontSize: 40,
     color: Colors.white,
     marginLeft: 20,
-    marginTop: -10,
+    marginTop: 10,
   },
   text: {
     textAlign: 'center',
@@ -55,6 +55,9 @@ const AppointmentDetailsStyles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingTop: 10,
+  },
+  space:{
+    padding: 30,
   },
 });
 export default AppointmentDetailsStyles;

@@ -1,18 +1,37 @@
-import * as React from 'react';
-import {View} from 'react-native';
-import {AutocompleteDropdown} from 'react-native-autocomplete-dropdown';
-import {AddressOption} from '../schema/AddressPickerSchema';
+import React, { useEffect, useState } from 'react';
+import { View } from 'react-native';
+import { AutocompleteDropdown } from 'react-native-autocomplete-dropdown';
+import { AddressOption } from '../schema/AddressPickerSchema';
 import AddressPickerStyles from '../styles/AddressPickerStyles';
+import { GetProvider } from '../database/Providers/GettersProvider';
+import { GETCurrentUserEmail } from '../auth/CurrentUser';
 
 const AddressPicker: React.FC = () => {
-  const allOptions: AddressOption[] = [
-    {id: '1', title: 'Colima, Casas, Mexico'},
-    {id: '2', title: 'Mexico City, Mexico'},
-    {id: '3', title: 'Guadalajara, Jalisco, Mexico'},
-    {id: '4', title: 'Monterrey, Nuevo León, Mexico'},
-    {id: '5', title: 'Tijuana, Baja California, Mexico'},
-    {id: '6', title: 'Puebla, Puebla, Mexico'},
-  ];
+  const [allOptions, setAllOptions] = useState<AddressOption[]>([]);
+
+  useEffect(() => {
+    const userEmail = GETCurrentUserEmail();
+
+    if (!userEmail) {
+      console.error('Usuario no autenticado.');
+      return;
+    }
+    const fetchData = async () => {
+      try {
+        const provider = await GetProvider(userEmail);
+        if (provider && provider.address) {
+          const newOptions: AddressOption[] = provider.address.map((address, index) => ({
+            id: index.toString(),
+            title: address,
+          }));
+          setAllOptions(newOptions);
+        }
+      } catch (error) {
+        console.error('Error al obtener los datos del proveedor:', error);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <View style={AddressPickerStyles.container}>

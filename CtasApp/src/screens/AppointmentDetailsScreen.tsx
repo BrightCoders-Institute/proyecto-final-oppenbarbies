@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import {SafeAreaView, Alert} from 'react-native'; // Importamos Alert
 import AppointmentDetailsStyles from '../styles/AppointmentDetailsStyles';
 import {View, Text} from 'react-native';
 import AvailableTimePicker from '../components/AvailableTimePicker';
@@ -8,9 +8,30 @@ import CustomCalendar from '../components/CustomCalendar';
 import AddressPicker from '../components/AddressPicker';
 import Button from '../components/Button';
 import BackArrow from '../components/BackArrow';
-import Navbar from '../components/Navbar';
+import { useNavigation } from '@react-navigation/native';
 
 const AppointmentDetailsScreen: React.FC = () => {
+  const navigation = useNavigation();
+  const handleSavePress = () => {
+    Alert.alert(
+      'Confirm',
+      'Are you sure you wish to save?',
+      [
+        {
+          text: 'Cancel',
+          style: 'cancel',
+        },
+        {
+          text: 'Save',
+          onPress: () => {
+            navigation.navigate('HomeClient');
+          },
+        },
+      ],
+      {cancelable: false},
+    );
+  };
+
   return (
     <SafeAreaView style={AppointmentDetailsStyles.background}>
       <KeyboardAwareScrollView
@@ -31,12 +52,10 @@ const AppointmentDetailsScreen: React.FC = () => {
           </Text>
           <CustomCalendar />
           <View style={AppointmentDetailsStyles.addressContainer}>
-            <Text style={AppointmentDetailsStyles.labels}>Location:</Text>
-            <AddressPicker />
+            
             <View style={AppointmentDetailsStyles.button}>
-              <Button text="Save" onPress={() => console.log('click')} />
+              <Button text="Save" onPress={handleSavePress} />
             </View>
-            <Navbar />
           </View>
         </View>
       </KeyboardAwareScrollView>
