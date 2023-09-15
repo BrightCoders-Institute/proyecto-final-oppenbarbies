@@ -5,8 +5,10 @@ import CalendarModalStyles from '../styles/CalendarModalStyles';
 import Colors from '../styles/colors/Colors';
 import {CalendarModalProps} from '../schema/DateModalSchema';
 
-
-const CalendarModal: FC<CalendarModalProps> = ({setBirthdate, unavailableDays}) => {
+const CalendarModal: FC<CalendarModalProps> = ({
+  setBirthdate,
+  unavailableDays,
+}) => {
   const handleDateChange = (date: string) => {
     console.log('Selected Date:', date);
     const dateObj = parse(date, 'yyyy/MM/dd', new Date());

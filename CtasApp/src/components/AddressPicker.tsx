@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { View } from 'react-native';
-import { AutocompleteDropdown } from 'react-native-autocomplete-dropdown';
-import { AddressOption } from '../schema/AddressPickerSchema';
+import React, {useEffect, useState} from 'react';
+import {View} from 'react-native';
+import {AutocompleteDropdown} from 'react-native-autocomplete-dropdown';
+import {AddressOption} from '../schema/AddressPickerSchema';
 import AddressPickerStyles from '../styles/AddressPickerStyles';
-import { GetProvider } from '../database/Providers/GettersProvider';
-import { GETCurrentUserEmail } from '../auth/CurrentUser';
+import {GetProvider} from '../database/Providers/GettersProvider';
+import {GETCurrentUserEmail} from '../auth/CurrentUser';
 
 const AddressPicker: React.FC = () => {
   const [allOptions, setAllOptions] = useState<AddressOption[]>([]);
@@ -20,10 +20,12 @@ const AddressPicker: React.FC = () => {
       try {
         const provider = await GetProvider(userEmail);
         if (provider && provider.address) {
-          const newOptions: AddressOption[] = provider.address.map((address, index) => ({
-            id: index.toString(),
-            title: address,
-          }));
+          const newOptions: AddressOption[] = provider.address.map(
+            (address, index) => ({
+              id: index.toString(),
+              title: address,
+            }),
+          );
           setAllOptions(newOptions);
         }
       } catch (error) {

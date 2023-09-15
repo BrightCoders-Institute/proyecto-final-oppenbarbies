@@ -16,8 +16,9 @@ interface ProfileProviderFormProps {
   navigation: any;
 }
 
-
-const ProfileProviderForm: React.FC<ProfileProviderFormProps> = ({navigation}) => {
+const ProfileProviderForm: React.FC<ProfileProviderFormProps> = ({
+  navigation,
+}) => {
   const {control, handleSubmit, errors, onSubmit, isModalVisible, setValue} =
     useProfileForm(navigation, 'provider');
   const [servicesDescription, setServicesDescription] = useState('');

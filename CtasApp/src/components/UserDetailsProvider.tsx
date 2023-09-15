@@ -7,17 +7,17 @@ import Rating from './Rating';
 const UserDetailsProvider: React.FC<UserDetailsProviderProps> = ({
   name,
   email,
-  birth,
   phone,
   address,
   occupation,
   servicesDescription,
-  ratting,
+  rate,
+  providerEmail,
 }) => {
   return (
     <SafeAreaView>
       <View style={HomeClientScreenStyles.detailsContainer}>
-        <Rating stars={ratting} />
+        <Rating stars={rate} />
         <View style={HomeClientScreenStyles.nameContainer}>
           <Text style={HomeClientScreenStyles.name}>Hello!</Text>
           <Text style={HomeClientScreenStyles.name}>{name}</Text>

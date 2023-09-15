@@ -14,7 +14,7 @@ const CustomCalendarStyles = StyleSheet.create({
   },
   calendarContainer: {
     paddingHorizontal: 45,
-    marginTop:5,
+    marginTop: 5,
   },
   calendar: {
     borderColor: Colors.babyBlue,

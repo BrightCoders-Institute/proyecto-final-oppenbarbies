@@ -21,14 +21,14 @@ const ProviderInformation: React.FC<ProviderInformationProps> = props => {
           <FontAwesome name="whatsapp" size={24} color={Colors.white} />
           <FontAwesome name="linkedin-square" size={24} color={Colors.white} />
         </View>
-        <View style={ProviderSetCitaStyles.line}></View>
+        <View style={ProviderSetCitaStyles.line} />
         <View style={ProviderSetCitaStyles.detailsContainer}>
           <View style={ProviderSetCitaStyles.providerDataContainer}>
             <Text style={ProviderSetCitaStyles.providerName}>{props.name}</Text>
             <Text style={ProviderSetCitaStyles.providerOccupation}>
               {props.occupation}
             </Text>
-           <StarRating totalStars={5} />
+            <StarRating totalStars={5} providerEmail={props.email} />
           </View>
         </View>
       </View>

@@ -5,4 +5,5 @@ export type ProviderInformationProps = {
   occupation: string;
   description: string;
   image: string;
+  email: string;
 };

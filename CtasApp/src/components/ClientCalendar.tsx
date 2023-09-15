@@ -5,6 +5,7 @@ import {GetUnavailableDays} from '../database/Providers/GettersProvider';
 import CustomCalendarStyles from '../styles/CustomCalendarStyles';
 
 const ClientCalendar: React.FC<{email: string}> = ({email}) => {
+  const [selectedDay, setSelectedDay] = useState<string | undefined>('');
   const [unavailableDates, setUnavailableDates] = useState<{
     [key: string]: {
       disabledTouchEvent: boolean;
@@ -39,6 +40,10 @@ const ClientCalendar: React.FC<{email: string}> = ({email}) => {
   return (
     <View>
       <Calendar
+        onPress={day => {
+          setSelectedDay(day?.dateString);
+          console.log(selectedDay);
+        }}
         markedDates={unavailableDates}
         style={CustomCalendarStyles.calendar}
       />

@@ -7,7 +7,7 @@ export type Provider = {
   occupation?: string;
   address?: string[] | undefined;
   scoreList?: Array<any>;
-  rating?: number;
+  totalRating?: number;
   image?: string | null;
   userType?: string;
   appointments?: Array<any>;

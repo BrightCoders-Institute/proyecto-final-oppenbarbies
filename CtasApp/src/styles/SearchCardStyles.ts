@@ -57,5 +57,4 @@ export const SearchCardStyles = StyleSheet.create({
     fontFamily: 'Inter-Bold',
     color: Colors.white,
   },
-
 });
