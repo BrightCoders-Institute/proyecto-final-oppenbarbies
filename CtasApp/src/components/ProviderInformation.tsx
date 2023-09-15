@@ -1,9 +1,9 @@
 import React from 'react';
-import {View, Text, Image} from 'react-native';
+import { View, Text, Image } from 'react-native';
 import ProviderSetCitaStyles from '../styles/ProviderSetCitaStyles';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import StarRating from './SelectRate';
-import {ProviderInformationProps} from '../schema/ProviderInformationSchema';
+import { ProviderInformationProps } from '../schema/ProviderInformationSchema';
 import Colors from '../styles/colors/Colors';
 
 const ProviderInformation: React.FC<ProviderInformationProps> = props => {
@@ -12,7 +12,7 @@ const ProviderInformation: React.FC<ProviderInformationProps> = props => {
       <View style={ProviderSetCitaStyles.colmuns}>
         <View>
           <Image
-            source={{uri: props.image}}
+            source={{ uri: props.image }}
             style={ProviderSetCitaStyles.providerImage}
           />
         </View>
@@ -28,7 +28,7 @@ const ProviderInformation: React.FC<ProviderInformationProps> = props => {
             <Text style={ProviderSetCitaStyles.providerOccupation}>
               {props.occupation}
             </Text>
-           <StarRating totalStars={5} />
+            <StarRating totalStars={5} providerEmail={props.email} />
           </View>
         </View>
       </View>

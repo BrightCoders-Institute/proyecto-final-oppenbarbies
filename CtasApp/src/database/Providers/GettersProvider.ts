@@ -47,4 +47,30 @@ export const GetUnavailableDays = async (
     console.log('Error', error);
   }
 };
+type Rating = {
+  rating: number;
+};
+export const GetTotalRating = async (providerEmail: string): Promise<void> => {
+  try {
+    const providerRef = firestore()
+      .collection('Providers')
+      .where('email', '==', providerEmail);
+    const querySnapshot = await providerRef.get();
 
+    if (!querySnapshot.empty) {
+      querySnapshot.forEach(documentSnapshot => {
+        const providerData = documentSnapshot.data();
+        let ratingsArray: Rating[] = providerData.rating || [];
+
+        if (ratingsArray.length > 0) {
+          const totalRating =
+            ratingsArray.reduce((sum, r) => sum + r.rating, 0) /
+            ratingsArray.length;
+          documentSnapshot.ref.update({totalRating});
+        }
+      });
+    }
+  } catch (error) {
+    console.error('Error getting total rating: ', error);
+  }
+};

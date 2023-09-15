@@ -5,9 +5,10 @@ export type UserDetailsProviderProps = {
   phone?: string;
   address: string | string[] | undefined;
   occupation?: string;
-  ratting?: number;
+  rate?: number;
   servicesDescription?: string;
   description?: string;
+  providerEmail?: string;
 };
 export type RatingProps = {
   stars: number;

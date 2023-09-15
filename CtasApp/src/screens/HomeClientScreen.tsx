@@ -34,6 +34,7 @@ const UserDetails = React.memo(({ user }) => {
         birth={user?.birthday}
         phone={user?.phone}
         location={user?.location}
+        
       />
     );
   } else if (user && userType === 'provider') {
@@ -45,6 +46,7 @@ const UserDetails = React.memo(({ user }) => {
         address={truncateString(user?.address, 41)}
         occupation={user?.occupation}
         servicesDescription={user?.description}
+        rate={user?.totalRating}
       />
     );
   } else {

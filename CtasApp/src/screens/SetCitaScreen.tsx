@@ -50,6 +50,7 @@ const SetCitaScreen: React.FC<setCitaProps> = ({route, navigation}) => {
             image={item.image}
             name={truncateStringTwo(item.name, 17)}
             description={item.description}
+            email={item.email}
           />
         </View>
         <View style={ProviderSetCitaStyles.body}>

@@ -24,7 +24,7 @@ const ProviderInfoList: React.FC<ProvidersListProps> = ({
               location={truncateString(item.address, 25)}
               description={item.description}
               occupation={item.occupation}
-              rate={item.rating}
+              rate={item.totalRating}
             />
           </TouchableOpacity>
         );
