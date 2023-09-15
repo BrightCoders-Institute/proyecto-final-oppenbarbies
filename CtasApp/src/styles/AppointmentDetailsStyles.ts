@@ -8,7 +8,7 @@ const AppointmentDetailsStyles = StyleSheet.create({
   },
   header: {
     backgroundColor: Colors.aqua,
-    paddingBottom:26,
+    paddingBottom: 26,
   },
   backArrow: {
     justifyContent: 'center',
@@ -56,7 +56,7 @@ const AppointmentDetailsStyles = StyleSheet.create({
     alignItems: 'center',
     paddingTop: 10,
   },
-  space:{
+  space: {
     padding: 30,
   },
 });

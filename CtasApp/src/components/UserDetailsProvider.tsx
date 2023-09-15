@@ -14,11 +14,10 @@ const UserDetailsProvider: React.FC<UserDetailsProviderProps> = ({
   rate,
   providerEmail,
 }) => {
-
   return (
     <SafeAreaView>
       <View style={HomeClientScreenStyles.detailsContainer}>
-        <Rating stars={rate}/>
+        <Rating stars={rate} />
         <View style={HomeClientScreenStyles.nameContainer}>
           <Text style={HomeClientScreenStyles.name}>Hello!</Text>
           <Text style={HomeClientScreenStyles.name}>{name}</Text>

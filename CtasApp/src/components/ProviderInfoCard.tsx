@@ -22,7 +22,11 @@ const ProviderInfoCard: React.FC<ProviderInfoCardProps> = ({
     <View style={SearchCardStyles.cardContainer}>
       <View>
         <Image
-          source={{uri: imageProvider ||'https://th.bing.com/th/id/OIP.M4vtLKwDpltnCaTC5Ro1ewHaFj?pid=ImgDet&rs=1' }}
+          source={{
+            uri:
+              imageProvider ||
+              'https://th.bing.com/th/id/OIP.M4vtLKwDpltnCaTC5Ro1ewHaFj?pid=ImgDet&rs=1',
+          }}
           style={SearchCardStyles.imgProfile}
         />
       </View>

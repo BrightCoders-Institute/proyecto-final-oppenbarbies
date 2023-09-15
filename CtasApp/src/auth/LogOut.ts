@@ -6,4 +6,4 @@ const handleLogOut = async () => {
     .then(() => console.log('User signed out!'));
 };
 
-export default handleLogOut; 
+export default handleLogOut;

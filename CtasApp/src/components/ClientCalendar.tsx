@@ -40,7 +40,7 @@ const ClientCalendar: React.FC<{email: string}> = ({email}) => {
   return (
     <View>
       <Calendar
-        onPress = {day=>{
+        onPress={day => {
           setSelectedDay(day?.dateString);
           console.log(selectedDay);
         }}

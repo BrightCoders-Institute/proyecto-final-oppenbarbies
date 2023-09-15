@@ -30,7 +30,9 @@ const SetCitaScreen: React.FC<setCitaProps> = ({route, navigation}) => {
       setProviderInfo(info);
 
       const unavailableDaysFromFirebase = await GetUnavailableDays(item.email);
-      const formattedUnavailableDays = unavailableDaysFromFirebase?.map(date => date.replace(/-/g, '/')); 
+      const formattedUnavailableDays = unavailableDaysFromFirebase?.map(date =>
+        date.replace(/-/g, '/'),
+      );
       setUnavailableDays(formattedUnavailableDays);
     };
 
@@ -66,7 +68,7 @@ const SetCitaScreen: React.FC<setCitaProps> = ({route, navigation}) => {
             Set an appointment
           </Text>
           <View style={ProviderSetCitaStyles.calendarContainer}>
-            <ClientCalendar email={item.email}/>
+            <ClientCalendar email={item.email} />
             <Text style={ProviderSetCitaStyles.appointmentDetails}>
               Red marked days are unavailable
             </Text>
