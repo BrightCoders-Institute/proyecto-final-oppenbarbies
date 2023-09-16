@@ -2,44 +2,69 @@ import * as React from 'react';
 import {useState} from 'react';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {View, Text} from 'react-native';
+import {View, Text, Alert} from 'react-native';
 import TimeSlotButton from '../components/TimeSlotButton';
 import FinishAppointmentScreenStyles from '../styles/FinishAppointmentScreenStyles';
-import CalendarModal from '../components/CalendarModal';
 import Button from '../components/Button';
 import DescriptionInput from '../components/DescriptionInput';
 import BackArrow from '../components/BackArrow';
+import { CreateAppointmentSchema } from '../schema/CreateAppointmentSchema';
+import { POSTNewProviderAppointment } from '../database/Providers/SettersProvider';
+import { POSTNewAppointment } from '../database/GlobalGetters/GlobalSetters';
+import { useUserContext } from '../../UserContext';
 
 const timeSlots = [
-  '12:00 AM',
-  '12:30 AM',
-  '1:00 AM',
-  '1:30 AM',
-  '2:00 AM',
-  '2:30 AM',
-  '3:00 AM',
-  '3:30 AM',
-  '4:00 AM',
-  '4:30 AM',
   '5:00 AM',
-  '5:30 AM',
   '6:00 AM',
-  '6:30 AM',
+  '7:00 AM',
+  '8:00 AM',
+  '9:00 AM',
+  '10:00 AM',
+  '11:00 AM',
+  '12:00 PM',
+  '1:00 PM',
+  '2:00 PM',
+  '3:00 PM',
+  '4:00 PM',
+  '5:00 PM',
+  '6:00 PM',
+  '7:00 PM',
+  '8:00 PM',
+  '9:00 PM',
+  '10:00 PM',
+  '11:00 PM',
 ];
 
-const FinishAppointmentScreen: React.FC = () => {
-  const [date, setDate] = useState(new Date());
+const FinishAppointmentScreen: React.FC = ({route, navigation}) => {
+  const {date, address, client, provider, providerEmail} = route.params;
+  const {sessionData} = useUserContext();
   const [description, setDescription] = useState<string>('');
-
-  const handleDateChange = (date: Date) => {
-    setDate(date);
-    console.log(date);
-  };
+  const [selectedHour, setSelectedHour] = React.useState<string>('');
 
   const handleDescriptionChange = (text: string) => {
     setDescription(text);
-    console.log(text);
   };
+
+
+  const POSTAppointment = async () => {
+    const newAppointment : CreateAppointmentSchema = {
+      date: date,
+      time: selectedHour,
+      address: address,
+      description: description,
+      client,
+      provider
+    }
+    try {
+      await POSTNewAppointment(providerEmail, newAppointment, 'Providers');
+      await POSTNewAppointment(sessionData.userEmail, newAppointment, 'Clients');
+      Alert.alert('Successfully', 'Your appoinment was created Successfully!.');
+      navigation.navigate('MyAppointments');
+    } catch (error) {
+      console.log(error);
+      Alert.alert('Error', 'Something was wrong!'); 
+    }
+  }
 
   return (
     <SafeAreaView style={FinishAppointmentScreenStyles.background}>
@@ -53,14 +78,8 @@ const FinishAppointmentScreen: React.FC = () => {
           </Text>
         </View>
         <View style={FinishAppointmentScreenStyles.container}>
-          <Text style={FinishAppointmentScreenStyles.labels}>
-            Select a date
-          </Text>
-          <View style={FinishAppointmentScreenStyles.calendarContainer}>
-            <CalendarModal setBirthdate={Date} />
-          </View>
           <Text style={FinishAppointmentScreenStyles.labels}>Select Time</Text>
-          <TimeSlotButton slots={timeSlots} />
+          <TimeSlotButton slots={timeSlots} selectedHour={selectedHour} setSelectedHour={setSelectedHour}/>
           <DescriptionInput
             value={description}
             placeholder="Add an optional description..."
@@ -70,7 +89,7 @@ const FinishAppointmentScreen: React.FC = () => {
           <View style={FinishAppointmentScreenStyles.button}>
             <Button
               text="Finish Appointment"
-              onPress={() => console.log('click')}
+              onPress={POSTAppointment}
               styleName="welcome"
               textStyleName="Big"
             />

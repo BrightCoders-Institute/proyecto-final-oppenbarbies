@@ -1,5 +1,6 @@
 import firestore from '@react-native-firebase/firestore';
 import {Provider} from '../../schema/ProviderSchema';
+import { CreateAppointmentSchema } from '../../schema/CreateAppointmentSchema';
 
 export const SignUpProvider = async (userData: Provider) => {
   return await firestore()
@@ -108,3 +109,27 @@ export const SetUserRating = async (
     console.error('Error setting user rating: ', error);
   }
 };
+
+export const POSTNewProviderAppointment = async (email: string, appointment: CreateAppointmentSchema) : Promise<void>=> {
+  try {
+    const querySnapshot = await firestore()
+      .collection('Providers')
+      .where('email', '==', email)
+      .get();
+    if (!querySnapshot.empty) {
+      querySnapshot.forEach(documentSnapshot => {
+        const docRef = firestore()
+          .collection('Providers')
+          .doc(documentSnapshot.id);
+        docRef.update({
+          appointments:  firestore.FieldValue.arrayUnion(appointment)
+        })
+      });
+      console.log('Appointment created SUCCESSFULLY');
+    } else {
+      console.log('Provider NOT FOUND');
+    }
+  } catch (error) {
+    console.log('Error creating appointment: ', error);
+  }
+}

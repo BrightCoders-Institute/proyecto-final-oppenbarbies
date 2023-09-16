@@ -1,11 +1,13 @@
-import React, {useEffect, useMemo, useState} from 'react';
+import React, {SetStateAction, useEffect, useMemo, useState} from 'react';
 import {View} from 'react-native';
 import {Calendar} from 'react-native-calendars';
 import {GetUnavailableDays} from '../database/Providers/GettersProvider';
 import CustomCalendarStyles from '../styles/CustomCalendarStyles';
+import { Dispatch } from 'redux';
 
-const ClientCalendar: React.FC<{email: string}> = ({email}) => {
-  const [selectedDay, setSelectedDay] = useState<string>('');
+
+const ClientCalendar: React.FC<{email: string, selectedDay: string, setSelectedDay : React.Dispatch<React.SetStateAction<string>>}> = ({email, selectedDay, setSelectedDay}) => {
+  // const [selectedDay, setSelectedDay] = useState<string>('');
   const [unavailableDays, setUnavailableDays] = useState<string[] | undefined>(
     [],
   );
@@ -43,8 +45,6 @@ const ClientCalendar: React.FC<{email: string}> = ({email}) => {
       <Calendar
         onDayPress={day => {
           setSelectedDay(day?.dateString);
-          console.log(selectedDay);
-          
         }}
         markedDates={marked}
         style={CustomCalendarStyles.calendar}

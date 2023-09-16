@@ -8,17 +8,17 @@ import FinishAppointmentScreenStyles from '../styles/FinishAppointmentScreenStyl
 import WatchIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Colors from '../styles/colors/Colors';
 
-const TimeSlotButton: React.FC<TimeSlotButtonProps> = ({slots}) => {
+const TimeSlotButton: React.FC<TimeSlotButtonProps> = ({slots, selectedHour, setSelectedHour}) => {
   const [modalVisible, setModalVisible] = React.useState(false);
-  const [selectedSlot, setSelectedSlot] = React.useState<string | null>(null);
+  // const [selectedSlot, setSelectedSlot] = React.useState<string | null>(null);
 
   const handleSlotSelection = (timeSlot: string) => {
-    setSelectedSlot(timeSlot);
+    setSelectedHour(timeSlot);
     setModalVisible(false);
-    Alert.alert(
-      'Time Slot Selected',
-      `You have selected the ${timeSlot} slot.`,
-    );
+    // Alert.alert(
+    //   'Time Slot Selected',
+    //   `You have selected the ${timeSlot} slot.`,
+    // );
   };
 
   return (
@@ -43,9 +43,9 @@ const TimeSlotButton: React.FC<TimeSlotButtonProps> = ({slots}) => {
         onSelect={handleSlotSelection}
       />
 
-      {selectedSlot && (
+      {selectedHour && (
         <Text style={AvailableTimePickerStyles.slot}>
-          Selected Time: {selectedSlot}
+          Selected Time: {selectedHour}
         </Text>
       )}
     </View>

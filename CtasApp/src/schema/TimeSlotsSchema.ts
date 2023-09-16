@@ -1,3 +1,5 @@
+import { Dispatch } from "react";
+
 export interface TimeSlotsModalProps {
   isVisible: boolean;
   onClose: () => void;
@@ -7,4 +9,6 @@ export interface TimeSlotsModalProps {
 
 export interface TimeSlotButtonProps {
   slots: string[];
+  selectedHour: string;
+  setSelectedHour: Dispatch<React.SetStateAction<string>>
 }
