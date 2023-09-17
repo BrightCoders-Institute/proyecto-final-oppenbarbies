@@ -14,7 +14,7 @@ export const SignUpProvider = async (userData: Provider) => {
 
 export const PostUnavailableDays = async (
   email: string,
-  days: Array<string>,
+  days: Array<string> | undefined,
 ) => {
   // Funcion para guardar los dias inhabiles en firebase
   try {
@@ -27,7 +27,7 @@ export const PostUnavailableDays = async (
         const docRef = firestore()
           .collection('Providers')
           .doc(documentSnapshot.id);
-        days.forEach(day => {
+        days?.forEach(day => {
           docRef.update({
             unavailableDays: firestore.FieldValue.arrayUnion(day),
           });
