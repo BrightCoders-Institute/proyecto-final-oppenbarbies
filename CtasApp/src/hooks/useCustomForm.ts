@@ -7,6 +7,7 @@ import {SignUpClient} from '../database/Clients/SettersClients';
 import {UserType} from '../schema/SignInScreenSchema';
 import {Provider} from '../schema/ProviderSchema';
 import {SignUpProvider} from '../database/Providers/SettersProvider';
+import moment from 'moment';
 
 const useProfileForm = (navigation: any, userType: UserType) => {
   const {control, handleSubmit, formState, setValue, reset} =
@@ -14,9 +15,27 @@ const useProfileForm = (navigation: any, userType: UserType) => {
   const {errors} = formState;
   const [isModalVisible, setModalVisible] = useState<boolean>(false);
 
+  const calculateAge = (birthDate: string): number => {
+    const parsedBirthDate = moment(birthDate, 'D MMM, YYYY'); // Usa moment para parsear la fecha
+    if (!parsedBirthDate.isValid()) {
+      console.error('Fecha de nacimiento no válida:', birthDate);
+      return 0;
+    }
+
+    const today = moment();
+    let age = today.year() - parsedBirthDate.year();
+    const m = today.month() - parsedBirthDate.month();
+
+    if (m < 0 || (m === 0 && today.date() < parsedBirthDate.date())) {
+      age--;
+    }
+
+    return age;
+  };
+
   const SubmitClient = async (user: FirebaseAuthTypes.User, data: FormData) => {
     let userData: Client = {
-      age: 0,
+      age: calculateAge(data.birthDate),
       alias: data.name,
       appointments: [],
       birthday: data.birthDate,
