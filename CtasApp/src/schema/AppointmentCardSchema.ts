@@ -1,3 +1,5 @@
+import { CreateAppointmentSchema } from "./CreateAppointmentSchema";
+
 export type Person = {
   name: string;
   img: string;
@@ -6,9 +8,6 @@ export type Person = {
 };
 
 export type AppointmentCardProps = {
-  date: string;
-  time: string;
-  person: Person;
-  address: string;
-  description?: string;
+  appointment: CreateAppointmentSchema;
+  onDelete: (appointmentToDelete: CreateAppointmentSchema) => Promise<void>;
 };
