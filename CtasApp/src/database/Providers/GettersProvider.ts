@@ -74,3 +74,27 @@ export const GetTotalRating = async (providerEmail: string): Promise<void> => {
     console.error('Error getting total rating: ', error);
   }
 };
+
+export const GetUnavailableTimes = async (
+  email: string | null,
+): Promise<Array<string> | undefined> => {
+  try {
+    if (!email) {
+      throw new Error('Email is required');
+    }
+
+    const querySnapshot = await firestore()
+      .collection('Providers')
+      .where('email', '==', email)
+      .get();
+
+    let provider: Provider | undefined =
+      querySnapshot.docs[0]?.data() as Provider;
+    if (!provider) {
+      throw new Error('Provider NOT FOUND');
+    }
+    return provider.availableTimes ? provider.availableTimes : [];
+  } catch (error) {
+    console.error('Error getting unavailable times: ', error);
+  }
+};
