@@ -55,8 +55,8 @@ export const AppointmentCardStyles = StyleSheet.create({
     alignItems: 'center',
   },
   imgPerson: {
-    width: 60,
-    height: 60,
+    width: 70,
+    height: 70,
     borderRadius: 100,
   },
   personInfo: {
@@ -73,13 +73,13 @@ export const AppointmentCardStyles = StyleSheet.create({
     color: Colors.black,
   },
   locationContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    flexDirection:'row',
+    marginTop: 3,
+    gap: 3,
   },
   txtLocation: {
     fontFamily: 'Inter-Regular',
-    textAlign: 'center',
-    fontSize: 10,
+    fontSize: 11,
     color: Colors.black,
   },
   modalContainer: {
