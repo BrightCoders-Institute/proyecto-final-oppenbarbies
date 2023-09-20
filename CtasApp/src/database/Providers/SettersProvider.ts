@@ -1,6 +1,7 @@
 import firestore from '@react-native-firebase/firestore';
+import firebase from '@react-native-firebase/app';
 import {Provider} from '../../schema/ProviderSchema';
-import { CreateAppointmentSchema } from '../../schema/CreateAppointmentSchema';
+import {CreateAppointmentSchema} from '../../schema/CreateAppointmentSchema';
 
 export const SignUpProvider = async (userData: Provider) => {
   return await firestore()
@@ -16,7 +17,6 @@ export const PostUnavailableDays = async (
   email: string,
   days: Array<string> | undefined,
 ) => {
-  // Funcion para guardar los dias inhabiles en firebase
   try {
     const querySnapshot = await firestore()
       .collection('Providers')
@@ -110,7 +110,10 @@ export const SetUserRating = async (
   }
 };
 
-export const POSTNewProviderAppointment = async (email: string, appointment: CreateAppointmentSchema) : Promise<void>=> {
+export const POSTNewProviderAppointment = async (
+  email: string,
+  appointment: CreateAppointmentSchema,
+): Promise<void> => {
   try {
     const querySnapshot = await firestore()
       .collection('Providers')
@@ -122,8 +125,8 @@ export const POSTNewProviderAppointment = async (email: string, appointment: Cre
           .collection('Providers')
           .doc(documentSnapshot.id);
         docRef.update({
-          appointments:  firestore.FieldValue.arrayUnion(appointment)
-        })
+          appointments: firestore.FieldValue.arrayUnion(appointment),
+        });
       });
       console.log('Appointment created SUCCESSFULLY');
     } else {
@@ -132,4 +135,23 @@ export const POSTNewProviderAppointment = async (email: string, appointment: Cre
   } catch (error) {
     console.log('Error creating appointment: ', error);
   }
-}
+};
+
+export const removeSelectedTimeFromFirebase = async (email: string, selectedTime: any) => {
+  try {
+    const providersCollection = firebase.firestore().collection('Providers');
+    const providerDoc = await providersCollection.where('email', '==', email).get();
+
+    if (providerDoc.empty) {
+      console.error('No document found for email:', email);
+      return;
+    }
+    const providerData = providerDoc.docs[0];
+
+    await providerData.ref.update({
+      availableTimes: firebase.firestore.FieldValue.arrayRemove(selectedTime),
+    });
+  } catch (error) {
+    console.error('Error removing selected time: ', error);
+  }
+};
