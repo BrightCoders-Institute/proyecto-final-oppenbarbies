@@ -1,7 +1,9 @@
+import { CreateAppointmentSchema } from "./CreateAppointmentSchema";
+
 export type Client = {
-  age?: number;
+  age?: number | string;
   alias?: string;
-  appointments?: Array<Appointment>;
+  appointments?: CreateAppointmentSchema[];
   birthday?: string;
   email?: string | null;
   image?: string | null;
