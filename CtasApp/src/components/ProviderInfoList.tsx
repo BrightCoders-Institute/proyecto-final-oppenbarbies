@@ -21,9 +21,9 @@ const ProviderInfoList: React.FC<ProvidersListProps> = ({
             <ProviderInfoCard
               imageProvider={item?.image}
               name={
-                Array.isArray(item.name)
-                  ? item.name.join(' ')
-                  : item.name || undefined
+                Array.isArray(item.alias)
+                  ? item.alias.join(' ')
+                  : item.alias || undefined
               }
               location={truncateString(item.address, 25)}
               description={item.description}

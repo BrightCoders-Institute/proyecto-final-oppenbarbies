@@ -10,6 +10,7 @@ import useProfileForm from '../hooks/useCustomForm';
 import {
   NAME_VALIDATION_RULES,
   PHONE_VALIDATION_RULES,
+  OCCUPATION_VALIDATION_RULES,
 } from '../constants/ProfileClientFormConst';
 import DescriptionInput from './DescriptionInput';
 interface ProfileProviderFormProps {
@@ -109,9 +110,10 @@ const ProfileProviderForm: React.FC<ProfileProviderFormProps> = ({
           />
         )}
         name="occupation"
-        rules={{required: 'Occupation is required!'}}
+        rules={OCCUPATION_VALIDATION_RULES}
         defaultValue=""
       />
+
       <View style={ProfileProviderFormStyles.descriptionContainer}>
         <Controller
           control={control}
