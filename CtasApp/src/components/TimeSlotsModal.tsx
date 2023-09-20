@@ -9,6 +9,8 @@ const TimeSlotsModal: React.FC<TimeSlotsModalProps> = ({
   onClose,
   slots,
   onSelect,
+  isTimeSlotDisabled,
+  selectedHour,
 }) => {
   return (
     <Modal
@@ -25,7 +27,9 @@ const TimeSlotsModal: React.FC<TimeSlotsModalProps> = ({
             data={slots}
             keyExtractor={item => item}
             renderItem={({item}) => (
-              <TouchableOpacity onPress={() => onSelect(item)}>
+              <TouchableOpacity
+                onPress={() => onSelect(item)}
+                disabled={isTimeSlotDisabled && item === selectedHour}>
                 <Text style={TimeSlotsModalStyles.listItem}>{item}</Text>
               </TouchableOpacity>
             )}
