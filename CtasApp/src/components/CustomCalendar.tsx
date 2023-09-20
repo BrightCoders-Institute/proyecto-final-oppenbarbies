@@ -1,24 +1,26 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import {Text, View, Modal} from 'react-native';
 import {Calendar, DateData} from 'react-native-calendars';
 import Button from './Button';
 import {useCustomCalendar} from '../hooks/useCustomCalendar';
 import CustomCalendarStyles from '../styles/CustomCalendarStyles';
-import { GetUnavailableDays } from '../database/Providers/GettersProvider';
-import { useUserContext } from '../../UserContext';
-import { PostUnavailableDays } from '../database/Providers/SettersProvider';
+import {GetUnavailableDays} from '../database/Providers/GettersProvider';
+import {useUserContext} from '../../UserContext';
+import {PostUnavailableDays} from '../database/Providers/SettersProvider';
 
 const CustomCalendar: React.FC = () => {
-  // const {
-  //   selectedDates,
-  //   modalVisible,
-  //   onDayPress,
-  //   markAsUnavailable,
-  //   handleConfirm,
-  //   handleCancel,
-  // } = useCustomCalendar();
+  const {
+    selectedDates,
+    modalVisible,
+    onDayPress,
+    markAsUnavailable,
+    handleConfirm,
+    handleCancel,
+  } = useCustomCalendar();
   const [selectedDays, setSelectedDays] = useState<string[]>([]);
-  const [unavailableDays, setUnavailableDays] = useState<Array<string> | undefined>([]);
+  const [unavailableDays, setUnavailableDays] = useState<
+    Array<string> | undefined
+  >([]);
   const {sessionData} = useUserContext();
   useEffect(() => {
     const fetchUnavailableDays = async () => {
@@ -29,72 +31,60 @@ const CustomCalendar: React.FC = () => {
       }
     };
     fetchUnavailableDays();
-  }, [unavailableDays]);
+  }, [sessionData.userEmail]);
+  
 
-  const marked = useMemo(()=>{
-    let markedDays : any = {};
-    unavailableDays?.forEach((day : string) => {
+  const marked = useMemo(() => {
+    let markedDays: any = {};
+    unavailableDays?.forEach((day: string) => {
       markedDays[`${day}`] = {
         disableTouchEvent: true,
         selectedColor: 'red',
         selected: true,
       };
     });
-    
-    selectedDays?.forEach((day: string)=>{
+
+    selectedDays?.forEach((day: string) => {
       markedDays[`${day}`] = {
         selected: true,
-        selectedDotColor: 'blue',
+        selectedDotColor: 'red',
       };
     });
 
     return markedDays;
   }, [selectedDays, unavailableDays]);
 
-  const onSelectDay = (day: DateData)=>{
-    let dayString : string = day.dateString;
-    if(selectedDays.includes(dayString)){
-      setSelectedDays(
-        selectedDays.filter(day => day !== dayString)
-      );
-    }
-    else{
-      setSelectedDays([
-        ...selectedDays,
-        day?.dateString,
-      ]);
+  const onSelectDay = (day: DateData) => {
+    let dayString: string = day.dateString;
+    if (selectedDays.includes(dayString)) {
+      setSelectedDays(selectedDays.filter(day => day !== dayString));
+    } else {
+      setSelectedDays([...selectedDays, day?.dateString]);
     }
   };
 
   const onPressSave = async () => {
     await PostUnavailableDays(sessionData.userEmail, selectedDays);
     setSelectedDays([]);
-  }
+  };
 
-  // <Modal animationType="slide" transparent={true} visible={modalVisible}>
-  //       <View style={CustomCalendarStyles.modalBackground}>
-  //         <View style={CustomCalendarStyles.modalContent}>
-  //           <Text style={CustomCalendarStyles.modalText}>
-  //             Are you sure you don't have any unavailable dates?
-  //           </Text>
-  //           <View style={CustomCalendarStyles.modalButtons}>
-  //             <Button
-  //               text="Yes"
-  //               onPress={handleConfirm}
-  //               textStyleName="welcome"
-  //             />
-  //             <Button
-  //               text="No"
-  //               onPress={handleCancel}
-  //               textStyleName="welcome"
-  //             />
-  //           </View>
-  //         </View>
-  //       </View>
-  //     </Modal>
+
   return (
     <View style={CustomCalendarStyles.container}>
       <View style={CustomCalendarStyles.calendarContainer}>
+      <Modal animationType="slide" transparent={true} visible={modalVisible}>
+    <View style={CustomCalendarStyles.modalBackground}>
+      <View style={CustomCalendarStyles.modalContent}>
+        <Text style={CustomCalendarStyles.modalText}>
+          Are you sure you don't have any unavailable dates?
+        </Text>
+        <View style={CustomCalendarStyles.modalButtons}>
+          <Button text="Yes" onPress={handleConfirm} textStyleName="welcome" />
+          <Button text="No" onPress={handleCancel} textStyleName="welcome" />
+        </View>
+      </View>
+    </View>
+  </Modal>
         <Calendar
           markedDates={marked}
           onDayPress={onSelectDay}
@@ -109,7 +99,6 @@ const CustomCalendar: React.FC = () => {
           />
         </View>
       </View>
-      
     </View>
   );
 };
