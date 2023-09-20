@@ -25,7 +25,7 @@ const FinishAppointmentScreenStyles = StyleSheet.create({
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     backgroundColor: Colors.white,
-    paddingTop: 25
+    paddingTop: 25,
   },
   title: {
     fontFamily: 'Inter-ExtraBold',
