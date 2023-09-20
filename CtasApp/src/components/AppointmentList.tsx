@@ -1,17 +1,58 @@
-import React, {memo, useState} from 'react';
-import {FlatList, TouchableOpacity, View} from 'react-native';
+import React, {memo, useState, useEffect} from 'react';
+import {FlatList, TouchableOpacity, View, Alert} from 'react-native';
 import AppointmentCard from './AppointmentCard';
 import {AppointmentCardStyles as styles} from '../styles/AppointmentCardStyles';
-import {dataProviders} from '../data/DataProviders';
 import AppointmentDetailsModal from './AppointmentDetailsModal';
-import {AppointmentCardProps} from '../schema/AppointmentCardSchema';
+import {useUserContext} from '../../UserContext';
+import {fetchAppointments} from '../database/GlobalGetters/GlobalGetters';
+import {CreateAppointmentSchema} from '../schema/CreateAppointmentSchema';
+import {deleteAppointment} from '../database/GlobalGetters/GlobalGetters';
 
 const AppointmentList: React.FC = () => {
   const [selectedAppointment, setSelectedAppointment] =
-    useState<AppointmentCardProps | null>(null);
+    useState<CreateAppointmentSchema | null>(null);
   const [isModalVisible, setModalVisible] = useState(false);
+  const [appointments, setAppointments] = useState<
+    CreateAppointmentSchema[] | undefined
+  >([]);
+  const {userType, sessionData} = useUserContext();
 
-  const openModal = (appointment: AppointmentCardProps) => {
+  const fetchAndSetAppointments = async () => {
+    let collection = userType === 'client' ? 'Clients' : 'Providers';
+    const fetchedAppointments = await fetchAppointments(
+      sessionData.userEmail,
+      collection,
+    );
+    setAppointments(fetchedAppointments);
+  };
+
+  useEffect(() => {
+    fetchAndSetAppointments();
+  
+    const intervalId = setInterval(() => {
+      fetchAndSetAppointments();
+    }, 5000);
+  
+    return () => clearInterval(intervalId); 
+  }, []);
+  
+
+  const handleDelete = async (appointmentToDelete: CreateAppointmentSchema) => {
+    let collection = userType === 'client' ? 'Clients' : 'Providers';
+    let email = sessionData.userEmail;
+
+    deleteAppointment(email, collection, appointmentToDelete)
+      .then(() => {
+        console.log('Appointment deleted');
+        Alert.alert('Appointment deleted');
+        fetchAndSetAppointments();
+      })
+      .catch((error: any) => {
+        console.error('Error deleting appointment: ', error);
+      });
+  };
+
+  const openModal = (appointment: CreateAppointmentSchema) => {
     setSelectedAppointment(appointment);
     setModalVisible(true);
   };
@@ -27,18 +68,12 @@ const AppointmentList: React.FC = () => {
   return (
     <View style={styles.container}>
       <FlatList
-        data={dataProviders}
+        data={appointments}
         renderItem={({item}) => (
           <TouchableOpacity onPress={() => openModal(item)}>
-            <AppointmentCard
-              date={item.date}
-              time={item.time}
-              address={item.address}
-              person={item.person}
-            />
+            <AppointmentCard appointment={item} onDelete={handleDelete} />
           </TouchableOpacity>
         )}
-        keyExtractor={item => item.id}
         style={styles.container}
         ItemSeparatorComponent={SeparatorComponent}
       />

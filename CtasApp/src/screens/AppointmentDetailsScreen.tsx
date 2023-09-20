@@ -5,7 +5,6 @@ import AppointmentDetailsStyles from '../styles/AppointmentDetailsStyles';
 import {View, Text} from 'react-native';
 import AvailableTimePicker from '../components/AvailableTimePicker';
 import CustomCalendar from '../components/CustomCalendar';
-import AddressPicker from '../components/AddressPicker';
 import Button from '../components/Button';
 import BackArrow from '../components/BackArrow';
 import {useNavigation} from '@react-navigation/native';
@@ -40,7 +39,7 @@ const AppointmentDetailsScreen: React.FC = () => {
         <View style={AppointmentDetailsStyles.header}>
           <BackArrow />
           <Text style={AppointmentDetailsStyles.title}>
-            Appointment details
+            Config Appointments
           </Text>
         </View>
         <View style={AppointmentDetailsStyles.container}>

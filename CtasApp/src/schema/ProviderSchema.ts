@@ -1,3 +1,5 @@
+import { CreateAppointmentSchema } from "./CreateAppointmentSchema";
+
 export type Provider = {
   key?: string;
   email?: string | null;
@@ -10,12 +12,13 @@ export type Provider = {
   totalRating?: number;
   image?: string | null;
   userType?: string;
-  appointments?: Array<any>;
+  appointments?: CreateAppointmentSchema[];
   birthday?: string;
   location?: string;
   servicesDescription?: string;
   description: string;
   unavailableDays?: Array<string>;
+  availableTimes?: Array<string>;
 };
 
 export type Appointment = {};

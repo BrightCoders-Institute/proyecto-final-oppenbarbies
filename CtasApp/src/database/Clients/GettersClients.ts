@@ -2,8 +2,6 @@ import firestore from '@react-native-firebase/firestore';
 import {Client} from '../../schema/ClientSchema';
 import {useUserContext} from '../../../UserContext';
 
-// Funciones para interactuar con la Firestore en la coleccion de Clients
-// Funciones SETTERS para subr datos a Firestore
 export const GetClient = async (email: string): Promise<Client | null> => {
   let client: Client | null = null;
 

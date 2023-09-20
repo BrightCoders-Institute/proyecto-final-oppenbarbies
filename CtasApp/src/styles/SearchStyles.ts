@@ -27,7 +27,7 @@ export const SearchStyles = StyleSheet.create({
   },
   listContainer: {
     flex: 1,
-    paddingTop: 15,
+    paddingTop: 10,
   },
   suggestionItem: {
     flexDirection: 'row',

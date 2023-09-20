@@ -38,6 +38,9 @@ const TimeSlotsModalStyles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  listItemDisabled: {
+    color: 'gray',
+  },
 });
 
 export default TimeSlotsModalStyles;

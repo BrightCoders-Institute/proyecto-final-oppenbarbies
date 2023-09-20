@@ -8,7 +8,8 @@ import {GoogleAuth} from '../auth/GoogleAuth';
 import {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {useUserContext} from '../../UserContext';
 import {existUser, getUserID} from '../database/GlobalGetters/GlobalGetters';
-import {useSessionContext} from '../../SessionContext';
+import {handleLogOut} from '../auth/LogOut';
+
 
 const SignInScreen: React.FC<SignInProps> = ({navigation}) => {
   const {userType, setSessionData} = useUserContext();
@@ -24,32 +25,40 @@ const SignInScreen: React.FC<SignInProps> = ({navigation}) => {
   };
 
   const goHomeProfile = async () => {
-    let user: FirebaseAuthTypes.UserCredential | {error: unknown} =
-      await GoogleAuth();
-    // validate if the user is already signed up
-    if ('error' in user) {
-      console.error('Error', user.error);
-      return;
-    }
-    let exist: Boolean;
-    if (userType == 'client') {
-      exist = await existUser(user.user.email, 'Clients');
-      if (exist) {
-        setSession(user.user.email, 'Clients');
-        navigation.navigate('HomeClient');
-      } else {
-        navigation.navigate('ProfileClient');
+    try {
+      let user: FirebaseAuthTypes.UserCredential | {error: unknown} = await GoogleAuth();
+      if ('error' in user) {
+        console.error('Error', user.error);
+        return;
       }
-    } else {
-      exist = await existUser(user.user.email, 'Providers');
-      if (exist) {
-        setSession(user.user.email, 'Providers');
-        navigation.navigate('HomeClient');
+
+      const prevUserType = userType; 
+      let collection: string;
+      if (userType === 'client') {
+        collection = 'Clients';
       } else {
-        navigation.navigate('ProfileProvider');
+        collection = 'Providers';
       }
+  
+      const exist = await existUser(user.user.email, collection);
+  
+      if (exist) {
+        await setSession(user.user.email, collection);
+      } else {
+        if (prevUserType !== userType) {
+          handleLogOut();
+        }
+      }
+      if (userType === 'client') {
+        exist ? navigation.navigate('HomeClient') : navigation.navigate('ProfileClient');
+      } else {
+        exist ? navigation.navigate('HomeClient') : navigation.navigate('ProfileProvider');
+      }
+    } catch (error) {
+      console.error('Error during the login process:', error);
     }
   };
+  
 
   return (
     <SafeAreaView style={styles.container}>

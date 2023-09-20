@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {useEffect} from 'react';
 import {View, Text, Alert} from 'react-native';
 import TimeSlotsModal from './TimeSlotsModal';
 import Button from './Button';
@@ -7,25 +8,37 @@ import AvailableTimePickerStyles from '../styles/AvailableTimePickerStyles';
 import FinishAppointmentScreenStyles from '../styles/FinishAppointmentScreenStyles';
 import WatchIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Colors from '../styles/colors/Colors';
+import {useUserContext} from '../../UserContext';
 
-const TimeSlotButton: React.FC<TimeSlotButtonProps> = ({slots}) => {
+const TimeSlotButton: React.FC<TimeSlotButtonProps> = ({
+  slots,
+  selectedHour,
+  setSelectedHour,
+  email,
+}) => {
+  const {isTimeSlotDisabled, setTimeSlotDisabled} = useUserContext();
   const [modalVisible, setModalVisible] = React.useState(false);
-  const [selectedSlot, setSelectedSlot] = React.useState<string | null>(null);
 
   const handleSlotSelection = (timeSlot: string) => {
-    setSelectedSlot(timeSlot);
+    setSelectedHour(timeSlot);
+    setTimeSlotDisabled(true);
     setModalVisible(false);
-    Alert.alert(
-      'Time Slot Selected',
-      `You have selected the ${timeSlot} slot.`,
-    );
+  };
+
+  const onPressViewTimes = () => {
+    if(slots.length == 0){
+      setModalVisible(false);
+      Alert.alert('There are not times availables', 'search for available times on another date');
+    }else{
+      setModalVisible(true);
+    }
   };
 
   return (
     <View style={AvailableTimePickerStyles.buttonContainer}>
       <Button
         text="View Available Time"
-        onPress={() => setModalVisible(true)}
+        onPress={onPressViewTimes}
         styleName="Big"
         textStyleName="slots"
       />
@@ -35,17 +48,18 @@ const TimeSlotButton: React.FC<TimeSlotButtonProps> = ({slots}) => {
         color={Colors.white}
         style={FinishAppointmentScreenStyles.iconContainer}
       />
-
       <TimeSlotsModal
         isVisible={modalVisible}
         onClose={() => setModalVisible(false)}
         slots={slots}
         onSelect={handleSlotSelection}
+        email={email}
+        isTimeSlotDisabled={isTimeSlotDisabled}
+        selectedHour={selectedHour}
       />
-
-      {selectedSlot && (
+      {selectedHour && (
         <Text style={AvailableTimePickerStyles.slot}>
-          Selected Time: {selectedSlot}
+          Selected Time: {selectedHour}
         </Text>
       )}
     </View>

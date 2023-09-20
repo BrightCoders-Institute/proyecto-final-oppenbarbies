@@ -6,17 +6,39 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import Icons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Colors from '../styles/colors/Colors';
 import images from '../data/DataProviders';
+import {truncateString} from '../helpers/TruncateStringHelper';
+import {useUserContext} from '../../UserContext';
+import {CreateAppointmentSchema} from '../schema/CreateAppointmentSchema';
+import {truncateStringTwo} from '../helpers/TruncateStringTwoHelper';
 import {BreakLine} from '../helpers/BreakLineHelper';
 
 const AppointmentDetailsModal: React.FC<AppointmentDetailsModalProps> = ({
-  isVisible,
   appointment,
+  isVisible,
   onClose,
 }) => {
   if (!appointment) {
     return null;
   }
-  const addressLines = BreakLine(appointment.address, 22);
+  const {userType} = useUserContext();
+
+  let image: string;
+  let alias: string;
+  let specification: string;
+
+  const getUserInfo = (
+    userType: 'client' | 'provider',
+    appointment: CreateAppointmentSchema,
+  ) => {
+    if (userType == 'client') {
+      return appointment.provider;
+    } else if (userType == 'provider') {
+      return appointment.client;
+    }
+    throw new Error('User type not found');
+  };
+  const userInfo = getUserInfo(userType, appointment);
+  const addressLines = BreakLine(appointment.address[0], 37);
 
   return (
     <Modal
@@ -44,29 +66,20 @@ const AppointmentDetailsModal: React.FC<AppointmentDetailsModalProps> = ({
 
           <View style={styles.modalCenteredView}>
             <View style={styles.personInfoContainer}>
-              <Image
-                source={images[appointment.person.img]}
-                style={styles.imgPerson}
-              />
+              <Image source={{uri: userInfo.image}} style={styles.imgPerson} />
               <View style={styles.personInfo}>
-                <Text style={styles.txtName}>{appointment.person.name}</Text>
+                <Text style={styles.txtName}>{userInfo.alias}</Text>
                 <Text style={styles.txtDescription}>
-                  Age: {appointment.person.age}
-                </Text>
-              </View>
-            </View>
-            <View style={styles.locationContainer}>
-              <Icons
-                name="map-marker-radius"
-                size={18}
-                style={styles.locationIcon}
-                color={Colors.black}
-              />
-              {addressLines.map((line, index) => (
+              {userType == 'provider'
+                ? `Age: ${userInfo.age}`
+                : userInfo.occupation}
+            </Text>
+                {addressLines.map((line, index) => (
                 <Text key={index} style={styles.txtLocation}>
                   {line}
                 </Text>
               ))}
+              </View>
             </View>
           </View>
           <Text style={styles.divider} />
